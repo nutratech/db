@@ -10,5 +10,6 @@ psql -c "\encoding UTF8" postgresql://$PSQL_USER:$PSQL_PASSWORD@$PSQL_HOST:5432/
 psql -c "UPDATE pg_database SET encoding=pg_char_to_encoding('UTF8') WHERE datname='$PSQL_DB_NAME';" postgresql://$PSQL_USER:$PSQL_PASSWORD@$PSQL_HOST:5432/postgres || true
 
 # Create schema and tables, set search_path
+# todo, create this (schema) in python script, and tables/functions and import rows?
 psql -c "\i tables.sql" postgresql://$PSQL_USER:$PSQL_PASSWORD@$PSQL_HOST:5432/$PSQL_DB_NAME || true
 psql -c "ALTER ROLE $PSQL_USER SET search_path TO $PSQL_SCHEMA_NAME;" postgresql://$PSQL_USER:$PSQL_PASSWORD@$PSQL_HOST:5432/$PSQL_DB_NAME || true
