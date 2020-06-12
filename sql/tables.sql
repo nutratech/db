@@ -14,7 +14,7 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-DROP SCHEMA nt CASCADE;
+DROP SCHEMA IF EXISTS nt CASCADE;
 
 CREATE SCHEMA nt;
 
