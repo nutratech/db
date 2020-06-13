@@ -20,6 +20,8 @@ CREATE SCHEMA nt;
 
 SET search_path TO nt;
 
+SET client_min_messages TO WARNING;
+
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
 -- Main users tables
@@ -161,10 +163,11 @@ CREATE TABLE customer_activity (
   action text DEFAULT 'VIEW',
   product_id int,
   variant_id int,
-  payload JSONB,
+  payload json,
   created int DEFAULT extract(epoch FROM NOW()),
   FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
 );
+
 CREATE TABLE views (
   user_id int NOT NULL,
   product_id int NOT NULL,
@@ -231,8 +234,8 @@ CREATE TABLE orders (
   id serial PRIMARY KEY,
   user_id int,
   email text,
-  address_bill jsonb,
-  address_ship jsonb,
+  address_bill json,
+  address_ship json,
   shipping_method text,
   shipping_price real,
   status text DEFAULT 'INITIALIZED',
@@ -296,5 +299,3 @@ CREATE TABLE cart (
 --++++++++++++++++++++++++++++
 -- IN PROGRESS
 --++++++++++++++++++++++++++++
-
-

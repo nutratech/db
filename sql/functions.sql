@@ -17,6 +17,8 @@
 
 SET search_path TO nt;
 
+SET client_min_messages TO WARNING;
+
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
 -- #1   SHOP
@@ -90,14 +92,14 @@ CREATE OR REPLACE FUNCTION get_products ()
     id int,
     name varchar,
     shippable boolean,
-    variants jsonb
+    variants json
   )
   AS $$
   SELECT
     prod.id,
     prod.name,
     shippable,
-    jsonb_agg(vars)
+    json_agg(vars)
   FROM
     products prod
     INNER JOIN variants vars ON vars.product_id = prod.id
