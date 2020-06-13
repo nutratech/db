@@ -10,17 +10,18 @@ export PATH=$PATH:/usr/lib/postgresql/12/bin/
 
 
 #
-# Run in the following order
+# Set up the database for the first time
 
 bash init-db.sh
 bash start-pg.sh
 bash config-db.sh
 
-# Run python setup scripts
-python3
+# Run python setup script
+python3 import.py
 
->>> import pg
-[Connected to Postgre DB]    postgresql://shane:@localhost:5432/nutra
-[psql] USE SCHEMA nt;
+# Export data to CSV
+python3 export.py
 
->>>
+# To rebuild run these two
+bash config-db.sh
+python3 import.py
