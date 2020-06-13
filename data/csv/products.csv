@@ -1,0 +1,11 @@
+id,name,tag,shippable,released,created
+1,Nature-Fresh Mouth Rinse,mouth-rinse,t,t,1580226693
+2,Nature-Fresh Skin Lotion,lotion,t,t,1580226693
+3,Focus Formula,focus,t,t,1580226693
+4,T-Boost,t-boost,t,t,1580226693
+5,Relaxation Formula,relaxation,t,t,1580226693
+8,PreBoost,preboost,t,f,1580226693
+9,Magnesium,mg,t,f,1580226693
+10,Immune Boost,immune,t,t,1584137304
+6,Premium Membership,membership,f,t,1580349351
+7,Trainer (Commercial),trainer-mem,f,t,1580349351
