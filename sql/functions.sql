@@ -99,7 +99,12 @@ CREATE OR REPLACE FUNCTION get_products ()
     prod.id,
     prod.name,
     shippable,
-    (SELECT row_to_json(variants) FROM variants WHERE product_id=prod.id)::json
+    array_to_json(ARRAY (
+        SELECT
+          row_to_json(variants)
+        FROM variants
+      WHERE
+        product_id = prod.id))
   FROM
     products prod
     INNER JOIN variants vars ON vars.product_id = prod.id
@@ -131,7 +136,12 @@ CREATE OR REPLACE FUNCTION get_countries_states ()
     cn.name,
     cn.has_zip,
     cn.requires_state,
-    json_agg(st)
+    array_to_json(ARRAY (
+        SELECT
+          row_to_json(states)
+        FROM states
+      WHERE
+        country_id = cn.id))
   FROM
     countries cn
   LEFT JOIN states st ON cn.id = st.country_id

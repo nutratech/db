@@ -18,7 +18,7 @@ PSQL_PASSWORD = os.getenv("PSQL_PASSWORD", "password")
 
 PSQL_HOST = os.getenv("PSQL_HOST", "localhost")
 
-if PSQL_USER == '$LOGNAME':
+if PSQL_USER == "$LOGNAME":
     PSQL_USER = getpass.getuser()
 
 # Initialize connection
