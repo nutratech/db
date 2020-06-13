@@ -99,7 +99,7 @@ CREATE OR REPLACE FUNCTION get_products ()
     prod.id,
     prod.name,
     shippable,
-    json_agg(vars)
+    (SELECT row_to_json(variants) FROM variants WHERE product_id=prod.id)::json
   FROM
     products prod
     INNER JOIN variants vars ON vars.product_id = prod.id
