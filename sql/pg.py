@@ -206,6 +206,32 @@ def export_():
     for t in tables:
         sql2csv(t)
 
+    # Clean up
+    cur.close()
+
+
+def truncate_():
+    print("[truncate]\n")
+    # TODO: warning on this and rebuild!!
+
+    cur = con.cursor()
+
+    query = "SELECT tablename FROM pg_tables WHERE schemaname='nt';"
+    print(query)
+    cur.execute(query)
+    print(cur.statusmessage)
+
+    tables = [t[0] for t in cur.fetchall()]
+    queries = [f"TRUNCATE {t} CASCADE;" for t in tables]
+    query = " ".join(queries)
+    print(query)
+    cur.execute(cur.mogrify(query))
+    print(cur.statusmessage)
+
+    # Commit
+    con.commit()
+    cur.close()
+
 
 # -----------------------
 
@@ -221,6 +247,8 @@ if __name__ == "__main__":
 
     if arg1 == "i" or arg1 == "import":
         import_()
+    if arg1 == "t" or arg1 == "truncate":
+        truncate_()
     elif arg1 == "r" or arg1 == "rebuild":
         rebuild_()
     elif arg1 == "e" or arg1 == "export":
