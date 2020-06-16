@@ -85,7 +85,7 @@ CREATE TABLE tokens (
 ---------------------------
 
 CREATE TABLE countries (
-  id int NOT NULL PRIMARY KEY,
+  id int PRIMARY KEY,
   code text NOT NULL,
   name text NOT NULL,
   has_zip boolean NOT NULL,
@@ -193,7 +193,6 @@ CREATE TABLE reports (
   report_type text NOT NULL,
   report_message text NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
-  PRIMARY KEY (user_id, created),
   FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
 );
 

@@ -131,17 +131,17 @@ def import_():
 
     # Set sequence value for serial numbers on all iterable tables
     itables = [
-        # "tokens",
-        # "emails",
-        "countries",
-        "states",
+        # | "tokens",
+        # | "emails",
+        # "countries",
+        # "states",
         "addresses",
         "customer_activity",
         "reviews",
         "reports",
         "coupons",
-        "shipping_containers",
-        # "order_items",
+        # "shipping_containers",
+        # | "order_items",
         "products",
         "variants",
         "threads",
