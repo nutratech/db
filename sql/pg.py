@@ -130,7 +130,26 @@ def import_():
             csv2sql(f)
 
     # Set sequence value for serial numbers on all iterable tables
-    itables = ["users", "orders", "reviews", "cart"]
+    itables = [
+        # "tokens",
+        # "emails",
+        "countries",
+        "states",
+        "addresses",
+        "customer_activity",
+        "reviews",
+        "reports",
+        "coupons",
+        "shipping_containers",
+        # "order_items",
+        "products",
+        "variants",
+        "threads",
+        "messages",
+        "orders",
+        "cart",
+        "users",
+    ]
     for t in itables:
         set_serial(t)
 

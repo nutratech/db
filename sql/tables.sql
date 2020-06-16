@@ -154,6 +154,7 @@ CREATE TABLE variants (
 -- Customer activity
 CREATE TABLE customer_activity (
   -- Identifiers
+  id serial PRIMARY KEY,
   user_id int,
   email text,
   ip_address text NOT NULL,
@@ -165,15 +166,6 @@ CREATE TABLE customer_activity (
   variant_id int,
   payload json,
   created int DEFAULT extract(epoch FROM NOW()),
-  FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
-);
-
-CREATE TABLE views (
-  user_id int NOT NULL,
-  product_id int NOT NULL,
-  created int DEFAULT extract(epoch FROM NOW()),
-  PRIMARY KEY (user_id, product_id),
-  FOREIGN KEY (product_id) REFERENCES products (id) ON UPDATE CASCADE,
   FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
 );
 
@@ -195,6 +187,7 @@ CREATE TABLE reviews (
 ------------------------------
 
 CREATE TABLE reports (
+  id serial PRIMARY KEY,
   user_id int NOT NULL,
   -- TODO: FK with report_type TABLE ?
   report_type text NOT NULL,
