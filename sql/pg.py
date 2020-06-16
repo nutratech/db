@@ -1,4 +1,30 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun 09 17:12:05 2020
+
+@author: shane
+
+This file is part of nutra-server, a server for nutra clients.
+    https://github.com/gamesguru/nutra-server
+
+nutra-db is a database for nutra servers.
+Copyright (C) 2020  Shane Jaroch
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+"""
+
 import getpass
 import os
 import sys
@@ -43,6 +69,10 @@ print(f"USE SCHEMA {PSQL_SCHEMA};\n")
 # -----------------------
 # Important functions
 # -----------------------
+
+csv_dir = "../data/csv"
+
+
 def import_():
     """ Imports all tables from CSV """
 
@@ -51,7 +81,7 @@ def import_():
         cur = con.cursor()
 
         try:
-            filepath = f"../data/csv/{tablename}.csv"
+            filepath = f"{csv_dir}/{tablename}.csv"
             print(f"\\copy {tablename} FROM {filepath} WITH CSV HEADER")
 
             # Copy from CSV
@@ -85,7 +115,7 @@ def import_():
     # ------------------------
     print("[import]\n")
 
-    csv_files = [os.path.splitext(f)[0] for f in os.listdir("../data/csv")]
+    csv_files = [os.path.splitext(f)[0] for f in os.listdir(csv_dir)]
 
     ptables = ["users", "products", "variants", "orders", "threads", "countries"]
 
@@ -143,7 +173,7 @@ def export_():
         cur = con.cursor()
 
         try:
-            filepath = f"../data/csv/{tablename}.csv"
+            filepath = f"{csv_dir}/{tablename}.csv"
             print(f"\\copy {tablename} TO {filepath} WITH CSV HEADER")
 
             # Write to CSV
