@@ -25,8 +25,47 @@ SET client_min_messages TO WARNING;
 --++++++++++++++++++++++++++++
 --
 --
---
 -- 1.a
+-- Get products with variants & avg_ratings
+
+CREATE OR REPLACE FUNCTION get_products ()
+  RETURNS TABLE (
+    id int,
+    name varchar,
+    shippable boolean,
+    avg_rating real,
+    variants json,
+    created int
+  )
+  AS $$
+  SELECT
+    prod.id,
+    prod.name,
+    prod.shippable,
+    avg(rv.rating)::real,
+    array_to_json(ARRAY (
+        SELECT
+          row_to_json(variants)
+        FROM variants
+      WHERE
+        product_id = prod.id)),
+    prod.created
+  FROM
+    products prod
+  LEFT JOIN reviews rv ON rv.product_id = prod.id
+WHERE
+  released
+GROUP BY
+  prod.id
+ORDER BY
+  prod.id
+$$
+LANGUAGE SQL;
+
+--
+--
+--
+-- 1.b
 -- Get product reviews (with username)
 
 CREATE OR REPLACE FUNCTION get_product_reviews (product_id_in int)
@@ -47,71 +86,6 @@ CREATE OR REPLACE FUNCTION get_product_reviews (product_id_in int)
     INNER JOIN users AS u ON rv.user_id = u.id
   WHERE
     rv.product_id = product_id_in
-$$
-LANGUAGE SQL;
-
---
---
--- 1.b
--- Get products with avg_ratings
-
-CREATE OR REPLACE FUNCTION get_products_ratings ()
-  RETURNS TABLE (
-    id int,
-    name varchar,
-    shippable boolean,
-    avg_rating real,
-    created int
-  )
-  AS $$
-  SELECT
-    prod.id,
-    prod.name,
-    shippable,
-    avg(rv.rating)::real,
-    prod.created
-  FROM
-    products prod
-  LEFT JOIN reviews rv ON rv.product_id = prod.id
-WHERE
-  released
-GROUP BY
-  prod.id
-ORDER BY
-  prod.id
-$$
-LANGUAGE SQL;
-
---
---
--- 1.c
--- Get products (with variants)
-
-CREATE OR REPLACE FUNCTION get_products ()
-  RETURNS TABLE (
-    id int,
-    name varchar,
-    shippable boolean,
-    variants json
-  )
-  AS $$
-  SELECT
-    prod.id,
-    prod.name,
-    shippable,
-    array_to_json(ARRAY (
-        SELECT
-          row_to_json(variants)
-        FROM variants
-      WHERE
-        product_id = prod.id))
-  FROM
-    products prod
-    INNER JOIN variants vars ON vars.product_id = prod.id
-  WHERE
-    released
-  GROUP BY
-    prod.id
 $$
 LANGUAGE SQL;
 
@@ -150,6 +124,10 @@ GROUP BY
 $$
 LANGUAGE SQL;
 
+--++++++++++++++++++++++++++++
+--++++++++++++++++++++++++++++
+-- #3   USERS
+--++++++++++++++++++++++++++++
 --
 --
 -- 3.e
