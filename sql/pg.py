@@ -2,7 +2,6 @@
 import getpass
 import os
 import sys
-from io import StringIO
 
 import psycopg2
 import psycopg2.extras
@@ -36,159 +35,163 @@ con = psycopg2.connect(
     options=f"-c search_path={PSQL_SCHEMA}",
 )
 
-print(
-    f"[Connected to Postgre DB]    postgresql://{PSQL_USER}:{PSQL_PASSWORD}@{PSQL_HOST}:5432/{PSQL_DATABASE}",
-)
-print(f"[psql] USE SCHEMA {PSQL_SCHEMA};")
+print(f"psql postgresql://{PSQL_USER}:{PSQL_PASSWORD}@{PSQL_HOST}:5432/{PSQL_DATABASE}")
+print(".. Connected to PostgreSQL DB!")
+print(f"USE SCHEMA {PSQL_SCHEMA};\n")
 
 
+# -----------------------
+# Important functions
+# -----------------------
 def import_():
+    """ Imports all tables from CSV """
 
-    ptables = ["users", "products", "variants", "orders", "threads"]
+    def csv2sql(tablename=None):
+        """ Copy a CSV file to corresponding SQL table """
+        cur = con.cursor()
 
-    for f in os.listdir("../data/csv"):
-        f = os.path.splitext(f)[0]
-        if f in ptables:
-            print(f)
-            csv2sql(f)
-    print("\nother tables\n")
-    for f in os.listdir("../data/csv"):
-        f = os.path.splitext(f)[0]
+        try:
+            filepath = f"../data/csv/{tablename}.csv"
+            print(f"\\copy {tablename} FROM {filepath} WITH CSV HEADER")
+
+            # Copy from CSV
+            with open(filepath) as input:
+                cur.copy_expert(f"COPY {tablename} FROM STDIN WITH CSV HEADER", input)
+            print(f"COPY {cur.rowcount}")
+            con.commit()
+            cur.close()
+        except psycopg2.Error as err:
+            print("\n" + err.pgerror)
+
+            # Roll back
+            con.rollback()
+            cur.close()
+            raise err
+
+    def set_serial(tablename=None):
+        """ Sets the serial sequence value (col_name='id') to the max value for the column """
+        cur = con.cursor()
+
+        query = f"SELECT pg_catalog.setval(pg_get_serial_sequence('{tablename}', 'id'), (SELECT MAX(id) FROM {tablename}))"
+        print(query)
+        cur.execute(cur.mogrify(query))
+        print(cur.statusmessage)
+
+        con.commit()
+        cur.close()
+
+    # ------------------------
+    # Run the import function
+    # ------------------------
+    print("[import]\n")
+
+    csv_files = [os.path.splitext(f)[0] for f in os.listdir("../data/csv")]
+
+    ptables = ["users", "products", "variants", "orders", "threads", "countries"]
+
+    # Primary tables
+    for t in ptables:
+        if t in csv_files:
+            csv2sql(t)
+
+    # Secondary tables
+    for f in csv_files:
         if f not in ptables:
-            print(f)
+            csv2sql(f)
 
-
-def csv2sql(tablename=None):
-
-    cur = con.cursor()
-
-    csv_file = f"../data/csv/{tablename}.csv"
-    df = open(csv_file)
-
-    buf = StringIO(df)
-    # df.to_csv(buf, header=True, index=False)
-    # buf.pos = 0
-
-    cur.copy_from(buf, tablename, sep=",")
-    con.commit()
-    cur.close()
-
-    query = cur.mogrify(
-        f"\\copy {tablename} FROM ../data/csv/{tablename}.csv WITH CSV HEADER"
-    )
-    print(query)
-    cur.execute(query)
+    # Set sequence value for serial numbers on all iterable tables
+    itables = ["users", "orders", "reviews", "cart"]
+    for t in itables:
+        set_serial(t)
 
 
 def rebuild_():
+    """ Drops, rebuilds Tables.  Imports data fresh """
+
+    print("[rebuild]\n")
 
     cur = con.cursor()
 
-    query = "DROP SCHEMA IF EXISTS nt CASCADE"
-    print(query)
+    # Rebuild tables
+    print("\\i tables.sql")
+    query = cur.mogrify(open("tables.sql").read())
     cur.execute(query)
+    print(cur.statusmessage + "\n")
 
+    # Rebuild functions
+    print("\\i functions.sql")
+    query = cur.mogrify(open("functions.sql").read())
+    cur.execute(query)
     print(cur.statusmessage)
+
+    # Commit
     con.commit()
     cur.close()
 
+    # ----------------------------
+    # Call `import_()` separately
+    # ----------------------------
+    print()
+    import_()
+
 
 def export_():
-    pass
+    """ Exports all tables to CSV """
 
+    def sql2csv(tablename):
+        """ Copy a SQL table to corresponding CSV file """
+        cur = con.cursor()
+
+        try:
+            filepath = f"../data/csv/{tablename}.csv"
+            print(f"\\copy {tablename} TO {filepath} WITH CSV HEADER")
+
+            # Write to CSV
+            with open(filepath, "w+") as output:
+                cur.copy_expert(f"COPY {tablename} TO STDOUT WITH CSV HEADER", output)
+            print(f"COPY {cur.rowcount}")
+            con.commit()
+            cur.close()
+        except psycopg2.Error as err:
+            print("\n" + err.pgerror)
+
+            # Roll back
+            con.rollback()
+            cur.close()
+            raise err
+
+    # ------------------------
+    # Run the export function
+    # ------------------------
+    print("[export]\n")
+
+    cur = con.cursor()
+
+    query = "SELECT tablename FROM pg_tables WHERE schemaname='nt';"
+    print(query)
+    cur.execute(query)
+    print(cur.statusmessage)
+
+    tables = [t[0] for t in cur.fetchall()]
+    for t in tables:
+        sql2csv(t)
+
+
+# -----------------------
 
 if __name__ == "__main__":
+    """ Make script executable """
 
-    arg1 = sys.argv[1]
+    if len(sys.argv) < 2:
+        # for debugging purposes
+        # TODO: print error
+        arg1 = "e"
+    else:
+        arg1 = sys.argv[1]
+
     if arg1 == "i" or arg1 == "import":
         import_()
     elif arg1 == "r" or arg1 == "rebuild":
         rebuild_()
     elif arg1 == "e" or arg1 == "export":
         export_()
-
-
-def psql(query, params=None):
-
-    cur = con.cursor(cursor_factory=psycopg2.extras.DictCursor)
-
-    # Print query
-    if params:
-        query = cur.mogrify(query, params).decode("utf-8")
-    print(f"[psql]   {query};")
-
-    # init result object
-    result = PgResult(query)
-
-    #
-    # Attempt query
-    try:
-        cur.execute(query)
-
-    except psycopg2.Error as err:
-        #
-        # Log error
-        # https://kb.objectrocket.com/postgresql/python-error-handling-with-the-psycopg2-postgresql-adapter-645
-        print(f"[psql]   {err.pgerror}")
-
-        # Roll back
-        con.rollback()
-        cur.close()
-
-        # Set err_msg
-        result.err_msg = err.pgerror
-
-        return result
-
-    #
-    # Extract result
-    try:
-        result.set_rows(cur.fetchall())
-        con.commit()
-        cur.close()
-    except:
-        con.rollback()
-        cur.close()
-
-    #
-    # Set return message
-    result.msg = cur.statusmessage
-    print(f"[psql]   {result.msg}")
-
-    return result
-
-
-class PgResult:
-    def __init__(self, query, rows=None, msg=None, err_msg=None):
-        """ Defines a convenient result from `psql()` """
-
-        self.query = query
-
-        self.rows = rows
-        self.msg = msg
-
-        self.err_msg = err_msg
-
-    @property
-    def Response(self):
-        """ Used ONLY for ERRORS """
-
-        return _Response(data={"error": self.err_msg}, code=400)
-
-    def set_rows(self, fetchall):
-        """ Sets the DictCursor rows based on cur.fetchall() """
-
-        self.rows = []
-
-        if len(fetchall):
-            rdict = {v: k for k, v in fetchall[0]._index.items()}
-
-            # Put list --> dict format
-            for _row in fetchall:
-                row = {}
-                # Add each value with a dict key
-                for i, el in enumerate(_row):
-                    row[rdict[i]] = el
-                self.rows.append(row)
-
-            self.row = self.rows[0]
