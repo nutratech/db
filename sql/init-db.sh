@@ -11,4 +11,3 @@ rm -rf ~/.pgsql/nutra
 mkdir -p ~/.pgsql/nutra
 sudo chown -R $LOGNAME:$LOGNAME /var/run/postgresql
 pg_ctl initdb -D $PSQL_DB_DIR -l $PSQL_DB_DIR/postgreslogfile
-

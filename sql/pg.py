@@ -259,8 +259,10 @@ if __name__ == "__main__":
 
     if len(sys.argv) < 2:
         # for debugging purposes
-        # TODO: print error
-        arg1 = "e"
+        # arg1 = "e"
+        exit(
+            "error: no args specified! use either i, t, r, e .. [import, truncate, rebuild, export]"
+        )
     else:
         arg1 = sys.argv[1]
 
