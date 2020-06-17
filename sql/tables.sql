@@ -213,10 +213,9 @@ CREATE TABLE coupons (
 -- Common box and envelope (sizes and weights)
 CREATE TABLE shipping_containers (
   id int PRIMARY KEY,
-  method_id int NOT NULL,
-  -- for readability
-  shipping_type text NOT NULL,
-  tag text NOT NULL,
+  courier text NOT NULL,
+  method text NOT NULL,
+  container text NOT NULL,
   dimensions real[] NOT NULL,
   weight_max real
 );
