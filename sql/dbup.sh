@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
 source .env
 
 sudo chown -R $LOGNAME:$LOGNAME /var/run/postgresql
