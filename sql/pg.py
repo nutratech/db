@@ -82,11 +82,11 @@ def import_():
 
         try:
             filepath = f"{csv_dir}/{tablename}.csv"
-            print(f"\\copy {tablename} FROM {filepath} WITH CSV HEADER")
+            print(f"\\copy {tablename} FROM {filepath} CSV HEADER")
 
             # Copy from CSV
             with open(filepath) as input:
-                cur.copy_expert(f"COPY {tablename} FROM STDIN WITH CSV HEADER", input)
+                cur.copy_expert(f"COPY {tablename} FROM STDIN CSV HEADER", input)
             print(f"COPY {cur.rowcount}")
             con.commit()
             cur.close()
@@ -193,11 +193,11 @@ def export_():
 
         try:
             filepath = f"{csv_dir}/{tablename}.csv"
-            print(f"\\copy {tablename} TO {filepath} WITH CSV HEADER")
+            print(f"\\copy {tablename} TO {filepath} CSV HEADER")
 
             # Write to CSV
             with open(filepath, "w+") as output:
-                cur.copy_expert(f"COPY {tablename} TO STDOUT WITH CSV HEADER", output)
+                cur.copy_expert(f"COPY {tablename} TO STDOUT CSV HEADER", output)
             print(f"COPY {cur.rowcount}")
             con.commit()
             cur.close()

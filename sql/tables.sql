@@ -217,7 +217,8 @@ CREATE TABLE shipping_containers (
   method text NOT NULL,
   container text NOT NULL,
   dimensions real[] NOT NULL,
-  weight_max real
+  weight_max real,
+  cost json
 );
 
 -- Orders
