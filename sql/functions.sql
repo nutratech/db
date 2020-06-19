@@ -124,6 +124,45 @@ GROUP BY
 $$
 LANGUAGE SQL;
 
+--
+--
+-- 1.e
+-- Get orders with items
+
+CREATE OR REPLACE FUNCTION get_orders (user_id_in int)
+  RETURNS TABLE (
+    id int,
+    address_bill json,
+    address_ship json,
+    shipping_method text,
+    shipping_price real,
+    status text,
+    tracking_num text,
+    items json
+  )
+  AS $$
+  SELECT
+    ord.id,
+    ord.address_bill,
+    ord.address_ship,
+    ord.shipping_method,
+    ord.shipping_price,
+    ord.status,
+    ord.tracking_num,
+    array_to_json(ARRAY (
+        SELECT
+          row_to_json(order_items)
+        FROM order_items
+      WHERE
+        order_id = ord.id))
+  FROM
+    orders ord
+  INNER JOIN order_items orit ON ord.id = orit.order_id
+WHERE
+  ord.user_id = user_id_in
+$$
+LANGUAGE SQL;
+
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
 -- #3   USERS
