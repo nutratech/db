@@ -228,7 +228,8 @@ CREATE TABLE shipping_containers (
   container text NOT NULL,
   dimensions real[] NOT NULL,
   weight_max real,
-  cost json
+  cost json,
+  UNIQUE (courier, method, container)
 );
 
 -- Orders
