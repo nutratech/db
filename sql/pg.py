@@ -117,7 +117,15 @@ def import_():
 
     csv_files = [os.path.splitext(f)[0] for f in os.listdir(csv_dir)]
 
-    ptables = ["users", "products", "variants", "orders", "threads", "countries"]
+    ptables = [
+        "users",
+        "pcategories",
+        "products",
+        "variants",
+        "orders",
+        "threads",
+        "countries",
+    ]
 
     # Primary tables
     for t in ptables:
@@ -142,6 +150,7 @@ def import_():
         "coupons",
         # "shipping_containers",
         # | "order_items",
+        "pcategories",
         "products",
         "variants",
         "threads",

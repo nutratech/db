@@ -25,13 +25,44 @@ SET client_min_messages TO WARNING;
 --++++++++++++++++++++++++++++
 --
 --
+-- 0.a
+-- Get product categories with associated products and variants
+
+CREATE OR REPLACE FUNCTION get_pcategories ()
+  RETURNS TABLE (
+    id int,
+    name text,
+    slug text,
+    products json,
+    created int
+  )
+  AS $$
+  SELECT
+    pcats.id,
+    pcats.name,
+    pcats.slug,
+    array_to_json(ARRAY (
+        SELECT
+          row_to_json(products)
+        FROM products
+      WHERE
+        category_id = pcats.id)),
+    pcats.created
+  FROM
+    pcategories pcats
+    -- LEFT JOIN reviews rv ON rv.product_id = prod.id
+$$
+LANGUAGE SQL;
+
+--
+--
 -- 1.a
 -- Get products with variants & avg_ratings
 
 CREATE OR REPLACE FUNCTION get_products ()
   RETURNS TABLE (
     id int,
-    name varchar,
+    name text,
     shippable boolean,
     avg_rating real,
     variants json,
@@ -157,9 +188,9 @@ CREATE OR REPLACE FUNCTION get_orders (user_id_in int)
         order_id = ord.id))
   FROM
     orders ord
-  INNER JOIN order_items orit ON ord.id = orit.order_id
-WHERE
-  ord.user_id = user_id_in
+    INNER JOIN order_items orit ON ord.id = orit.order_id
+  WHERE
+    ord.user_id = user_id_in
 $$
 LANGUAGE SQL;
 
