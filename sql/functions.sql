@@ -28,7 +28,7 @@ SET client_min_messages TO WARNING;
 -- 0.a
 -- Get product categories with associated products and variants
 
-CREATE OR REPLACE FUNCTION get_pcategories ()
+CREATE OR REPLACE FUNCTION get_categories ()
   RETURNS TABLE (
     id int,
     name text,
@@ -38,18 +38,18 @@ CREATE OR REPLACE FUNCTION get_pcategories ()
   )
   AS $$
   SELECT
-    pcats.id,
-    pcats.name,
-    pcats.slug,
+    cats.id,
+    cats.name,
+    cats.slug,
     array_to_json(ARRAY (
         SELECT
           row_to_json(products)
         FROM products
       WHERE
-        category_id = pcats.id)),
-    pcats.created
+        category_id = cats.id)),
+    cats.created
   FROM
-    pcategories pcats
+    categories cats
     -- LEFT JOIN reviews rv ON rv.product_id = prod.id
 $$
 LANGUAGE SQL;

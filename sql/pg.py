@@ -119,9 +119,10 @@ def import_():
 
     ptables = [
         "users",
-        "pcategories",
+        "categories",
         "products",
         "variants",
+        "ingredients",
         "orders",
         "threads",
         "countries",
@@ -150,9 +151,10 @@ def import_():
         "coupons",
         # "shipping_containers",
         # | "order_items",
-        "pcategories",
+        "categories",
         "products",
         "variants",
+        "ingredients",
         "threads",
         "messages",
         "orders",

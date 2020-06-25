@@ -129,11 +129,20 @@ CREATE TABLE addresses (
 -- SHOP
 --++++++++++++++++++++++++++++
 
-CREATE TABLE pcategories (
+CREATE TABLE categories (
   id serial PRIMARY KEY,
   name text NOT NULL,
   slug text NOT NULL,
   created int DEFAULT extract(epoch FROM NOW())
+);
+
+CREATE TABLE ingredients (
+  id serial PRIMARY KEY,
+  name text NOT NULL,
+  specification text NOT NULL,
+  cost_per_kg real NOT NULL,
+  cost_per_test real NOT NULL,
+  supplier_url text NOT NULL
 );
 
 CREATE TABLE products (
@@ -145,7 +154,16 @@ CREATE TABLE products (
   released boolean NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
   -- TODO: Reference by `tag`? Eliminate `id` for unchanging data?
-  FOREIGN KEY (category_id) REFERENCES pcategories (id)
+  FOREIGN KEY (category_id) REFERENCES categories (id)
+);
+
+CREATE TABLE product_ingredients (
+  product_id int NOT NULL,
+  ingredient_id int NOT NULL,
+  grams real NOT NULL,
+  PRIMARY KEY (product_id, ingredient_id),
+  FOREIGN KEY (product_id) REFERENCES products (id),
+  FOREIGN KEY (ingredient_id) REFERENCES ingredients (id)
 );
 
 CREATE TABLE variants (
