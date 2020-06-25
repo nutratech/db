@@ -200,6 +200,34 @@ LANGUAGE SQL;
 --++++++++++++++++++++++++++++
 --
 --
+-- 3.d
+-- Get user details
+
+CREATE OR REPLACE FUNCTION get_user_details (user_id_in int)
+  RETURNS TABLE (
+    user_id int,
+    username varchar,
+    email varchar,
+    email_activated boolean,
+    accept_eula boolean
+  )
+  AS $$
+  SELECT
+    usr.id,
+    usr.username,
+    eml.email,
+    eml.activated,
+    usr.accept_eula
+  FROM
+    users usr
+    INNER JOIN emails eml ON eml.user_id = usr.id
+  WHERE
+    usr.id = user_id_in
+$$
+LANGUAGE SQL;
+
+--
+--
 -- 3.e
 -- Get user tokens
 
