@@ -160,7 +160,7 @@ CREATE TABLE products (
 CREATE TABLE product_ingredients (
   product_id int NOT NULL,
   ingredient_id int NOT NULL,
-  grams real NOT NULL,
+  mg real NOT NULL,
   PRIMARY KEY (product_id, ingredient_id),
   FOREIGN KEY (product_id) REFERENCES products (id),
   FOREIGN KEY (ingredient_id) REFERENCES ingredients (id)
@@ -169,6 +169,7 @@ CREATE TABLE product_ingredients (
 CREATE TABLE variants (
   id serial PRIMARY KEY,
   product_id int NOT NULL,
+  grams int,
   denomination text NOT NULL,
   price int NOT NULL,
   weight int,

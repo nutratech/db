@@ -135,6 +135,8 @@ def import_():
 
     # Secondary tables
     for f in csv_files:
+        if f.startswith('.'):
+            continue
         if f not in ptables:
             csv2sql(f)
 

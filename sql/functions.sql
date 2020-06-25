@@ -95,7 +95,6 @@ LANGUAGE SQL;
 
 --
 --
---
 -- 1.b
 -- Get product reviews (with username)
 
@@ -193,6 +192,17 @@ CREATE OR REPLACE FUNCTION get_orders (user_id_in int)
     ord.user_id = user_id_in
 $$
 LANGUAGE SQL;
+
+--
+--
+-- 1.f
+-- Get formulations with associated costs and ingredients
+
+-- CREATE OR REPLACE FUNCTION get_formulations ()
+--   RETURNS TABLE ( )
+--   AS $$
+-- $$
+-- LANGUAGE SQL;
 
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
