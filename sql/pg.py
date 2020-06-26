@@ -41,7 +41,7 @@ load_dotenv(verbose=True)
 
 # PostgreSQL
 PSQL_DATABASE = os.getenv("PSQL_DB_NAME", "nutra")
-PSQL_SCHEMA = "nt"
+PSQL_SCHEMA = os.getenv("PSQL_SCHEMA_NAME")
 
 PSQL_USER = os.getenv("PSQL_USER", getpass.getuser())
 PSQL_PASSWORD = os.getenv("PSQL_PASSWORD", "password")
@@ -135,7 +135,7 @@ def import_():
 
     # Secondary tables
     for f in csv_files:
-        if f.startswith('.'):
+        if f.startswith("."):
             continue
         if f not in ptables:
             csv2sql(f)
@@ -229,7 +229,7 @@ def export_():
 
     cur = con.cursor()
 
-    query = "SELECT tablename FROM pg_tables WHERE schemaname='nt';"
+    query = f"SELECT tablename FROM pg_tables WHERE schemaname='{PSQL_SCHEMA_NAME}';"
     print(query)
     cur.execute(query)
     print(cur.statusmessage)
@@ -248,7 +248,7 @@ def truncate_():
 
     cur = con.cursor()
 
-    query = "SELECT tablename FROM pg_tables WHERE schemaname='nt';"
+    query = f"SELECT tablename FROM pg_tables WHERE schemaname='{PSQL_SCHEMA_NAME}';"
     print(query)
     cur.execute(query)
     print(cur.statusmessage)
