@@ -140,6 +140,7 @@ CREATE TABLE ingredients (
   id serial PRIMARY KEY,
   name text NOT NULL,
   specification text NOT NULL,
+  effective_dose_mg int NOT NULL,
   cost_per_kg real NOT NULL,
   cost_per_test real NOT NULL,
   supplier_url text NOT NULL

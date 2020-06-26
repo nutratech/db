@@ -1,13 +1,13 @@
-id,name,specification,cost_per_kg,cost_per_test,supplier_url
-1,Magnesium L-Threonate,≥ 99%,79,100,https://www.alibaba.com/product-detail/High-quality-magnesium-l-threonate-powder_60833711779.html
-2,Green Tea,"6% EGCG, 2% L-theanine, 2% caffeine",130,0,https://www.zencha.net/product/sencha-green-tea-moe/
-3,Korean ginseng extract,80% Ginsenosides,26,200,https://www.alibaba.com/product-detail/10-Years-Experience-Manufacture-Sale-Korean_60176883033.html
-4,Ginkgo extract,"24% Flavonol glycosides, 6% Terpene lactones, <5ppm Ginkgolic acids",55,200,https://www.alibaba.com/product-detail/Organic-Ginkgo-Biloba-Leaf-Extract_62282654746.html
-5,Gotu Kola extract,30% Asiaticoside and 50% Madecassic acid,150,200,https://www.alibaba.com/product-detail/Wholesales-100-pure-gotu-kola-centella_62240023857.html
-6,CBD extract,"45mg/mL CBD, 40mg/mL myrcene, no detectable THC",120,100,https://www.alibaba.com/product-detail/CBDA-with-CAS-4415-87-6_62512433249.html
-7,Bacopa (Synapsa),55% bacosides,50,200,https://www.alibaba.com/product-detail/Organic-Bacosides-Bacopa-Monniera-Extract-brahmi_60690538353.html
-8,Lemon Balm Extract,"5% rosmarinic acid, 5% flavones",200,200,https://www.alibaba.com/product-detail/Melissa-officinalis-Herb-Extract-Lemon-Balm_60403884707.html
-9,Magnesium Glycinate,≥ 99%,50,100,https://www.alibaba.com/product-detail/Top-Quality-98-Magnesium-Glycinate-Powder_60692511730.html
-10,Magnesium Malate,≥ 99%,35,100,https://www.alibaba.com/product-detail/Best-Price-Magnesium-Malate_62275363609.html
-11,Green Tea Extract,≥ 90% polyphenols,40,200,https://www.alibaba.com/product-detail/Raw-material-100-natural-green-tea_62511859379.html
-12,Amla Powder,"Vitamin C 30%,Tannis 30%-60%",30,0,https://www.alibaba.com/product-detail/Sciencarin-Supply-Antioxidant-Amla-Fruit-Extract_62511562342.html
+id,name,specification,effective_dose_mg,cost_per_kg,cost_per_test,supplier_url
+1,Magnesium L-Threonate,≥ 99%,400,79,100,https://www.alibaba.com/product-detail/High-quality-magnesium-l-threonate-powder_60833711779.html
+2,Green Tea,"6% EGCG, 2% L-theanine, 2% caffeine",1600,130,0,https://www.zencha.net/product/sencha-green-tea-moe/
+3,Korean ginseng extract,80% Ginsenosides,200,26,200,https://www.alibaba.com/product-detail/10-Years-Experience-Manufacture-Sale-Korean_60176883033.html
+4,Ginkgo extract,"24% Flavonol glycosides, 6% Terpene lactones, <5ppm Ginkgolic acids",120,55,200,https://www.alibaba.com/product-detail/Organic-Ginkgo-Biloba-Leaf-Extract_62282654746.html
+5,Gotu Kola extract,30% Asiaticoside and 50% Madecassic acid,150,150,200,https://www.alibaba.com/product-detail/Wholesales-100-pure-gotu-kola-centella_62240023857.html
+6,CBD extract,"45mg/mL CBD, 40mg/mL myrcene, no detectable THC",400,120,100,https://www.alibaba.com/product-detail/CBDA-with-CAS-4415-87-6_62512433249.html
+7,Bacopa (Synapsa),55% bacosides,300,50,200,https://www.alibaba.com/product-detail/Organic-Bacosides-Bacopa-Monniera-Extract-brahmi_60690538353.html
+8,Lemon Balm Extract,"5% rosmarinic acid, 5% flavones",500,200,200,https://www.alibaba.com/product-detail/Melissa-officinalis-Herb-Extract-Lemon-Balm_60403884707.html
+9,Magnesium Glycinate,≥ 99%,250,50,100,https://www.alibaba.com/product-detail/Top-Quality-98-Magnesium-Glycinate-Powder_60692511730.html
+10,Magnesium Malate,≥ 99%,220,35,100,https://www.alibaba.com/product-detail/Best-Price-Magnesium-Malate_62275363609.html
+11,Green Tea Extract,≥ 90% polyphenols,400,40,200,https://www.alibaba.com/product-detail/Raw-material-100-natural-green-tea_62511859379.html
+12,Amla Powder,"Vitamin C 30%,Tannis 30%-60%",450,30,0,https://www.alibaba.com/product-detail/Sciencarin-Supply-Antioxidant-Amla-Fruit-Extract_62511562342.html
