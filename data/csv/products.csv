@@ -5,7 +5,9 @@ id,name,slug,category_id,shippable,released,created
 4,T-Boost,t-boost,3,t,t,1580226693
 5,Relaxation Formula,relaxation,3,t,t,1580226693
 8,PreBoost,preboost,3,t,f,1580226693
-9,Magnesium,mg,1,t,f,1580226693
+9,Magnesium L-Threonate,magtein,1,t,f,1580226693
 10,Immune Boost,immune,3,t,t,1584137304
 6,Premium Membership,membership,5,f,t,1580349351
 7,Trainer (Commercial),trainer-mem,5,f,t,1580349351
+11,Magnesium Glycinate,mg-gly,1,t,f,1593192833
+12,Magnesium Malate,mg-mal,1,t,f,1593192833
