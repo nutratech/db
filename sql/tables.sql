@@ -124,6 +124,24 @@ CREATE TABLE addresses (
 
 --
 --
+--++++++++++++++++++++++++++++
+--++++++++++++++++++++++++++++
+-- USDA SR Database
+--++++++++++++++++++++++++++++
+
+CREATE TABLE nutr_def (
+  id int PRIMARY KEY,
+  rda real,
+  units varchar(10),
+  tagname varchar(10) NOT NULL,
+  nutr_desc text NOT NULL,
+  is_anti boolean NOT NULL,
+  -- weighting?
+  UNIQUE (tagname)
+);
+
+--
+--
 ------------------------------
 --++++++++++++++++++++++++++++
 -- SHOP
@@ -146,6 +164,15 @@ CREATE TABLE ingredients (
   supplier_url text NOT NULL
 );
 
+CREATE TABLE ingredient_nutrients (
+  ingredient_id int,
+  nutr_id int,
+  ratio real NOT NULL,
+  PRIMARY KEY (ingredient_id, nutr_id),
+  FOREIGN KEY (ingredient_id) REFERENCES ingredients (id),
+  FOREIGN KEY (nutr_id) REFERENCES nutr_def (id)
+);
+
 CREATE TABLE products (
   id serial PRIMARY KEY,
   name text NOT NULL,
@@ -154,8 +181,10 @@ CREATE TABLE products (
   shippable boolean NOT NULL,
   released boolean NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
+  -- deprecation
   serving text,
   serving_grams real,
+  -- end deprecation
   usage text,
   details text[],
   sourcing_notes text[],
@@ -182,6 +211,8 @@ CREATE TABLE variants (
   exemplification text,
   price real NOT NULL,
   grams real,
+  serving_customary text,
+  serving_mg int,
   dimensions real[],
   stock int,
   interval int,
