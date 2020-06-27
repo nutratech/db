@@ -67,7 +67,6 @@ CREATE OR REPLACE FUNCTION get_products ()
     avg_rating real,
     variants json,
     created int,
-    serving text,
     usage text,
     details text[],
     sourcing_notes text[],
@@ -87,7 +86,6 @@ CREATE OR REPLACE FUNCTION get_products ()
       WHERE
         product_id = prod.id)),
     prod.created,
-    prod.serving,
     prod.usage,
     prod.details,
     prod.sourcing_notes,

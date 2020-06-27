@@ -181,10 +181,6 @@ CREATE TABLE products (
   shippable boolean NOT NULL,
   released boolean NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
-  -- deprecation
-  serving text,
-  serving_grams real,
-  -- end deprecation
   usage text,
   details text[],
   sourcing_notes text[],
