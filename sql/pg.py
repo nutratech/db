@@ -123,6 +123,7 @@ def import_():
         "products",
         "variants",
         "ingredients",
+        "nutr_def",
         "orders",
         "threads",
         "countries",
