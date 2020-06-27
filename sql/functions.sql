@@ -201,15 +201,18 @@ CREATE OR REPLACE FUNCTION get_orders (user_id_in int)
     ord.tracking_num,
     array_to_json(ARRAY (
         SELECT
-          row_to_json(order_items)
-        FROM order_items
-      WHERE
-        order_id = ord.id))
+          row_to_json(ROW)
+        FROM (
+          SELECT
+            variant, ord.quantity, ord.price FROM order_items ord
+            INNER JOIN variants variant ON variant.id = variant_id
+              AND order_id = orit.order_id)
+          ROW))
   FROM
     orders ord
-    INNER JOIN order_items orit ON ord.id = orit.order_id
-  WHERE
-    ord.user_id = user_id_in
+  INNER JOIN order_items orit ON ord.id = orit.order_id
+WHERE
+  ord.user_id = user_id_in
 $$
 LANGUAGE SQL;
 
