@@ -71,7 +71,8 @@ CREATE OR REPLACE FUNCTION get_products ()
     usage text,
     details text[],
     sourcing_notes text[],
-    citations text[]
+    citations text[],
+    ingredients json
   )
   AS $$
   SELECT
@@ -90,7 +91,13 @@ CREATE OR REPLACE FUNCTION get_products ()
     prod.usage,
     prod.details,
     prod.sourcing_notes,
-    prod.citations
+    prod.citations,
+    array_to_json(ARRAY (
+        SELECT
+          row_to_json(product_ingredients)
+        FROM product_ingredients
+      WHERE
+        product_id = prod.id))
   FROM
     products prod
   LEFT JOIN reviews rv ON rv.product_id = prod.id
