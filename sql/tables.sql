@@ -154,6 +154,10 @@ CREATE TABLE products (
   shippable boolean NOT NULL,
   released boolean NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
+  serving text,
+  usage text,
+  details text[],
+  sourcing_notes text[],
   -- TODO: Reference by `tag`? Eliminate `id` for unchanging data?
   FOREIGN KEY (category_id) REFERENCES categories (id)
 );

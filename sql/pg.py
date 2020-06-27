@@ -229,7 +229,7 @@ def export_():
 
     cur = con.cursor()
 
-    query = f"SELECT tablename FROM pg_tables WHERE schemaname='{PSQL_SCHEMA_NAME}';"
+    query = f"SELECT tablename FROM pg_tables WHERE schemaname='{PSQL_SCHEMA}';"
     print(query)
     cur.execute(query)
     print(cur.statusmessage)
@@ -248,7 +248,7 @@ def truncate_():
 
     cur = con.cursor()
 
-    query = f"SELECT tablename FROM pg_tables WHERE schemaname='{PSQL_SCHEMA_NAME}';"
+    query = f"SELECT tablename FROM pg_tables WHERE schemaname='{PSQL_SCHEMA}';"
     print(query)
     cur.execute(query)
     print(cur.statusmessage)

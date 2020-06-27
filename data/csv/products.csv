@@ -1,13 +1,13 @@
-id,name,slug,category_id,shippable,released,created
-1,Nature-Fresh Mouth Rinse,mouth-rinse,4,t,t,1580226693
-2,Nature-Fresh Skin Lotion,lotion,4,t,t,1580226693
-3,Focus Formula,focus,3,t,t,1580226693
-4,T-Boost,t-boost,3,t,t,1580226693
-5,Relaxation Formula,relaxation,3,t,t,1580226693
-8,PreBoost,preboost,3,t,f,1580226693
-9,Magnesium L-Threonate,magtein,1,t,f,1580226693
-10,Immune Boost,immune,3,t,t,1584137304
-6,Premium Membership,membership,5,f,t,1580349351
-7,Trainer (Commercial),trainer-mem,5,f,t,1580349351
-11,Magnesium Glycinate,mg-gly,1,t,f,1593192833
-12,Magnesium Malate,mg-mal,1,t,f,1593192833
+id,name,slug,category_id,shippable,released,created,serving,usage,details,sourcing_notes
+1,Nature-Fresh Mouth Rinse,mouth-rinse,4,t,t,1580226693,,,,
+2,Nature-Fresh Skin Lotion,lotion,4,t,t,1580226693,,,,
+3,Focus Formula,focus,3,t,t,1580226693,,,,
+4,T-Boost,t-boost,3,t,t,1580226693,,,,
+5,Relaxation Formula,relaxation,3,t,t,1580226693,1 tsp. (~2 g),Take 1 serving with Lunch or Dinner.,"{""'A formula designed to reduce stress and anxiety over a period of time.'"",""'It targets GABA and Serotonin receptors in the brain to bring about a relaxed"",""fully-present state.'""}","{""'The magnesium salts are sourced as 99%+ pure threonate and glycinate salts from professional labs'"",""'Lemon Balm and Bacopa extract are obtained from professional labs. Bacopa comes in the form of Synapsa. The Lemon Balmn is obtained after several washes at a high potentcy of both rosmarinic acid and relevant plant flavones.'"",""'The green tea extract is performed on Sencha from Yame or Shizuoka"",""using near boiling water. The CBD extract is performed on specific Marihuana strains"",""with no detectable THC trace. We use pure 95% Polish drinking alcohol. Both Extracts are reduced and added to the remaining dry ingredients"",""which may give an oily feel.'""}"
+8,PreBoost,preboost,3,t,f,1580226693,,,,
+9,Magnesium L-Threonate,magtein,1,t,f,1580226693,,,,
+10,Immune Boost,immune,3,t,t,1584137304,,,,
+6,Premium Membership,membership,5,f,t,1580349351,,,,
+7,Trainer (Commercial),trainer-mem,5,f,t,1580349351,,,,
+11,Magnesium Glycinate,mg-gly,1,t,f,1593192833,,,,
+12,Magnesium Malate,mg-mal,1,t,f,1593192833,,,,
