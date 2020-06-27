@@ -66,7 +66,12 @@ CREATE OR REPLACE FUNCTION get_products ()
     shippable boolean,
     avg_rating real,
     variants json,
-    created int
+    created int,
+    serving text,
+    usage text,
+    details text[],
+    sourcing_notes text[],
+    citations text[]
   )
   AS $$
   SELECT
@@ -80,7 +85,12 @@ CREATE OR REPLACE FUNCTION get_products ()
         FROM variants
       WHERE
         product_id = prod.id)),
-    prod.created
+    prod.created,
+    prod.serving,
+    prod.usage,
+    prod.details,
+    prod.sourcing_notes,
+    prod.citations
   FROM
     products prod
   LEFT JOIN reviews rv ON rv.product_id = prod.id
