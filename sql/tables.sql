@@ -158,6 +158,7 @@ CREATE TABLE products (
   usage text,
   details text[],
   sourcing_notes text[],
+  citations text[],
   -- TODO: Reference by `tag`? Eliminate `id` for unchanging data?
   FOREIGN KEY (category_id) REFERENCES categories (id)
 );
