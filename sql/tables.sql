@@ -155,6 +155,7 @@ CREATE TABLE products (
   released boolean NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
   serving text,
+  serving_grams real,
   usage text,
   details text[],
   sourcing_notes text[],
