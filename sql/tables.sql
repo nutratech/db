@@ -240,6 +240,7 @@ CREATE TABLE reviews (
   user_id int NOT NULL,
   product_id int NOT NULL,
   rating smallint NOT NULL,
+  title text NOT NULL,
   review_text text NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
   UNIQUE (user_id, product_id),

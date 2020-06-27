@@ -118,15 +118,17 @@ LANGUAGE SQL;
 
 CREATE OR REPLACE FUNCTION get_product_reviews (product_id_in int)
   RETURNS TABLE (
-    username varchar,
+    username text,
     rating smallint,
-    review_text varchar,
+    title text,
+    review_text text,
     created int
   )
   AS $$
   SELECT
     u.username AS username,
     rv.rating,
+    rv.title,
     rv.review_text,
     rv.created
   FROM
@@ -145,8 +147,8 @@ LANGUAGE SQL;
 CREATE OR REPLACE FUNCTION get_countries_states ()
   RETURNS TABLE (
     id int,
-    code varchar,
-    name varchar,
+    code text,
+    name text,
     has_zip boolean,
     requires_state boolean,
     states json
@@ -232,8 +234,8 @@ LANGUAGE SQL;
 CREATE OR REPLACE FUNCTION get_user_details (user_id_in int)
   RETURNS TABLE (
     user_id int,
-    username varchar,
-    email varchar,
+    username text,
+    email text,
     email_activated boolean,
     accept_eula boolean
   )
@@ -260,9 +262,9 @@ LANGUAGE SQL;
 CREATE OR REPLACE FUNCTION get_user_tokens (user_id_in int)
   RETURNS TABLE (
     user_id int,
-    username varchar,
-    token varchar,
-    token_type varchar,
+    username text,
+    token text,
+    token_type text,
     created int
   )
   AS $$
@@ -285,10 +287,10 @@ LANGUAGE SQL;
 -- 3.f
 -- Get user by email OR username
 
-CREATE OR REPLACE FUNCTION get_user_id_from_username_or_email (identifier varchar)
+CREATE OR REPLACE FUNCTION get_user_id_from_username_or_email (identifier text)
   RETURNS TABLE (
     id int,
-    username varchar
+    username text
   )
   AS $$
   SELECT DISTINCT
