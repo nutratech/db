@@ -94,19 +94,21 @@ CREATE OR REPLACE FUNCTION get_products ()
     prod.citations,
     array_to_json(ARRAY (
         SELECT
-          row_to_json(product_ingredients)
-        FROM product_ingredients
-      WHERE
-        product_id = prod.id))
+          row_to_json(ROW)
+        FROM (
+          SELECT
+            ingreds.name, ingreds.specification, mg FROM product_ingredients AS pi
+            INNER JOIN ingredients AS ingreds ON pi.ingredient_id = ingreds.id)
+        ROW))
   FROM
     products prod
-  LEFT JOIN reviews rv ON rv.product_id = prod.id
-WHERE
-  released
-GROUP BY
-  prod.id
-ORDER BY
-  prod.id
+    LEFT JOIN reviews rv ON rv.product_id = prod.id
+  WHERE
+    released
+  GROUP BY
+    prod.id
+  ORDER BY
+    prod.id
 $$
 LANGUAGE SQL;
 
