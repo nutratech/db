@@ -198,7 +198,8 @@ CREATE OR REPLACE FUNCTION get_orders (user_id_in int)
     shipping_price real,
     status text,
     tracking_num text,
-    items json
+    items json,
+    created int
   )
   AS $$
   SELECT
@@ -217,7 +218,8 @@ CREATE OR REPLACE FUNCTION get_orders (user_id_in int)
             variant, ord.quantity, ord.price FROM order_items ord
             INNER JOIN variants variant ON variant.id = variant_id
               AND order_id = orit.order_id)
-          ROW))
+          ROW)),
+    ord.created
   FROM
     orders ord
   INNER JOIN order_items orit ON ord.id = orit.order_id
