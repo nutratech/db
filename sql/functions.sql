@@ -217,15 +217,14 @@ CREATE OR REPLACE FUNCTION get_orders (user_id_in int)
           row_to_json(ROW)
         FROM (
           SELECT
-            variant, product, ord.quantity, ord.price FROM order_items ord
+            variant, product, item.quantity, item.price FROM order_items item
             INNER JOIN variants variant ON variant.id = variant_id
             INNER JOIN products product ON variant.product_id = product.id
-              AND order_id = orit.order_id)
+              AND order_id = ord.id)
           ROW)),
     ord.created
   FROM
     orders ord
-  INNER JOIN order_items orit ON ord.id = orit.order_id
 WHERE
   ord.user_id = user_id_in
 $$
