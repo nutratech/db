@@ -241,37 +241,42 @@ LANGUAGE SQL;
 --++++++++++++++++++++++++++++
 -- #2   Public DATA
 --++++++++++++++++++++++++++++
--- --
--- --
--- --
--- -- 2.a
--- -- Get all nutrients by food_id
--- CREATE OR REPLACE FUNCTION get_nutrients_by_food_ids (food_id_in int[])
---   RETURNS TABLE (
---     food_id int,
---     fdgrp_id int,
---     long_desc varchar,
---     manufacturer varchar,
---     nutrients json
---   )
---   AS $$
---   SELECT
---     des.id,
---     des.fdgrp_id,
---     long_desc,
---     manufacturer,
---     json_agg(json_build_object('nutr_id', val.nutr_id, 'nutr_desc', nutr_desc, 'tagname', tagname, 'nutr_val', nutr_val, 'units', units)) AS nutrients
---   FROM
---     food_des des
---   LEFT JOIN nut_data val ON val.food_id = des.id
---   LEFT JOIN nutr_def def ON def.id = val.nutr_id
--- WHERE
---   des.id = ANY (food_id_in)
--- GROUP BY
---   des.id,
---   long_desc
--- $$
--- LANGUAGE SQL;
+--
+--
+--
+-- 2.a
+-- Get all nutrients by food_id
+
+CREATE OR REPLACE FUNCTION get_nutrients_by_food_ids (food_id_in int[])
+  RETURNS TABLE (
+    food_id int,
+    fdgrp_id int,
+    long_desc varchar,
+    manufacturer varchar,
+    nutrients json
+  )
+  AS $$
+  SELECT
+    des.id,
+    des.fdgrp_id,
+    long_desc,
+    manufacturer,
+    array_to_json(ARRAY (
+        SELECT
+          row_to_json(ROW)
+        FROM (
+          SELECT
+            def.nutr_desc, def.tagname, def.units, nutr_id, nutr_val FROM nut_data
+            INNER JOIN nutr_def def ON def.id = nutr_id
+              AND food_id = des.id)
+          ROW))
+  FROM
+    food_des des
+WHERE
+  des.id = ANY (food_id_in)
+$$
+LANGUAGE SQL;
+
 -- --
 -- --
 -- -- 2.b
