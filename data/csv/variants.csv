@@ -21,5 +21,5 @@ id,product_id,quantity,unit,mg_per_ct,exemplification,price,grams,serving_custom
 20,12,180,ct,400,capsules,40,,1 capsule,,"{12,8,8}",15,,1593274308
 21,9,50,g,,powder,18,,¼ tsp.,450,"{10,8,1.5}",25,,1593294911
 22,9,125,g,,powder,40,,¼ tsp.,450,"{15,10,1.5}",10,,1593294911
-23,9,60,ct,675,powder,18,,1 capsule,,"{10,6,6}",25,,1593311066
-24,9,180,ct,675,powder,40,,1 capsule,,"{12,8,8}",15,,1593311066
+23,9,60,ct,675,capsules,18,,1 capsule,,"{10,6,6}",25,,1593311066
+24,9,180,ct,675,capsules,40,,1 capsule,,"{12,8,8}",15,,1593311066
