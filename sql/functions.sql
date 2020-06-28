@@ -235,6 +235,114 @@ LANGUAGE SQL;
 --   AS $$
 -- $$
 -- LANGUAGE SQL;
+--
+--
+--++++++++++++++++++++++++++++
+--++++++++++++++++++++++++++++
+-- #2   Public DATA
+--++++++++++++++++++++++++++++
+--
+--
+--
+-- 2.a
+-- Get all nutrients by food_id
+
+CREATE OR REPLACE FUNCTION get_nutrients_by_food_ids (food_id_in int[])
+  RETURNS TABLE (
+    food_id int,
+    fdgrp_id int,
+    long_desc varchar,
+    manufacturer varchar,
+    nutrients json
+  )
+  AS $$
+  SELECT
+    des.id,
+    des.fdgrp_id,
+    long_desc,
+    manufacturer,
+    json_agg(json_build_object('nutr_id', val.nutr_id, 'nutr_desc', nutr_desc, 'tagname', tagname, 'nutr_val', nutr_val, 'units', units)) AS nutrients
+  FROM
+    food_des des
+  LEFT JOIN nut_data val ON val.food_id = des.id
+  LEFT JOIN nutr_def def ON def.id = val.nutr_id
+WHERE
+  des.id = ANY (food_id_in)
+GROUP BY
+  des.id,
+  long_desc
+$$
+LANGUAGE SQL;
+
+--
+--
+-- 2.b
+-- Return 100 foods highest in a given nutr_id
+
+CREATE OR REPLACE FUNCTION sort_foods_by_nutrient_id (nutr_id_in int)
+  RETURNS TABLE (
+    nutr_id int,
+    units varchar,
+    tagname varchar,
+    nutr_desc varchar,
+    foods json
+  )
+  AS $$
+  SELECT
+    def.id,
+    def.units,
+    def.tagname,
+    def.nutr_desc,
+    json_agg(json_build_object('food_id', des.id, 'long_desc', des.long_desc, 'nutr_val', val.nutr_val, 'data_src', src.name, 'fdgrp_desc', grp.fdgrp_desc)
+    ORDER BY
+      val.nutr_val DESC) AS foods
+  FROM (
+    SELECT
+      food_id,
+      nutr_val,
+      nutr_id
+    FROM
+      nut_data val
+    WHERE
+      val.nutr_id = nutr_id_in
+    ORDER BY
+      val.nutr_val DESC FETCH FIRST 100 ROWS ONLY) val
+  LEFT JOIN nutr_def def ON def.id = val.nutr_id
+  LEFT JOIN food_des des ON val.food_id = des.id
+  LEFT JOIN data_src src ON src.id = des.data_src_id
+  LEFT JOIN fdgrp grp ON grp.id = des.fdgrp_id
+GROUP BY
+  def.id,
+  def.units,
+  def.tagname,
+  def.nutr_desc
+$$
+LANGUAGE SQL;
+
+--
+--
+-- 2.c
+-- Get servings for food
+
+CREATE OR REPLACE FUNCTION get_food_servings (food_id_in int)
+  RETURNS TABLE (
+    msre_id int,
+    msre_desc varchar,
+    grams real
+  )
+  AS $$
+  SELECT
+    serv.msre_id,
+    serv_id.msre_desc,
+    serv.grams
+  FROM
+    servings serv
+  LEFT JOIN serving_id serv_id ON serv.msre_id = serv_id.id
+WHERE
+  serv.food_id = food_id_in
+$$
+LANGUAGE SQL;
+
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
 -- #3   USERS

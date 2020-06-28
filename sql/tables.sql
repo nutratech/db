@@ -140,6 +140,80 @@ CREATE TABLE nutr_def (
   UNIQUE (tagname)
 );
 
+CREATE TABLE data_src (
+  id int PRIMARY KEY NOT NULL,
+  name text NOT NULL,
+  is_searchable boolean NOT NULL,
+  UNIQUE (name)
+);
+
+---------------------------
+-- Food groups
+---------------------------
+
+CREATE TABLE fdgrp (
+  id int PRIMARY KEY,
+  fdgrp_desc text,
+  UNIQUE (fdgrp_desc)
+);
+
+---------------------------
+-- Food names
+---------------------------
+
+CREATE TABLE food_des (
+  id serial PRIMARY KEY,
+  fdgrp_id int NOT NULL,
+  data_src_id int NOT NULL,
+  long_desc text NOT NULL,
+  shrt_desc varchar(200),
+  -- TODO: same as sci_name.
+  comm_name text,
+  manufacturer text,
+  -- gtin_UPC DECIMAL,
+  -- ingredients TEXT,
+
+  ref_desc text,
+  refuse int,
+  sci_name text,
+  -- UNIQUE(gtin_UPC),
+  FOREIGN KEY (fdgrp_id) REFERENCES fdgrp (id) ON UPDATE CASCADE,
+  FOREIGN KEY (data_src_id) REFERENCES data_src (id)
+);
+
+---------------------------
+-- Food-Nutrient data
+---------------------------
+
+CREATE TABLE nut_data (
+  food_id int NOT NULL,
+  nutr_id int NOT NULL,
+  nutr_val real,
+  -- TODO: data_src_id as composite key?
+  PRIMARY KEY (food_id, nutr_id),
+  FOREIGN KEY (food_id) REFERENCES food_des (id) ON UPDATE CASCADE,
+  FOREIGN KEY (nutr_id) REFERENCES nutr_def (id) ON UPDATE CASCADE
+);
+
+------------------------------
+-- Servings
+------------------------------
+
+CREATE TABLE serving_id (
+  id serial PRIMARY KEY,
+  msre_desc text NOT NULL,
+  UNIQUE (msre_desc)
+);
+
+CREATE TABLE servings (
+  food_id int NOT NULL,
+  msre_id int NOT NULL,
+  grams real NOT NULL,
+  PRIMARY KEY (food_id, msre_id),
+  FOREIGN KEY (food_id) REFERENCES food_des (id) ON UPDATE CASCADE,
+  FOREIGN KEY (msre_id) REFERENCES serving_id (id) ON UPDATE CASCADE
+);
+
 --
 --
 ------------------------------
