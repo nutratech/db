@@ -191,6 +191,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 1082,100,1,"Milk, lowfat, fluid, 1% milkfat, with added vitamin A and vitamin D","MILK,LOWFAT,FLUID,1% MILKFAT,W/ ADDED VIT A & VITAMIN D",,,,0,
 1083,100,1,"Milk, lowfat, fluid, 1% milkfat, with added nonfat milk solids, vitamin A and vitamin D","MILK,LOWFAT,FLUID,1% MILKFAT,W/ ADD NONFAT MILK SOL,VIT A/ D",,,,0,
 1084,100,1,"Milk, lowfat, fluid, 1% milkfat, protein fortified, with added vitamin A and vitamin D","MILK,LOWFAT,FLUID,1% MILKFAT,PROT FORT,W/ ADDED VIT A & D",,,,0,
+9442,900,1,"Pomegranate juice, bottled","POMEGRANATE JUC,BTLD",,,,0,
 1085,100,1,"Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)","MILK,NONFAT,FLUID,W/ ADDED VIT A & VIT D (FAT FREE OR SKIM)",,,,0,
 1086,100,1,"Milk, nonfat, fluid, with added nonfat milk solids, vitamin A and vitamin D (fat free or skim)","MILK,NONFAT,FLUID,W/ ADDED NONFAT MILK SOL,VIT A & VIT D",,,,0,
 1087,100,1,"Milk, nonfat, fluid, protein fortified, with added vitamin A and vitamin D (fat free and skim)","MILK,NONFAT,FLUID,PROT FORT,W/ ADD VIT A & D (FAT FREE/SKIM)",,,,0,
@@ -317,6 +318,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 2054,200,1,"Capers, canned","CAPERS,CANNED",,,,0,Capparis spinosa
 2055,200,1,"Horseradish, prepared","HORSERADISH,PREPARED",,,,0,
 2063,200,1,"Rosemary, fresh","ROSEMARY,FRESH",,,Stems,35,Rosmarinus officinalis
+19334,1900,1,"Sugars, brown","SUGARS,BROWN",,,,0,
 2064,200,1,"Peppermint, fresh","PEPPERMINT,FRESH",mint,,Stems,39,Mentha x piperita L. nothosubsp. piperita
 2065,200,1,"Spearmint, fresh","SPEARMINT,FRESH",mint,,Stems,59,Mentha spicata
 2066,200,1,"Spearmint, dried","SPEARMINT,DRIED",mint,,,0,
@@ -546,6 +548,8 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 3821,300,1,"Infant formula, MEAD JOHNSON, PREGESTIMIL, with iron, powder, with ARA and DHA, not reconstituted","INF FORMU,ME JOHN,PREGESTI,W/ IRON,PDR,W/ ARA & DHA,N RE",,MEAD JOHNSON,,0,
 3822,300,1,"Infant formula, MEAD JOHNSON, PREGESTIMIL, with iron, with ARA and DHA, prepared from powder","INF FORMU,MEAD JOH,PREGES,W/ IRON,W/ ARA & DHA,PREP FR PD",,MEAD JOHNSON,,0,
 3823,300,1,"Infant formula, MEAD JOHNSON, PROSOBEE, with iron, ready-to-feed","INF FORMULA,MEAD JOHNSON,PROSOBEE,W/ IRON,RTF",,,,0,
+4015,400,1,"Salad dressing, russian dressing","SALAD DRSNG,RUSSIAN DRSNG",,,,0,
+19335,1900,1,"Sugars, granulated","SUGARS,GRANULATED",sucrose,,,0,
 3825,300,1,"Infant formula, MEAD JOHNSON, ENFAMIL, LIPIL, low iron, ready to feed, with ARA and DHA","INF FOR,ME JOHN,ENFAM,LIPIL,LO IRON,READY TO FE,W/ ARA & DHA",,MEAD JOHNSON,,0,
 3832,300,1,"Infant formula, MEAD JOHNSON, ENFAMIL, Infant, ready-to-feed, with ARA and DHA","INF FORMULA,MEAD JOHNSON,ENFAMIL,INFANT,RTF,W/ ARA & DHA",,MEAD JOHNSON,,0,
 3837,300,1,"Infant formula, ABBOTT NUTRITION, SIMILAC, PM 60/40, powder not reconstituted","INF FORMULA, ABBOTT NUTR, SIMILAC, PM 60/40, PDR NOT RECON",,ABBOT NUTRTION,,0,
@@ -585,6 +589,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 3945,300,1,"Infant formula, ABBOTT NUTRITION, SIMILAC, NEOSURE, powder, with ARA and DHA","INF FORMULA, ABBOTT, SIMILAC, NEOSURE, PDR, W/ ARA & DHA",,ABBOT NUTRTION,,0,
 3946,300,1,"Infant formula, ABBOTT NUTRITION, SIMILAC, SENSITIVE (LACTOSE FREE) ready-to-feed, with ARA and DHA","INF FORMULA, ABB NUTR, SIMI,SENS (LACT FRE) RTF,W/ ARA & DHA",,ABBOT NUTRTION,,0,
 3947,300,1,"Infant formula, ABBOTT NUTRITION, SIMILAC, SENSITIVE, (LACTOSE FREE), liquid concentrate, with ARA and DHA","INF FORMULA, ABB NUT,SIMIL,SENS,(LACT FR),LIQ CON,W/ AR & DH",,ABBOT NUTRTION,,0,
+4016,400,1,"Salad dressing, sesame seed dressing, regular","SALAD DRSNG,SESAME SD DRSNG,REG",,,,0,
 3948,300,1,"Infant formula, ABBOTT NUTRITION, SIMILAC, SENSITIVE, (LACTOSE FREE), powder, with ARA and DHA","INF FORMULA, ABB NUTR,SIMIL,SENS,(LACTO FR), PD, W/ ARA & DH",,ABBOT NUTRTION,,0,
 3949,300,1,"Infant formula, ABBOTT NUTRITION, SIMILAC, ADVANCE, with iron, ready-to-feed","INF FORMULA, ABBOTT NUTR, SIMILAC, ADVANCE, W/ IRON, RTF",,ABBOT NUTRTION,,0,
 3950,300,1,"Infant formula, ABBOTT NUTRITION, SIMILAC, ADVANCE, with iron, powder, not reconstituted","INF FORMULA,ABBOTT NUTR,SIMILAC,ADVANC,W/ IRON,PDR,NOT RECON",,ABBOT NUTRTION,,0,
@@ -628,8 +633,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 4011,400,1,"Salad dressing, KRAFT Mayo Light Mayonnaise","SALAD DRSNG,KRAFT MAYO LT MAYO",,"Kraft Foods, Inc.",,0,
 4013,400,1,"Salad dressing, KRAFT Mayo Fat Free Mayonnaise Dressing","SALAD DRSNG,KRAFT MAYO FAT FREE MAYO DRSNG",,"Kraft Foods, Inc.",,0,
 4014,400,1,"Salad dressing, KRAFT MIRACLE WHIP FREE Nonfat Dressing","SALAD DRSNG,KRAFT MIRACLE WHIP FREE NONFAT DRSNG",,"Kraft Foods, Inc.",,0,
-4015,400,1,"Salad dressing, russian dressing","SALAD DRSNG,RUSSIAN DRSNG",,,,0,
-4016,400,1,"Salad dressing, sesame seed dressing, regular","SALAD DRSNG,SESAME SD DRSNG,REG",,,,0,
 4017,400,1,"Salad dressing, thousand island, commercial, regular","SALAD DRSNG,1000 ISLAND,COMM,REG",,,,0,
 4018,400,1,"Salad dressing, mayonnaise type, regular, with salt","SALAD DRSNG,MAYO TYPE,REG,W/SALT",,,,0,
 4020,400,1,"Salad dressing, french dressing, reduced fat","SALAD DRSNG,FRENCH DRSNG,RED FAT",,,,0,
@@ -693,6 +696,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 4546,400,1,"Shortening bread, soybean (hydrogenated) and cottonseed","SHORTENING BREAD,SOYBN (HYDR)&CTTNSD",,,,0,
 4548,400,1,"Shortening cake mix, soybean (hydrogenated) and cottonseed (hydrogenated)","SHORTENING CAKE MIX,SOYBN (HYDR)&CTTNSD (HYDR)",,,,0,
 4549,400,1,"Shortening industrial, lard and vegetable oil","SHORTENING INDUSTRIAL,LARD&VEG OIL",,,,0,
+19336,1900,1,"Sugars, powdered","SUGARS,POWDERED",,,,0,
 4550,400,1,"Shortening frying (heavy duty), beef tallow and cottonseed","SHORTENING FRYING (HVY DUTY),BF TALLOW&CTTNSD",,,,0,
 4551,400,1,"Shortening confectionery, coconut (hydrogenated) and or palm kernel (hydrogenated)","SHORTENING CONFECTIONERY,COCNT (HYDR)&OR PALM KERNEL (HYDR)",,,,0,
 4554,400,1,"Shortening industrial, soybean (hydrogenated) and cottonseed","SHORTENING INDUSTRIAL,SOYBN (HYDR)&CTTNSD",,,,0,
@@ -794,6 +798,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 4691,400,1,"Margarine, regular, 80% fat, composite, stick, with salt, with added vitamin D","MARGARINE,REG,80% FAT,COMP,STK,W/ SALT,W/ ADDED VITAMIN D",,,,0,
 4692,400,1,"Margarine, regular, 80% fat, composite, tub, with salt, with added vitamin D","MARGARINE,REG,80% FAT,COMP,TUB,W/ SALT,W/ ADDED VITAMIN D",,,,0,
 4693,400,1,"Margarine-like, vegetable oil spread, 60% fat, stick, with salt, with added vitamin D","VEG OIL SPRD,60% FAT,STK,W/ SALT,W/ ADDED VITAMIN D",,,,0,
+99040,1600,2,"Soybeans, mature seeds, raw (Taiwan)",,,,,,
 4694,400,1,"Margarine-like, vegetable oil spread, 60% fat, tub, with salt, with added vitamin D","VEG OIL SPRD,60% FAT,TUB,W/ SALT,W/ ADDED VITAMIN D",,,,0,
 4695,400,1,"Margarine-like vegetable-oil spread, stick/tub/bottle, 60% fat, with added vitamin D","VEG-OIL SPRD,STICK/TUB/BOTTLE,60% FAT,W/ ADDED VITAMIN D",,,,0,
 4696,400,1,"Margarine, regular, 80% fat, composite, stick, without salt, with added vitamin D","MARGARINE,REG,80% FAT,COMP,STK,WO/ SALT,W/ ADDED VITAMIN D",,,,0,
@@ -844,6 +849,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 5032,500,1,"Chicken, broilers or fryers, light meat, meat and skin, cooked, roasted","CHICKEN,BROILERS OR FRYERS,LT MEAT,MEAT&SKN,CKD,RSTD",,,Bone,29,
 5033,500,1,"Chicken, broilers or fryers, light meat, meat and skin, cooked, stewed","CHICKEN,BROILERS OR FRYERS,LT MEAT,MEAT&SKN,CKD,STWD",,,Bone,29,
 5034,500,1,"Chicken, broilers or fryers, dark meat, meat and skin, raw","CHICKEN,BROILERS OR FRYERS,DK MEAT,MEAT & SKN,RAW",,,Bone,35,
+5641,500,1,"Ostrich, ground, raw","OSTRICH,GROUND,RAW",,,,0,Struthio camelus
 5035,500,1,"Chicken, broilers or fryers, dark meat, meat and skin, cooked, fried, batter","CHICKEN,BROILERS OR FRYERS,DK MEAT,MEAT&SKN,CKD,FRIED,BATTER",,,Bone,23,
 5036,500,1,"Chicken, broilers or fryers, dark meat, meat and skin, cooked, fried, flour","CHICKEN,BROILERS OR FRYERS,DK MEAT,MEAT&SKN,CKD,FRIED,FLR",,,Bone,30,
 5037,500,1,"Chicken, broilers or fryers, dark meat, meat and skin, cooked, roasted","CHICKEN,BROILERS OR FRYERS,DK MEAT,MEAT&SKN,CKD,RSTD",,,Bone,36,
@@ -988,6 +994,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 5177,500,1,"Turkey, all classes, liver, raw","TURKEY,ALL CLASSES,LIVER,RAW",,,,0,
 5178,500,1,"Turkey, all classes, liver, cooked, simmered","TURKEY,ALL CLASSES,LIVER,CKD,SIMMRD",,,,0,
 5179,500,1,"Turkey, whole, neck, meat only, raw","TURKEY,WHL,NECK,MEAT ONLY,RAW",,,Bone and connective tissue 60%,60,
+99041,1600,2,"Soy cheese, cheddar",,,,,,
 5180,500,1,"Turkey, whole, neck, meat only, cooked, simmered","TURKEY,WHL,NECK,MEAT ONLY,CKD,SIMMRD",,,Bone and connective tissue 53%,53,
 5181,500,1,"Turkey, whole, light meat, meat and skin, raw","TURKEY,WHL,LT MEAT,MEAT & SKN,RAW",,,Bone and Conncetive tissue 32%,32,
 5182,500,1,"Turkey, whole, light meat, meat and skin, cooked, roasted","TURKEY,WHL,LT MEAT,MEAT & SKN,CKD,RSTD",,,Bone and connective tissue 20%,20,
@@ -1036,6 +1043,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 5312,500,1,"Chicken, wing, frozen, glazed, barbecue flavored","CHICKEN,WING,FRZ,GLAZED,BARBECUE FLAV",,,"Drumette: Bone 24.92%, Cartilage 9.79%, Total refuse: 34.71%;  Second wing section: Bone 22.09%, Cartilage 8.51%, Total refuse: 30.65%",33,
 5313,500,1,"Chicken, wing, frozen, glazed, barbecue flavored, heated (microwave)","CHICKEN,WING,FRZ,GLAZED,BARBECUE FLAV,HTD (MICROWAVE)",,,"Drumette: Bone 24.92%, Cartilage 9.79%, Total refuse: 34.71%; Second wing section: Bone 22.09%, Cartilage 8.51%, Total refuse: 30.65%",33,
 5314,500,1,"Chicken, broilers or fryers, breast, skinless, boneless, meat only, with added solution, raw","CKN,BROILERS/FRYERS,BRST,SKNLS,BNLS,MEAT ONLY,W ADDED SLN,RW",,,,0,
+5642,500,1,"Ostrich, ground, cooked, pan-broiled","OSTRICH,GROUND,CKD,PAN-BROILED",,,,0,Struthio camelus
 5315,500,1,"Duck, young duckling, domesticated, White Pekin, breast, meat and skin, boneless, cooked, roasted","DUCK,YNG DUCKLING,DOM,WH PEKIN,BRST,MEAT&SKN,BNLESS,CKD,RSTD",,,,0,Anas platyrhynchos
 5316,500,1,"Duck, young duckling, domesticated, White Pekin, breast, meat only, boneless, cooked without skin, broiled","DUCK,YNG DUCKL,DOM,WH PEKIN,BRST,MEAT,BNLESS,CKD WO/SKN,BRLD",,,,0,Anas platyrhynchos
 5317,500,1,"Duck, young duckling, domesticated, White Pekin, leg, meat and skin, bone in, cooked, roasted","DUCK,YNG DUCKLING,DOM,WH PEKIN,LEG,MEAT&SKN,BONE IN,CKD,RSTD",,,Bone,31,Anas platyrhynchos
@@ -1081,8 +1089,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 5630,500,1,"Emu, outside drum, raw","EMU,OUTSIDE DRUM,RAW",,,,0,Dromaius novaehollandiae
 5631,500,1,"Emu, oyster, raw","EMU,OYSTER,RAW",,,,0,Dromaius novaehollandiae
 5632,500,1,"Emu, top loin, cooked, broiled","EMU,TOP LOIN,CKD,BRLD",,,,0,Dromaius novaehollandiae
-5641,500,1,"Ostrich, ground, raw","OSTRICH,GROUND,RAW",,,,0,Struthio camelus
-5642,500,1,"Ostrich, ground, cooked, pan-broiled","OSTRICH,GROUND,CKD,PAN-BROILED",,,,0,Struthio camelus
 5643,500,1,"Ostrich, fan, raw","OSTRICH,FAN,RAW",,,,0,Struthio camelus
 5644,500,1,"Ostrich, inside leg, raw","OSTRICH,INSIDE LEG,RAW",,,,0,Struthio camelus
 5645,500,1,"Ostrich, inside leg, cooked","OSTRICH,INSIDE LEG,CKD",,,,0,Struthio camelus
@@ -1168,6 +1174,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 5727,500,1,"Turkey, retail parts, breast, meat and skin, with added solution, raw","TURKEY,RTL PARTS,BREAST,MEAT & SKN,W/ ADDED SOLN,RAW",,,Bone and connective tissue 15%,15,
 5728,500,1,"Turkey, thigh, from whole bird, meat only, with added solution, roasted","TURKEY,THIGH,FROM WHL BIRD,MEAT ONLY,W/ ADDED SOLN,RSTD",,,"Bone and connective tissue 16%, skin and separable fat 8%",24,
 5729,500,1,"Turkey, wing, from whole bird, meat only, with added solution, raw","TURKEY,WING,FROM WHL BIRD,MEAT ONLY,W/ ADDED SOLN,RAW",,,"Bone and connective tissue 36%, skin and separable fat 19%",55,
+6053,600,1,"Soup, cream of potato, canned, condensed","SOUP,CRM OF POTATO,CND,COND",,,,0,
 5730,500,1,"Turkey, wing, from whole bird, meat only, with added solution, roasted","TURKEY,WING,FROM WHL BIRD,MEAT ONLY,W/ ADDED SOLN,RSTD",,,"Bone and connective tissue 47%, skin and separable fat 12%",59,
 5732,500,1,"Turkey, retail parts, breast, meat and skin, raw","TURKEY,RTL PARTS,BREAST,MEAT & SKN,RAW",,,Bone and connective tissue 14%,14,
 5733,500,1,"Turkey, retail parts, breast, meat and skin, cooked, roasted","TURKEY,RTL PARTS,BREAST,MEAT & SKN,CKD,RSTD",,,Bone and connective tissue 12%,12,
@@ -1220,7 +1227,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 6049,600,1,"Soup, pea, green, canned, condensed","SOUP,PEA,GRN,CND,COND",,,,0,
 6050,600,1,"Soup, pea, split with ham, canned, chunky, ready-to-serve","SOUP,PEA,SPLIT W/HAM,CND,CHUNKY,RTS",,,,0,
 6051,600,1,"Soup, pea, split with ham, canned, condensed","SOUP,PEA,SPLIT W/ HAM,CND,COND",,,,0,
-6053,600,1,"Soup, cream of potato, canned, condensed","SOUP,CRM OF POTATO,CND,COND",,,,0,
 6056,600,1,"Soup, cream of shrimp, canned, condensed","SOUP,CRM OF SHRIMP,CND,COND",,,,0,
 6061,600,1,"Soup, tomato beef with noodle, canned, condensed","SOUP,TOMATO BF W/ NOODLE,CND,COND",,,,0,
 6062,600,1,"CAMPBELL'S, Chicken Noodle Soup, condensed","CAMPBELL'S,CHICK NOODLE SOUP,COND",,Campbell Soup Co.,,0,
@@ -1393,6 +1399,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 6964,600,1,"Soup, tomato, low sodium, with water","SOUP,TOMATO,LO NA,W/H2O",,,,0,
 6965,600,1,"Soup, pea, low sodium, prepared with equal volume water","SOUP,PEA,LO NA,PREP W/ EQ VOLUME H2O",,,,0,
 6966,600,1,"Soup, chicken noodle, low sodium, canned, prepared with equal volume water","SOUP,CHICK NOODLE,LO NA,CND,PREP W/ EQ VOLUME H2O",,,,0,
+10006,1000,1,"Pork, fresh, separable fat, raw","PORK,FRSH,FAT,RAW",,,,0,
 6967,600,1,"Soup, vegetable soup, condensed, low sodium, prepared with equal volume water","SOUP,VEG SOUP,COND,LO NA,PREP W/ EQ VOLUME H2O",,,,0,
 6968,600,1,"Soup, cream of mushroom, low sodium, ready-to-serve, canned","SOUP,CRM OF MUSHROOM,LO NA,RTS,CND",,,,0,
 6969,600,1,"Potato soup, instant, dry mix","POTATO SOUP,INST,DRY MIX",,,,0,
@@ -1584,6 +1591,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 8066,800,1,"Cereals ready-to-eat, QUAKER, QUAKER Puffed Rice","CEREALS RTE,QUAKER,QUAKER PUFFED RICE",,"The Quaker Oats, Co.",,0,
 8073,800,1,"Cereals ready-to-eat, POST, GOLDEN CRISP","CEREALS RTE,POST,GOLDEN CRISP",,"Post Foods, LLC",,0,
 8074,800,1,"Cereals ready-to-eat, RALSTON TASTEEOS","CEREALS RTE,RALSTON TASTEEOS",,Ralston Foods,,0,
+99042,1600,2,"Soy cheese, unspecified",,,,,,
 8081,800,1,"Cereals ready-to-eat, POST, Honey Nut Shredded Wheat","CEREALS RTE,POST,HONEY NUT SHREDDED WHEAT",,"Post Foods, LLC",,0,
 8083,800,1,"Cereals ready-to-eat, MALT-O-MEAL, CORN BURSTS","CEREALS RTE,MALT-O-MEAL,CORN BURSTS",,MOM Brands,,0,
 8084,800,1,"Cereals ready-to-eat, wheat germ, toasted, plain","CEREALS RTE,WHEAT GERM,TSTD,PLN",,,,0,
@@ -1630,6 +1638,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 8172,800,1,"Cereals, farina, unenriched, dry","CEREALS,FARINA,UNENR,DRY",,,,0,
 8173,800,1,"Cereals, farina, enriched, cooked with water, with salt","CEREALS,FARINA,ENR,CKD W/ H2O,W/ SALT",,,,0,
 8177,800,1,"Cereals, MALT-O-MEAL, chocolate, dry","CEREALS,MALT-O-MEAL,CHOC,DRY",,MOM Brands,,0,
+8435,800,1,"Cereals ready-to-eat, UNCLE SAM CEREAL","CEREALS RTE,UNCLE SAM CRL",,"Attune Foods, Inc.",,0,
 8180,800,1,"Cereals, oats, regular and quick and instant, unenriched, cooked with water (includes boiling and microwaving), with salt","CEREALS,OATS,REG & QUICK & INST,UNENR,CKD W/ H2O,W/ SALT",,,,0,
 8182,800,1,"Cereals, WHEATENA, cooked with water, with salt","CEREALS,WHEATENA,CKD W/ H2O,W/ SALT",,Homestat Farm Ltd.,,0,
 8183,800,1,"Cereals, whole wheat hot natural cereal, cooked with water, with salt","CEREALS,WHL WHEAT HOT NAT CRL,CKD W/ H2O,W/ SALT",,,,0,
@@ -1675,7 +1684,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 8410,800,1,"Cereals, QUAKER, Instant Oatmeal, Cinnamon-Spice, dry","CEREALS,QUAKER,INST OATMEAL,CINNAMON-SPICE,DRY",,"The Quaker Oats, Co.",,0,
 8411,800,1,"Cereals, QUAKER, Instant Oatmeal, DINOSAUR EGGS, Brown Sugar, dry","CEREALS,QUAKER,INST OATMEAL,DINOSAUR EGGS,BROWN SUGAR,DRY",,"The Quaker Oats, Co.",,0,
 8417,800,1,"Cereals, QUAKER, Instant Oatmeal, Banana Bread, dry","CEREALS,QUAKER,INST OATMEAL,BANANA BREAD,DRY",,"The Quaker Oats, Co.",,0,
-8435,800,1,"Cereals ready-to-eat, UNCLE SAM CEREAL","CEREALS RTE,UNCLE SAM CRL",,"Attune Foods, Inc.",,0,
+9089,900,1,"Figs, raw","FIGS,RAW",,,Stems,1,Ficus carica
 8436,800,1,"Cereals, QUAKER, Instant Oatmeal, Raisin and Spice, dry","CEREALS,QUAKER,INST OATMEAL,RAISIN & SPICE,DRY",,"The Quaker Oats, Co.",,0,
 8444,800,1,"Cereals, QUAKER, Instant Grits, Redeye Gravy & Country Ham flavor, dry","CEREALS,QUAKER,INST GRITS,REDEYE GRVY COUNTRY HAM FLAVOR,DRY",,"The Quaker Oats, Co.",,0,
 8449,800,1,"Cereals, QUAKER, Instant Grits Product with American Cheese Flavor, dry","CEREALS,QUAKER,INST GRITS PRODUCT W/ AMERICAN CHS FLAVOR,DRY",,"The Quaker Oats, Co.",,0,
@@ -1769,6 +1778,8 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 9022,900,1,"Apricots, canned, water pack, with skin, solids and liquids","APRICOTS,CND,H2O PK,W/SKN,SOL&LIQUIDS",,,,0,
 9023,900,1,"Apricots, canned, water pack, without skin, solids and liquids","APRICOTS,CND,H2O PK,WO/SKN,SOL&LIQUIDS",,,Pits,6,
 9024,900,1,"Apricots, canned, juice pack, with skin, solids and liquids","APRICOTS,CND,JUC PK,W/SKN,SOL&LIQUIDS",,,,0,
+9090,900,1,"Figs, canned, water pack, solids and liquids","FIGS,CND,H2O PK,SOL&LIQUIDS",,,,0,
+99043,1600,2,Soy drink,,,,,,
 9025,900,1,"Apricots, canned, extra light syrup pack, with skin, solids and liquids (Includes foods for USDA's Food Distribution Program)","APRICOTS,CND,EX LT SYRUP PK,W/SKN,SOL&LIQUIDS",,,,0,
 9026,900,1,"Apricots, canned, light syrup pack, with skin, solids and liquids","APRICOTS,CND,LT SYRUP PK,W/SKN,SOL&LIQUIDS",,,,0,
 9027,900,1,"Apricots, canned, heavy syrup pack, with skin, solids and liquids","APRICOTS,CND,HVY SYRUP PK,W/SKN,SOL&LIQUIDS",,,,0,
@@ -1825,8 +1836,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 9086,900,1,"Custard-apple, (bullock's-heart), raw","CUSTARD-APPLE,(BULLOCK'S-HEART),RAW",,,Seeds and skin,42,Annona reticulata
 9087,900,1,"Dates, deglet noor","DATES,DEGLET NOOR",,,Pits,10,Phoenix dactylifera
 9088,900,1,"Elderberries, raw","ELDERBERRIES,RAW",,,,0,Sambucus spp.
-9089,900,1,"Figs, raw","FIGS,RAW",,,Stems,1,Ficus carica
-9090,900,1,"Figs, canned, water pack, solids and liquids","FIGS,CND,H2O PK,SOL&LIQUIDS",,,,0,
+99044,900,2,"Currants, red, raw",,,,,,
 9091,900,1,"Figs, canned, light syrup pack, solids and liquids","FIGS,CND,LT SYRUP PK,SOL&LIQUIDS",,,,0,
 9092,900,1,"Figs, canned, heavy syrup pack, solids and liquids","FIGS,CND,HVY SYRUP PK,SOL&LIQUIDS",,,,0,
 9093,900,1,"Figs, canned, extra heavy syrup pack, solids and liquids","FIGS,CND,EX HVY SYRUP PK,SOL&LIQUIDS",,,,0,
@@ -1877,6 +1887,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 9145,900,1,"Java-plum, (jambolan), raw","JAVA-PLUM,(JAMBOLAN),RAW",,,Seed,19,Syzygium cumini
 9146,900,1,"Jujube, raw","JUJUBE,RAW",,,Seeds,7,Ziziphus jujuba
 9147,900,1,"Jujube, Chinese, fresh, dried","JUJUBE,CHINESE,FRSH,DRIED",,,Seeds,11,
+9302,900,1,"Raspberries, raw","RASPBERRIES,RAW",,,"Caps, stems, and spoiled berries",4,Rubus spp.
 9148,900,1,"Kiwifruit, green, raw","KIWIFRUIT,GRN,RAW",Chinese gooseberry,,Skin,24,Actinidia deliciosa
 9149,900,1,"Kumquats, raw","KUMQUATS,RAW",,,Seeds,7,Fortunella spp.
 9150,900,1,"Lemons, raw, without peel","LEMONS,RAW,WITHOUT PEEL",,,"45% peel, 2% seeds",47,Citrus limon
@@ -1995,7 +2006,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 9298,900,1,"Raisins, dark, seedless (Includes foods for USDA's Food Distribution Program)","RAISINS,DK,SEEDLESS (INCLUDES FOODS FOR USDAÆS FD",,,,0,Vitis vinifera
 9299,900,1,"Raisins, seeded","RAISINS,SEEDED",,,,0,Vitis vinifera
 9301,900,1,"Rambutan, canned, syrup pack","RAMBUTAN,CND,SYRUP PK",,,,0,Nephelium lappaceum
-9302,900,1,"Raspberries, raw","RASPBERRIES,RAW",,,"Caps, stems, and spoiled berries",4,Rubus spp.
+9437,900,1,"Tamarind nectar, canned","TAMARIND NECTAR,CND",,,,0,
 9304,900,1,"Raspberries, canned, red, heavy syrup pack, solids and liquids","RASPBERRIES,CND,RED,HVY SYRUP PK,SOL&LIQUIDS",,,,0,
 9306,900,1,"Raspberries, frozen, red, sweetened","RASPBERRIES,FRZ,RED,SWTND",,,,0,
 9307,900,1,"Rhubarb, raw","RHUBARB,RAW",,,"19% ends, 6% leaves",25,Rheum rhabarbarum
@@ -2056,8 +2067,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 9434,900,1,"Guanabana nectar, canned","GUANABANA NECTAR,CND",,,,0,
 9435,900,1,"Guava nectar, canned, with added ascorbic acid","GUAVA NECTAR,CND,W/ ADDED VIT C",,,,0,
 9436,900,1,"Mango nectar, canned","MANGO NECTAR,CND",,,,0,
-9437,900,1,"Tamarind nectar, canned","TAMARIND NECTAR,CND",,,,0,
-9442,900,1,"Pomegranate juice, bottled","POMEGRANATE JUC,BTLD",,,,0,
 9443,900,1,"Juice, apple and grape blend, with added ascorbic acid","JUICE,APPL & GRAPE BLEND,W/ ADDED VIT C",,,,0,
 9444,900,1,"Juice, apple, grape and pear blend, with added ascorbic acid and calcium","JUICE,APPL,GRAPE & PEAR BLEND,W/ ADDED VIT C & CA",,,,0,
 9446,900,1,"Plantains, green, fried","PLANTAINS,GRN,FRIED",tostones de platano,,,0,
@@ -2108,7 +2117,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 10003,1000,1,"Pork, fresh, composite of trimmed leg, loin, shoulder, and spareribs, (includes cuts to be cured), separable lean and fat, raw","PORK,FRSH,COMP OF LEG,LOIN,SHLDR,& SPARERIBS,LN & FAT,RAW",,,Bone and skin,24,
 10004,1000,1,"Pork, fresh, backfat, raw","PORK,FRESH,BACKFAT,RAW",,,Skin,11,
 10005,1000,1,"Pork, fresh, belly, raw","PORK,FRSH,BELLY,RAW",,,Skin,7,
-10006,1000,1,"Pork, fresh, separable fat, raw","PORK,FRSH,FAT,RAW",,,,0,
+99045,1600,2,Soy fiber,,,,,,
 10007,1000,1,"Pork, fresh, separable fat, cooked","PORK,FRSH,FAT,CKD",,,,0,
 10008,1000,1,"Pork, fresh, leg (ham), whole, separable lean and fat, raw","PORK,FRSH,LEG (HAM),WHL,LN&FAT,RAW",,,Bone and skin,17,
 10009,1000,1,"Pork, fresh, leg (ham), whole, separable lean and fat, cooked, roasted","PORK,FRSH,LEG (HAM),WHL,LN&FAT,CKD,RSTD",,,Bone and skin,20,
@@ -2146,6 +2155,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 10041,1000,1,"Pork, fresh, loin, center loin (chops), bone-in, separable lean only, cooked, braised","PORK,FRSH,LOIN,CNTR LOIN (CHOPS),BONE-IN,LN,CKD,BRSD",,,"Bone 15%, Connective tissue 5%, Separable fat 8%",28,
 10042,1000,1,"Pork, fresh, loin, center loin (chops), bone-in, separable lean only, cooked, broiled","PORK,FRSH,LOIN,CNTR LOIN (CHOPS),BONE-IN,LN,CKD,BRLD","URMIS #3313, Center loin chops, Centercut pork chops, Centercut pork loin chops",,"Bone, 16%, Connective tissue, 9%, Separable fat, 5%",30,
 10043,1000,1,"Pork, fresh, loin, center loin (roasts), bone-in, separable lean only, cooked, roasted","PORK,FRSH,LOIN,CNTR LOIN (ROASTS),BONE-IN,LN,CKD,RSTD",,,"Bone 14%, Connective tissue 4%, Separable fat 7%",25,
+10077,1000,1,"Pork, fresh, shoulder, arm picnic, separable lean only, raw","PORK,FRSH,SHLDR,ARM PICNIC,LN,RAW",,,"Bone 16%, Connective tissue 6%, separable fat 10%",32,
 10044,1000,1,"Pork, fresh, loin, center rib (chops or roasts), bone-in, separable lean and fat, raw","PORK,FRSH,LOIN,CNTR RIB (CHOPS OR ROASTS),BONE-IN,LN&FAT,RAW","Centercut pork loin, Rib cut chops, Rib chops",,"Bone 22%, Connective tissue 12%,",34,
 10045,1000,1,"Pork, fresh, loin, center rib (chops), bone-in, separable lean and fat, cooked, braised","PORK,FRSH,LOIN,CNTR RIB (CHOPS),BONE-IN,LN&FAT,CKD,BRSD",,,"Bone 17%, Connective tissue 6%",23,
 10046,1000,1,"Pork, fresh, loin, center rib (chops), bone-in, separable lean and fat, cooked, broiled","PORK,FRSH,LOIN,CNTR RIB (CHOPS),BONE-IN,LN&FAT,CKD,BRLD","Centercut pork loin, Rib cut chops, Rib chops",,"Bone, 24%, Connective tissue, 11%",35,
@@ -2179,7 +2189,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 10074,1000,1,"Pork, fresh, shoulder, arm picnic, separable lean and fat, raw","PORK,FRSH,SHLDR,ARM PICNIC,LN&FAT,RAW",,,"Bone 16%, Connective tissue 6%",22,
 10075,1000,1,"Pork, fresh, shoulder, arm picnic, separable lean and fat, cooked, braised","PORK,FRSH,SHLDR,ARM PICNIC,LN&FAT,CKD,BRSD",,,"Connective tissue 8%, Bone 15%,",23,
 10076,1000,1,"Pork, fresh, shoulder, arm picnic, separable lean and fat, cooked, roasted","PORK,FRSH,SHLDR,ARM PICNIC,LN&FAT,CKD,RSTD",,,Bone and skin,27,
-10077,1000,1,"Pork, fresh, shoulder, arm picnic, separable lean only, raw","PORK,FRSH,SHLDR,ARM PICNIC,LN,RAW",,,"Bone 16%, Connective tissue 6%, separable fat 10%",32,
+99047,900,2,"Grapes, white or green, raw",,,,,,
 10078,1000,1,"Pork, fresh, shoulder, arm picnic, separable lean only, cooked, braised","PORK,FRSH,SHLDR,ARM PICNIC,LN,CKD,BRSD",,,"Bone 15%, Connective tissue 8%, Separable fat 7%",30,
 10079,1000,1,"Pork, fresh, shoulder, arm picnic, separable lean only, cooked, roasted","PORK,FRSH,SHLDR,ARM PICNIC,LN,CKD,RSTD",,,"Bone and skin 27%, separable fat 16%",43,
 10080,1000,1,"Pork, fresh, shoulder, (Boston butt), blade (steaks), separable lean and fat, raw","PORK,FRSH,SHLDR,(BOSTON BUTT),BLADE (STEAKS),LN & FAT,RAW","URMIS #3186, Pork shoulder chop, Shoulder blade steak, Pork steak",,"Bone 9%, Connective tissue 15%",24,
@@ -2305,6 +2315,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 10852,1000,1,"HORMEL ALWAYS TENDER, Pork Tenderloin, Teriyaki-Flavored","HORMEL ALWAYS TENDER,PORK TENDERLOIN,TERIYAKI-FLAVORED",,,,0,
 10853,1000,1,"HORMEL ALWAYS TENDER, Pork Tenderloin, Peppercorn-Flavored","HORMEL ALWAYS TENDER,PORK TENDERLOIN,PEPPERCORN-FLAVORED",,,,0,
 10854,1000,1,"HORMEL ALWAYS TENDER, Pork Loin Filets, Lemon Garlic-Flavored","HORMEL ALWAYS TENDER,PORK LOIN FILETS,LEMON GARLIC-FLAVORED",,,,0,
+99048,900,2,"Grapes, black",,,,,,
 10855,1000,1,"HORMEL ALWAYS TENDER, Center Cut Chops, Fresh Pork","HORMEL ALWAYS TENDER,CNTR CUT CHOPS,FRSH PORK",,,,0,
 10856,1000,1,"HORMEL ALWAYS TENDER, Boneless Pork Loin, Fresh Pork","HORMEL ALWAYS TENDER,BNLESS PORK LOIN,FRSH PORK",,,,0,
 10857,1000,1,HORMEL Canadian Style Bacon,HORMEL CANADIAN STYLE BACON,,,,0,
@@ -2344,6 +2355,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 10890,1000,1,"Pork, cured, ham with natural juices, rump, bone-in, separable lean only, unheated","PORK,CURED,HAM W/ NAT JUICES,RUMP,BONE-IN,LN,UNHTD",,,"Bone 21%, Separable fat 16%",37,
 10891,1000,1,"Pork, cured, ham with natural juices, shank, bone-in, separable lean only, unheated","PORK,CURED,HAM W/ NAT JUICES,SHANK,BONE-IN,LN,UNHTD",,,"Bone 10%, Separable fat 14%",24,
 10892,1000,1,"Pork, cured, ham with natural juices, slice, bone-in, separable lean only, unheated","PORK,CURED,HAM W/ NAT JUICES,SLICE,BONE-IN,LN,UNHTD",,,"Bone 3%, Separable fat 9%",12,
+10937,1000,1,"Pork, cured, ham, slice, bone-in, separable lean and fat, heated, pan-broil","PORK,CURED,HAM,SLICE,BONE-IN,LN & FAT,HTD,PAN-BROIL",,,Bone,14,
 10893,1000,1,"Pork, cured, ham with natural juices, spiral slice, boneless, separable lean only, unheated","PORK,CURED,HAM W/ NAT JUICES,SPIRAL SLICE,BNLESS,LN,UNHTD",,,Separable fat 5%,5,
 10894,1000,1,"Pork, cured, ham, separable fat, boneless, heated","PORK,CURED,HAM,FAT,BNLESS,HTD",,,,0,
 10895,1000,1,"Pork, cured, ham, separable fat, boneless, unheated","PORK,CURED,HAM,FAT,BNLESS,UNHTD",,,,0,
@@ -2384,7 +2396,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 10934,1000,1,"Pork, cured, ham, shank, bone-in, separable lean only, unheated","PORK,CURED,HAM,SHANK,BONE-IN,LN,UNHTD",,,"Bone 11%, Separable fat 12%",23,
 10935,1000,1,"Pork, cured, ham, shank, bone-in, separable lean and fat, heated, roasted","PORK,CURED,HAM,SHANK,BONE-IN,LN & FAT,HTD,RSTD",,,Bone,22,
 10936,1000,1,"Pork, cured, ham, shank, bone-in, separable lean and fat, unheated","PORK,CURED,HAM,SHANK,BONE-IN,LN & FAT,UNHTD",,,Bone,11,
-10937,1000,1,"Pork, cured, ham, slice, bone-in, separable lean and fat, heated, pan-broil","PORK,CURED,HAM,SLICE,BONE-IN,LN & FAT,HTD,PAN-BROIL",,,Bone,14,
+11143,1100,1,"Celery, raw","CELERY,RAW",,,Roots and trimmings,11,Apium graveolens
 10938,1000,1,"Pork, cured, ham, slice, bone-in, separable lean only, unheated","PORK,CURED,HAM,SLICE,BONE-IN,LN,UNHTD",,,"Bone 5%, Separable fat 11%",16,
 10939,1000,1,"Pork, cured, ham, slice, bone-in, separable lean and fat, unheated","PORK,CURED,HAM,SLICE,BONE-IN,LN & FAT,UNHTD",,,Bone,5,
 10943,1000,1,"Pork, fresh, loin, tenderloin, separable lean only, with added solution, cooked, roasted","PORK,FRSH,LOIN,TNDERLN,LN,W/ ADDED SLN,CKD,RSTD",,,"Connective tissue, 4%, Separable fat, 1%",5,
@@ -2474,7 +2486,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 11052,1100,1,"Beans, snap, green, raw","BEANS,SNAP,GREEN,RAW",,,"Ends, strings, trimmings",12,Phaseolus vulgaris
 11053,1100,1,"Beans, snap, green, cooked, boiled, drained, without salt","BEANS,SNAP,GRN,CKD,BLD,DRND,WO/SALT",,,,0,
 11054,1100,1,"Beans, snap, green, canned, regular pack, solids and liquids","BEANS,SNAP,GRN,CND,REG PK,SOL & LIQUIDS",,,,0,
-11143,1100,1,"Celery, raw","CELERY,RAW",,,Roots and trimmings,11,Apium graveolens
 11056,1100,1,"Beans, snap, green, canned, regular pack, drained solids","BEANS,SNAP,GRN,CND,REG PK,DRND SOL",,,,0,
 11058,1100,1,"Beans, snap, canned, all styles, seasoned, solids and liquids","BEANS,SNAP,CND,ALL STYLES,SEASONED,SOL&LIQUIDS",,,,0,
 11060,1100,1,"Beans, snap, green, frozen, all styles, unprepared (Includes foods for USDA's Food Distribution Program)","BEANS,SNAP,GRN,FRZ,ALL STYLES,UNPREP",,,,0,
@@ -2701,6 +2712,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 11352,1100,1,"Potatoes, flesh and skin, raw","POTATOES,FLESH & SKN,RAW",,,Parings and trimmings,25,Solanum tuberosum
 11353,1100,1,"Potatoes, russet, flesh and skin, raw (Includes foods for USDA's Food Distribution Program)","POTATOES,RUSSET,FLESH & SKN,RAW",,,Parings and trimmings,25,Solanum tuberosum
 11354,1100,1,"Potatoes, white, flesh and skin, raw","POTATOES,WHITE,FLESH & SKN,RAW",,,Parings and trimmings,25,Solanum tuberosum
+99049,1600,2,"Soy noodles, flat",,,,,,
 11355,1100,1,"Potatoes, red, flesh and skin, raw","POTATOES,RED,FLESH & SKN,RAW",,,Parings and trimmings,25,Solanum tuberosum
 11356,1100,1,"Potatoes, Russet, flesh and skin, baked","POTATOES,RUSSET,FLESH & SKN,BKD",,,,0,
 11357,1100,1,"Potatoes, white, flesh and skin, baked","POTATOES,WHITE,FLESH & SKN,BKD",,,,0,
@@ -2864,6 +2876,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 11569,1100,1,"Turnip greens, cooked, boiled, drained, without salt","TURNIP GRNS,CKD,BLD,DRND,WO/SALT",,,,0,
 11570,1100,1,"Turnip greens, canned, solids and liquids","TURNIP GRNS,CND,SOL&LIQUIDS",,,,0,
 11574,1100,1,"Turnip greens, frozen, unprepared","TURNIP GRNS,FRZ,UNPREP",,,,0,
+11674,1100,1,"Potatoes, baked, flesh and skin, without salt","POTATOES,BKD,FLESH & SKN,WO/ SALT",,,,0,
 11575,1100,1,"Turnip greens, frozen, cooked, boiled, drained, without salt","TURNIP GRNS,FRZ,CKD,BLD,DRND,WO/SALT",,,,0,
 11576,1100,1,"Turnip greens and turnips, frozen, unprepared","TURNIP GRNS&TURNIPS,FRZ,UNPREP",,,,0,
 11577,1100,1,"Turnip greens and turnips, frozen, cooked, boiled, drained, without salt","TURNIP GRNS&TURNIPS,FRZ,CKD,BLD,DRND,WO/SALT",,,,0,
@@ -2925,7 +2938,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 11670,1100,1,"Peppers, hot chili, green, raw","PEPPERS,HOT CHILI,GRN,RAW",,,"Stem ends, seeds and core",27,Capsicum frutescens
 11671,1100,1,"Potatoes, o'brien, home-prepared","POTATOES,O'BRIEN,HOME-PREPARED",,,,0,
 11672,1100,1,Potato pancakes,POTATO PANCAKES,,,,0,
-11674,1100,1,"Potatoes, baked, flesh and skin, without salt","POTATOES,BKD,FLESH & SKN,WO/ SALT",,,,0,
 11675,1100,1,"Potatoes, microwaved, cooked in skin, flesh and skin, without salt","POTATOES,MICROWAVED,CKD IN SKN,FLESH&SKN,WO/SALT",,,,0,
 11676,1100,1,"Radish seeds, sprouted, raw","RADISH SEEDS,SPROUTED,RAW",,,,0,Raphanus sativus
 11677,1100,1,"Shallots, raw","SHALLOTS,RAW",,,Skins,12,Allium ascalonicum
@@ -3140,6 +3152,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 11910,1100,1,"Corn, sweet, white, frozen, kernels cut off cob, unprepared","CORN,SWT,WHITE,FRZ,KRNLS CUT OFF COB,UNPREP",,,,0,
 11911,1100,1,"Corn, sweet, white, frozen, kernels cut off cob, boiled, drained, without salt","CORN,SWT,WHITE,FRZ,KRNLS CUT OFF COB,BLD,DRND,WO/SALT",,,,0,
 11912,1100,1,"Corn, sweet, white, frozen, kernels cut off cob, boiled, drained, with salt","CORN,SWT,WHITE,FRZ,KRNLS CUT OFF COB,BLD,DRND,W/SALT",,,,0,
+99052,900,2,"Rhubarb stalks, cooked",,,,,,
 11913,1100,1,"Corn, sweet, white, frozen, kernels on cob, unprepared","CORN,SWT,WHITE,FRZ,KRNLS ON COB,UNPREP",,,Cob,45,
 11914,1100,1,"Corn, sweet, white, frozen, kernels on cob, cooked, boiled, drained, without salt","CORN,SWT,WHITE,FRZ,KRNLS ON COB,CKD,BLD,DRND,WO/SALT",,,Cob,45,
 11915,1100,1,"Corn, sweet, white, frozen, kernels on cob, cooked, boiled, drained, with salt","CORN,SWT,WHITE,FRZ,KRNLS ON COB,CKD,BLD,DRND,W/SALT",,,Cob,45,
@@ -3373,6 +3386,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 13068,1300,1,"Beef, flank, steak, separable lean only, trimmed to 0"" fat, choice, raw","BEEF,FLANK,STEAK,LN,0"" FAT,CHOIC,RAW",URMIS #2399,,"Bone and connective tissue, 0.2%, separable fat, 3.6%",4,
 13069,1300,1,"Beef, flank, steak, separable lean only, trimmed to 0"" fat, choice, cooked, braised","BEEF,FLANK,STEAK,LN,0"" FAT,CHOIC,CKD,BRSD",URMIS #2399,,"Connective tissue, 2%, separable fat, 6%",8,
 13070,1300,1,"Beef, flank, steak, separable lean only, trimmed to 0"" fat, choice, cooked, broiled","BEEF,FLANK,STEAK,LN,0"" FAT,CHOIC,CKD,BRLD",URMIS #2399,,Separable fat,2,
+14057,1400,1,"Alcoholic beverage, wine, dessert, sweet","ALCOHOLIC BEV,WINE,DSSRT,SWT",,,,0,
 13095,1300,1,"Beef, rib, eye, small end (ribs 10-12), separable lean and fat, trimmed to 0"" fat, choice, raw","BEEF,RIB,EYE,SML END (RIBS 10-12),LN&FAT,0""FAT,CHOIC,RAW","ribeye, Delmonico",,Connective tissue,4,
 13096,1300,1,"Beef, rib, eye, small end (ribs 10-12), separable lean and fat, trimmed to 0"" fat, choice, cooked, broiled","BF,RIB,EYE,SML END (RIB 10-12),LN & FT,0"" FAT,CHOIC,CKD,BRLD",ribeye,,Bone and connective tissue,8,
 13097,1300,1,"Beef, rib, eye, small end (ribs 10-12), separable lean only, trimmed to 0"" fat, choice, raw","BEEF,RIB,EYE,SML END (RIBS 10-12),LN,0""FAT,CHOIC,RAW","ribeye, Delmonico",,"Connective tissue 4%, separable fat 21%",25,
@@ -3452,6 +3466,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 13372,1300,1,"Beef, brisket, point half, separable lean only, trimmed to 0"" fat, all grades, cooked, braised","BEEF,BRISKET,POINT HALF,LN,0""FAT,ALL GRDS,CKD,BRSD",,,"Connective tissue, 1%, separable fat, 24%",25,
 13373,1300,1,"Beef, chuck, arm pot roast, separable lean and fat, trimmed to 0"" fat, all grades, cooked, braised","BEEF,CHUCK,ARM POT RST,LN&FAT,0""FAT,ALL GRDS,CKD,BRSD",,,Bone and connective tissue,19,
 13375,1300,1,"Beef, chuck, arm pot roast, separable lean and fat, trimmed to 0"" fat, select, cooked, braised","BEEF,CHUCK,ARM POT RST,LN & FAT,0"" FAT,SEL,CKD,BRSD",URMIS #1049,,Bone and connective tissue,28,
+99053,1600,2,"Soymilk skin or film (Foo jook or yuba), raw",,,,,,
 13377,1300,1,"Beef, chuck, arm pot roast, separable lean only, trimmed to 0"" fat, choice, cooked, braised","BEEF,CHUCK,ARM POT RST,LN,0""FAT,CHOIC,CKD,BRSD",URMIS #1864,,"Bone and connective tissue 23%, sep fat 17%",40,
 13378,1300,1,"Beef, chuck, arm pot roast, separable lean only, trimmed to 0"" fat, select, cooked, braised","BEEF,CHUCK,ARM POT RST,LN,0""FAT,SEL,CKD,BRSD",URMIS #1049,,"Bone and connective tissue 29%, sep fat 13%",42,
 13379,1300,1,"Beef, chuck, blade roast, separable lean and fat, trimmed to 0"" fat, all grades, cooked, braised","BEEF,CHUCK,BLADE RST,LN&FAT,0""FAT,ALL GRDS,CKD,BRSD",Top Blade Steak,,Bone,25,
@@ -3484,6 +3499,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 13411,1300,1,"Beef, round, bottom round, roast, separable lean only, trimmed to 0"" fat, choice, cooked, roasted","Beef, bottom round, roast,lean only, 0"" fat, choice, roasted","URMIS #2279, Cube Steak",,"Bone and connective tissue 1%, sep fat 3%",4,
 13413,1300,1,"Beef, round, bottom round, steak, separable lean only, trimmed to 0"" fat, select, cooked, braised","BEEF,RND,BTTM RND,STEAK,LN,0"" FAT,SEL,CKD,BRSD","URMIS #1464, Cube Steak",,"Bone and connective tissue 3%, sep fat 2%",5,
 13414,1300,1,"Beef, round, bottom round roast, separable lean only, trimmed to 0"" fat, select, cooked, roasted","BEEF,RND,BTTM RND RST,LN,0"" FAT,SEL,CKD,RSTD",URMIS #1464,,"Bone and connective tissue 1%, sep fat 1%",2,
+14058,1400,1,"Beverages, Whey protein powder isolate","BEVERAGES,WHEY PROT PDR ISOLATE",,,,0,
 13415,1300,1,"Beef, round, eye of round roast, boneless, separable lean and fat, trimmed to 0"" fat, all grades, cooked, roasted","BEEF,RND,EYE OF RND RST,BNLESS,L & F,0"" FAT,A GRDS,CKD,RSTD",Eye of Round Roast,,,0,
 13416,1300,1,"Beef, round, eye of round roast, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, roasted","BEEF,RND,EYE OF RND RST,BNLESS,LN & FT,0"" FAT,CHOIC,CKD,RSTD","URMIS #2295, Eye of Round Roast",,,0,
 13417,1300,1,"Beef, round, eye of round roast, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, roasted","BEEF,RND,EYE OF RND RST,BNLESS,LN & FAT,0"" FAT,SEL,CKD,RSTD","URMIS #1480, Eye of Round Roast",,,0,
@@ -3512,6 +3528,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 13447,1300,1,"Beef, loin, top loin steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled","BEEF,LOIN,TOPLOINSTK,BNLS,LIP OFF,LN FAT,0"" FT,SEL,CKD,GRLD","URMIS # 1404, Boneless Strip Steak, Kansas City Strip, New York Strip, Club Steak",,Connective tissue 9%,9,
 13448,1300,1,"Beef, loin, top loin steak, boneless, lip off, separable lean only, trimmed to 0"" fat, all grades, cooked, grilled","BEEF,LOIN,TOPLOINSTK,BNLS,LIP OFF,LN,0"" FT,ALL GRD,CKD,GRLD","Kansas City Strip, Club Steak, New York Strip",,"Connective tissue 8%, separable fat 4%",12,
 13449,1300,1,"Beef, loin, top loin steak, boneless, lip off, separable lean only, trimmed to 0"" fat, choice, cooked, grilled","BEEF,LOIN,TOP LOIN STK,BNLS,LIP OFF,LN,0"" FAT,CHOIC,CKD,GRLD","URMIS # 2219, Club Steak, Kansas City Strip, New York Strip",,"Connective tissue 7%, separable fat 5%",12,
+14060,1400,1,"Beverages, Energy Drink with carbonated water and high fructose corn syrup","BEVERAGES,ENERGY DRK W/ CARB H2O & HI FRUCTOSE CORN SYRUP",,,,0,
 13450,1300,1,"Beef, loin, top loin steak, boneless, lip off, separable lean only, trimmed to 0"" fat, select, cooked, grilled","BEEF,LOIN,TOP LOIN STK,BNLS,LIP OFF,LN,0"" FAT,SEL,CKD,GRLD","URMIS # 1404, Club Steak, Kansas City Strip, New York Strip",,"Connective tissue 9%, separable fat 4%",13,
 13451,1300,1,"Beef, top sirloin, steak, separable lean and fat, trimmed to 0"" fat, all grades, cooked, broiled","BEEF,TOP SIRLOIN,STEAK,LN & FAT,0"" FAT,ALL GRDS,CKD,BRLD","Sirloin strip, Sirloin steak",,Bone and connective tissue,4,
 13452,1300,1,"Beef, top sirloin, steak, separable lean and fat, trimmed to 0"" fat, choice, cooked, broiled","BEEF,TOP SIRLOIN,STEAK,LN & FAT,0"" FAT,CHOIC,CKD,BRLD","URMIS #2237, Sirloin Steak, Sirloin strip",,Bone and connective tissue,3,
@@ -3574,6 +3591,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 13795,1300,1,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 1/8"" fat, all grades, raw","BEEF,COMP OF RTL CUTS,LN&FAT,1/8""FAT,ALL GRDS,RAW",,,No component data available,,
 13796,1300,1,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 1/8"" fat, all grades, cooked","BEEF,COMP OF RTL CUTS,LN&FAT,1/8""FAT,ALL GRDS,CKD",,,No component data available,,
 13797,1300,1,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 1/8"" fat, choice, raw","BEEF,COMP OF RTL CUTS,LN&FAT,1/8""FAT,CHOIC,RAW",,,No component data available,,
+14061,1400,1,"Beverages, Energy Drink, sugar free","BEVERAGES,ENERGY DRK,SUGAR FREE",,,,0,
 13798,1300,1,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 1/8"" fat, choice, cooked","BEEF,COMP OF RTL CUTS,LN&FAT,1/8""FAT,CHOIC,CKD",,,No component data available,,
 13799,1300,1,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 1/8"" fat, select, raw","BEEF,COMP OF RTL CUTS,LN&FAT,1/8""FAT,SEL,RAW",,,No component data available,,
 13800,1300,1,"Beef, composite of trimmed retail cuts, separable lean and fat, trimmed to 1/8"" fat, select, cooked","BEEF,COMP OF RTL CUTS,LN&FAT,1/8""FAT,SEL,CKD",,,No component data available,,
@@ -3609,6 +3627,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 13832,1300,1,"Beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8"" fat, select, cooked, roasted","BEEF,RIB,WHL (RIBS 6-12),LN&FAT,1/8""FAT,SEL,CKD,RSTD",,,Bone,17,
 13833,1300,1,"Beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8"" fat, prime, raw","BEEF,RIB,WHL (RIBS 6-12),LN&FAT,1/8""FAT,PRIME,RAW",URMIS #1986,,Bone,16,
 13834,1300,1,"Beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8"" fat, prime, cooked, broiled","BEEF,RIB,WHL (RIBS 6-12),LN&FAT,1/8""FAT,PRIME,CKD,BRLD",URMIS #1986,,Bone,19,
+99054,1600,2,"Soy cheese, mozzarella",,,,,,
 13835,1300,1,"Beef, rib, whole (ribs 6-12), separable lean and fat, trimmed to 1/8"" fat, prime, cooked, roasted","BEEF,RIB,WHL (RIBS 6-12),LN&FAT,1/8""FAT,PRIME,CKD,RSTD",URMIS #1986,,Bone,20,
 13838,1300,1,"Beef, rib, large end (ribs 6-9), separable lean and fat, trimmed to 1/8"" fat, all grades, raw","BEEF,RIB,LRG END (RIBS 6-9),LN&FAT,1/8""FAT,ALL GRDS,RAW",,,Bone,16,
 13839,1300,1,"Beef, rib, large end (ribs 6-9), separable lean and fat, trimmed to 1/8"" fat, all grades, cooked, broiled","BEEF,RIB,LRG END (RIBS 6-9),LN&FAT,1/8""FAT,ALL GRDS,CKD,BRLD",,,Bone,21,
@@ -3644,6 +3663,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 13868,1300,1,"Beef, round, bottom round, steak, separable lean and fat, trimmed to 1/8"" fat, all grades, raw","BEEF,RND,BTTM RND,STEAK,LN & FAT,1/8"" FAT,ALL GRDS,RAW",,,Bone and connective tissue,2,
 13869,1300,1,"Beef, round, bottom round, steak, separable lean and fat, trimmed to 1/8"" fat, all grades, cooked, braised","BEEF,RND,BTTM RND,STEAK,LN & FAT,1/8"" FAT,ALL GRDS,CKD,BRSD",,,Bone and connective tissue,5,
 13870,1300,1,"Beef, round, bottom round, roast, separable lean and fat, trimmed to 1/8"" fat, all grades, cooked, roasted","BEEF,RND,BTTM RND,RST,LN & FAT,1/8"" FAT,ALL GRDS,CKD,RSTD",,,Bone and connective tissue,2,
+14062,1400,1,"Beverages, ABBOTT, ENSURE, Nutritional Shake, Ready-to-Drink","BEVERAGES,ABBOTT,ENSURE,NUTRITIONAL SHAKE,RTD",,Abbott's Ross Products Division,,0,
 13871,1300,1,"Beef, round, bottom round, steak, separable lean and fat, trimmed to 1/8"" fat, choice, raw","BEEF,RND,BTTM RND,STEAK,LN & FAT,1/8"" FAT,CHOIC,RAW",URMIS #2279,,Bone and connective tissue,2,
 13872,1300,1,"Beef, round, bottom round, steak, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, braised","BEEF,RND,BTTM RND,STEAK,LN & FAT,1/8"" FAT,CHOIC,CKD,BRSD",URMIS #2279,,Bone and connective tissue,5,
 13873,1300,1,"Beef, round, bottom round, roast, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, roasted","BEEF,RND,BTTM RND,RST,LN & FAT,1/8"" FAT,CHOIC,CKD,RSTD",URMIS #2279,,Bone and connective tissue,2,
@@ -3707,6 +3727,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 13929,1300,1,"Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8"" fat, all grades, raw","BEEF,TOP SIRLOIN,STEAK,LN & FAT,1/8"" FAT,ALL GRDS,RAW","Sirloin strip, Sirloin steak",,Bone and connective tissue,3,
 13930,1300,1,"Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8"" fat, all grades, cooked, broiled","BEEF,TOP SIRLOIN,STEAK,LN & FAT,1/8"" FAT,ALL GRDS,CKD,BRLD","Sirloin strip, Sirloin steak",,Bone and connective tissue,4,
 13931,1300,1,"Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8"" fat, choice, raw","BEEF,TOP SIRLOIN,STEAK,LN & FAT,1/8"" FAT,CHOIC,RAW","URMIS #2237, Sirloin steak, Sirloin strip",,Bone and connective tissue,3,
+14063,1400,1,"Beverages, chocolate powder, no sugar added","BEVERAGES,CHOC PDR,NO SUGAR ADDED",,"Nestle USA, Inc.",,0,
 13932,1300,1,"Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, broiled","BEEF,TOP SIRLOIN,STEAK,LN & FAT,1/8"" FAT,CHOIC,CKD,BRLD","URMIS #2237, Sirloin steak, Sirloin strip",,Bone and connective tissue,4,
 13933,1300,1,"Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, pan-fried","BEEF,TOP SIRLOIN,STEAK,LN & FAT,1/8"" FAT,CHOIC,CKD,PAN-FRIED","URMIS #2237, Sirloin steak, Sirloin strip",,Connective tissue,2,
 13934,1300,1,"Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8"" fat, select, raw","BEEF,TOP SIRLOIN,STEAK,LN & FAT,1/8"" FAT,SEL,RAW","URMIS #1422, Sirloin steak, Sirloin strip",,Bone and connective tissue,3,
@@ -3783,12 +3804,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 14054,1400,1,"Beverages, almond milk, chocolate, ready-to-drink","BEVERAGES,ALMOND MILK,CHOC,RTD",,,,0,
 14055,1400,1,"Beverages, UNILEVER, SLIMFAST Shake Mix, high protein, whey powder, 3-2-1 Plan,","BEVERAG,UNILEV,SLIMFAST SHAKE ,HI PROT,WHEY PDR,3-2-1 PLAN,",,Unilever,,0,
 14056,1400,1,"Beverages, Acai berry drink, fortified","BEVERAGES,ACAI BERRY DRK,FORT",,,,0,
-14057,1400,1,"Alcoholic beverage, wine, dessert, sweet","ALCOHOLIC BEV,WINE,DSSRT,SWT",,,,0,
-14058,1400,1,"Beverages, Whey protein powder isolate","BEVERAGES,WHEY PROT PDR ISOLATE",,,,0,
-14060,1400,1,"Beverages, Energy Drink with carbonated water and high fructose corn syrup","BEVERAGES,ENERGY DRK W/ CARB H2O & HI FRUCTOSE CORN SYRUP",,,,0,
-14061,1400,1,"Beverages, Energy Drink, sugar free","BEVERAGES,ENERGY DRK,SUGAR FREE",,,,0,
-14062,1400,1,"Beverages, ABBOTT, ENSURE, Nutritional Shake, Ready-to-Drink","BEVERAGES,ABBOTT,ENSURE,NUTRITIONAL SHAKE,RTD",,Abbott's Ross Products Division,,0,
-14063,1400,1,"Beverages, chocolate powder, no sugar added","BEVERAGES,CHOC PDR,NO SUGAR ADDED",,"Nestle USA, Inc.",,0,
 14064,1400,1,"Beverages, Orange juice, light, No pulp","BEVERAGES,ORANGE JUC,LT,NO PULP",,,,0,
 14065,1400,1,"Beverages, The COCA-COLA company, Hi-C Flashin' Fruit Punch","BEVERAGES,THE COCA-COLA COMPANY,HI-C FLASHIN' FRUIT PUNCH",,The Coca-Cola Company,,0,
 14066,1400,1,"Beverages, Protein powder whey based","BEVERAGES,PROT PDR WHEY BSD",,,,0,
@@ -3840,6 +3855,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 14143,1400,1,"Beverages, carbonated, low calorie, other than cola or pepper,  without caffeine","BEVERAGES,CARB,LO CAL,OTHER THAN COLA OR PEPPER,WO/ CAFFEINE","soft drink, pop, soda",,,0,
 14144,1400,1,"Beverages, carbonated, lemon-lime soda, no caffeine","BEVERAGES,CARB,LEMON-LIME SODA,NO CAFFEINE","white soda, soft drink, pop",,,0,
 14145,1400,1,"Beverages, carbonated, SPRITE, lemon-lime, without caffeine","BEVERAGES,CARB,SPRITE,LEMON-LIME,WO/ CAFFEINE","soft drink, white soda, pop",The Coca-Cola Company,,0,
+99056,1600,2,"Soy cheese, parmesan",,,,,,
 14146,1400,1,"Beverages, carbonated, low calorie, cola or pepper-type, with aspartame, without caffeine","BEVERAGES,CARB,LO CAL,COLA OR PEPPER-TYPE,W/ ASPRT,WO/ CAF","soft drink, pop, soda",,,0,
 14147,1400,1,"Beverages, carbonated, cola, without caffeine","BEVERAGES,CARB,COLA,WO/ CAFFEINE","soft drink, pop, soda",,,0,
 14148,1400,1,"Beverages, carbonated, cola, regular","BEVERAGES,CARB,COLA,REG","soft drink, pop, soda",,,0,
@@ -3941,6 +3957,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 14267,1400,1,"Beverages, Fruit punch drink, with added nutrients, canned","BEVERAGES,FRUIT PUNCH DRK,W/ ADDED NUTR,CND",,,,0,
 14268,1400,1,"Beverages, Fruit punch drink, frozen concentrate","BEVERAGES,FRUIT PUNCH DRK,FRZ CONC",,,,0,
 14269,1400,1,"Beverages, Fruit punch drink, frozen concentrate, prepared with water","BEVERAGES,FRUIT PUNCH DRK,FRZ CONC,PREP W/ H2O",,,,0,
+99060,1600,2,"Soy protein concentrate, aqueous washed",,,,,,
 14270,1400,1,"Beverages, coffee, instant, vanilla, sweetened, decaffeinated, with non dairy creamer","BEVERAGES,COFFEE,INST,VANILA,SWTND,DECAFF,W/ NON DAIRY CREAM",,,,0,
 14276,1400,1,"Beverages, Tropical Punch, ready-to-drink","BEVERAGES,TROPICAL PUNCH,RTD",,"Kraft Foods, Inc.",,0,
 14277,1400,1,"Beverages, grape drink, canned","BEVERAGES,GRAPE DRK,CND",,,,0,
@@ -4039,6 +4056,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 14542,1400,1,"Lemonade, frozen concentrate, pink","LEMONADE,FRZ CONC,PINK",,,,0,
 14543,1400,1,"Beverages, lemonade, frozen concentrate, pink, prepared with water","BEVERAGES,LEMONADE,FRZ CONC,PINK,PREP W/ H2O",,,,0,
 14544,1400,1,"Beverages, tea, black, brewed, prepared with distilled water","BEVERAGES,TEA,BLACK,BREWED,PREP W/ DISTILLED H2O",,,,0,
+14653,1400,2,"Tea, green, brewed",,,,,,
 14545,1400,1,"Beverages, tea, herb, brewed, chamomile","BEVERAGES,TEA,HERB,BREWED,CHAMOMILE",,,,0,
 14548,1400,1,"Beverages, tea, instant, lemon, with added ascorbic acid","BEVERAGES,TEA,INST,LEMON,W/ ADDED VIT C",,,,0,
 14550,1400,1,"Alcoholic beverage, distilled, all (gin, rum, vodka, whiskey) 86 proof","ALCOHOLIC BEV,DISTILLED,ALL (GIN,RUM,VODKA,WHISKEY) 86 PROOF",,,,0,
@@ -4145,6 +4163,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 15047,1500,1,"Fish, mackerel, Atlantic, cooked, dry heat","MACKEREL,ATLANTIC,CKD,DRY HEAT",,,,0,
 15048,1500,1,"Fish, mackerel, jack, canned, drained solids","MACKEREL,JACK,CND,DRND SOL",,,,0,Trachurus symmetricus (Ayers)
 15049,1500,1,"Fish, mackerel, king, raw","MACKEREL,KING,RAW",,,,0,Scombermorus cavalla (Cuvier)
+15111,1500,1,"Fish, swordfish, cooked, dry heat","SWORDFISH,COOKED,DRY HEAT",,,,0,
 15050,1500,1,"Fish, mackerel, Pacific and jack, mixed species, raw","MACKEREL,PACIFIC&JACK,MXD SP,RAW",,,,0,Scomber spp. and Trachurus spp.
 15051,1500,1,"Fish, mackerel, spanish, raw","MACKEREL,SPANISH,RAW",,,,0,Scombermorus maculatus (Mitchill)
 15052,1500,1,"Fish, mackerel, spanish, cooked, dry heat","MACKEREL,SPANISH,CKD,DRY HEAT",,,,0,
@@ -4206,7 +4225,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 15108,1500,1,"Fish, sunfish, pumpkin seed, raw","SUNFISH,PUMPKIN SEED,RAW",,,,0,Lepomis gibbosus (L.)
 15109,1500,1,"Fish, surimi",SURIMI,,,,0,
 15110,1500,1,"Fish, swordfish, raw","SWORDFISH,RAW",,,,0,Xiphias gladius L.
-15111,1500,1,"Fish, swordfish, cooked, dry heat","SWORDFISH,COOKED,DRY HEAT",,,,0,
 15112,1500,1,"Fish, tilefish, raw","TILEFISH,RAW",,,,0,Lopholatilus chamaeleonticeps Goode and Bean
 15113,1500,1,"Fish, tilefish, cooked, dry heat","TILEFISH,COOKED,DRY HEAT",,,,0,
 15114,1500,1,"Fish, trout, mixed species, raw","TROUT,MIXED SPECIES,RAW",,,,0,Salmonidae
@@ -4327,6 +4345,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 15232,1500,1,"Fish, roughy, orange, cooked, dry heat","ROUGHY,ORANGE,CKD,DRY HEAT",,,,0,
 15233,1500,1,"Fish, catfish, channel, wild, cooked, dry heat","CATFISH,CHANNEL,WILD,CKD,DRY HEAT",,,,0,
 15234,1500,1,"Fish, catfish, channel, farmed, raw","CATFISH,CHANNEL,FARMED,RAW",,,,0,Ictalurus punctatus (Rafinesque)
+97043,900,2,"Plum, red, whole, raw",,,,,,
 15235,1500,1,"Fish, catfish, channel, farmed, cooked, dry heat","CATFISH,CHANNEL,FARMED,CKD,DRY HEAT",,,,0,
 15236,1500,1,"Fish, salmon, Atlantic, farmed, raw","SALMON,ATLANTIC,FARMED,RAW",,,,0,Salmo salar L.
 15237,1500,1,"Fish, salmon, Atlantic, farmed, cooked, dry heat","SALMON,ATLANTIC,FARMED,CKD,DRY HEAT",,,,0,
@@ -4384,6 +4403,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 16028,1600,1,"Beans, kidney, all types, mature seeds, cooked, boiled, without salt","BEANS,KIDNEY,ALL TYPES,MATURE SEEDS,CKD,BLD,WO/SALT",,,,0,
 16029,1600,1,"Beans, kidney, all types, mature seeds, canned","BEANS,KIDNEY,ALL TYPES,MATURE SEEDS,CND",,,,0,
 16030,1600,1,"Beans, kidney, california red, mature seeds, raw","BEANS,KIDNEY,CALIFORNIA RED,MATURE SEEDS,RAW",,,,0,Phaseolus vulgaris
+16398,1600,1,"Peanut butter, smooth style, without salt","PEANUT BUTTER,SMOOTH STYLE,WO/SALT",,,,0,
 16031,1600,1,"Beans, kidney, california red, mature seeds, cooked, boiled, without salt","BEANS,KIDNEY,CALIFORNIA RED,MATURE SEEDS,CKD,BLD,WO/SALT",,,,0,
 16032,1600,1,"Beans, kidney, red, mature seeds, raw","BEANS,KIDNEY,RED,MATURE SEEDS,RAW",,,,0,Phaseolus vulgaris
 16033,1600,1,"Beans, kidney, red, mature seeds, cooked, boiled, without salt","BEANS,KIDNEY,RED,MATURE SEEDS,CKD,BLD,WO/SALT",,,,0,
@@ -4613,7 +4633,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 16394,1600,1,"Peanuts, valencia, oil-roasted, without salt","PEANUTS,VALENCIA,OIL-ROASTED,WO/SALT",,,,0,
 16396,1600,1,"Peanuts, virginia, oil-roasted, without salt","PEANUTS,VIRGINIA,OIL-ROASTED,WO/SALT",,,,0,
 16397,1600,1,"Peanut butter, chunk style, without salt","PEANUT BUTTER,CHUNK STYLE,WO/SALT",,,,0,
-16398,1600,1,"Peanut butter, smooth style, without salt","PEANUT BUTTER,SMOOTH STYLE,WO/SALT",,,,0,
 16399,1600,1,"Peanut butter with omega-3, creamy","PEANUT BUTTER W/ OMEGA-3,CREAMY",,,,0,
 16402,1600,1,"Pigeon peas (red gram), mature seeds, cooked, boiled, with salt","PIGEON PEAS (RED GM),MATURE SEEDS,CKD,BLD,W/SALT",,,,0,
 16403,1600,1,"Refried beans, canned, traditional, reduced sodium","REFRIED BNS,CND,TRADITIONAL,RED NA",,,,0,
@@ -4893,6 +4912,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 17260,1700,1,"Lamb, New Zealand, imported, frozen, loin, separable lean and fat, trimmed to 1/8"" fat, raw","LAMB,NZ,IMP,FRZ,LOIN,LN & FAT,1/8"" FAT,RAW",,,Bone,26,
 17261,1700,1,"Lamb, New Zealand, imported, frozen, loin, separable lean and fat, trimmed to 1/8"" fat, cooked, broiled","LAMB,NZ,IMP,FRZ,LOIN,LN & FAT,1/8"" FAT,CKD,BRLD",,,Bone,28,
 17262,1700,1,"Lamb, new zealand, imported, frozen, rib, separable lean and fat, trimmed to 1/8"" fat, raw","LAMB,NZ,IMP,FRZ,RIB,LN&FAT,1/8""FAT,RAW",,,Bone,33,
+18055,1800,1,"Bread, reduced-calorie, wheat","BREAD,RED-CAL,WHEAT",,,,0,
 17263,1700,1,"Lamb, New Zealand, imported, frozen, rib, separable lean and fat, trimmed to 1/8"" fat, cooked, roasted","LAMB,NZ,IMP,FRZ,RIB,LN & FAT,1/8"" FAT,CKD,RSTD",,,Bone,34,
 18051,1800,1,"Bread, reduced-calorie, oatmeal","BREAD,RED-CAL,OATMEAL",,,,0,
 97030,2000,2,"Sorghum bran, Sumac",,,,,,
@@ -5013,7 +5033,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 17378,1700,1,"Lamb, New Zealand, imported, tongue - swiss cut, cooked, soaked and simmered","LAMB,NZ,IMP,TONGUE - SWISS CUT,CKD,SOAKED & SIMMRD",,,Connective tissue 12% Separable fat 6%,18,
 17379,1700,1,"Lamb, New Zealand, imported, tongue - swiss cut, raw","LAMB,NZ,IMP,TONGUE - SWISS CUT,RAW",,,Connective tissue 18% Separable fat 8%,26,
 18053,1800,1,"Bread, reduced-calorie, rye","BREAD,REDUCED-CALORIE,RYE",,,,0,
-18055,1800,1,"Bread, reduced-calorie, wheat","BREAD,RED-CAL,WHEAT",,,,0,
 17380,1700,1,"Lamb, New Zealand, imported, tunnel-boned leg, chump off, shank off, separable lean only, cooked, slow roasted","LAMB,NZ,IMP,TUNNEL-BNED LG,CHMP OFF,SHNK OFF,LN,CKD,SLW RSTD",,,Separable fat 10%,10,
 17381,1700,1,"Lamb, New Zealand, imported, tunnel-boned leg, chump off, shank off, separable lean only, raw","LAMB,NZ,IMP,TUNNEL-BONED LEG,CHUMP OFF,SHANK OFF,LN,RAW",,,Separable fat 15%,15,
 17382,1700,1,"Lamb, New Zealand, imported, square-cut shoulder chops, separable lean only, cooked, braised","LAMB,NZ,IMP,SQUARE-CUT SHLDR CHOPS,LN,CKD,BRSD",,,Bone and connective tissue 26% Separable fat 13%,39,
@@ -5052,6 +5071,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 17415,1700,1,"Lamb, New Zealand, imported, square-cut shoulder chops, separable lean and fat, cooked, braised","LAMB,NZ,IMP,SQUARE-CUT SHLDR CHOPS,LN & FAT,CKD,BRSD",,,Bone and connective tissue26,26,
 17416,1700,1,"Lamb, New Zealand, imported, square-cut shoulder chops, separable lean and fat, raw","LAMB,NZ,IMP,SQUARE-CUT SHLDR CHOPS,LN & FAT,RAW",,,Bone and connective tissue 23%,23,
 18057,1800,1,"Bread, reduced-calorie, white","BREAD,RED-CAL,WHITE",,,,0,
+18306,1800,1,"Pie, blueberry, prepared from recipe","PIE,BLUEBERRY,PREP FROM RECIPE",,,,0,
 17417,1700,1,"Lamb, New Zealand, imported, square-cut shoulder, separable lean and fat, cooked, slow roasted","LAMB,NZ,IMP,SQUARE-CUT SHLDR,LN & FAT,CKD,SLOW RSTD",,,Bone and connective tissue 27%,27,
 17418,1700,1,"Lamb, New Zealand, imported, tenderloin, separable lean and fat, cooked, fast fried","LAMB,NZ,IMP,TENDERLOIN,LN & FAT,CKD,FAST FRIED",,,,0,
 17419,1700,1,"Lamb, New Zealand, imported, rack - fully frenched, separable lean and fat, cooked, fast roasted","LAMB,NZ,IMP,RACK - FULLY FRENCHED,LN & FAT,CKD,FAST RSTD",,,Bone and connective tissue 25%,25,
@@ -5091,6 +5111,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 17453,1700,1,"Lamb, Australian, imported, fresh, leg, bottom, boneless, separable lean and fat, trimmed to 1/8"" fat, cooked, roasted","LAMB,AUS,IMP,FRSH,LEG,BTTM,BNLESS,LN & FAT,1/8"" FAT,CKD,RSTD",URMIS #2973,,Connective tissue 7%,7,
 17454,1700,1,"Lamb, Australian, imported, fresh, leg, bottom, boneless, separable lean and fat, trimmed to 1/8"" fat, raw","LAMB,AUS,IMP,FRSH,LEG,BTTM,BNLESS,LN & FAT,1/8"" FAT,RAW",URMIS #2973,,Connective tissue 5%,5,
 18059,1800,1,"Bread, rice bran","BREAD,RICE BRAN",,,,0,
+18308,1800,1,"Pie, cherry, commercially prepared","PIE,CHERRY,COMMLY PREP",,,,0,
 17455,1700,1,"Lamb, Australian, imported, fresh, leg, hindshank, heel on, bone-in, separable lean and fat, trimmed to 1/8"" fat, cooked, braised","LAMB,AUS,FRSH,LEG,HINDSHANK,HEEL ON,BNE-IN,LN & FT,1/8"",BRSD",URMIS #2969,,Bone and connective tissue 50%,50,
 17456,1700,1,"Lamb, Australian, imported, fresh, leg, hindshank, heel on, bone-in, separable lean and fat, trimmed to 1/8"" fat, raw","LAMB,AUS,FRSH,LEG,HINDSHANK,HEEL ON,BNE-IN,LN & FAT,1/8"",RAW",URMIS #2969,,Bone and connective tissue 40%,40,
 17457,1700,1,"Lamb, Australian, imported, fresh, leg, trotter off, bone-in, separable lean and fat, trimmed to 1/8"" fat, cooked, roasted","LAMB,AUS,FRSH,LEG,TROTTER OFF,BONE-IN,LN & FAT,1/8"" FAT,RSTD",URMIS #2994,,Bone and connective tissue 29%,29,
@@ -5201,6 +5222,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 18160,1800,1,"Cookies, chocolate chip, commercially prepared, soft-type","COOKIES,CHOC CHIP,COMMLY PREP,SOFT-TYPE",,,,0,
 18161,1800,1,"Cookies, chocolate chip, dry mix","COOKIES,CHOC CHIP,DRY MIX",,,,0,
 18163,1800,1,"Cookies, chocolate chip, refrigerated dough","COOKIES,CHOC CHIP,REFR DOUGH",,,,0,
+99011,1100,2,"Tomatoes, cherry, raw",,,,,,
 18164,1800,1,"Cookies, chocolate chip, refrigerated dough, baked","COOKIES,CHOC CHIP,REFR DOUGH,BKD",,,,0,
 18165,1800,1,"Cookies, chocolate chip, prepared from recipe, made with margarine","COOKIES,CHOC CHIP,PREP FROM RECIPE,MADE W/MARGARINE",,,,0,
 18166,1800,1,"Cookies, chocolate sandwich, with creme filling, regular","COOKIES,CHOC SNDWCH,W/CREME FILLING,REG",,,,0,
@@ -5322,8 +5344,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 18303,1800,1,"Pie, banana cream, prepared from mix, no-bake type","PIE,BANANA CRM,PREP FROM MIX,NO-BAKE TYPE",,,,0,
 18304,1800,1,"Pie, banana cream, prepared from recipe","PIE,BANANA CRM,PREP FROM RECIPE",,,,0,
 18305,1800,1,"Pie, blueberry, commercially prepared","PIE,BLUEBERRY,COMMLY PREP",,,,0,
-18306,1800,1,"Pie, blueberry, prepared from recipe","PIE,BLUEBERRY,PREP FROM RECIPE",,,,0,
-18308,1800,1,"Pie, cherry, commercially prepared","PIE,CHERRY,COMMLY PREP",,,,0,
 18309,1800,1,"Pie, cherry, prepared from recipe","PIE,CHERRY,PREP FROM RECIPE",,,,0,
 18310,1800,1,"Pie, chocolate creme, commercially prepared","PIE,CHOC CREME,COMMLY PREP",,,,0,
 18312,1800,1,"Pie, chocolate mousse, prepared from mix, no-bake type","PIE,CHOC MOUSSE,PREP FROM MIX,NO-BAKE TYPE",,,,0,
@@ -5442,6 +5462,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 18527,1800,1,"Archway Home Style Cookies, Date Filled Oatmeal","ARCHWAY HOME STYLE COOKIES,DATE FILLED OATMEAL",,Archway Cookies,,0,
 18528,1800,1,"Archway Home Style Cookies, Dutch Cocoa","ARCHWAY HOME STYLE COOKIES,DUTCH COCOA",,Archway Cookies,,0,
 18529,1800,1,"Archway Home Style Cookies, Frosty Lemon","ARCHWAY HOME STYLE COOKIES,FROSTY LEMON",,Archway Cookies,,0,
+99016,1800,2,Greek greens pie (prepared from wild greens),,,,,,
 18532,1800,1,"Archway Home Style Cookies, Iced Molasses","ARCHWAY HOME STYLE COOKIES,ICED MOLASSES",,Archway Cookies,,0,
 18533,1800,1,"Archway Home Style Cookies, Iced Oatmeal","ARCHWAY HOME STYLE COOKIES,ICED OATMEAL",,Archway Cookies,,0,
 18535,1800,1,"Archway Home Style Cookies, Molasses","ARCHWAY HOME STYLE COOKIES,MOLASSES",,Archway Cookies,,0,
@@ -5552,6 +5573,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 19041,2500,1,"Snacks, pork skins, plain","PORK SKINS,PLAIN",,,,0,
 19042,2500,1,"Snacks, potato chips, barbecue-flavor","POTATO CHIPS,BARBECUE-FLAVOR",,,,0,
 19043,2500,1,"Snacks, potato chips, sour-cream-and-onion-flavor","POTATO CHIPS,SOUR-CREAM-AND-ONION-FLAVOR",,,,0,
+99022,1600,2,"Marrowfat pea, canned, drained solids",,,,,,
 19045,2500,1,"Snacks, potato chips, made from dried potatoes, reduced fat","POTATO CHIPS,MADE FROM DRIED POTATOES,LT",,,,0,
 19046,2500,1,"Snacks, potato chips, made from dried potatoes, sour-cream and onion-flavor","POTATO CHIPS,MADE FR DRIED POTATOES,SOUR-CREAM&ONION-FLAVOR",,,,0,
 19047,2500,1,"Snacks, pretzels, hard, plain, salted","PRETZELS,HARD,PLN,SALTED",,,,0,
@@ -5729,6 +5751,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 19246,1900,1,"Frostings, white, fluffy, dry mix","FROSTINGS,WHITE,FLUFFY,DRY MIX",,,,0,
 19247,1900,1,"Frostings, white, fluffy, dry mix, prepared with water","FROSTINGS,WHITE,FLUFFY,DRY MIX,PREP W/H2O",,,,0,
 19248,1900,1,"Candies, HERSHEY'S, ALMOND JOY BITES","CANDIES,HERSHEY'S,ALMOND JOY BITES",,Hershey Food Corp.,,0,
+19333,1900,1,"Pudding, lemon, dry mix, regular, prepared with sugar, egg yolk and water","PUDDING,LEMON,DRY MIX,REG,PREP W/ SUGAR,EGG YOLK & H2O",,,,0,
 19249,1900,1,"Candies, HERSHEY, REESESTICKS crispy wafers, peanut butter, milk chocolate","CANDIES,HERSHEY,REESESTICKS CRISPY WAFERS,PNUT BUT,MILK CHOC",,Hershey Food Corp.,,0,
 19250,1900,1,"Candies, HERSHEY, KIT KAT BIG KAT Bar","CANDIES,HERSHEY,KIT KAT BIG KAT BAR",,Hershey Food Corp.,,0,
 19252,1900,1,"Candies, REESE'S, FAST BREAK, milk chocolate peanut butter and soft nougats","CANDIES,REESE'S,FAST BREAK,MILK CHOC PNT BTR & SFT NUGTS",,Hershey Food Corp.,,0,
@@ -5784,10 +5807,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 19330,1900,1,"Puddings, lemon, dry mix, instant","PUDDINGS,LEMON,DRY MIX,INST",,,,0,
 19331,1900,1,"Puddings, lemon, dry mix, instant, prepared with whole milk","PUDDINGS,LEMON,DRY MIX,INST,PREP W/ WHL MILK",,,,0,
 19332,1900,1,"Puddings, lemon, dry mix, regular","PUDDINGS,LEMON,DRY MIX,REG",,,,0,
-19333,1900,1,"Pudding, lemon, dry mix, regular, prepared with sugar, egg yolk and water","PUDDING,LEMON,DRY MIX,REG,PREP W/ SUGAR,EGG YOLK & H2O",,,,0,
-19334,1900,1,"Sugars, brown","SUGARS,BROWN",,,,0,
-19335,1900,1,"Sugars, granulated","SUGARS,GRANULATED",sucrose,,,0,
-19336,1900,1,"Sugars, powdered","SUGARS,POWDERED",,,,0,
 19337,1900,1,"Sweeteners, tabletop, aspartame, EQUAL, packets","SWEETENERS,TABLETOP,ASPRT,EQ,PACKETS",,Merisant Company,,0,
 19340,1900,1,"Sugars, maple","SUGARS,MAPLE",,,,0,
 19345,1900,1,"Syrups, chocolate, HERSHEY'S Genuine Chocolate Flavored Lite Syrup","SYRUPS,CHOC,HERSHEY'S GENUINE CHOC FLAV LITE SYRUP",,Hershey Food Corp.,,0,
@@ -5898,6 +5917,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 19876,1900,1,"Ice creams, BREYERS, All Natural Light French Vanilla","ICE CREAMS,BREYERS,ALL NAT LT FRENCH VANILLA",,Good Humor - Breyers Ice Cream,,0,
 19877,1900,1,"Ice creams, BREYERS, 98% Fat Free Vanilla","ICE CREAMS,BREYERS,98% FAT FREE VANILLA",,Good Humor - Breyers Ice Cream,,0,
 19878,1900,1,"Ice creams, BREYERS, All Natural Light Vanilla Chocolate Strawberry","ICE CREAMS,BREYERS,ALL NAT LT VANILLA CHOC STRAWBERRY",,Good Humor - Breyers Ice Cream,,0,
+20020,2000,1,"Cornmeal, whole-grain, yellow","CORNMEAL,WHOLE-GRAIN,YEL",,,,0,
 19879,1900,1,"Ice creams, BREYERS, All Natural Light Mint Chocolate Chip","ICE CREAMS,BREYERS,ALL NAT LT MINT CHOC CHIP",,Good Humor - Breyers Ice Cream,,0,
 19880,1900,1,"Ice creams, BREYERS, No Sugar Added, Butter Pecan","ICE CREAMS,BREYERS,NO SUGAR ADDED,BUTTER PECAN",,Good Humor - Breyers Ice Cream,,0,
 19881,1900,1,"Ice creams, BREYERS, No Sugar Added, French Vanilla","ICE CREAMS,BREYERS,NO SUGAR ADDED,FRENCH VANILLA",,Good Humor - Breyers Ice Cream,,0,
@@ -5955,7 +5975,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 20017,2000,1,"Corn flour, masa, enriched, white","CORN FLR,MASA,ENR,WHITE",,,,0,
 20018,2000,1,"Corn flour, yellow, degermed, unenriched","CORN FLR,YEL,DEGERMED,UNENR",,,,0,
 20019,2000,1,"Corn flour, masa, unenriched, white","CORN FLR,MASA,UNENR,WHITE",,,,0,
-20020,2000,1,"Cornmeal, whole-grain, yellow","CORNMEAL,WHOLE-GRAIN,YEL",,,,0,
 20022,2000,1,"Cornmeal, degermed, enriched, yellow","CORNMEAL,DEGERMED,ENR,YEL",,,,0,
 20023,2000,1,"Cornmeal, yellow, self-rising, bolted, plain, enriched","CORNMEAL,YEL,SELF-RISING,BOLTED,PLN,ENR",,,,0,
 20024,2000,1,"Cornmeal, yellow, self-rising, bolted, with wheat flour added, enriched","CORNMEAL,YEL,SELF-RISING,BOLTED,W/ WHEAT FLR ADDED,ENR",,,,0,
@@ -6528,6 +6547,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23071,1300,1,"Beef, chuck eye Country-Style ribs, boneless, separable lean only, trimmed to 0"" fat, all grades, cooked, braised","BF,CHK EYE CNTRY-STL RIBS,BNLS,LN,0"" FAT,ALL GRDS, CKD, BRSD","Beef, Chuck, Bnls, Country Style Beef Ribs, URMIS #1096",,"Connective tissue 9%, seam fat 17%",26,
 23072,1300,1,"Beef, chuck eye Country-Style ribs, boneless, separable lean only, trimmed to 0"" fat, choice, raw","BEEF,CHUCK EYE COUNTRY-STYLE RIBS,BNLESS,LN,0"" FAT,CHOIC,RAW","Beef, Chuck, Bnls Country Style Beef Ribs, URMIS #1096",,"Connective tissue 8%, seam fat 14%",22,
 23073,1300,1,"Beef, chuck eye Country-Style ribs, boneless, separable lean only, trimmed to 0"" fat, select, raw","BEEF,CHUCK EYE COUNTRY-STYLE RIBS,BNLESS,LN,0"" FAT,SEL,RAW","Beef, Chuck, Bnls Country Style Beef Ribs, URMIS #1096",,"Connective tissue 10%, seam fat 13%",23,
+25051,2500,1,"Snacks, CLIF BAR, mixed flavors","Snacks, CLIF BAR, mixed flavors",,,,0,
 23074,1300,1,"Beef, chuck eye Country-Style ribs, boneless, separable lean only, trimmed to 0"" fat, all grades, raw","BEEF,CHK EYE COUNTRY-STYLE RIBS,BNLS,LN,0"" FAT,ALL GRDS, RAW","Beef, Chuck, Bnls Country Style Beef Ribs, URMIS #1096",,"Connective tissue 9%, seam fat 13%",22,
 23075,1300,1,"Beef, chuck eye steak, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, grilled","BEEF,CHUCK EYE STEAK,BNLESS,LN,0"" FAT,CHOIC,CKD,GRILLED","Beef, Chuck, Chuck Eye Steaks, URMIS #1102",,"Connective tissue 6%, seam fat 18%",24,
 23076,1300,1,"Beef, chuck eye steak, boneless, separable lean only, trimmed to 0"" fat, select, cooked, grilled","BEEF,CHUCK EYE STEAK,BNLESS,LN,0"" FAT,SEL,CKD,GRILLED","Beef, Chuck, Chuck Eye Steaks, URMIS #1102",,"Connective tissue 5%, seam fat 17%",22,
@@ -6586,6 +6606,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23127,1300,1,"Beef, chuck, short ribs, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, braised","BEEF,CHUCK,SHRT RIBS,BNLESS,LN & FAT,0"" FAT,SEL,CKD,BRSD","Beef, Chuck, Short Ribs, URMIS #1127",,Connective tissue 6%,6,
 23128,1300,1,"Beef, chuck, short ribs, boneless, separable lean and fat, trimmed to 0"" fat, all grades, raw","BEEF,CHUCK,SHRT RIBS,BNLESS,LN & FAT,0"" FAT,ALL GRDS,RAW",URMIS #1127,,Connective tissue 7%,7,
 23129,1300,1,"Beef, chuck, short ribs, boneless, separable lean and fat, trimmed to 0"" fat, choice, raw","BEEF,CHUCK,SHRT RIBS,BNLESS,LN & FAT,0"" FAT,CHOIC,RAW","Beef, Chuck, Short Ribs, URMIS #1127",,Connective tissue 7%,7,
+23419,1300,1,"Beef, New Zealand, imported, intermuscular fat, cooked","BEEF,NZ,IMP,INTERMUSCULAR FAT,CKD",,,,,
 23130,1300,1,"Beef, chuck, short ribs, boneless, separable lean and fat, trimmed to 0"" fat, select, raw","BEEF,CHUCK,SHRT RIBS,BNLESS,LN & FAT,0"" FAT,SEL,RAW","Beef, Chuck, Short Ribs, URMIS #1127",,Connective tissue 6%,6,
 23131,1300,1,"Beef, shoulder pot roast, boneless, separable lean and fat, trimmed to 0"" fat, all grades, cooked, braised","BEEF,SHLDR POT RST,BNLESS,LN & FAT,0"" FAT,ALL GRDS,CKD,BRSD","Beef, Chuck, Clod (Shoulder) Roast, URMIS #1132",,Connective tissue 8%,8,
 23132,1300,1,"Beef, shoulder pot roast, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, braised","BEEF,SHLDR POT RST,BNLESS,LN & FAT,0"" FAT,CHOIC,CKD,BRSD","Beef, Chuck, Clod (Shoulder) Roast, URMIS #1132",,Connective tissue 8%,8,
@@ -6615,6 +6636,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23155,1300,1,"Beef, rib eye steak/roast, boneless, lip-on, separable lean only, trimmed to 1/8"" fat, select, raw","BEEF,RIB EYE STEAK/ROAST,BNLESS,LIP-ON,LN,1/8"" FAT,SEL,RAW",URMIS #1203/1194,,"Connective tissue 3%, Separable fat 18%",21,
 23156,1300,1,"Beef, rib eye steak, bone-in, lip-on, separable lean only, trimmed to 1/8"" fat, all grades, cooked, grilled","BEEF,RIB EYE STK,BNE-IN,LIP-ON,LN,1/8"" FAT,ALL GRDS,CKD,GRLD",,,"Bone and connective tissue 19%, Separable fat 19%",38,
 23157,1300,1,"Beef, rib eye steak, bone-in, lip-on, separable lean only, trimmed to 1/8"" fat, choice, cooked, grilled","BEEF,RIB EYE STEAK,BONE-IN,LIP-ON,LN,1/8"" FAT,CHOIC,CKD,GRLD",URMIS #2012,,"Bone and connective tissue 19%, Separable fat 19%",38,
+23415,1300,1,"Beef, New Zealand, imported, variety meats and by-products, heart, raw","BEEF,NZ,IMP,VAR MEATS & BY-PRODUCTS,HEART,RAW",,,Separable fat 12%,12,
 23158,1300,1,"Beef, rib eye steak, bone-in, lip-on, separable lean only, trimmed to 1/8"" fat, select, cooked, grilled","BEEF,RIB EYE STEAK,BONE-IN,LIP-ON,LN,1/8"" FAT,SEL,CKD,GRILD",URMIS #1197,,"Bone and connective tissue 20%, Separable fat 19%",39,
 23159,1300,1,"Beef, rib eye roast, boneless, lip-on, separable lean only, trimmed to 1/8"" fat, all grades, cooked, roasted","BEEF,RIB EYE RST,BNLESS,LIP-ON,LN,1/8"" FAT,ALL GRDS,CKD,RSTD",,,"Connective tissue 5%, Separable fat 19%",24,
 23160,1300,1,"Beef, rib eye roast, boneless, lip-on, separable lean only, trimmed to 1/8"" fat, choice, cooked, roasted","BEEF,RIB EYE RST,BNLESS,LIP-ON,LN,1/8"" FAT,CHOIC,CKD,RSTD",URMIS #2009,,"connective tissue 6%, Separable fat 19%",25,
@@ -6646,6 +6668,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23186,1300,1,"Beef, rib eye steak, bone-in, lip-on, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, grilled","BEEF,RIB EYE STK,BNE-IN,LIP-ON,LN & FT,1/8"" FAT,CHOC,CKD,GRL",URMIS #2012,,Bone and connective tissue 19%,19,
 23187,1300,1,"Beef, rib eye steak, bone-in, lip-on, separable lean and fat, trimmed to 1/8"" fat, select, cooked, grilled","BEEF,RIB EYE STK,BNE-IN,LIP-ON,LN & FT,1/8"" FAT,SEL,CKD,GRLD",URMIS #1197,,Bone and connective tissue 20%,20,
 23188,1300,1,"Beef, rib eye steak, bone-in, lip-on, separable lean and fat, trimmed to 1/8"" fat, all grades, cooked, grilled","BEEF,RIB EYE STK,BN-IN,LIP-ON,LN & FT,1/8"" FT,AL GDS,CKD,GRL",,,Bone and connective tissue 19%,19,
+23420,1300,1,"Beef, New Zealand, imported, intermuscular fat, raw","BEEF,NZ,IMP,INTERMUSCULAR FAT,RAW",,,,,
 23189,1300,1,"Beef, rib eye roast, bone-in, lip-on, separable lean and fat, trimmed to 1/8"" fat, choice, cooked, roasted","BEEF,RIB EYE RST,BNE-IN,LIP-ON,LN & FAT,1/8"" FT,CHC,CKD,RST",URMIS #2008,,Bone and connective tissue 16%,16,
 23190,1300,1,"Beef, rib eye roast, bone-in, lip-on, separable lean and fat, trimmed to 1/8"" fat, select, cooked, roasted","BEEF,RIB EYE RST,BNE-IN,LIP-ON,LN & FAT,1/8"" FAT,SEL,CKD,RST",URMIS #1193,,Bone and connective tissue 16%,16,
 23191,1300,1,"Beef, rib eye roast, bone-in, lip-on, separable lean and fat, trimmed to 1/8"" fat, all grades, cooked, roasted","BEEF,RIB EYE RST,BNE-IN,LP-ON,LN & FT,1/8"" FT,AL GRD,CKD,RST",,,Bone and connective tissue 16%,16,
@@ -6678,6 +6701,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23228,1300,1,"Beef, rib eye steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled","BEEF,RIB EYE STEAK,BNLS,LIP OFF,LN & FAT,0"" FAT,CHC,CKD,GRLD",URMIS #2024,,Connective tissue 5%,5,
 23229,1300,1,"Beef, rib eye steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled","BEEF,RIB EYE STEK,BNLES,LIP OFF,LN & FAT,0"" FAT,SEL,CKD,GRLD",URMIS #1209,,Connective tissue 5%,5,
 23230,1300,1,"Beef, rib eye steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, all grades, raw","BEEF,RIB EYE STEAK,BNLESS,LIP OFF,LN & FAT,0"" FAT,ALL GRD,RW",,,Connective tissue 4%,4,
+23469,1300,1,"Beef, New Zealand, imported, striploin, separable lean and fat, raw","BEEF,NZ,IMP,STRIPLOIN,LN & FAT,RAW",,,,0,
 23231,1300,1,"Beef, rib eye steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, choice, raw","BEEF,RIB EYE STEAK,BNLESS,LIP OFF,LN & FAT,0"" FAT,CHOIC,RAW",URMIS #2024,,Connective tissue 4%,4,
 23232,1300,1,"Beef, rib eye steak, boneless, lip off, separable lean and fat, trimmed to 0"" fat, select, raw","BEEF,RIB EYE STEAK,BNLESS,LIP OFF,LN & FAT,0"" FAT,SEL,RAW",URMIS #1209,,Connective tissue 3%,3,
 23233,1300,1,"Beef, rib, back ribs, bone-in, separable lean and fat, trimmed to 0"" fat, all grades, cooked, braised","BEEF,RIB,BACK RIBS,BONE-IN,LN & FAT,0"" FAT,ALL GRDS,CKD,BRSD",,,Bone and connective tissue 61%,61,
@@ -6708,6 +6732,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23257,1300,1,"Beef, loin, top sirloin filet, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, grilled","BEEF,LOIN,TOP SIRLOIN FILET,BNLESS,LN,0"" FAT,CHOIC,CKD,GRILD",URMIS #2138,,Connective tissue 5%,5,
 23258,1300,1,"Beef, loin, top sirloin filet, boneless, separable lean only, trimmed to 0"" fat, select, cooked, grilled","BEEF,LOIN,TOP SIRLOIN FILET,BNLESS,LN,0"" FAT,SEL,CKD,GRILLED",URMIS #1323,,Connective tissue 5%,5,
 23259,1300,1,"Beef, loin, top sirloin petite roast, boneless, separable lean only, trimmed to 0"" fat, all grades, cooked, roasted","BEEF,LOIN,TOP SIRLON PTIT RST,BLS,LN,0"" FAT,AL GRDS,CKD,RSTD",Gluteus medius,,Connective tissue 6%,6,
+23416,1300,1,"Beef, New Zealand, imported, hind shin, separable lean only, cooked, braised","BEEF,NZ,IMP,HIND SHIN,LN,CKD,BRSD",,,"Connective tissue 2%, Separable fat 5%",7,
 23260,1300,1,"Beef, loin, top sirloin petite roast, boneless, separable lean only, trimmed to 0"" fat, select, cooked, roasted","BEEF,LOIN,TOP SIRLOIN PETITE RST,BNLS,LN,0"" FAT,SEL,CKD,RSTD","Gluteus medius, URMIS #1321",,Connective tissue 6%,6,
 23261,1300,1,"Beef, loin, top sirloin petite roast/filet, boneless, separable lean only, trimmed to 0"" fat, all grades, raw","BEEF,LOIN,TOP SRLN PETIT RST/FILT,BNLS,LN,0"" FAT,AL GRDS,RAW",Gluteus medius,,Connective tissue 7%,7,
 23262,1300,1,"Beef, loin, top sirloin petite roast/filet, boneless, separable lean only, trimmed to 0"" fat, select, raw","BEEF,LOIN,TOP SIRLON PETITE RST/FILET,BNLS,LN,0"" FAT,SEL,RAW","URMIS #1323, Gluteus medius, URMIS #1321",,Connective tissue 7%,7,
@@ -6771,6 +6796,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23318,1300,1,"Beef, Australian, imported, grass-fed, round, top round cap-off steak/roast, boneless, separable lean and fat, raw","BEEF,AUS,IMP,GRSS-FD,TP RNDCAP-OFF STK/RST,BNLESS,LN&FAT,RAW","URMIS #1553, URMIS #1454",,,0,
 23319,1300,1,"Beef, Australian, imported, Wagyu, loin, top loin steak/roast, boneless, separable lean and fat, Aust. marble score 4/5, raw","BEEF,AUS,IMP,WGU,TP LN STK/RST,BNLES,LN & FAT,MRB SCR4/5,RAW","URMIS #1404, URMIS #1397",,Connective tissue 6%,6,
 23320,1300,1,"Beef, Australian, imported, Wagyu, loin, top loin steak/roast, separable lean and fat, Aust. marble score 9, raw","BEEF,AUS,IMP,WGU,TP LN STK/RST,LN & FAT,MARBLE SCORE9,RAW","URMIS #1397, URMIS #1404",,Connective tissue 6%,6,
+23417,1300,1,"Beef, New Zealand, imported, hind shin, separable lean only, raw","BEEF,NZ,IMP,HIND SHIN,LN,RAW",,,"Conective tissue .91%, Separable fat 6%",7,
 23321,1300,1,"Beef, Australian, imported, Wagyu, rib, small end rib steak/roast, boneless, separable lean and fat, Aust. marble score 4/5, raw","BEEF,AUS,IMP,WGU,SMLEDRIB STK/RST,BNLES,LN&FAT,MRBSCR4/5,RAW","URMIS #1245, URMIS #1238",,Connective tissue 4%,4,
 23322,1300,1,"Beef, Australian, imported, Wagyu, rib, small end rib steak/roast, boneless, separable lean and fat, Aust. marble score 9, raw","BEEF,AUS,IMP,WGU,SMLEDRIB STK/RST,BNLESS,LN&FAT,MRB SCR9,RAW","URMIS #1245, URMIS #1238",,Connective tissue 4%,4,
 23323,1300,1,"Beef, Australian, imported, Wagyu, loin, tenderloin steak/roast, boneless, separable lean and fat, Aust. marble score 9, raw","BEEF,AU,IMP,WGU,TNLN, STK/RST,BNLESS,LN & FAT, MRB SCR 9,RAW","URMIS #1388, URMIS #1386",,,0,
@@ -6801,6 +6827,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23348,1300,1,"Beef, round, top round roast, boneless, separable lean and fat, trimmed to 0"" fat, all grades, cooked, roasted","BEEF,RND,TOP RND RST,BNLS,LN&FAT,0"" FAT,ALLGRD,CKD,RSTD",Top Round Roast,,,0,
 23349,1300,1,"Beef, round, top round roast, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, roasted","BEEF,RND,TOP RND RST,BNLESS,LN & FAT,0"" FAT,CHOIC,CKD,RSTD","URMIS # 2366, Top Round Roast",,,0,
 23350,1300,1,"Beef, round, top round roast, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, roasted","BEEF,RND,TOP RND RST,BNLESS,LN & FAT,0"" FAT,SEL,CKD,RSTD","URMIS # 1551, Top Round Roast",,,0,
+43543,100,1,"Milk, imitation, non-soy","MILK,IMITATION,NON-SOY",,,,0,
 23351,1300,1,"Beef, round, eye of round steak, boneless, separable lean and fat, trimmed to 0"" fat, all grades, cooked, grilled","BEEF,RND,EYE OF RND STK,BNLESS,L & F,0"" F,A GRDS,CKD,GRILLED",Eye of Round Steak,,,0,
 23352,1300,1,"Beef, round, eye of round steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled","BEEF,RND,EYE OF RD STEAK,BNLESS,L & F,0"" FT,CHOIC,CK,GRLLED","URMIS # 2296, Eye of Round Steak",,,0,
 23353,1300,1,"Beef, round, eye of round steak, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled","BEEF,RND,EYE OF RND STEAK,BNLS,LN & FAT,0"" FAT,SEL,CKD,GRLD","Eye of Round Steak, URMIS # 1481",,,0,
@@ -6832,6 +6859,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23378,1300,1,"Beef, round, top round roast, boneless, separable lean only, trimmed to 0"" fat, all grades, cooked, roasted","BEEF,RND,TOP RND RST,BNLESS,LN,0"" FAT,ALL GRDS,CKD,RSTD",Top Round Roast,,,0,
 23379,1300,1,"Beef, round, top round roast, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, roasted","BEEF,RND,TOP RND RST,BNLESS,LN,0"" FAT,CHOIC,CKD,RSTD","Top Round Roast, URMIS # 2366",,,0,
 23380,1300,1,"Beef, round, top round roast, boneless, separable lean only, trimmed to 0"" fat, select, cooked, roasted","BEEF,RND,TOP RND RST,BNLESS,LN,0"" FAT,SEL,CKD,RSTD","Top Round Roast, URMIS # 1551",,,0,
+23418,1300,1,"Beef, New Zealand, imported, inside, raw","BEEF,NZ,IMP,INSIDE,RAW",,,Connective tissue .55% Separable fat 2%,3,
 23381,1300,1,"Beef, round, eye of round steak, boneless, separable lean only, trimmed to 0"" fat, all grades, cooked, grilled","BEEF,RND,EYE OF RND STEAK,BNLESS,LN,0"" FT,A GRDS,CKD,GRILLED",Eye of Round Steak,,,0,
 23382,1300,1,"Beef, round, eye of round steak, boneless, separable lean only, trimmed to 0"" fat, choice, cooked, grilled","BEEF,RND,EYE OF RND STEAK,BNLESS,LN,0"" FAT,CHOIC,CKD,GRILLED","Eye of Round Steak, URMIS # 2296",,,0,
 23383,1300,1,"Beef, round, eye of round steak, boneless, separable lean only, trimmed to 0"" fat, select, cooked, grilled","BEEF,RND,EYE OF RND STEAK,BNLESS,LN,0"" FAT,SEL,CKD,GRILLED","Eye of Round Steak, URMIS # 1481",,,0,
@@ -6865,12 +6893,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23412,1300,1,"Beef, New Zealand, imported, flat, separable lean only, cooked, braised","BEEF,NZ,IMP,FLAT,LN,CKD,BRSD",,,Separable fat 5%,5,
 23413,1300,1,"Beef, New Zealand, imported, flat, separable lean only, raw","BEEF,NZ,IMP,FLAT,LN,RAW",,,Separable fat 5%,5,
 23414,1300,1,"Beef, New Zealand, imported, variety meats and by-products, heart, cooked, boiled","BEEF,NZ,IMP,VAR MEATS & BY-PRODUCTS,HEART,CKD,BLD",,,Separable fat 15%,15,
-23415,1300,1,"Beef, New Zealand, imported, variety meats and by-products, heart, raw","BEEF,NZ,IMP,VAR MEATS & BY-PRODUCTS,HEART,RAW",,,Separable fat 12%,12,
-23416,1300,1,"Beef, New Zealand, imported, hind shin, separable lean only, cooked, braised","BEEF,NZ,IMP,HIND SHIN,LN,CKD,BRSD",,,"Connective tissue 2%, Separable fat 5%",7,
-23417,1300,1,"Beef, New Zealand, imported, hind shin, separable lean only, raw","BEEF,NZ,IMP,HIND SHIN,LN,RAW",,,"Conective tissue .91%, Separable fat 6%",7,
-23418,1300,1,"Beef, New Zealand, imported, inside, raw","BEEF,NZ,IMP,INSIDE,RAW",,,Connective tissue .55% Separable fat 2%,3,
-23419,1300,1,"Beef, New Zealand, imported, intermuscular fat, cooked","BEEF,NZ,IMP,INTERMUSCULAR FAT,CKD",,,,,
-23420,1300,1,"Beef, New Zealand, imported, intermuscular fat, raw","BEEF,NZ,IMP,INTERMUSCULAR FAT,RAW",,,,,
 23421,1300,1,"Beef, New Zealand, imported, variety meats and by-products, kidney, cooked, boiled","BEEF,NZ,IMP,VAR MEATS & BY-PRODUCTS,KIDNEY,CKD,BLD",,,Connective tissue 20%,20,
 23422,1300,1,"Beef, New Zealand, imported, knuckle, cooked, fast fried","BEEF,NZ,IMP,KNUCKLE,CKD,FAST FRIED",,,"Connective tissue .33%, Separable fat 5%",5,
 23423,1300,1,"Beef, New Zealand, imported, variety meats and by-products, kidney, raw","BEEF,NZ,IMP,VAR MEATS & BY-PRODUCTS,KIDNEY,RAW",,,Connective tissue 10%,10,
@@ -6916,7 +6938,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23466,1300,1,"Beef, New Zealand, imported, rump centre, separable lean only, raw","BEEF,NZ,IMP,RUMP CENTRE,LN,RAW",,,Separable fat 5%,5,
 23467,1300,1,"Beef, New Zealand, imported, rump centre, separable lean and fat, raw","BEEF,NZ,IMP,RUMP CENTRE,LN & FAT,RAW",,,,0,
 23468,1300,1,"Beef, New Zealand, imported, striploin, separable lean and fat, cooked, fast fried","BEEF,NZ,IMP,STRIPLOIN,LN & FAT,CKD,FAST FRIED",,,,0,
-23469,1300,1,"Beef, New Zealand, imported, striploin, separable lean and fat, raw","BEEF,NZ,IMP,STRIPLOIN,LN & FAT,RAW",,,,0,
+25048,2500,1,"Snacks, NUTRI-GRAIN FRUIT AND NUT BAR","SNACKS,NUTRI-GRAIN FRUIT & NUT BAR",,,,0,
 23470,1300,1,"Beef, New Zealand, imported, tenderloin, separable lean and fat, cooked, fast fried","BEEF,NZ,IMP,TENDERLOIN,LN & FAT,CKD,FAST FRIED",,,,0,
 23471,1300,1,"Beef, New Zealand, imported, tenderloin, separable lean and fat, raw","BEEF,NZ,IMP,TENDERLOIN,LN & FAT,RAW",,,,0,
 23472,1300,1,"Beef, ground, 93% lean meat / 7% fat, raw","BEEF,GROUND,93% LN MEAT / 7% FAT",hamburger,,,0,
@@ -6954,6 +6976,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23523,1300,1,"Beef, chuck, top blade, separable lean and fat, trimmed to 0"" fat, choice, cooked, broiled","BEEF,CHUCK,TOP BLADE,LN & FAT,0"" FAT,CHOIC,CKD,BRLD","URMIS #1959, Top Blade Roast, Boneless",,"Bone and heavy connective tissue, 13%",13,
 23525,1300,1,"Beef, chuck, top blade, separable lean and fat, trimmed to 0"" fat, select, cooked, broiled","BEEF,CHUCK,TOP BLADE,LN & FAT,0"" FAT,SEL,CKD,BRLD","URMIS #1144, Top Blade Roast, Boneless",,"Bone and heavy connective tissue, 16%",16,
 23528,1300,1,"Beef, chuck, clod roast, separable lean and fat, trimmed to 0"" fat, choice, cooked, roasted","BEEF,CHUCK,CLOD RST,LN & FAT,0"" FAT,CHOIC,CKD,RSTD",URMIS #1947,,"Bone and heavy connective tissue, 4%",4,
+99026,1600,2,"Beans, red, mature seeds, raw",,,,,,
 23531,1300,1,"Beef, chuck, clod roast, separable lean and fat, trimmed to 0"" fat, select, cooked, roasted","BEEF,CHUCK,CLOD RST,LN & FAT,0"" FAT,SEL,CKD,RSTD",URMIS #1132,,"Bone and heavy connective tissue, 5%",5,
 23533,1300,1,"Beef, shoulder steak, boneless, separable lean and fat, trimmed to 0"" fat, choice, cooked, grilled","BEEF,SHLDR STEAK,BNLESS,LN & FAT,0"" FAT,CHOIC,CKD,GRILLED",URMIS #1133,,Connective tissue 6%,6,
 23536,1300,1,"Beef, shoulder steak, boneless, separable lean and fat, trimmed to 0"" fat, select, cooked, grilled","BEEF,SHLDR STEAK,BNLESS,LN & FAT,0"" FAT,SEL,CKD,GRILLED",URMIS #1133,,Connective tissue 6%,6,
@@ -7025,6 +7048,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23613,1300,1,"Beef, brisket, flat half, separable lean only, trimmed to 1/8"" fat, choice, raw","BEEF,BRISKET,FLAT HALF,LN,1/8"" FAT,CHOIC,RAW",URMIS #2438,,"Bone and connective tissue 1%, sep fat 27%",28,
 23614,1300,1,"Beef, chuck, arm pot roast, separable lean only, trimmed to 1/8"" fat, choice, cooked, braised","BEEF,CHUCK,ARM POT RST,LN,1/8"" FAT,CHOIC,CKD,BRSD",URMIS #1864,,"Bone and connective tissue, 29.58%, separable fat, 12.85%",42,
 23615,1300,1,"Beef, brisket, flat half, separable lean only, trimmed to 1/8"" fat, choice, cooked, braised","BEEF,BRISKET,FLAT HALF,LN,1/8"" FAT,CHOIC,CKD,BRSD",URMIS #2438,,Separable fat,20,
+25050,2500,1,"Snacks, yucca (cassava) chips, salted","SNACKS,YUCCA (CASSAVA) CHIPS,SALTED",,,,0,
 23616,1300,1,"Beef, round, eye of round, roast, separable lean only, trimmed to 1/8"" fat, choice, raw","BEEF,RND,EYE OF RND,RST,LN,1/8"" FAT,CHOIC,RAW",URMIS #2295,,"Bone and connective tissue 2%, sep fat 8%",10,
 23617,1300,1,"Beef, round, top round, steak, separable lean only, trimmed to 1/8"" fat, choice, raw","BEEF,RND,TOP RND,STEAK,LN,1/8"" FAT,CHOIC,RAW",URMIS #2368,,Separable fat,6,
 23618,1300,1,"Beef, round, bottom round, roast, separable lean only, trimmed to 1/8"" fat, choice, raw","BEEF,RND,BTTM RND,RST,LN,1/8"" FAT,CHOIC,RAW",URMIS #2279,,"Bone and connective tissue 2.44%, separable fat 10.58%",13,
@@ -7057,6 +7081,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 23651,1300,1,"Beef, round, tip round, roast, separable lean only, trimmed to 0"" fat, all grades, raw","BEEF,RND,TIP RND,RST,LN,0"" FAT,ALL GRDS,RAW",,,"Bone and connective tissue 4%, sep fat 4%",8,
 23652,1300,1,"Beef, round, tip round, roast, separable lean only, trimmed to 0"" fat, choice, raw","BEEF,RND,TIP RND,RST,LN,0"" FAT,CHOIC,RAW",URMIS # 2340,,"Bone and connective tissue 4%, sep fat 5%",9,
 23653,1300,1,"Beef, round, tip round, roast, separable lean only, trimmed to 0"" fat, select, raw","BEEF,RND,TIP RND,RST,LN,0"" FAT,SEL,RAW",URMIS # 1525,,"Bone and connective tissue 3%, sep fat 4%",7,
+99029,900,2,"Pears without skin, raw",,,,,,
 23654,1300,1,"Beef, flank, steak, separable lean only, trimmed to 0"" fat, all grades, cooked, broiled","BEEF,FLANK,STEAK,LN,0"" FAT,ALL GRDS,CKD,BRLD",,,Separable fat,1,
 23655,1300,1,"Beef, flank, steak, separable lean only, trimmed to 0"" fat, select, cooked, broiled","BEEF,FLANK,STEAK,LN,0"" FAT,SEL,CKD,BRLD",URMIS #1584,,Separable fat,1,
 23656,1300,1,"Beef, flank, steak, separable lean only, trimmed to 0"" fat, all grades, raw","BEEF,FLANK,STEAK,LN,0"" FAT,ALL GRDS,RAW",,,Separable fat,3,
@@ -7106,9 +7131,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 25043,2500,1,"Snacks, candy bits, yogurt covered with vitamin C","SNACKS,CANDY BITS,YOGURT COVERED W/ VIT C",,,,0,
 25045,2500,1,"Formulated bar, high fiber, chewy, oats and chocolate","Formulated bar, high fiber, chewy, oats and chocolate",,,,0,
 25046,2500,1,"Snacks, bagel chips, plain","SNACKS,BAGEL CHIPS,PLN",,,,0,
-25048,2500,1,"Snacks, NUTRI-GRAIN FRUIT AND NUT BAR","SNACKS,NUTRI-GRAIN FRUIT & NUT BAR",,,,0,
-25050,2500,1,"Snacks, yucca (cassava) chips, salted","SNACKS,YUCCA (CASSAVA) CHIPS,SALTED",,,,0,
-25051,2500,1,"Snacks, CLIF BAR, mixed flavors","Snacks, CLIF BAR, mixed flavors",,,,0,
 25052,2500,1,"Snacks, granola bar, QUAKER, chewy, 90 Calorie Bar","SNACKS,GRANOLA BAR,QUAKER,CHEWY,90 CAL BAR",,,,0,
 25053,2500,1,"Snacks, granola bar, GENERAL MILLS NATURE VALLEY, SWEET&SALTY NUT, peanut","Snac, grano bar, GENER MILLS NATURE VALL, SWE&SAL NUT, peanu",,,,0,
 25055,2500,1,"Snacks, granola bar, GENERAL MILLS, NATURE VALLEY, CHEWY TRAIL MIX","Snac, grano bar, GENER MILLS, NATUR VALLE, CHEWY TRAIL MIX",,,,0,
@@ -7167,6 +7189,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 28296,1800,1,"Cake, snack cakes, creme-filled, chocolate with frosting, low-fat, with added fiber","CAKE,SNK CAKES,CREME-FILLED,CHOC W/ FRSTNG,L-F,W/ ADD FIBER",,,,0,
 28297,1800,1,"Cake, snack cakes, not chocolate, with icing or filling, low-fat, with added fiber","CAKE,SNK CAKES,NOT CHOC,W/ ICING OR FILLING,L-F,W/ ADD FIBER",,,,0,
 28298,1800,1,"Cookies, brownies, commercially prepared, reduced fat, with added fiber","COOKIES,BROWNIES,COMMLY PREP,RED FAT,W/ ADDED FIBER",,,,0,
+99030,1600,2,"Soybeans, mature seeds, raw (Brazil)",,,,,,
 28299,1800,1,"Cookies, chocolate sandwich, with creme filling, reduced fat","COOKIES,CHOC SNDWCH,W/ CREME FILLING,RED FAT",,,,0,
 97046,900,2,"Plum, yellow, whole, raw ",,Prunus spp.,,,,
 28311,1800,1,"Cookies, sugar wafer, chocolate-covered","COOKIES,SUGAR WAFER,CHOCOLATE-COVERED",,,,0,
@@ -7319,6 +7342,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 35017,3500,1,"Blueberries, wild, frozen (Alaska Native)","BLUEBERRIES,WILD,FRZ (ALASKA NATIVE)",,,,0,Vaccinium alaskanese and Ovalifolium
 35021,3500,1,"Caribou, bone marrow, raw (Alaska Native)","CARIBOU,BONE MARROW,RAW (ALASKA NATIVE)",,,,0,Rangifer tarandus
 35022,3500,1,"Caribou, eye, raw (Alaska Native)","CARIBOU,EYE,RAW (ALASKA NATIVE)",,,,0,Rangifer tarandus
+99034,1600,2,"Soybean, curd, fermented",,,,,,
 35023,3500,1,"Caribou, liver, raw (Alaska Native)","CARIBOU,LIVER,RAW (ALASKA NATIVE)",,,,0,Rangifer tarandus
 35024,3500,1,"Stew/soup, caribou (Alaska Native)","STEW/SOUP,CARIBOU (ALASKA NATIVE)",,,,0,
 35025,3500,1,"Caribou, tongue, raw (Alaska Native)","CARIBOU,TONGUE,RAW (ALASKA NATIVE)",,,,0,
@@ -7370,6 +7394,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 35083,3500,1,"Walrus, liver, raw (Alaska Native)","WALRUS,LIVER,RAW (ALASKA NATIVE)",,,,0,Odohenus rosmarus
 35084,3500,1,"Oil, walrus (Alaska Native)","OIL,WALRUS (ALASKA NATIVE)",,,,0,Odohenus rosmarus
 35085,3500,1,"Whale, bowhead, subcutaneous fat (blubber) (Alaska Native)","WHALE,BOWHEAD,SUBCUTANEOUS FAT (BLUBBER) (ALASKA NATIVE)",,,,0,Balaena mysticetus
+99035,1600,2,"Soybeans, flakes, defatted",,,,,,
 35086,3500,1,"Whale, bowhead, skin and subcutaneous fat (muktuk) (Alaska Native)","WHALE,BOWHEAD,SKN & SUBCUTANEOUS FATMUKTUK(ALASKA NATIVE)",,,,0,Balaena mysticetus
 35087,3500,1,"Oil, whale, bowhead (Alaska Native)","OIL,WHALE,BOWHEAD (ALASKA NATIVE)",,,,0,Balaena mysticetus
 35088,3500,1,"Fish, whitefish, broad, liver (Alaska Native)","FISH,WHITEFISH,BROAD,LIVER (ALASKA NATIVE)",sheefish,,,0,Coregonus nasus
@@ -7592,6 +7617,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 42135,100,1,"Whipped topping, frozen, low fat","WHIPPED TOPPING,FRZ,LOFAT",,,,0,
 42136,100,1,"Cream substitute, powdered, light","CREAM SUB,PDR,LT",,,,0,
 42137,400,1,"Salad dressing, peppercorn dressing, commercial, regular","SALAD DRSNG,PEPPERCORN DRSNG,COMM,REG",,,,0,
+99036,1600,2,"Soybeans, flakes, full-fat",,,,,,
 42138,400,1,"Mayonnaise, reduced-calorie or diet, cholesterol-free","MAYONNAISE,RED-CAL OR DIET,CHOL-FREE",,,,0,
 42139,2500,1,"Granola bar, soft, milk chocolate coated, peanut butter","GRANOLA BAR,SOFT,MILK CHOC COATD,PNUT BUTTER",,,,0,
 42140,400,1,"Salad dressing, italian dressing, reduced calorie","SALAD DRSNG,ITALIAN DRSNG,RED CAL",,,,0,
@@ -7649,6 +7675,7 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 42297,800,1,"Cereals ready-to-eat, POST GREAT GRAINS Banana Nut Crunch","CEREALS RTE,POST GREAT GRAINS BANANA NUT CRUNCH",,"Post Foods, LLC",,0,
 42303,100,1,"Cheese, muenster, low fat","CHEESE,MUENSTER,LOW FAT",,,,0,
 42304,100,1,"Cheese, mozzarella, nonfat","CHEESE,MOZZARELLA,NON-FAT",,,,0,
+99038,1600,2,Soy paste,,,,,,
 42307,400,1,"Margarine-like, butter-margarine blend, 80% fat, stick, without salt","MARGARINE-LIKE,BUTTER-MARGARINE BLEND,80% FAT,STK,WO/ SALT",,,,0,
 42309,400,1,"Margarine-like, vegetable oil-butter spread, reduced calorie, tub, with salt","MARGARINE-LIKE,VEG OIL-BUTTER SPRD,RED CAL,TUB,W/ SALT",,,,0,
 42316,300,1,"Babyfood, carrots, toddler","BABYFOOD,CARROTS,TODDLER",,,,0,
@@ -7773,7 +7800,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 43537,300,1,"Babyfood, dessert, blueberry yogurt, strained","BABYFOOD,DSSRT,BLUEBERRY YOGURT,STR",,,,0,
 43539,300,1,"Babyfood, dessert, banana yogurt, strained","BABYFOOD,DSSRT,BANANA YOGURT,STR",,,,0,
 43541,1900,1,"Ice creams, chocolate, rich","ICE CREAMS,CHOC,RICH",,,,0,
-43543,100,1,"Milk, imitation, non-soy","MILK,IMITATION,NON-SOY",,,,0,
 43544,300,1,"Babyfood, cereal, rice with pears and apple, dry, instant fortified","BABYFOOD,CRL,RICE W/ PEARS & APPL,DRY,INST FORT",,,,0,
 43546,300,1,"Babyfood, banana no tapioca, strained","BABYFOOD,BANANA NO TAPIOCA,STR",,,,0,
 43550,300,1,"Babyfood, banana apple dessert, strained","BABYFOOD,BANANA APPL DSSRT,STR",,,,0,
@@ -7848,27 +7874,6 @@ id,fdgrp_id,data_src_id,long_desc,shrt_desc,comm_name,manufacturer,ref_desc,refu
 99019,1600,2,"Kala chana, mature seeds, raw",,,,,,
 99020,1400,2,Lapacho tea (Tecoma heptaphylla),,,,,,
 99021,900,2,"Lingonberries (cowberries), raw",,,,,,
-99026,1600,2,"Beans, red, mature seeds, raw",,,,,,
-99029,900,2,"Pears without skin, raw",,,,,,
-99030,1600,2,"Soybeans, mature seeds, raw (Brazil)",,,,,,
-99034,1600,2,"Soybean, curd, fermented",,,,,,
-99035,1600,2,"Soybeans, flakes, defatted",,,,,,
-99036,1600,2,"Soybeans, flakes, full-fat",,,,,,
-99038,1600,2,Soy paste,,,,,,
-99040,1600,2,"Soybeans, mature seeds, raw (Taiwan)",,,,,,
-99041,1600,2,"Soy cheese, cheddar",,,,,,
-99042,1600,2,"Soy cheese, unspecified",,,,,,
-99043,1600,2,Soy drink,,,,,,
-99044,900,2,"Currants, red, raw",,,,,,
-99045,1600,2,Soy fiber,,,,,,
-99047,900,2,"Grapes, white or green, raw",,,,,,
-99048,900,2,"Grapes, black",,,,,,
-99049,1600,2,"Soy noodles, flat",,,,,,
-99052,900,2,"Rhubarb stalks, cooked",,,,,,
-99053,1600,2,"Soymilk skin or film (Foo jook or yuba), raw",,,,,,
-99054,1600,2,"Soy cheese, mozzarella",,,,,,
-99056,1600,2,"Soy cheese, parmesan",,,,,,
-99060,1600,2,"Soy protein concentrate, aqueous washed",,,,,,
 99063,1600,2,"Soy-based liquid formula for adults, ABBOTT NUTRITION, ENRICH",,,,,,
 99064,1600,2,"Soy-based liquid formula for adults, ABBOTT NUTRITION, GLUCERNA",,,,,,
 99065,1600,2,"Soy-based liquid formula for adults, ABBOTT NUTRITION, JEVITY ISOTONIC",,,,,,
@@ -8055,11 +8060,6 @@ Babyfood, fruit, apple, strawberry, banana",,,,,,
 99685,2000,2,"Rice, black, raw",,,,,,
 9225,900,2,"Juice, tangerine, frozen concentrate, sweetened, diluted with 3 volume water",,,,,,
 9445,900,2,"Kiwifruit, gold, raw",,Actinidia chinensis,,,,
-14653,1400,2,"Tea, green, brewed",,,,,,
-97043,900,2,"Plum, red, whole, raw",,,,,,
-99011,1100,2,"Tomatoes, cherry, raw",,,,,,
-99016,1800,2,Greek greens pie (prepared from wild greens),,,,,,
-99022,1600,2,"Marrowfat pea, canned, drained solids",,,,,,
 99027,1900,2,"Jams and preserves, peach",,,,,,
 99031,1900,2,"Jams and preserves, plum",,,,,,
 99032,1100,2,"Queen Anne's Lace, leaves, raw",,,,,,
