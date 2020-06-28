@@ -127,6 +127,7 @@ def import_():
         "fdgrp",
         "data_src",
         "food_des",
+        "serving_id",
         "orders",
         "threads",
         "countries",
