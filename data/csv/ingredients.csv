@@ -1,35 +1,35 @@
-id,name,specification,effective_dose_mg,cost_per_kg,cost_per_test,supplier_url
-1,Magnesium L-Threonate,≥ 99%,400,79,100,https://www.alibaba.com/product-detail/High-quality-magnesium-l-threonate-powder_60833711779.html
-2,Japanese Green Tea,"6% EGCG, 2% L-theanine, 2% caffeine",1600,130,0,https://www.zencha.net/product/sencha-green-tea-moe/
-3,Korean ginseng extract,80% Ginsenosides,200,26,200,https://www.alibaba.com/product-detail/10-Years-Experience-Manufacture-Sale-Korean_60176883033.html
-4,Ginkgo Biloba extract (EGb761),"24% Flavonol glycosides, 6% Terpene lactones, <5ppm Ginkgolic acids",120,55,200,https://www.alibaba.com/product-detail/Organic-Ginkgo-Biloba-Leaf-Extract_62282654746.html
-5,Gotu Kola extract,30% Asiaticoside and 50% Madecassic acid,150,150,200,https://www.alibaba.com/product-detail/Wholesales-100-pure-gotu-kola-centella_62240023857.html
-6,CBD extract,"45mg/mL CBD, 40mg/mL myrcene, no detectable THC",400,120,100,https://www.alibaba.com/product-detail/CBDA-with-CAS-4415-87-6_62512433249.html
-7,Bacopa (Synapsa),55% bacosides,300,50,200,https://www.alibaba.com/product-detail/Organic-Bacosides-Bacopa-Monniera-Extract-brahmi_60690538353.html
-8,Lemon Balm extract,"5% rosmarinic acid, 5% flavones",500,200,200,https://www.alibaba.com/product-detail/Melissa-officinalis-Herb-Extract-Lemon-Balm_60403884707.html
-9,Magnesium Glycinate,≥ 99%,250,50,100,https://www.alibaba.com/product-detail/Top-Quality-98-Magnesium-Glycinate-Powder_60692511730.html
-10,Magnesium Malate,≥ 99%,220,35,100,https://www.alibaba.com/product-detail/Best-Price-Magnesium-Malate_62275363609.html
-11,Green Tea Extract,≥ 90% polyphenols,400,40,200,https://www.alibaba.com/product-detail/Raw-material-100-natural-green-tea_62511859379.html
-12,Amla Powder,"Vitamin C 30%, Tannins 30%-60%",450,30,0,https://www.alibaba.com/product-detail/Sciencarin-Supply-Antioxidant-Amla-Fruit-Extract_62511562342.html
-13,Ginger extract,10% gingerols,300,50,0,https://www.alibaba.com/product-detail/100-Natural-ginger-extract-wild-ginger_60820795616.html
-14,Mushroom extract (Boletus Edulis),30% Polysaccharide,100,60,200,https://www.alibaba.com/product-detail/High-quality-boletus-edulis-extract-polysaccharide_62596310829.html
-15,Mushroom extract (Agaricus Bisporus),100% dry powder,800,25,0,https://www.alibaba.com/product-detail/Manufacturer-supply-agaricus-blazei-powder-agaricus_1600057717025.html
-16,Lion's Mane extract (Fruiting body),"Polysaccharides ≥15%,Beta-glucans ≥10%,Hericenones ≥1%",120,140,0,https://www.alibaba.com/product-detail/Hericium-Erinaceus-Lion-s-mane-mushroom_60728847835.html
-17,Lion's Mane extract (Mycelium; ethanol extract),"3% Erinacines Fruit Body, 3% Herierin",120,120,200,https://www.alibaba.com/product-detail/Hericium-erinaceus-mushroom-extract-lion-s_1600059868791.html
-18,Zinc glycinate,≥ 99%,2,79,100,https://www.alibaba.com/product-detail/Supply-Food-Grade-Zinc-Glycinate_62427168386.html
-19,Quercetin,≥ 95%,200,75,100,https://www.alibaba.com/product-detail/Rainbow-supply-high-quality-natural-sophora_62326663887.html
-20,Garlic extract,2% Allicin,100,67,200,https://www.alibaba.com/product-detail/Natrual-Allicin-Powder-Garlic-Extract_1600062861206.html
-21,Maitake mushroom extract,30%-50% Polysaccharides,100,70,200,https://www.alibaba.com/product-detail/factory-price-in-stock-30-50_60207580361.html
-22,Reshi mushroom extract,"Polysaccharide ≥20%, β-glucan ≥10%, Triterpene≥4%",150,170,200,https://www.alibaba.com/product-detail/Reishi-mushroom-Ganoderma-Lucidum-dual-extract_60728554186.html
-23,Turkey tail mushroom extract,Polysaccharides 25%-50%,120,55,200,https://www.alibaba.com/product-detail/Improve-Immunity-Polysaccharides-Turkey-Tail-Extract_62542049120.html
-24,Ashwagandha extract (KSM-66™),3% Withanolide,200,103,200,https://www.alibaba.com/product-detail/SONWU-Ashwagandha-Extract-Powder-Ashwagandha-KSM_1600055424831.html
-25,Curcumin extract,≥ 95%,400,85,0,https://www.alibaba.com/product-detail/Natural-Turmeric-Extract-Curcumin-Powder-95_62189299642.html
-26,Xylitol,≥ 99%,25,400,0,https://www.alibaba.com/product-detail/ISO-Lyphar-Supply-Best-Quality-Sweeteners_60655219614.html
-27,Aloe Vera gel (Dried; soluble in water),100:1,200,155,0,https://www.alibaba.com/product-detail/Aloe-Vera-Extract-Aloe-Vera-Gel_62072801566.html
-28,Colloidal silver,2000ppm (1-15nm),20,60,0,https://www.alibaba.com/product-detail/UIVCHEM-agriculture-grade-nano-silver-solution_62588009405.html
-29,Baking soda,≥ 99%,300,1,0,https://www.amazon.com/Baking-Soda-50-Bag-Baking-Cleaning-Feed-Sodium/dp/B07XK9W33H
-30,Peppermint oil,100% pure,40,45,0,https://www.amazon.com/Pack-Peppermint-Essential-Therapeutic-Bottles/dp/B07L6NC8BT
-31,Spearmint oil,100% pure,40,60,0,https://www.amazon.com/Spearmint-Large-ounce-Best-Essential/dp/B00RY7CMA8/
-32,Clove oil,100% pure,40,60,0,https://www.amazon.com/dp/B00S5FGZ10/ref=twister_B084JCK45B
-33,Tea Tree oil,100% pure,40,50,0,https://www.amazon.com/Tree-Mega-16oz-Best-Essential/dp/B00RY7CPP0/
-34,Calcium Citrate,≥ 97.5%,400,15,100,https://www.alibaba.com/product-detail/Hot-sale-food-additive-with-lowest_60719085267.html
+id,name,specification,effective_dose_mg,cost_per_kg,cost_per_test,supplier_url,transparency_note
+1,Magnesium L-Threonate,≥ 99%,400,79,100,https://www.alibaba.com/product-detail/High-quality-magnesium-l-threonate-powder_60833711779.html,"The magnesium is sourced as 99%+ pure threonate salt from professional labs. White, flavorless and very soluble in water."
+2,Japanese Green Tea,"6% EGCG, 2% L-theanine, 2% caffeine",1600,130,0,https://www.zencha.net/product/sencha-green-tea-moe/,"The green tea (Sencha) is obtained directly from Yame or Shizuoka, and pulverized fresh with traditional stones."
+3,Korean ginseng extract,80% Ginsenosides,200,26,200,https://www.alibaba.com/product-detail/10-Years-Experience-Manufacture-Sale-Korean_60176883033.html,
+4,Ginkgo Biloba extract (EGb761),"24% Flavonol glycosides, 6% Terpene lactones, <5ppm Ginkgolic acids",120,55,200,https://www.alibaba.com/product-detail/Organic-Ginkgo-Biloba-Leaf-Extract_62282654746.html,
+5,Gotu Kola extract,30% Asiaticoside and 50% Madecassic acid,150,150,200,https://www.alibaba.com/product-detail/Wholesales-100-pure-gotu-kola-centella_62240023857.html,
+6,CBD extract,"45mg/mL CBD, 40mg/mL myrcene, no detectable THC",400,120,100,https://www.alibaba.com/product-detail/CBDA-with-CAS-4415-87-6_62512433249.html,The CBD extract is performed on specific Marihuana strains with no detectable THC trace. We use pure 95% Polish drinking alcohol.
+7,Bacopa (Synapsa),55% bacosides,300,50,200,https://www.alibaba.com/product-detail/Organic-Bacosides-Bacopa-Monniera-Extract-brahmi_60690538353.html,"Bacopa comes in the form of Synapsa, a patented and energizing form of the herb."
+8,Lemon Balm extract,"5% rosmarinic acid, 5% flavones",500,200,200,https://www.alibaba.com/product-detail/Melissa-officinalis-Herb-Extract-Lemon-Balm_60403884707.html,The Lemon Balm is obtained after several washes at a high potentcy of both rosmarinic acid and relevant plant flavones.
+9,Magnesium Glycinate,≥ 99%,250,50,100,https://www.alibaba.com/product-detail/Top-Quality-98-Magnesium-Glycinate-Powder_60692511730.html,
+10,Magnesium Malate,≥ 99%,220,35,100,https://www.alibaba.com/product-detail/Best-Price-Magnesium-Malate_62275363609.html,
+11,Green Tea Extract,≥ 90% polyphenols,400,40,200,https://www.alibaba.com/product-detail/Raw-material-100-natural-green-tea_62511859379.html,The green tea extract is performed on Sencha from Yame or Shizuoka using near boiling water.
+12,Amla Powder,"Vitamin C 30%, Tannins 30%-60%",450,30,0,https://www.alibaba.com/product-detail/Sciencarin-Supply-Antioxidant-Amla-Fruit-Extract_62511562342.html,
+13,Ginger extract,10% gingerols,300,50,0,https://www.alibaba.com/product-detail/100-Natural-ginger-extract-wild-ginger_60820795616.html,
+14,Mushroom extract (Boletus Edulis),30% Polysaccharide,100,60,200,https://www.alibaba.com/product-detail/High-quality-boletus-edulis-extract-polysaccharide_62596310829.html,
+15,Mushroom extract (Agaricus Bisporus),100% dry powder,800,25,0,https://www.alibaba.com/product-detail/Manufacturer-supply-agaricus-blazei-powder-agaricus_1600057717025.html,
+16,Lion's Mane extract (Fruiting body),"Polysaccharides ≥15%,Beta-glucans ≥10%,Hericenones ≥1%",120,140,0,https://www.alibaba.com/product-detail/Hericium-Erinaceus-Lion-s-mane-mushroom_60728847835.html,
+17,Lion's Mane extract (Mycelium; ethanol extract),"3% Erinacines Fruit Body, 3% Herierin",120,120,200,https://www.alibaba.com/product-detail/Hericium-erinaceus-mushroom-extract-lion-s_1600059868791.html,
+18,Zinc glycinate,≥ 99%,2,79,100,https://www.alibaba.com/product-detail/Supply-Food-Grade-Zinc-Glycinate_62427168386.html,
+19,Quercetin,≥ 95%,200,75,100,https://www.alibaba.com/product-detail/Rainbow-supply-high-quality-natural-sophora_62326663887.html,
+20,Garlic extract,2% Allicin,100,67,200,https://www.alibaba.com/product-detail/Natrual-Allicin-Powder-Garlic-Extract_1600062861206.html,
+21,Maitake mushroom extract,30%-50% Polysaccharides,100,70,200,https://www.alibaba.com/product-detail/factory-price-in-stock-30-50_60207580361.html,
+22,Reshi mushroom extract,"Polysaccharide ≥20%, β-glucan ≥10%, Triterpene≥4%",150,170,200,https://www.alibaba.com/product-detail/Reishi-mushroom-Ganoderma-Lucidum-dual-extract_60728554186.html,
+23,Turkey tail mushroom extract,Polysaccharides 25%-50%,120,55,200,https://www.alibaba.com/product-detail/Improve-Immunity-Polysaccharides-Turkey-Tail-Extract_62542049120.html,
+24,Ashwagandha extract (KSM-66™),3% Withanolide,200,103,200,https://www.alibaba.com/product-detail/SONWU-Ashwagandha-Extract-Powder-Ashwagandha-KSM_1600055424831.html,
+25,Curcumin extract,≥ 95%,400,85,0,https://www.alibaba.com/product-detail/Natural-Turmeric-Extract-Curcumin-Powder-95_62189299642.html,
+26,Xylitol,≥ 99%,25,400,0,https://www.alibaba.com/product-detail/ISO-Lyphar-Supply-Best-Quality-Sweeteners_60655219614.html,
+27,Aloe Vera gel (Dried; soluble in water),100:1,200,155,0,https://www.alibaba.com/product-detail/Aloe-Vera-Extract-Aloe-Vera-Gel_62072801566.html,
+28,Colloidal silver,2000ppm (1-15nm),20,60,0,https://www.alibaba.com/product-detail/UIVCHEM-agriculture-grade-nano-silver-solution_62588009405.html,
+29,Baking soda,≥ 99%,300,1,0,https://www.amazon.com/Baking-Soda-50-Bag-Baking-Cleaning-Feed-Sodium/dp/B07XK9W33H,
+30,Peppermint oil,100% pure,40,45,0,https://www.amazon.com/Pack-Peppermint-Essential-Therapeutic-Bottles/dp/B07L6NC8BT,
+31,Spearmint oil,100% pure,40,60,0,https://www.amazon.com/Spearmint-Large-ounce-Best-Essential/dp/B00RY7CMA8/,
+32,Clove oil,100% pure,40,60,0,https://www.amazon.com/dp/B00S5FGZ10/ref=twister_B084JCK45B,
+33,Tea Tree oil,100% pure,40,50,0,https://www.amazon.com/Tree-Mega-16oz-Best-Essential/dp/B00RY7CPP0/,
+34,Calcium Citrate,≥ 97.5%,400,15,100,https://www.alibaba.com/product-detail/Hot-sale-food-additive-with-lowest_60719085267.html,
