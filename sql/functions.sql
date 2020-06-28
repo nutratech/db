@@ -198,6 +198,7 @@ CREATE OR REPLACE FUNCTION get_orders (user_id_in int)
     shipping_price real,
     status text,
     tracking_num text,
+    paypal_id text,
     items json,
     created int
   )
@@ -210,6 +211,7 @@ CREATE OR REPLACE FUNCTION get_orders (user_id_in int)
     ord.shipping_price,
     ord.status,
     ord.tracking_num,
+    ord.paypal_id,
     array_to_json(ARRAY (
         SELECT
           row_to_json(ROW)
