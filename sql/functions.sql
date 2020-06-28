@@ -251,8 +251,8 @@ CREATE OR REPLACE FUNCTION get_nutrients_by_food_ids (food_id_in int[])
   RETURNS TABLE (
     food_id int,
     fdgrp_id int,
-    long_desc varchar,
-    manufacturer varchar,
+    long_desc text,
+    manufacturer text,
     nutrients json
   )
   AS $$
@@ -277,71 +277,67 @@ WHERE
 $$
 LANGUAGE SQL;
 
--- --
--- --
--- -- 2.b
--- -- Return 100 foods highest in a given nutr_id
--- CREATE OR REPLACE FUNCTION sort_foods_by_nutrient_id (nutr_id_in int)
---   RETURNS TABLE (
---     nutr_id int,
---     units varchar,
---     tagname varchar,
---     nutr_desc varchar,
---     foods json
---   )
---   AS $$
---   SELECT
---     def.id,
---     def.units,
---     def.tagname,
---     def.nutr_desc,
---     json_agg(json_build_object('food_id', des.id, 'long_desc', des.long_desc, 'nutr_val', val.nutr_val, 'data_src', src.name, 'fdgrp_desc', grp.fdgrp_desc)
---     ORDER BY
---       val.nutr_val DESC) AS foods
---   FROM (
---     SELECT
---       food_id,
---       nutr_val,
---       nutr_id
---     FROM
---       nut_data val
---     WHERE
---       val.nutr_id = nutr_id_in
---     ORDER BY
---       val.nutr_val DESC FETCH FIRST 100 ROWS ONLY) val
---   LEFT JOIN nutr_def def ON def.id = val.nutr_id
---   LEFT JOIN food_des des ON val.food_id = des.id
---   LEFT JOIN data_src src ON src.id = des.data_src_id
---   LEFT JOIN fdgrp grp ON grp.id = des.fdgrp_id
--- GROUP BY
---   def.id,
---   def.units,
---   def.tagname,
---   def.nutr_desc
--- $$
--- LANGUAGE SQL;
--- --
--- --
--- -- 2.c
--- -- Get servings for food
--- CREATE OR REPLACE FUNCTION get_food_servings (food_id_in int)
---   RETURNS TABLE (
---     msre_id int,
---     msre_desc varchar,
---     grams real
---   )
---   AS $$
---   SELECT
---     serv.msre_id,
---     serv_id.msre_desc,
---     serv.grams
---   FROM
---     servings serv
---   LEFT JOIN serving_id serv_id ON serv.msre_id = serv_id.id
--- WHERE
---   serv.food_id = food_id_in
--- $$
--- LANGUAGE SQL;
+--
+--
+-- 2.b
+-- Return 100 foods highest in a given nutr_id
+
+CREATE OR REPLACE FUNCTION sort_foods_by_nutrient_id (nutr_id_in int)
+  RETURNS TABLE (
+    food_id int,
+    tagname text,
+    nutr_desc text,
+    nutr_val real,
+    units text,
+    kcal real,
+    long_desc text
+  )
+  AS $$
+  SELECT
+    nut_data.food_id,
+    ndef.tagname,
+    ndef.nutr_desc,
+    nut_data.nutr_val,
+    ndef.units,
+    kcal.nutr_val,
+    food.long_desc
+  FROM
+    nut_data
+    INNER JOIN food_des food ON food.id = nut_data.food_id
+    INNER JOIN nutr_def ndef ON ndef.id = nutr_id
+    INNER JOIN nut_data kcal ON food.id = kcal.food_id
+      AND kcal.nutr_id = 208
+  WHERE
+    nut_data.nutr_id = nutr_id_in
+  ORDER BY
+    nut_data.nutr_val DESC FETCH FIRST 100 ROWS ONLY
+$$
+LANGUAGE SQL;
+
+--
+--
+-- 2.c
+-- Get servings for food
+
+CREATE OR REPLACE FUNCTION get_food_servings (food_id_in int)
+  RETURNS TABLE (
+    msre_id int,
+    msre_desc text,
+    grams real
+  )
+  AS $$
+  SELECT
+    serv.msre_id,
+    serv_id.msre_desc,
+    serv.grams
+  FROM
+    servings serv
+  LEFT JOIN serving_id serv_id ON serv.msre_id = serv_id.id
+WHERE
+  serv.food_id = food_id_in
+$$
+LANGUAGE SQL;
+
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
 -- #3   USERS
