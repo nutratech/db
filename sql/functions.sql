@@ -271,11 +271,12 @@ LANGUAGE SQL;
 -- 2.b
 -- Return 100 foods highest in a given nutr_id
 
-CREATE OR REPLACE FUNCTION sort_foods_by_nutrient_id (nutr_id_in int)
+CREATE OR REPLACE FUNCTION sort_foods_by_nutrient_id (nutr_id_in int, fdgrp_id_in int[] DEFAULT NULL)
   RETURNS TABLE (
     food_id int,
-    tagname text,
     nutr_desc text,
+    fdgrp_id int,
+    fdgrp_desc text,
     nutr_val real,
     units text,
     kcal real,
@@ -284,20 +285,25 @@ CREATE OR REPLACE FUNCTION sort_foods_by_nutrient_id (nutr_id_in int)
   AS $$
   SELECT
     nut_data.food_id,
-    ndef.tagname,
-    ndef.nutr_desc,
+    nutr_desc,
+    fdgrp_id,
+    fdgrp_desc,
     nut_data.nutr_val,
-    ndef.units,
+    units,
     kcal.nutr_val,
-    food.long_desc
+    long_desc
   FROM
     nut_data
-    INNER JOIN food_des food ON food.id = nut_data.food_id
+    INNER JOIN food_des food ON id = food_id
     INNER JOIN nutr_def ndef ON ndef.id = nutr_id
-    INNER JOIN nut_data kcal ON food.id = kcal.food_id
+    INNER JOIN fdgrp ON fdgrp.id = fdgrp_id
+    LEFT JOIN nut_data kcal ON food.id = kcal.food_id
       AND kcal.nutr_id = 208
   WHERE
     nut_data.nutr_id = nutr_id_in
+    -- filter by food id, if supplied
+    AND (fdgrp_id = ANY (fdgrp_id_in)
+      OR fdgrp_id_in IS NULL)
   ORDER BY
     nut_data.nutr_val DESC FETCH FIRST 100 ROWS ONLY
 $$
