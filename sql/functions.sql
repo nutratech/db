@@ -38,19 +38,18 @@ CREATE OR REPLACE FUNCTION get_categories ()
   )
   AS $$
   SELECT
-    cats.id,
-    cats.name,
-    cats.slug,
+    category.id,
+    category.name,
+    category.slug,
     array_to_json(ARRAY (
         SELECT
           row_to_json(products)
         FROM products
       WHERE
-        category_id = cats.id)),
-    cats.created
+        category_id = category.id)),
+    category.created
   FROM
-    categories cats
-    -- LEFT JOIN reviews rv ON rv.product_id = prod.id
+    categories category
 $$
 LANGUAGE SQL;
 
@@ -228,22 +227,10 @@ WHERE
 $$
 LANGUAGE SQL;
 
---
---
--- 1.f
--- Get formulations with associated costs and ingredients
--- CREATE OR REPLACE FUNCTION get_formulations ()
---   RETURNS TABLE ( )
---   AS $$
--- $$
--- LANGUAGE SQL;
---
---
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
 -- #2   Public DATA
 --++++++++++++++++++++++++++++
---
 --
 --
 -- 2.a
