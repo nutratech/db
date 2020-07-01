@@ -236,6 +236,7 @@ CREATE TABLE ingredients (
   cost_per_kg real NOT NULL,
   cost_per_test real NOT NULL,
   supplier_url text NOT NULL,
+  tasting_descriptors text[],
   transparency_note text
 );
 
@@ -256,6 +257,7 @@ CREATE TABLE products (
   shippable boolean NOT NULL,
   released boolean NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
+  typical_dose text,
   usage text,
   details text[],
   citations text[],
@@ -281,31 +283,13 @@ CREATE TABLE variants (
   exemplification text,
   price real NOT NULL,
   grams real,
-  serving_customary text[],
-  serving_mg int[],
+  serving text,
+  serving_mg int,
   dimensions real[],
   stock int,
   interval int,
   created int DEFAULT extract(epoch FROM NOW()),
   FOREIGN KEY (product_id) REFERENCES products (id) ON UPDATE CASCADE
-);
-
--- Customer activity
-CREATE TABLE customer_activity (
-  -- Identifiers
-  id serial PRIMARY KEY,
-  user_id int,
-  email text,
-  ip_address text NOT NULL,
-  -- payload
-  url_current text NOT NULL,
-  url_target text,
-  action text DEFAULT 'VIEW',
-  product_id int,
-  variant_id int,
-  payload json,
-  created int DEFAULT extract(epoch FROM NOW()),
-  FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
 );
 
 -- Reviews
@@ -411,6 +395,12 @@ CREATE TABLE messages (
   FOREIGN KEY (thread_id) REFERENCES threads (id) ON UPDATE CASCADE
 );
 
+--
+--
+------------------------------
+--++++++++++++++++++++++++++++
+-- IN PROGRESS
+--++++++++++++++++++++++++++++
 ------------------------------
 -- Cart
 ------------------------------
@@ -426,9 +416,21 @@ CREATE TABLE cart (
   FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
 );
 
---
---
-------------------------------
---++++++++++++++++++++++++++++
--- IN PROGRESS
---++++++++++++++++++++++++++++
+-- Customer activity
+CREATE TABLE customer_activity (
+  -- Identifiers
+  id serial PRIMARY KEY,
+  user_id int,
+  email text,
+  ip_address text NOT NULL,
+  -- payload
+  url_current text NOT NULL,
+  url_target text,
+  action text DEFAULT 'VIEW',
+  product_id int,
+  variant_id int,
+  payload json,
+  created int DEFAULT extract(epoch FROM NOW()),
+  FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
+);
+
