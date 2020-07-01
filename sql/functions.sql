@@ -55,6 +55,34 @@ LANGUAGE SQL;
 
 --
 --
+-- 1.a (pre1)
+-- Get products with variants & avg_ratings
+
+CREATE OR REPLACE FUNCTION get_ingredient_nutrients (ingredient_id_in int)
+  RETURNS TABLE (
+    nutrients json
+  )
+  AS $$
+  SELECT
+    row_to_json(ROW)
+  FROM (
+    SELECT
+      nutr_id,
+      nutr_desc,
+      rda,
+      units,
+      ratio
+    FROM
+      ingredient_nutrients
+      INNER JOIN nutr_def ON nutr_def.id = nutr_id
+    WHERE
+      ingredient_id = ingredient_id_in)
+  ROW
+$$
+LANGUAGE SQL;
+
+--
+--
 -- 1.a
 -- Get products with variants & avg_ratings
 
@@ -78,6 +106,7 @@ CREATE OR REPLACE FUNCTION get_products ()
     prod.name,
     prod.shippable,
     avg(rv.rating)::real,
+    -- Variants
     array_to_json(ARRAY (
         SELECT
           row_to_json(variants)
@@ -88,15 +117,23 @@ CREATE OR REPLACE FUNCTION get_products ()
     prod.usage,
     prod.details,
     prod.citations,
+    -- Ingredients
     array_to_json(ARRAY (
         SELECT
           row_to_json(ROW)
         FROM (
           SELECT
-            ingred.name, ingred.specification, mg, ingred.transparency_note FROM product_ingredients AS pi
-            INNER JOIN ingredients AS ingred ON pi.ingredient_id = ingred.id
-              AND pi.product_id = prod.id)
+            id, name, specification, mg AS amount_mg, tasting_descriptors, transparency_note,
+            -- Nutrients
+            array_to_json(ARRAY (
+                SELECT
+                  nutrients FROM get_ingredient_nutrients (ingred.id))) AS nutrients
+          -- From product ingredients table
+          FROM product_ingredients AS pi
+          INNER JOIN ingredients AS ingred ON pi.ingredient_id = ingred.id
+            AND pi.product_id = prod.id)
           ROW)),
+    -- Reviews
     array_to_json(ARRAY (
         SELECT
           row_to_json(ROW)
