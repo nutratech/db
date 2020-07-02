@@ -91,9 +91,11 @@ CREATE OR REPLACE FUNCTION get_products ()
     id int,
     name text,
     shippable boolean,
+    category_id int,
     avg_rating real,
     variants json,
     created int,
+    typical_dose text,
     usage text,
     details text[],
     citations text[],
@@ -103,8 +105,9 @@ CREATE OR REPLACE FUNCTION get_products ()
   AS $$
   SELECT
     prod.id,
-    prod.name,
-    prod.shippable,
+    name,
+    shippable,
+    category_id,
     avg(rv.rating)::real,
     -- Variants
     array_to_json(ARRAY (
@@ -114,9 +117,10 @@ CREATE OR REPLACE FUNCTION get_products ()
       WHERE
         product_id = prod.id)),
     prod.created,
-    prod.usage,
-    prod.details,
-    prod.citations,
+    typical_dose,
+    usage,
+    details,
+    citations,
     -- Ingredients
     array_to_json(ARRAY (
         SELECT

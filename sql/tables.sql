@@ -253,6 +253,7 @@ CREATE TABLE products (
   id serial PRIMARY KEY,
   name text NOT NULL,
   slug text NOT NULL,
+  -- TODO: support multiple categories
   category_id int NOT NULL,
   shippable boolean NOT NULL,
   released boolean NOT NULL,
