@@ -1,4 +1,4 @@
-id,product_id,quantity,unit,mg_per_ct,exemplification,price,grams,serving_customary,serving_mg,dimensions,stock,interval,created
+id,product_id,quantity,unit,mg_per_ct,exemplification,price,grams,serving,serving_mg,dimensions,stock,interval,created
 1,1,50,g,,powder,8,,1 tsp.,2400,"{10,8,1.5}",9,,1580575805
 2,1,250,g,,powder,36,,1 tsp.,2400,"{15,10,2.5}",3,,1580575805
 3,2,2,oz,,lotion,8,56,½ tsp.,1600,"{5,5,5}",10,,1580575805
