@@ -355,14 +355,16 @@ LANGUAGE SQL;
 -- 2.c
 -- Get servings for food
 
-CREATE OR REPLACE FUNCTION get_food_servings (food_id_in int)
+CREATE OR REPLACE FUNCTION get_foods_servings (food_ids_in int[])
   RETURNS TABLE (
+    food_id int,
     msre_id int,
     msre_desc text,
     grams real
   )
   AS $$
   SELECT
+    serv.food_id,
     serv.msre_id,
     serv_id.msre_desc,
     serv.grams
@@ -370,7 +372,7 @@ CREATE OR REPLACE FUNCTION get_food_servings (food_id_in int)
     servings serv
   LEFT JOIN serving_id serv_id ON serv.msre_id = serv_id.id
 WHERE
-  serv.food_id = food_id_in
+  serv.food_id = ANY (food_ids_in)
 $$
 LANGUAGE SQL;
 
