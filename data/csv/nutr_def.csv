@@ -155,11 +155,11 @@ id,rda,units,tagname,nutr_desc,is_anti
 714,,mg,BIOC,Biochanin A,f
 715,,mg,FORM,Formononetin,f
 716,,mg,COUM,Coumestrol,f
-734,10,mg,PAdimer,Proanthocyanidin dimers,f
+734,5,mg,PAdimer,Proanthocyanidin dimers,f
 735,5,mg,PAtrimer,Proanthocyanidin trimers,f
-736,5,mg,PA4-6mer,Proanthocyanidin 4-6mers,f
-737,2,mg,PA7-10mer,Proanthocyanidin 7-10mers,f
-738,1,mg,PApolymer,Proanthocyanidin polymers (>10mers),f
+736,20,mg,PA4-6mer,Proanthocyanidin 4-6mers,f
+737,20,mg,PA7-10mer,Proanthocyanidin 7-10mers,f
+738,60,mg,PApolymer,Proanthocyanidin polymers (>10mers),f
 731,20,mg,CYAD,Cyanidin,f
 740,,mg,PETUNIDIN,Petunidin,f
 741,,mg,DELPH,Delphinidin ,f
