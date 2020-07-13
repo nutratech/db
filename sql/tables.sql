@@ -135,7 +135,6 @@ CREATE TABLE nutr_def (
   units varchar(10),
   tagname varchar(10) NOT NULL,
   nutr_desc text NOT NULL,
-  is_anti boolean NOT NULL,
   -- weighting?
   UNIQUE (tagname)
 );
