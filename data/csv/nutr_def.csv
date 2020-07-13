@@ -140,7 +140,7 @@ id,rda,units,tagname,nutr_desc
 695,,g,FATRNP,"Fatty acids, total trans-polyenoic"
 696,,g,F13D0,13:0
 697,,g,F15D1,15:1
-851,,g,F18D3CN3,"18:3 n-3 c,c,c (ALA)"
+851,2,g,F18D3CN3,"18:3 n-3 c,c,c (ALA)"
 852,,g,F20D3N3,20:3 n-3
 853,,g,F20D3N6,20:3 n-6
 855,,g,F20D4N6,20:4 n-6
