@@ -26,6 +26,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 import getpass
+import json
 import os
 import sys
 
@@ -270,6 +271,32 @@ def truncate_():
     cur.close()
 
 
+def analyze_():
+    # NOTE: Scratchpad for analyzing the data
+    print("[analyze]\n")
+
+    # 1a. count(nut_data) FOR nutr_id IN nutr_ids
+    cur = con.cursor()
+    query = "SELECT id FROM nutr_def;"
+    print(query)
+    cur.execute(query)
+    print(cur.statusmessage)
+
+    nutr_ids = [x[0] for x in cur.fetchall()]
+    incidences = {}
+    for nutr_id in nutr_ids:
+        # Find number of nut_data entries foreach nutrient
+        cur = con.cursor()
+        query = f"SELECT count(*) FROM nut_data WHERE nutr_id={nutr_id};"
+        print(query)
+        cur.execute(query)
+        print(cur.statusmessage)
+        incidence = cur.fetchone()[0]
+        # nutr_ids = [x[0] for x in cur.fetchall()]
+        incidences[nutr_id] = incidence
+    print(json.dumps(incidences, indent=2))
+
+
 # -----------------------
 
 if __name__ == "__main__":
@@ -277,10 +304,10 @@ if __name__ == "__main__":
 
     if len(sys.argv) < 2:
         # for debugging purposes
-        # arg1 = "e"
-        exit(
-            "error: no args specified! use either i, t, r, e .. [import, truncate, rebuild, export]"
-        )
+        arg1 = "a"
+        # exit(
+        #     "error: no args specified! use either i, t, r, e .. [import, truncate, rebuild, export]"
+        # )
     else:
         arg1 = sys.argv[1]
 
@@ -292,3 +319,5 @@ if __name__ == "__main__":
         rebuild_()
     elif arg1 == "e" or arg1 == "export":
         export_()
+    elif arg1 == "a" or arg1 == "analyze":
+        analyze_()
