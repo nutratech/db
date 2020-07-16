@@ -276,6 +276,8 @@ def analyze_():
     print("[analyze]\n")
 
     # 1a. count(nut_data) FOR nutr_id IN nutr_ids
+    # TODO: write faster SQL function for this, print out useful readable info like Nutrient Name
+    # TODO: decide milligram vs IU for vitamin A, E, D.. above script will help decid which are most common
     cur = con.cursor()
     query = "SELECT id FROM nutr_def;"
     print(query)

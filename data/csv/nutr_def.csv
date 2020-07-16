@@ -35,7 +35,7 @@ id,rda,units,tagname,nutr_desc
 321,,µg,CARTB,"Carotene, beta"
 322,,µg,CARTA,"Carotene, alpha"
 323,,mg,TOCPHA,Vitamin E (alpha-tocopherol)
-324,400,IU,VITD_IU,Vitamin D
+324,800,IU,VITD_IU,Vitamin D
 325,,µg,ERGCAL,Vitamin D2 (ergocalciferol)
 326,,µg,CHOCAL,Vitamin D3 (cholecalciferol)
 328,20,µg,VITD,Vitamin D (D2 + D3)
