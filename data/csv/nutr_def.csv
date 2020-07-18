@@ -87,7 +87,7 @@ id,rda,units,tagname,nutr_desc
 573,,mg,VITE_ADD,"Vitamin E, added"
 578,,µg,B12_ADD,"Vitamin B-12, added"
 601,200,mg,CHOLEST,Cholesterol
-605,0,g,FATRN,"Fatty acids, total trans"
+605,,g,FATRN,"Fatty acids, total trans"
 606,30,g,FASAT,"Fatty acids, total saturated"
 607,,g,F4D0,4:0
 608,,g,F6D0,6:0
