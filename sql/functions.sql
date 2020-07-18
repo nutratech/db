@@ -387,8 +387,8 @@ CREATE OR REPLACE FUNCTION get_nutrients_overview ()
     id int,
     nutr_desc text,
     rda real,
-    tagname text,
     units text,
+    tagname text,
     nutrient_count bigint
   )
   AS $$
@@ -396,14 +396,16 @@ CREATE OR REPLACE FUNCTION get_nutrients_overview ()
     id,
     nutr_desc,
     rda,
-    tagname,
     units,
+    tagname,
     COUNT(nut_data.nutr_id)
     -- (SELECT COUNT(*) FROM nut_data WHERE nutr_id = id)
   FROM
     nutr_def
     INNER JOIN nut_data ON nut_data.nutr_id = id
   GROUP BY
+    id
+  ORDER BY
     id
 $$
 LANGUAGE SQL;
