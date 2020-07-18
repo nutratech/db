@@ -390,8 +390,8 @@ CREATE OR REPLACE FUNCTION get_nutrients_overview ()
     units text,
     tagname text,
     food_count bigint,
-    avg_val decimal,
-    avg_rda decimal
+    avg_val real,
+    avg_rda real
   )
   AS $$
   SELECT
@@ -401,8 +401,8 @@ CREATE OR REPLACE FUNCTION get_nutrients_overview ()
     units,
     tagname,
     COUNT(nut_data.nutr_id),
-    ROUND(avg(nut_data.nutr_val)::decimal, 3),
-    ROUND(100 * (avg(nut_data.nutr_val) / rda)::decimal, 1)
+    ROUND(avg(nut_data.nutr_val)::decimal, 3)::real,
+    ROUND(100 * (avg(nut_data.nutr_val) / rda)::decimal, 1)::real
   FROM
     nutr_def
     INNER JOIN nut_data ON nut_data.nutr_id = id
