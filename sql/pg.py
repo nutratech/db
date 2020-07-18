@@ -276,27 +276,26 @@ def analyze_():
     print("[analyze]\n")
 
     # 1a. count(nut_data) FOR nutr_id IN nutr_ids
-    # TODO: write faster SQL function for this, print out useful readable info like Nutrient Name
-    # TODO: decide milligram vs IU for vitamin A, E, D.. above script will help decid which are most common
-    cur = con.cursor()
-    query = "SELECT id FROM nutr_def;"
-    print(query)
-    cur.execute(query)
-    print(cur.statusmessage)
+    # DONE: faster in SQL (see: functions.sql)
+    # cur = con.cursor()
+    # query = "SELECT id FROM nutr_def;"
+    # print(query)
+    # cur.execute(query)
+    # print(cur.statusmessage)
 
-    nutr_ids = [x[0] for x in cur.fetchall()]
-    incidences = {}
-    for nutr_id in nutr_ids:
-        # Find number of nut_data entries foreach nutrient
-        cur = con.cursor()
-        query = f"SELECT count(*) FROM nut_data WHERE nutr_id={nutr_id};"
-        print(query)
-        cur.execute(query)
-        print(cur.statusmessage)
-        incidence = cur.fetchone()[0]
-        # nutr_ids = [x[0] for x in cur.fetchall()]
-        incidences[nutr_id] = incidence
-    print(json.dumps(incidences, indent=2))
+    # nutr_ids = [x[0] for x in cur.fetchall()]
+    # incidences = {}
+    # for nutr_id in nutr_ids:
+    #     # Find number of nut_data entries foreach nutrient
+    #     cur = con.cursor()
+    #     query = f"SELECT count(*) FROM nut_data WHERE nutr_id={nutr_id};"
+    #     print(query)
+    #     cur.execute(query)
+    #     print(cur.statusmessage)
+    #     incidence = cur.fetchone()[0]
+    #     # nutr_ids = [x[0] for x in cur.fetchall()]
+    #     incidences[nutr_id] = incidence
+    # print(json.dumps(incidences, indent=2))
 
 
 # -----------------------

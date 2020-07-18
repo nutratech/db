@@ -376,6 +376,38 @@ WHERE
 $$
 LANGUAGE SQL;
 
+--
+--
+-- 2.d
+-- Get nutrient overiew
+
+CREATE OR REPLACE FUNCTION get_nutrients_overview ()
+-- TODO: decide milligram vs IU FOR vitamin A, E, D.. this function/script will help decid which are most common
+  RETURNS TABLE (
+    id int,
+    nutr_desc text,
+    rda real,
+    tagname text,
+    units text,
+    nutrient_count bigint
+  )
+  AS $$
+  SELECT
+    id,
+    nutr_desc,
+    rda,
+    tagname,
+    units,
+    COUNT(nut_data.nutr_id)
+    -- (SELECT COUNT(*) FROM nut_data WHERE nutr_id = id)
+  FROM
+    nutr_def
+    INNER JOIN nut_data ON nut_data.nutr_id = id
+  GROUP BY
+    id
+$$
+LANGUAGE SQL;
+
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
 -- #3   USERS
