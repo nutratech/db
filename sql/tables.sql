@@ -115,8 +115,8 @@ CREATE TABLE addresses (
   zip varchar(20),
   name_first varchar(90) NOT NULL,
   name_last varchar(90) NOT NULL,
-  phone varchar(20) NOT NULL,
-  email varchar(80) NOT NULL,
+  phone varchar(20),
+  email varchar(80),
   FOREIGN KEY (user_id) REFERENCES users (id),
   FOREIGN KEY (country_id) REFERENCES countries (id),
   FOREIGN KEY (state_id) REFERENCES states (id)
