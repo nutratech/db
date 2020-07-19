@@ -320,7 +320,7 @@ CREATE OR REPLACE FUNCTION sort_foods_by_nutrient_id (nutr_id_in int, fdgrp_id_i
     fdgrp_desc text,
     nutr_val real,
     units text,
-    kcal real,
+    kcal_per_100g real,
     long_desc text
   )
   AS $$
@@ -347,6 +347,50 @@ CREATE OR REPLACE FUNCTION sort_foods_by_nutrient_id (nutr_id_in int, fdgrp_id_i
       OR fdgrp_id_in IS NULL)
   ORDER BY
     nut_data.nutr_val DESC FETCH FIRST 100 ROWS ONLY
+$$
+LANGUAGE SQL;
+
+--
+--
+-- 2.b II
+-- Return 100 foods highest in a given nutr_id (per 200 kcal)
+
+CREATE OR REPLACE FUNCTION sort_foods_by_kcal_nutrient_id (nutr_id_in int, fdgrp_id_in int[] DEFAULT NULL)
+  RETURNS TABLE (
+    food_id int,
+    nutr_desc text,
+    fdgrp_id int,
+    fdgrp_desc text,
+    nutr_val real,
+    units text,
+    kcal_per_100g real,
+    long_desc text
+  )
+  AS $$
+  SELECT
+    nut_data.food_id,
+    nutr_desc,
+    fdgrp_id,
+    fdgrp_desc,
+    ROUND((nut_data.nutr_val * 200 / kcal.nutr_val)::decimal, 2)::real,
+    units,
+    kcal.nutr_val,
+    long_desc
+  FROM
+    nut_data
+    INNER JOIN food_des food ON id = food_id
+    INNER JOIN nutr_def ndef ON ndef.id = nutr_id
+    INNER JOIN fdgrp ON fdgrp.id = fdgrp_id
+    -- filter out NULL kcal
+    INNER JOIN nut_data kcal ON food.id = kcal.food_id
+      AND kcal.nutr_id = 208
+  WHERE
+    nut_data.nutr_id = nutr_id_in
+    -- filter by food id, if supplied
+    AND (fdgrp_id = ANY (fdgrp_id_in)
+      OR fdgrp_id_in IS NULL)
+  ORDER BY
+    (nut_data.nutr_val / kcal.nutr_val) DESC FETCH FIRST 100 ROWS ONLY -- ON food.id = kcal.food_id AND kcal.nutr_id = 208
 $$
 LANGUAGE SQL;
 
