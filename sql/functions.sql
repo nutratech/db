@@ -51,7 +51,7 @@ LANGUAGE SQL;
 -- 0.a
 -- Get user overview, with info
 
-CREATE OR REPLACE FUNCTION users ()
+CREATE OR REPLACE FUNCTION users (user_id_in int DEFAULT NULL)
   RETURNS TABLE (
     id int,
     username text,
@@ -89,6 +89,8 @@ CREATE OR REPLACE FUNCTION users ()
   LEFT JOIN addresses ON addresses.user_id = users.id
   LEFT JOIN emails ON emails.user_id = users.id
   LEFT JOIN tokens ON tokens.user_id = users.id
+WHERE (users.id = user_id_in
+  OR user_id_in IS NULL)
 GROUP BY
   users.id
 ORDER BY
