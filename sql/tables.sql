@@ -68,6 +68,7 @@ CREATE TABLE emails (
 -- );
 
 CREATE TABLE tokens (
+  id serial PRIMARY KEY,
   user_id int NOT NULL,
   token text NOT NULL,
   type TEXT NOT NULL,

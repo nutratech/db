@@ -63,36 +63,22 @@ CREATE OR REPLACE FUNCTION users ()
   SELECT
     users.id,
     username,
-    --addresses
-    array_to_json(ARRAY (
-        SELECT
-          row_to_json(addresses)
-        FROM addresses
-      WHERE
-        user_id = users.id)),
-    -- emails
-    array_to_json(ARRAY (
-        SELECT
-          row_to_json(emails)
-        FROM emails
-      WHERE
-        user_id = users.id)),
-    -- tokens
-    array_to_json(ARRAY (
-        SELECT
-          row_to_json(tokens)
-        FROM tokens
-      WHERE
-        user_id = users.id))
+    row_to_json(addresses),
+    row_to_json(emails),
+    row_to_json(tokens)
   FROM
     users
   LEFT JOIN addresses ON addresses.user_id = users.id
   LEFT JOIN emails ON emails.user_id = users.id
   LEFT JOIN tokens ON tokens.user_id = users.id
 GROUP BY
-  users.id
+  users.id,
+  addresses.id,
+  emails.id,
+  tokens.id
 ORDER BY
-  id
+  users.id,
+  addresses.id
 $$
 LANGUAGE SQL;
 
