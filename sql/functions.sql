@@ -26,7 +26,7 @@ SET client_min_messages TO WARNING;
 --
 --
 -- 0.a
--- Get table name with row count
+-- Get table names, with row counts
 
 CREATE OR REPLACE FUNCTION tables ()
   RETURNS TABLE (
@@ -50,8 +50,36 @@ LANGUAGE SQL;
 --
 -- 0.a
 -- Get user overview, with info
--- CREATE OR REPLACE FUNCTION user_overview ()
---   RETURNS TABLE ()
+
+CREATE OR REPLACE FUNCTION users ()
+  RETURNS TABLE (
+    id int,
+    username text,
+    addresses json
+    -- addresses json,
+    -- emails json,
+    -- tokens json
+  )
+  AS $$
+  SELECT
+    users.id,
+    username,
+    array_to_json(ARRAY (
+        SELECT
+          row_to_json(addresses)
+        FROM addresses
+      WHERE
+        user_id = users.id))
+  FROM
+    users
+  LEFT JOIN addresses addy ON addy.user_id = users.id
+GROUP BY
+  users.id
+ORDER BY
+  id
+$$
+LANGUAGE SQL;
+
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
 -- #1   SHOP
