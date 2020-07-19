@@ -21,6 +21,33 @@ SET client_min_messages TO WARNING;
 
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
+-- #1   META
+--++++++++++++++++++++++++++++
+--
+--
+-- 0.a
+-- Get table name with row count
+
+CREATE OR REPLACE FUNCTION tables ()
+  RETURNS TABLE (
+    schemaname name,
+    tablename name,
+    row_count bigint
+  )
+  AS $$
+  SELECT
+    schemaname,
+    relname,
+    n_live_tup
+  FROM
+    pg_stat_user_tables
+  ORDER BY
+    n_live_tup DESC
+$$
+LANGUAGE SQL;
+
+--++++++++++++++++++++++++++++
+--++++++++++++++++++++++++++++
 -- #1   SHOP
 --++++++++++++++++++++++++++++
 --
