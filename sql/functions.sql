@@ -55,27 +55,28 @@ CREATE OR REPLACE FUNCTION users ()
   RETURNS TABLE (
     id int,
     username text,
-    addresses json,
-    emails json,
-    tokens json
+    addresses json
+    -- emails json,
+    -- tokens json
   )
   AS $$
   SELECT
     users.id,
     username,
-    row_to_json(addresses),
-    row_to_json(emails),
-    row_to_json(tokens)
+    row_to_json(addresses)
+    -- row_to_json(emails),
+    -- row_to_json(tokens)
   FROM
-    users
-  LEFT JOIN addresses ON addresses.user_id = users.id
-  LEFT JOIN emails ON emails.user_id = users.id
-  LEFT JOIN tokens ON tokens.user_id = users.id
+    users,
+    addresses
+  -- LEFT JOIN addresses ON addresses.user_id = users.id
+  -- LEFT JOIN emails ON emails.user_id = users.id
+  -- LEFT JOIN tokens ON tokens.user_id = users.id
 GROUP BY
   users.id,
-  addresses.id,
-  emails.id,
-  tokens.id
+  addresses.id
+  -- emails.id,
+  -- tokens.id
 ORDER BY
   users.id,
   addresses.id
