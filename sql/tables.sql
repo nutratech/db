@@ -31,23 +31,19 @@ CREATE TABLE users (
   id serial PRIMARY KEY,
   username varchar(18),
   passwd text,
-  certified_beta_tester boolean DEFAULT FALSE,
-  certified_beta_trainer_tester boolean DEFAULT FALSE,
-  accept_eula boolean NOT NULL DEFAULT FALSE,
-  passed_onboarding_tutorial boolean DEFAULT FALSE,
+  terms_agreement timestamp DEFAULT CURRENT_TIMESTAMP,
   gender text,
   name_first varchar(20),
   name_last varchar(30),
   dob date,
+  -- cm & kg
   height smallint,
-  height_units varchar(2),
   weight smallint,
-  weight_units varchar(2),
+  -- TODO: mappings, 0 - 5, or 1 - 5 ??
   activity_level smallint,
   weight_goal smallint,
   bmr_equation smallint,
   bodyfat_method smallint,
-  ship_bill_same_address boolean DEFAULT TRUE,
   created int DEFAULT extract(epoch FROM NOW()),
   UNIQUE (username)
 );

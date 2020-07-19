@@ -1,3 +1,3 @@
-id,username,passwd,certified_beta_tester,certified_beta_trainer_tester,accept_eula,passed_onboarding_tutorial,gender,name_first,name_last,dob,height,height_units,weight,weight_units,activity_level,weight_goal,bmr_equation,bodyfat_method,ship_bill_same_address,created
-2,kthprog,$2b$12$C2HKwF0nl4Y88UGSidAk1unT1oxDwiHzljtP/QgYWiJx01Jko0nBu,f,f,f,f,,,,,,,,,,,,,t,1580265914
-1,gamesguru,$2b$12$twZlKe8fDcnKpaoM3Eb2Uu659Je18B6fi2p8fRIspGNis6vOWxIty,f,f,f,f,,,,,,,,,,,,,t,1580265913
+id,username,passwd,terms_agreement,gender,name_first,name_last,dob,height,weight,activity_level,weight_goal,bmr_equation,bodyfat_method,created
+2,kthprog,$2b$12$C2HKwF0nl4Y88UGSidAk1unT1oxDwiHzljtP/QgYWiJx01Jko0nBu,2020-07-19 13:43:26.031804,,,,,,,,,,,1580265914
+1,gamesguru,$2b$12$twZlKe8fDcnKpaoM3Eb2Uu659Je18B6fi2p8fRIspGNis6vOWxIty,2020-07-19 13:43:26.031804,,,,,,,,,,,1580265913

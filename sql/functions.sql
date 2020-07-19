@@ -21,7 +21,7 @@ SET client_min_messages TO WARNING;
 
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
--- #1   META
+-- #0   META
 --++++++++++++++++++++++++++++
 --
 --
@@ -46,6 +46,12 @@ CREATE OR REPLACE FUNCTION tables ()
 $$
 LANGUAGE SQL;
 
+--
+--
+-- 0.a
+-- Get user overview, with info
+-- CREATE OR REPLACE FUNCTION user_overview ()
+--   RETURNS TABLE ()
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
 -- #1   SHOP
@@ -498,16 +504,16 @@ CREATE OR REPLACE FUNCTION get_user_details (user_id_in int)
     user_id int,
     username text,
     email text,
-    email_activated boolean,
-    accept_eula boolean
+    email_activated boolean
+    -- accept_eula boolean
   )
   AS $$
   SELECT
     usr.id,
     usr.username,
     eml.email,
-    eml.activated,
-    usr.accept_eula
+    eml.activated
+    -- usr.accept_eula
   FROM
     users usr
     INNER JOIN emails eml ON eml.user_id = usr.id
