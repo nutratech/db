@@ -49,11 +49,13 @@ CREATE TABLE users (
 );
 
 CREATE TABLE emails (
-  email varchar(140) PRIMARY KEY,
+  id serial PRIMARY KEY,
+  email varchar(140),
   user_id int NOT NULL,
   activated boolean DEFAULT FALSE,
   created int DEFAULT extract(epoch FROM NOW()),
   UNIQUE (user_id, activated),
+  UNIQUE (email),
   FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
 );
 

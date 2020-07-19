@@ -55,24 +55,40 @@ CREATE OR REPLACE FUNCTION users ()
   RETURNS TABLE (
     id int,
     username text,
-    addresses json
-    -- addresses json,
-    -- emails json,
-    -- tokens json
+    addresses json,
+    emails json,
+    tokens json
   )
   AS $$
   SELECT
     users.id,
     username,
+    --addresses
     array_to_json(ARRAY (
         SELECT
           row_to_json(addresses)
         FROM addresses
       WHERE
+        user_id = users.id)),
+    -- emails
+    array_to_json(ARRAY (
+        SELECT
+          row_to_json(emails)
+        FROM emails
+      WHERE
+        user_id = users.id)),
+    -- tokens
+    array_to_json(ARRAY (
+        SELECT
+          row_to_json(tokens)
+        FROM tokens
+      WHERE
         user_id = users.id))
   FROM
     users
-  LEFT JOIN addresses addy ON addy.user_id = users.id
+  LEFT JOIN addresses ON addresses.user_id = users.id
+  LEFT JOIN emails ON emails.user_id = users.id
+  LEFT JOIN tokens ON tokens.user_id = users.id
 GROUP BY
   users.id
 ORDER BY
@@ -590,14 +606,14 @@ CREATE OR REPLACE FUNCTION get_user_id_from_username_or_email (identifier text)
   )
   AS $$
   SELECT DISTINCT
-    id,
+    users.id,
     username
   FROM
     users,
     emails
   WHERE
     username = identifier
-    OR emails.user_id = id
+    OR emails.user_id = users.id
     AND emails.email = identifier
 $$
 LANGUAGE SQL;
