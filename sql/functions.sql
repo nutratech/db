@@ -266,38 +266,10 @@ LANGUAGE SQL;
 
 --
 --
--- 1.f
--- Get product reviews (with username)
-
-CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
-  RETURNS TABLE (
-    username text,
-    rating smallint,
-    title text,
-    review_text text,
-    created int
-  )
-  AS $$
-  SELECT
-    u.username AS username,
-    rv.rating,
-    rv.title,
-    rv.review_text,
-    rv.created
-  FROM
-    reviews AS rv
-    INNER JOIN users AS u ON rv.user_id = u.id
-  WHERE
-    rv.product_id = product_id_in
-$$
-LANGUAGE SQL;
-
---
---
 -- 1.k
--- Get countries with states
+-- Get countries, with states
 
-CREATE OR REPLACE FUNCTION countries_states ()
+CREATE OR REPLACE FUNCTION countries ()
   RETURNS TABLE (
     id int,
     code text,
