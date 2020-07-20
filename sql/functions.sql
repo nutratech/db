@@ -304,9 +304,11 @@ LANGUAGE SQL;
 -- 1.o
 -- Get orders with items
 
-CREATE OR REPLACE FUNCTION orders (user_id_in int)
+CREATE OR REPLACE FUNCTION orders (user_id_in int DEFAULT NULL)
   RETURNS TABLE (
     id int,
+    user_id int,
+    email text,
     address_bill json,
     address_ship json,
     shipping_method text,
@@ -320,6 +322,8 @@ CREATE OR REPLACE FUNCTION orders (user_id_in int)
   AS $$
   SELECT
     ord.id,
+    ord.user_id,
+    ord.email,
     ord.address_bill,
     ord.address_ship,
     ord.shipping_method,
@@ -342,6 +346,7 @@ CREATE OR REPLACE FUNCTION orders (user_id_in int)
     orders ord
 WHERE
   ord.user_id = user_id_in
+  OR user_id_in IS NULL
 $$
 LANGUAGE SQL;
 
