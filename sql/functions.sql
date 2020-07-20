@@ -48,7 +48,7 @@ LANGUAGE SQL;
 
 --
 --
--- 0.a
+-- 0.b
 -- Get functions, with arguments
 
 CREATE OR REPLACE FUNCTION functions ()
@@ -70,7 +70,7 @@ LANGUAGE SQL;
 
 --
 --
--- 0.a
+-- 0.g
 -- Get user overview, with info
 
 CREATE OR REPLACE FUNCTION users (user_id_in int DEFAULT NULL)
@@ -126,7 +126,7 @@ LANGUAGE SQL;
 --++++++++++++++++++++++++++++
 --
 --
--- 0.a
+-- 1.a
 -- Get product categories with associated products and variants
 
 CREATE OR REPLACE FUNCTION categories ()
@@ -156,7 +156,7 @@ LANGUAGE SQL;
 
 --
 --
--- 1.a (pre1)
+-- 1.c (pre1)
 -- Get products with variants & avg_ratings
 
 CREATE OR REPLACE FUNCTION ingredient_nutrients (ingredient_id_in int)
@@ -184,7 +184,7 @@ LANGUAGE SQL;
 
 --
 --
--- 1.a
+-- 1.c
 -- Get products with variants & avg_ratings
 
 CREATE OR REPLACE FUNCTION products ()
@@ -262,7 +262,7 @@ LANGUAGE SQL;
 
 --
 --
--- 1.b
+-- 1.f
 -- Get product reviews (with username)
 
 CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
@@ -290,7 +290,7 @@ LANGUAGE SQL;
 
 --
 --
--- 1.d
+-- 1.k
 -- Get countries with states
 
 CREATE OR REPLACE FUNCTION countries_states ()
@@ -325,7 +325,7 @@ LANGUAGE SQL;
 
 --
 --
--- 1.e
+-- 1.o
 -- Get orders with items
 
 CREATE OR REPLACE FUNCTION orders (user_id_in int)
@@ -565,66 +565,10 @@ LANGUAGE SQL;
 --++++++++++++++++++++++++++++
 --
 --
--- 3.d
--- Get user details
-
-CREATE OR REPLACE FUNCTION user_details (user_id_in int)
-  RETURNS TABLE (
-    user_id int,
-    username text,
-    email text,
-    email_activated boolean
-    -- accept_eula boolean
-  )
-  AS $$
-  SELECT
-    usr.id,
-    usr.username,
-    eml.email,
-    eml.activated
-    -- usr.accept_eula
-  FROM
-    users usr
-    INNER JOIN emails eml ON eml.user_id = usr.id
-  WHERE
-    usr.id = user_id_in
-$$
-LANGUAGE SQL;
-
---
---
--- 3.e
--- Get user tokens
-
-CREATE OR REPLACE FUNCTION user_tokens (user_id_in int)
-  RETURNS TABLE (
-    user_id int,
-    username text,
-    token text,
-    token_type text,
-    created int
-  )
-  AS $$
-  SELECT
-    usr.id,
-    usr.username,
-    tkn.token,
-    tkn.type,
-    tkn.created
-  FROM
-    users usr
-    INNER JOIN tokens tkn ON tkn.user_id = usr.id
-  WHERE
-    usr.id = user_id_in
-$$
-LANGUAGE SQL;
-
---
---
 -- 3.f
 -- Get user by email OR username
 
-CREATE OR REPLACE FUNCTION user_id_from_username_or_email (identifier text)
+CREATE OR REPLACE FUNCTION find_user_id (identifier text)
   RETURNS TABLE (
     id int,
     username text
