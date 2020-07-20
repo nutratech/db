@@ -107,7 +107,7 @@ LANGUAGE SQL;
 -- 0.a
 -- Get product categories with associated products and variants
 
-CREATE OR REPLACE FUNCTION get_categories ()
+CREATE OR REPLACE FUNCTION categories ()
   RETURNS TABLE (
     id int,
     name text,
@@ -137,7 +137,7 @@ LANGUAGE SQL;
 -- 1.a (pre1)
 -- Get products with variants & avg_ratings
 
-CREATE OR REPLACE FUNCTION get_ingredient_nutrients (ingredient_id_in int)
+CREATE OR REPLACE FUNCTION ingredient_nutrients (ingredient_id_in int)
   RETURNS TABLE (
     nutrients json
   )
@@ -165,7 +165,7 @@ LANGUAGE SQL;
 -- 1.a
 -- Get products with variants & avg_ratings
 
-CREATE OR REPLACE FUNCTION get_products ()
+CREATE OR REPLACE FUNCTION products ()
   RETURNS TABLE (
     id int,
     name text,
@@ -210,7 +210,7 @@ CREATE OR REPLACE FUNCTION get_products ()
             -- Nutrients
             array_to_json(ARRAY (
                 SELECT
-                  nutrients FROM get_ingredient_nutrients (ingred.id))) AS nutrients
+                  nutrients FROM ingredient_nutrients (ingred.id))) AS nutrients
           -- From product ingredients table
           FROM product_ingredients AS pi
           INNER JOIN ingredients AS ingred ON pi.ingredient_id = ingred.id
@@ -243,7 +243,7 @@ LANGUAGE SQL;
 -- 1.b
 -- Get product reviews (with username)
 
-CREATE OR REPLACE FUNCTION get_product_reviews (product_id_in int)
+CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
   RETURNS TABLE (
     username text,
     rating smallint,
@@ -271,7 +271,7 @@ LANGUAGE SQL;
 -- 1.d
 -- Get countries with states
 
-CREATE OR REPLACE FUNCTION get_countries_states ()
+CREATE OR REPLACE FUNCTION countries_states ()
   RETURNS TABLE (
     id int,
     code text,
@@ -306,7 +306,7 @@ LANGUAGE SQL;
 -- 1.e
 -- Get orders with items
 
-CREATE OR REPLACE FUNCTION get_orders (user_id_in int)
+CREATE OR REPLACE FUNCTION orders (user_id_in int)
   RETURNS TABLE (
     id int,
     address_bill json,
@@ -356,7 +356,7 @@ LANGUAGE SQL;
 -- 2.a
 -- Get all nutrients by food_id
 
-CREATE OR REPLACE FUNCTION get_nutrients_by_food_ids (food_id_in int[])
+CREATE OR REPLACE FUNCTION analyze_food_ids (food_id_in int[])
   RETURNS TABLE (
     food_id int,
     fdgrp_id int,
@@ -391,7 +391,7 @@ LANGUAGE SQL;
 -- 2.b
 -- Return 100 foods highest in a given nutr_id
 
-CREATE OR REPLACE FUNCTION sort_foods_by_nutrient_id (nutr_id_in int, fdgrp_id_in int[] DEFAULT NULL)
+CREATE OR REPLACE FUNCTION sort_foods_by_nutr_id (nutr_id_in int, fdgrp_id_in int[] DEFAULT NULL)
   RETURNS TABLE (
     food_id int,
     nutr_desc text,
@@ -434,7 +434,7 @@ LANGUAGE SQL;
 -- 2.b II
 -- Return 100 foods highest in a given nutr_id (per 200 kcal)
 
-CREATE OR REPLACE FUNCTION sort_foods_by_kcal_nutrient_id (nutr_id_in int, fdgrp_id_in int[] DEFAULT NULL)
+CREATE OR REPLACE FUNCTION sort_foods_by_kcal_nutr_id (nutr_id_in int, fdgrp_id_in int[] DEFAULT NULL)
   RETURNS TABLE (
     food_id int,
     nutr_desc text,
@@ -478,7 +478,7 @@ LANGUAGE SQL;
 -- 2.c
 -- Get servings for food
 
-CREATE OR REPLACE FUNCTION get_foods_servings (food_ids_in int[])
+CREATE OR REPLACE FUNCTION foods_servings (food_ids_in int[])
   RETURNS TABLE (
     food_id int,
     msre_id int,
@@ -504,7 +504,7 @@ LANGUAGE SQL;
 -- 2.d
 -- Get nutrient overiew
 
-CREATE OR REPLACE FUNCTION get_nutrients_overview ()
+CREATE OR REPLACE FUNCTION nutrients_overview ()
 -- TODO: decide milligram vs IU FOR vitamin A, E, D.. this function/script will help decid which are most common
   RETURNS TABLE (
     id int,
@@ -545,7 +545,7 @@ LANGUAGE SQL;
 -- 3.d
 -- Get user details
 
-CREATE OR REPLACE FUNCTION get_user_details (user_id_in int)
+CREATE OR REPLACE FUNCTION user_details (user_id_in int)
   RETURNS TABLE (
     user_id int,
     username text,
@@ -573,7 +573,7 @@ LANGUAGE SQL;
 -- 3.e
 -- Get user tokens
 
-CREATE OR REPLACE FUNCTION get_user_tokens (user_id_in int)
+CREATE OR REPLACE FUNCTION user_tokens (user_id_in int)
   RETURNS TABLE (
     user_id int,
     username text,
@@ -601,7 +601,7 @@ LANGUAGE SQL;
 -- 3.f
 -- Get user by email OR username
 
-CREATE OR REPLACE FUNCTION get_user_id_from_username_or_email (identifier text)
+CREATE OR REPLACE FUNCTION user_id_from_username_or_email (identifier text)
   RETURNS TABLE (
     id int,
     username text
