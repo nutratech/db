@@ -354,7 +354,7 @@ LANGUAGE SQL;
 -- 2.a
 -- Get all nutrients by food_id
 
-CREATE OR REPLACE FUNCTION analyze_food_ids (food_id_in int[])
+CREATE OR REPLACE FUNCTION analyze_foods (food_id_in int[])
   RETURNS TABLE (
     food_id int,
     fdgrp_id int,
@@ -533,7 +533,7 @@ LANGUAGE SQL;
 -- 3.f
 -- Get user by email OR username
 
-CREATE OR REPLACE FUNCTION find_user_id (identifier text)
+CREATE OR REPLACE FUNCTION find_user (identifier text)
   RETURNS TABLE (
     id int,
     username text
