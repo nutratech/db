@@ -33,6 +33,8 @@ import psycopg2
 import psycopg2.extras
 from dotenv import load_dotenv
 
+from py_utils.postgres import psql
+
 # cd to script's directory
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
@@ -305,17 +307,19 @@ def faker_():
 
     f = faker.Faker()
 
-    for i in range(10):
+    for i in range(2):
         # for i in range(6734):
-        company = f.company()
-        job = f.job()
-        address = f.address()
-        email = f.email()
-        dob = f.date_of_birth()
+        # company = f.company()
+        # job = f.job()
+        # address = f.address()
+        # email = f.email()
+        # dob = f.date_of_birth()
         # gender = f.gender()
         profile = f.profile()
 
-        print(json.dumps(profile, indent=2))
+        pg_result = psql("select * from users")
+        print(pg_result.rows)
+        # print(json.dumps(profile, indent=2))
 
 
 # -----------------------
