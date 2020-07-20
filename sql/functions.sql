@@ -54,12 +54,16 @@ LANGUAGE SQL;
 CREATE OR REPLACE FUNCTION functions ()
   RETURNS TABLE (
     proname name,
-    oidvectortypes text
+    oidvectortypes text,
+    format text,
+    args text
   )
   AS $$
   SELECT
     p.proname,
-    oidvectortypes(p.proargtypes)
+    oidvectortypes(p.proargtypes),
+    format('%I(%s)', p.proname, oidvectortypes(p.proargtypes)),
+    pg_get_function_arguments(p.oid)
   FROM
     pg_proc p
     INNER JOIN pg_namespace ns ON (p.pronamespace = ns.oid)
