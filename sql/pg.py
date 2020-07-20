@@ -313,16 +313,10 @@ def faker_():
 
     f = faker.Faker()
 
-    for i in range(1):
+    for i in range(6734):
         # for i in range(6734):
-        # company = f.company()
-        # job = f.job()
-        # address = f.address()
-        # email = f.email()
-        # dob = f.date_of_birth()
-        # gender = f.gender()
         profile = f.profile()
-        print(json.dumps(profile, indent=2))
+        # print(json.dumps(profile, indent=2))
 
         # passwd
         N = random.randint(6, 18)
@@ -330,8 +324,7 @@ def faker_():
             random.SystemRandom().choice(string.ascii_uppercase + string.digits)
             for _ in range(N)
         )
-        print(password)
-        passwd = bcrypt.hashpw(password.encode(), bcrypt.gensalt(8)).decode()
+        passwd = bcrypt.hashpw(password.encode(), bcrypt.gensalt(6)).decode()
 
         created = random.randint(1546300800, 1595270561)
         terms_agreement = datetime.fromtimestamp(created)
@@ -368,10 +361,13 @@ RETURNING
                 created,
             ],
         )
-        user_id = pg_result.row["id"]
+        try:
+            user_id = pg_result.row["id"]
+        except Exception as e:
+            print(repr(e))
+            continue
 
         # INSERT fake emails
-        # TODO: addresses, orders, reviews
         activated = bool(random.getrandbits(1))
         created = random.randint(created, 1595270561)
         pg_result = psql(
@@ -379,29 +375,14 @@ RETURNING
             [user_id, profile["mail"], "t", activated, created],
         )
 
-        address = profile['residence']
-        # address = address.replace('\n', ' ')
-        # address = usaddress.tag(profile["residence"])
-        # print(profile["residence"])
-        # print(address)
-        # exit()
-        # country_id = 226
+        # addresses
+        address = profile["residence"]
         pg_result = psql(
-            "INSERT INTO addresses (user_id, company_name, street_address, apartment_unit, country_id, state_id, zip, name_first, name_last, phone, email) VALUES (%s, %s, %s, %s, %s) RETURNING id",
-            [
-                user_id,
-                profile["company"],
-                address["address1"],
-                address["address2"],
-                country_id,
-                state_id,
-                zip,
-                profle["name"],
-                None,
-                None,
-                None,
-            ],
+            "INSERT INTO addresses (user_id, address) VALUES (%s, %s) RETURNING id",
+            [user_id, address],
         )
+
+        # TODO: orders, reviews
 
 
 # -----------------------

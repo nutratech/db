@@ -110,13 +110,13 @@ CREATE TABLE addresses (
   user_id int NOT NULL,
   address text,
   company_name varchar(70),
-  street_address varchar(90),  -- NOT NULL
+  street_address varchar(90), -- NOT NULL
   apartment_unit varchar(20),
-  country_id int NOT NULL,
+  country_id int, -- NOT NULL
   state_id int,
   zip varchar(20),
-  name_first varchar(90),  -- NOT NULL
-  name_last varchar(90),  -- NOT NULL
+  name_first varchar(90), -- NOT NULL
+  name_last varchar(90), -- NOT NULL
   phone varchar(20),
   email varchar(80),
   FOREIGN KEY (user_id) REFERENCES users (id),
