@@ -478,7 +478,7 @@ LANGUAGE SQL;
 -- 2.c
 -- Get servings for food
 
-CREATE OR REPLACE FUNCTION foods_servings (food_ids_in int[])
+CREATE OR REPLACE FUNCTION servings (food_ids_in int[] DEFAULT NULL)
   RETURNS TABLE (
     food_id int,
     msre_id int,
@@ -496,6 +496,7 @@ CREATE OR REPLACE FUNCTION foods_servings (food_ids_in int[])
   LEFT JOIN serving_id serv_id ON serv.msre_id = serv_id.id
 WHERE
   serv.food_id = ANY (food_ids_in)
+  OR food_ids_in IS NULL
 $$
 LANGUAGE SQL;
 
@@ -504,7 +505,7 @@ LANGUAGE SQL;
 -- 2.d
 -- Get nutrient overiew
 
-CREATE OR REPLACE FUNCTION nutrients_overview ()
+CREATE OR REPLACE FUNCTION nutrients ()
 -- TODO: decide milligram vs IU FOR vitamin A, E, D.. this function/script will help decid which are most common
   RETURNS TABLE (
     id int,
