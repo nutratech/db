@@ -35,6 +35,7 @@ from datetime import datetime
 import bcrypt
 import psycopg2
 import psycopg2.extras
+import usaddress
 from dotenv import load_dotenv
 
 from utils.postgres import psql
@@ -158,6 +159,7 @@ def import_():
         # "countries",
         # "states",
         "addresses",
+        "emails",
         "customer_activity",
         "reviews",
         "reports",
@@ -341,6 +343,7 @@ def faker_():
         bmr_equation = random.randint(0, 2)
         bodyfat_method = random.randint(0, 2)
 
+        # INSERT fake user
         pg_result = psql(
             """
 INSERT INTO users (username, passwd, terms_agreement, gender, name, job, dob, height, weight, blood_group, activity_level, weight_goal, bmr_equation, bodyfat_method, created)
@@ -353,7 +356,7 @@ RETURNING
                 terms_agreement,
                 profile["sex"],
                 profile["name"],
-                profile['job'],
+                profile["job"],
                 profile["birthdate"],
                 height,
                 weight,
@@ -365,10 +368,40 @@ RETURNING
                 created,
             ],
         )
-        user_id = pg_result.row['id']
-        print(user_id)
-        # TODO: fake emails, orders, reviews
-        print(pg_result.rows)
+        user_id = pg_result.row["id"]
+
+        # INSERT fake emails
+        # TODO: addresses, orders, reviews
+        activated = bool(random.getrandbits(1))
+        created = random.randint(created, 1595270561)
+        pg_result = psql(
+            "INSERT INTO emails (user_id, email, main, activated, created) VALUES (%s, %s, %s, %s, %s) RETURNING id",
+            [user_id, profile["mail"], "t", activated, created],
+        )
+
+        address = profile['residence']
+        # address = address.replace('\n', ' ')
+        # address = usaddress.tag(profile["residence"])
+        # print(profile["residence"])
+        # print(address)
+        # exit()
+        # country_id = 226
+        pg_result = psql(
+            "INSERT INTO addresses (user_id, company_name, street_address, apartment_unit, country_id, state_id, zip, name_first, name_last, phone, email) VALUES (%s, %s, %s, %s, %s) RETURNING id",
+            [
+                user_id,
+                profile["company"],
+                address["address1"],
+                address["address2"],
+                country_id,
+                state_id,
+                zip,
+                profle["name"],
+                None,
+                None,
+                None,
+            ],
+        )
 
 
 # -----------------------

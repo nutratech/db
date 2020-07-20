@@ -1,0 +1,62 @@
+[
+  {
+    "Recipient": "AP",
+    "ZipCode": "27140"
+  },
+  {
+    "address": "USCGC Everett\nFPO AP 03290",
+    "Recipient": "AP",
+    "ZipCode": "03290"
+  },
+  {
+    "address": "USCGC Payne\nFPO AE 09637",
+    "PlaceName": "FPO",
+    "StateName": "AE",
+    "ZipCode": "09637"
+  },
+  {
+    "address": "USNS Martinez\nFPO AA 11261",
+    "Recipient": "Martinez\n",
+    "PlaceName": "FPO",
+    "StateName": "AA",
+    "ZipCode": "11261"
+  },
+  {
+    "address": "USNS Fields\nFPO AA 29325",
+    "StreetName": "USNS",
+    "StreetNamePostType": "Fields\n",
+    "PlaceName": "FPO",
+    "StateName": "AA",
+    "ZipCode": "29325"
+  },
+  {
+    "address": "1918 Melissa Springs\nJefferyland, MD 77808",
+    "AddressNumber": "1918",
+    "StreetName": "Melissa",
+    "StreetNamePostType": "Springs\n",
+    "PlaceName": "Jefferyland,",
+    "StateName": "MD",
+    "ZipCode": "77808"
+  },
+  {
+    "address": "Unit 6846 Box 1913\nDPO AE 90087",
+    "OccupancyType": "Unit",
+    "OccupancyIdentifier": "6846",
+    "USPSBoxType": "Box",
+    "USPSBoxID": "1913\n",
+    "PlaceName": "DPO",
+    "StateName": "AE",
+    "ZipCode": "90087"
+  },
+  {
+    "address": "13890 Richardson Throughway Apt. 379\nJanetstad, MT 11380",
+    "AddressNumber": "13890",
+    "StreetName": "Richardson",
+    "StreetNamePostType": "Throughway",
+    "OccupancyType": "Apt.",
+    "OccupancyIdentifier": "379\n",
+    "PlaceName": "Janetstad,",
+    "StateName": "MT",
+    "ZipCode": "11380"
+  }
+]
