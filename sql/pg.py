@@ -298,6 +298,27 @@ def analyze_():
     # print(json.dumps(incidences, indent=2))
 
 
+def faker_():
+    print("[faker]\n")
+
+    import faker
+    import ujson as json
+
+    f = faker.Faker()
+
+    for i in range(10):
+        # for i in range(6734):
+        company = f.company()
+        job = f.job()
+        address = f.address()
+        email = f.email()
+        dob = f.date_of_birth()
+        # gender = f.gender()
+        profile = f.profile()
+
+        print(json.dumps(profile, indent=2))
+
+
 # -----------------------
 
 if __name__ == "__main__":
@@ -322,3 +343,5 @@ if __name__ == "__main__":
         export_()
     elif arg1 == "a" or arg1 == "analyze":
         analyze_()
+    elif arg1 == "f" or arg1 == "faker":
+        faker_()

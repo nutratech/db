@@ -395,11 +395,11 @@ CREATE OR REPLACE FUNCTION sort_foods_by_nutrient_id (nutr_id_in int, fdgrp_id_i
   RETURNS TABLE (
     food_id int,
     nutr_desc text,
-    fdgrp_id int,
+    fdgrp int,
     fdgrp_desc text,
-    nutr_val real,
-    units text,
-    kcal_per_100g real,
+    value real,
+    unit text,
+    kcal real,
     long_desc text
   )
   AS $$
