@@ -388,26 +388,21 @@ LANGUAGE SQL;
 --
 -- 2.b
 -- Return 100 foods highest in a given nutr_id
+-- TODO: include same preview info as search (on client cli)
 
 CREATE OR REPLACE FUNCTION sort_foods_by_nutr_id (nutr_id_in int, fdgrp_id_in int[] DEFAULT NULL)
   RETURNS TABLE (
     food_id int,
-    nutr_desc text,
     fdgrp int,
-    fdgrp_desc text,
     value real,
-    unit text,
     kcal real,
     long_desc text
   )
   AS $$
   SELECT
     nut_data.food_id,
-    nutr_desc,
     fdgrp_id,
-    fdgrp_desc,
     nut_data.nutr_val,
-    units,
     kcal.nutr_val,
     long_desc
   FROM
@@ -435,22 +430,16 @@ LANGUAGE SQL;
 CREATE OR REPLACE FUNCTION sort_foods_by_kcal_nutr_id (nutr_id_in int, fdgrp_id_in int[] DEFAULT NULL)
   RETURNS TABLE (
     food_id int,
-    nutr_desc text,
     fdgrp_id int,
-    fdgrp_desc text,
     nutr_val real,
-    units text,
-    kcal_per_100g real,
+    kcal real,
     long_desc text
   )
   AS $$
   SELECT
     nut_data.food_id,
-    nutr_desc,
     fdgrp_id,
-    fdgrp_desc,
     ROUND((nut_data.nutr_val * 200 / kcal.nutr_val)::decimal, 2)::real,
-    units,
     kcal.nutr_val,
     long_desc
   FROM
