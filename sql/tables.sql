@@ -50,11 +50,13 @@ CREATE TABLE users (
 
 CREATE TABLE emails (
   id serial PRIMARY KEY,
-  email varchar(140),
   user_id int NOT NULL,
+  email varchar(140) NOT NULL,
+  -- TODO: limit to 5 emails, purge old ones
+  main boolean NOT NULL,
   activated boolean DEFAULT FALSE,
   created int DEFAULT extract(epoch FROM NOW()),
-  UNIQUE (user_id, activated),
+  UNIQUE (user_id, main),
   UNIQUE (email),
   FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
 );

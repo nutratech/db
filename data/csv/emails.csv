@@ -1,3 +1,3 @@
-id,email,user_id,activated,created
-1,nutratracker@gmail.com,1,t,1580265913
-2,loanwolf200@gmail.com,2,f,1580265914
+id,user_id,email,main,activated,created
+1,1,ggofficial@gmail.com,t,t,1580265913
+2,2,loanwolf200@gmail.com,t,f,1580265914
