@@ -24,7 +24,7 @@ def psql(query, params=None):
     # TODO: revamp this, tighten ship, make more versatile for DB import, and decide on mandatory RETURNING for INSERTs
 
     cur = con.cursor(cursor_factory=psycopg2.extras.DictCursor)
-
+    print(query)
     # Print query
     if params:
         query = cur.mogrify(query, params).decode("utf-8")

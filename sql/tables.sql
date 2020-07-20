@@ -33,8 +33,7 @@ CREATE TABLE users (
   passwd text,
   terms_agreement timestamp DEFAULT CURRENT_TIMESTAMP,
   gender text,
-  name_first varchar(20),
-  name_last varchar(30),
+  name varchar(60),
   dob date,
   -- cm & kg
   height smallint,

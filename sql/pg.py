@@ -27,13 +27,17 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import getpass
 import os
+import random
+import string
 import sys
+from datetime import datetime
 
+import bcrypt
 import psycopg2
 import psycopg2.extras
 from dotenv import load_dotenv
 
-from py_utils.postgres import psql
+from utils.postgres import psql
 
 # cd to script's directory
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -307,7 +311,7 @@ def faker_():
 
     f = faker.Faker()
 
-    for i in range(2):
+    for i in range(1):
         # for i in range(6734):
         # company = f.company()
         # job = f.job()
@@ -316,10 +320,55 @@ def faker_():
         # dob = f.date_of_birth()
         # gender = f.gender()
         profile = f.profile()
+        print(json.dumps(profile, indent=2))
 
-        pg_result = psql("select * from users")
+        # passwd
+        N = random.randint(6, 18)
+        password = "".join(
+            random.SystemRandom().choice(string.ascii_uppercase + string.digits)
+            for _ in range(N)
+        )
+        print(password)
+        passwd = bcrypt.hashpw(password.encode(), bcrypt.gensalt(8)).decode()
+
+        created = random.randint(1546300800, 1595270561)
+        terms_agreement = datetime.fromtimestamp(created)
+
+        x = random.randint(0, 1)
+        gender = "m" if x else "f"
+
+        dob = random.randint(-1577923200, 1293840000)
+        dob = datetime.fromtimestamp(dob)
+        height = random.randint(120, 220)
+        weight = random.randint(35, 110)
+        activity_level = random.randint(1, 5)
+        weight_goal = random.randint(1, 5)
+        bmr_equation = random.randint(0, 2)
+        bodyfat_method = random.randint(0, 2)
+
+        pg_result = psql(
+            """
+INSERT INTO users (username, passwd, terms_agreement, gender, name, dob, height, weight, activity_level, weight_goal, bmr_equation, bodyfat_method, created)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+RETURNING
+    id""",
+            [
+                profile["username"],
+                passwd,
+                terms_agreement,
+                gender,
+                profile["name"],
+                dob,
+                height,
+                weight,
+                activity_level,
+                weight_goal,
+                bmr_equation,
+                bodyfat_method,
+                created,
+            ],
+        )
         print(pg_result.rows)
-        # print(json.dumps(profile, indent=2))
 
 
 # -----------------------
