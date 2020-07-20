@@ -334,11 +334,6 @@ def faker_():
         created = random.randint(1546300800, 1595270561)
         terms_agreement = datetime.fromtimestamp(created)
 
-        x = random.randint(0, 1)
-        gender = "m" if x else "f"
-
-        dob = random.randint(-1577923200, 1293840000)
-        dob = datetime.fromtimestamp(dob)
         height = random.randint(120, 220)
         weight = random.randint(35, 110)
         activity_level = random.randint(1, 5)
@@ -348,19 +343,21 @@ def faker_():
 
         pg_result = psql(
             """
-INSERT INTO users (username, passwd, terms_agreement, gender, name, dob, height, weight, activity_level, weight_goal, bmr_equation, bodyfat_method, created)
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+INSERT INTO users (username, passwd, terms_agreement, gender, name, job, dob, height, weight, blood_group, activity_level, weight_goal, bmr_equation, bodyfat_method, created)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
 RETURNING
     id""",
             [
                 profile["username"],
                 passwd,
                 terms_agreement,
-                gender,
+                profile["sex"],
                 profile["name"],
-                dob,
+                profile['job'],
+                profile["birthdate"],
                 height,
                 weight,
+                profile["blood_group"],
                 activity_level,
                 weight_goal,
                 bmr_equation,
@@ -368,6 +365,9 @@ RETURNING
                 created,
             ],
         )
+        user_id = pg_result.row['id']
+        print(user_id)
+        # TODO: fake emails, orders, reviews
         print(pg_result.rows)
 
 

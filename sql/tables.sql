@@ -34,10 +34,12 @@ CREATE TABLE users (
   terms_agreement timestamp DEFAULT CURRENT_TIMESTAMP,
   gender text,
   name varchar(60),
+  job text,
   dob date,
   -- cm & kg
   height smallint,
   weight smallint,
+  blood_group text,
   -- TODO: mappings, 0 - 5, or 1 - 5 ??
   activity_level smallint,
   weight_goal smallint,
