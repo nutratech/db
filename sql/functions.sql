@@ -49,6 +49,28 @@ LANGUAGE SQL;
 --
 --
 -- 0.a
+-- Get functions, with arguments
+
+CREATE OR REPLACE FUNCTION functions ()
+  RETURNS TABLE (
+    proname name,
+    oidvectortypes text
+  )
+  AS $$
+  SELECT
+    p.proname,
+    oidvectortypes(p.proargtypes)
+  FROM
+    pg_proc p
+    INNER JOIN pg_namespace ns ON (p.pronamespace = ns.oid)
+  WHERE
+    ns.nspname = 'nt'
+$$
+LANGUAGE SQL;
+
+--
+--
+-- 0.a
 -- Get user overview, with info
 
 CREATE OR REPLACE FUNCTION users (user_id_in int DEFAULT NULL)
