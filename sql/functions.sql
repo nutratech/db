@@ -89,27 +89,9 @@ CREATE OR REPLACE FUNCTION users (user_id_in int DEFAULT NULL)
   SELECT
     users.id,
     username,
-    --addresses
-    array_to_json(ARRAY (
-        SELECT
-          row_to_json(addresses)
-        FROM addresses
-      WHERE
-        user_id = users.id)),
-    -- emails
-    array_to_json(ARRAY (
-        SELECT
-          row_to_json(emails)
-        FROM emails
-      WHERE
-        user_id = users.id)),
-    -- tokens
-    array_to_json(ARRAY (
-        SELECT
-          row_to_json(tokens)
-        FROM tokens
-      WHERE
-        user_id = users.id))
+    row_to_json(addresses),
+    row_to_json(emails),
+    row_to_json(tokens)
   FROM
     users
   LEFT JOIN addresses ON addresses.user_id = users.id
@@ -118,7 +100,10 @@ CREATE OR REPLACE FUNCTION users (user_id_in int DEFAULT NULL)
 WHERE (users.id = user_id_in
   OR user_id_in IS NULL)
 GROUP BY
-  users.id
+  users.id,
+  addresses.id,
+  emails.id,
+  tokens.id
 ORDER BY
   id
 $$
@@ -455,6 +440,7 @@ CREATE OR REPLACE FUNCTION sort_foods_by_kcal_nutr_id (nutr_id_in int, fdgrp_id_
     -- filter out NULL kcal
     INNER JOIN nut_data kcal ON food.id = kcal.food_id
       AND kcal.nutr_id = 208
+      AND kcal.nutr_val > 0
   WHERE
     nut_data.nutr_id = nutr_id_in
     -- filter by food id, if supplied
