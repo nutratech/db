@@ -1,0 +1,126 @@
+commit,username,author_date,commit_date,message
+db8d862,gamesguru,2020-07-21 11:46:51,2020-07-21 11:57:17,autodoc svg?
+1b863e6,gamesguru,2020-07-21 04:59:23,2020-07-21 05:08:54,"speed up users(), no zero on kcal, and id for tokens"
+11a4721,gamesguru,2020-07-20 16:52:53,2020-07-20 16:52:53,fake data
+315fe48,gamesguru,2020-07-20 16:49:10,2020-07-20 16:49:10,small
+ac0d46b,gamesguru,2020-07-20 16:37:45,2020-07-20 16:37:45,fake data
+8fcb571,gamesguru,2020-07-20 16:31:43,2020-07-20 16:37:33,better
+a887cda,gamesguru,2020-07-20 16:29:34,2020-07-20 16:29:34,wip
+61f746d,gamesguru,2020-07-20 15:03:17,2020-07-20 15:11:48,better
+0d62366,gamesguru,2020-07-20 14:50:51,2020-07-20 15:00:20,faker
+ae7ad9e,gamesguru,2020-07-20 14:32:59,2020-07-20 14:33:08,copy over pg utils from ntserv
+f470d65,gamesguru,2020-07-20 13:42:29,2020-07-20 13:42:29,new function names
+9384eb1,gamesguru,2020-07-20 13:32:29,2020-07-20 13:32:29,"remove nutr_desc, fdgrp_desc, and units from sorts"
+e7976a9,gamesguru,2020-07-20 13:26:43,2020-07-20 13:26:43,remove unused func: product_reviews()
+5849641,gamesguru,2020-07-20 13:16:40,2020-07-20 13:16:40,improve functions()
+28ae375,gamesguru,2020-07-20 13:08:28,2020-07-20 13:08:28,remove unused functions
+91f9356,gamesguru,2020-07-20 12:58:56,2020-07-20 12:58:56,functions function
+25bf79e,gamesguru,2020-07-20 12:19:19,2020-07-20 12:19:19,email table
+ce48a7a,gamesguru,2020-07-20 12:09:04,2020-07-20 12:09:04,func fixes
+2609f21,gamesguru,2020-07-20 11:23:15,2020-07-20 11:23:15,"rename funcs, no get_ prefix"
+f56dadd,gamesguru,2020-07-20 00:03:48,2020-07-20 00:03:48,wip
+aeafd34,gamesguru,2020-07-19 15:33:27,2020-07-19 15:33:27,user_id_in opt arg for users()
+4469464,gamesguru,2020-07-19 11:54:28,2020-07-19 11:54:28,run: git co 5e7b172 -- .
+51ce812,gamesguru,2020-07-19 11:53:23,2020-07-19 11:53:23,wip2
+c8ae3f4,gamesguru,2020-07-19 11:37:37,2020-07-19 11:42:56,wip
+5e7b172,gamesguru,2020-07-19 11:26:32,2020-07-19 11:26:57,fuller users()
+98fb3b0,gamesguru,2020-07-19 11:15:48,2020-07-19 11:15:48,function: users()
+b5d9a70,gamesguru,2020-07-19 09:44:17,2020-07-19 09:45:30,remove unused user table cols
+13d94bc,gamesguru,2020-07-19 09:08:06,2020-07-19 09:11:22,"add function: meta, tables()"
+2188b93,gamesguru,2020-07-19 08:57:51,2020-07-19 08:57:51,"phone, email non null on addy"
+5e7048d,gamesguru,2020-07-18 21:08:19,2020-07-18 21:17:58,add sort_foods_by_kcal_nutrient_id()
+a8d4090,gamesguru,2020-07-18 16:51:20,2020-07-18 16:51:20,don't use decimal JSON python err
+1a5ee29,gamesguru,2020-07-18 15:13:19,2020-07-18 15:13:24,"remove zero rda, division by zero error"
+429af04,gamesguru,2020-07-18 15:12:59,2020-07-18 15:12:59,"rename food_count, add avg_val and avg_rda"
+12f99e8,gamesguru,2020-07-18 12:13:42,2020-07-18 12:13:42,reorder
+d6ed106,gamesguru,2020-07-18 11:25:18,2020-07-18 11:25:18,add cap mg for immune
+f67c8bc,gamesguru,2020-07-18 10:50:23,2020-07-18 10:52:39,"add function get_nutrients_overview, w/ # in ndata"
+af681fd,gamesguru,2020-07-16 18:59:56,2020-07-16 19:19:18,bump vit D rda
+10f6b5c,gamesguru,2020-07-15 13:08:31,2020-07-15 13:08:34,start analyze script
+3b6aba9,gamesguru,2020-07-15 12:35:49,2020-07-15 12:35:49,add 11.97 g ALA for flaxseed
+5824359,gamesguru,2020-07-13 13:45:25,2020-07-13 13:45:25,add 2g RDA for ALA
+8d4a40f,gamesguru,2020-07-13 13:20:15,2020-07-13 13:20:15,remove is_anti for now (from nutr_def)
+9e62476,gamesguru,2020-07-13 13:19:39,2020-07-13 13:19:39,bump proanthocyanin RDA values
+8ff99ab,gamesguru,2020-07-12 18:16:35,2020-07-12 18:16:35,get_foodS_servings
+810421e,gamesguru,2020-07-02 10:40:21,2020-07-02 10:40:21,"update variants, servings, function"
+d13b9a5,gamesguru,2020-07-02 09:29:37,2020-07-02 09:29:37,pg export self-format csv
+9bb790b,gamesguru,2020-07-01 15:46:18,2020-07-01 15:53:57,better servings on get_products() function
+abe629c,gamesguru,2020-07-01 13:07:47,2020-07-01 14:40:51,servings
+7279807,gamesguru,2020-06-29 19:18:09,2020-06-29 19:33:30,opt filter sort_foods_by_nutrient_id() by fdgrp_id
+47f4c7e,gamesguru,2020-06-29 11:30:31,2020-06-29 11:34:04,servings wip2
+a4e6973,gamesguru,2020-06-29 11:06:30,2020-06-29 11:06:30,formatting functions.sql
+ddb0eb9,gamesguru,2020-06-28 20:55:43,2020-06-28 20:55:43,product servings wip
+23fa3e0,gamesguru,2020-06-28 19:36:19,2020-06-28 19:44:19,remove sourcing notes from products tbl
+e3760a9,gamesguru,2020-06-28 19:33:10,2020-06-28 19:33:10,add transparency_note to ingredient
+6919c21,gamesguru,2020-06-28 19:06:03,2020-06-28 19:06:03,fix dupe rows in get_orders()
+6cadadb,gamesguru,2020-06-28 18:32:37,2020-06-28 18:32:37,send back paypal_id with get_orders()
+dd380e7,gamesguru,2020-06-28 18:30:05,2020-06-28 18:30:05,include product name with get_orders() variants
+e1b4321,gamesguru,2020-06-28 18:21:19,2020-06-28 18:21:19,created w get_orders()
+56e3cdf,gamesguru,2020-06-28 18:01:39,2020-06-28 18:10:17,add test order for user #2
+ade8fb4,gamesguru,2020-06-28 17:22:31,2020-06-28 17:22:31,fixup sort_foods_by_nutrient_id & get_food_servings
+d9b6dd7,gamesguru,2020-06-28 11:09:59,2020-06-28 11:10:48,make get_nutrients_by_food_ids() v9.2 compat
+fa67e4e,gamesguru,2020-06-28 10:14:37,2020-06-28 10:15:39,add serving_id to ptables
+1f8b6c7,gamesguru,2020-06-28 09:32:50,2020-06-28 09:32:50,comment out v9.2 incompat funcs
+5eaa45d,gamesguru,2020-06-28 09:28:59,2020-06-28 09:28:59,weird postgres reordering
+1b9059a,gamesguru,2020-06-28 09:25:03,2020-06-28 09:27:50,transfer over foods tables/funcs
+12d4daf,gamesguru,2020-06-27 22:34:16,2020-06-27 22:35:45,add details & studies for magtein
+5fa45ef,gamesguru,2020-06-27 22:24:41,2020-06-27 22:24:41,add capsule option for magnesium threonate
+ac66a2d,gamesguru,2020-06-27 20:57:58,2020-06-27 20:57:58,"fix function, review by product filter"
+fbb5db6,gamesguru,2020-06-27 20:31:17,2020-06-27 20:31:17,formatting fix
+90d10aa,gamesguru,2020-06-27 20:25:21,2020-06-27 20:25:21,add 200mg gotu kola to relax formula
+6350cb4,gamesguru,2020-06-27 19:47:06,2020-06-27 19:47:06,get_orders() return more for invoice
+0436112,gamesguru,2020-06-27 19:03:28,2020-06-27 19:03:28,make nutr_def a ptable
+d25509e,gamesguru,2020-06-27 18:38:18,2020-06-27 18:38:18,add review title
+7221143,gamesguru,2020-06-27 18:20:06,2020-06-27 18:20:06,fix ingredients function filtering
+0659424,gamesguru,2020-06-27 17:56:05,2020-06-27 17:56:05,"add magtein powder, and customary servings"
+9465869,gamesguru,2020-06-27 17:22:45,2020-06-27 17:23:32,"deprecate serving on prod, now on var"
+8e5787c,gamesguru,2020-06-27 17:17:40,2020-06-27 17:17:40,proper product_ingredients func
+6151b2c,gamesguru,2020-06-27 16:34:14,2020-06-27 16:34:14,preliminary product_ingredients func
+113aa22,gamesguru,2020-06-27 16:05:28,2020-06-27 16:05:33,"force add csv files, oops"
+f582347,gamesguru,2020-06-27 15:58:42,2020-06-27 15:58:42,enhance variants
+ce85349,gamesguru,2020-06-27 14:27:42,2020-06-27 14:28:46,"add capsules, lotion in oz."
+0298bc2,gamesguru,2020-06-27 12:12:34,2020-06-27 12:12:34,new cols for variants
+3e757ca,gamesguru,2020-06-27 00:05:25,2020-06-27 00:05:25,product_ingredients for Mg salts
+4b8153e,gamesguru,2020-06-26 23:59:50,2020-06-26 23:59:50,release the magnesiums
+e14f3d9,gamesguru,2020-06-26 23:56:31,2020-06-26 23:56:31,add `serving_grams` col to products
+05f0f97,gamesguru,2020-06-26 22:44:01,2020-06-26 22:44:01,update get_product() w/ new cols
+0925cbf,gamesguru,2020-06-26 22:35:22,2020-06-26 22:35:22,add product details in csv
+ad68a75,gamesguru,2020-06-26 21:45:12,2020-06-26 21:51:22,add product fields to automate UI rendering
+a13f87e,gamesguru,2020-06-26 21:32:40,2020-06-26 21:32:40,add calcium citrate
+62409bf,gamesguru,2020-06-26 14:38:40,2020-06-26 14:38:40,add mg glycinate+malate
+e425f32,gamesguru,2020-06-26 14:38:28,2020-06-26 14:38:28,pg/sql improvements from new usda fork
+9b38404,gamesguru,2020-06-25 23:15:28,2020-06-26 00:01:37,update ingredients
+3aac5e1,gamesguru,2020-06-25 20:53:11,2020-06-25 20:53:11,add effective_dose to ingredients
+cb14652,gamesguru,2020-06-25 20:41:10,2020-06-25 20:41:10,add ingredients
+1ee9107,gamesguru,2020-06-25 12:14:31,2020-06-25 12:14:31,add mg glycinate & malate
+c227b91,gamesguru,2020-06-25 10:12:31,2020-06-25 10:55:46,ingredient improvements
+1f45c24,gamesguru,2020-06-24 21:58:25,2020-06-24 23:05:21,add ingredients + specs
+126b021,gamesguru,2020-06-24 20:50:19,2020-06-24 20:50:19,replace missing get_user_details() func
+ef9f189,gamesguru,2020-06-23 16:09:09,2020-06-23 16:09:09,unique constraint on pkg names
+61ac7f8,gamesguru,2020-06-23 11:49:21,2020-06-23 12:19:59,CREATE TABLE pcategories
+872a516,gamesguru,2020-06-18 20:52:20,2020-06-18 20:52:20,add function: get_orders (user_id_in int)
+0f46ab6,gamesguru,2020-06-18 12:04:23,2020-06-18 12:21:49,"add avg cost, update shipping weight_maxes"
+dbc3ad3,gamesguru,2020-06-17 12:48:15,2020-06-17 12:48:15,update shipping_containers
+44814d2,gamesguru,2020-06-17 08:20:41,2020-06-17 08:20:41,tidy
+56e19c9,gamesguru,2020-06-17 08:14:31,2020-06-17 08:14:31,add cd cwd to dbup/dbdown
+f6d9f17,gamesguru,2020-06-16 17:54:27,2020-06-16 17:54:27,"more itable fixes, id tweaks, export csv"
+094f7da,gamesguru,2020-06-16 17:47:27,2020-06-16 17:47:27,"fixup itables, add `id` to 2, remove view table"
+f07afdd,gamesguru,2020-06-16 17:29:43,2020-06-16 17:29:43,add truncate_() to pg.py
+90151a9,gamesguru,2020-06-16 17:15:54,2020-06-16 17:15:54,tweak pg.py
+d93c81a,gamesguru,2020-06-16 14:32:05,2020-06-16 14:34:40,remove old *.sh scripts
+c25567d,gamesguru,2020-06-16 12:43:24,2020-06-16 14:31:36,"more pg.py, add set_serial()"
+43c75e0,gamesguru,2020-06-16 12:08:13,2020-06-16 12:08:13,integrate python import
+be6f621,gamesguru,2020-06-15 22:52:37,2020-06-15 22:52:37,condense get_products() functions
+30dbd96,gamesguru,2020-06-15 11:29:41,2020-06-15 11:29:41,fix ownership issue in start-pg.sh
+784c07d,gamesguru,2020-06-13 15:00:36,2020-06-13 15:01:05,add csv
+e03f117,gamesguru,2020-06-13 13:45:29,2020-06-13 14:08:16,\i tables.sql \i functions.sql out config-db.sh
+487384e,gamesguru,2020-06-13 13:37:35,2020-06-13 13:37:35,get functions.sql 9.2 compatible
+6559af6,gamesguru,2020-06-13 00:38:58,2020-06-13 00:38:58,json_agg wip
+4c04ab5,gamesguru,2020-06-12 20:40:43,2020-06-12 20:41:08,no jsonb
+c2fe5c0,gamesguru,2020-06-12 16:29:59,2020-06-12 16:29:59,add \i functions.sql to config-db.sh
+f087c5c,gamesguru,2020-06-12 14:43:33,2020-06-12 14:52:09,comment out travis yaml
+49dc595,gamesguru,2020-06-12 14:35:47,2020-06-12 14:38:46,more wip
+6902483,gamesguru,2020-06-12 12:51:54,2020-06-12 12:51:54,more wip
+734c8a3,gamesguru,2020-06-12 12:02:03,2020-06-12 12:11:45,wip
+6d9d759,gamesguru,2020-06-12 10:07:28,2020-06-12 10:07:28,messing w/ sql scripts
+8844d1b,gamesguru,2020-06-12 09:23:20,2020-06-12 09:23:20,"initial commit, pruning old db repo"

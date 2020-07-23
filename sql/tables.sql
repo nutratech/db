@@ -223,6 +223,14 @@ CREATE TABLE servings (
 -- SHOP
 --++++++++++++++++++++++++++++
 
+CREATE TABLE version (
+  commit text NOT NULL,
+  username text NOT NULL,
+  author_date timestamp NOT NULL,
+  commit_date timestamp NOT NULL,
+  message text NOT NULL
+);
+
 CREATE TABLE categories (
   id serial PRIMARY KEY,
   name text NOT NULL,
