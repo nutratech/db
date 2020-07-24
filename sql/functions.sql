@@ -179,6 +179,7 @@ LANGUAGE SQL;
 CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
   RETURNS TABLE (
     username text,
+    order_id int,
     order_date int,
     product_id int,
     variant_id int,
@@ -191,6 +192,7 @@ CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
   AS $$
   SELECT
     username,
+    orders.id,
     orders.created,
     variants.product_id,
     variant_id,
@@ -200,13 +202,12 @@ CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
     title,
     review_text
   FROM
-    order_items
-    INNER JOIN orders ON orders.id = order_id
-    INNER JOIN variants ON variants.id = order_items.variant_id
-    INNER JOIN products ON products.id = variants.product_id
-    INNER JOIN users ON users.id = orders.user_id
-    RIGHT JOIN reviews ON reviews.product_id = products.id
-      AND reviews.user_id = users.id
+    reviews
+    INNER JOIN users ON users.id = user_id
+    INNER JOIN products ON products.id = product_id
+    INNER JOIN variants ON variants.product_id = product_id_in
+    LEFT JOIN order_items ON variants.id = variant_id
+    LEFT JOIN orders ON orders.id = order_id AND orders.user_id = users.id
   WHERE
     products.id = product_id_in
 $$
