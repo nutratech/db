@@ -173,6 +173,40 @@ LANGUAGE SQL;
 
 --
 --
+-- 1.c (pre I)
+-- Gets orders (for review page info, "verified purchase" etc)
+
+CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
+  RETURNS TABLE (
+    username text,
+    order_date int,
+    product_id int,
+    variant_id int,
+    reviews json
+  )
+  AS $$
+  SELECT
+    username,
+    orders.created,
+    variants.product_id,
+    variant_id,
+    -- TODO: filter sensitive fields, only return rating, title, review_text, created ?
+    row_to_json(reviews)
+  FROM
+    order_items
+    INNER JOIN orders ON orders.id = order_id
+    INNER JOIN variants ON variants.id = order_items.variant_id
+    INNER JOIN products ON products.id = variants.product_id
+    INNER JOIN users ON users.id = orders.user_id
+    INNER JOIN reviews ON reviews.product_id = products.id
+      AND reviews.user_id = users.id
+  WHERE
+    products.id = product_id_in
+$$
+LANGUAGE SQL;
+
+--
+--
 -- 1.c
 -- Get products with variants & avg_ratings
 
@@ -228,7 +262,7 @@ CREATE OR REPLACE FUNCTION products ()
             AND pi.product_id = prod.id)
           ROW)),
     -- Reviews
-    row_to_json(product_reviews(prod.id))
+    row_to_json(product_reviews (prod.id))
   FROM
     products prod
   LEFT JOIN reviews rv ON rv.product_id = prod.id
@@ -238,40 +272,6 @@ GROUP BY
   prod.id
 ORDER BY
   prod.id
-$$
-LANGUAGE SQL;
-
---
---
--- 1.d
--- Gets orders (for review page info, "verified purchase" etc)
-
-CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
-  RETURNS TABLE (
-    username text,
-    order_date int,
-    product_id int,
-    variant_id int,
-    reviews json
-  )
-  AS $$
-  SELECT
-    username,
-    orders.created,
-    variants.product_id,
-    variant_id,
-    -- TODO: filter sensitive fields, only return rating, title, review_text, created ?
-    row_to_json(reviews)
-  FROM
-    order_items
-    INNER JOIN orders ON orders.id = order_id
-    INNER JOIN variants ON variants.id = order_items.variant_id
-    INNER JOIN products ON products.id = variants.product_id
-    INNER JOIN users ON users.id = orders.user_id
-    INNER JOIN reviews ON reviews.product_id = products.id
-      AND reviews.user_id = users.id
-  WHERE
-    products.id = product_id_in
 $$
 LANGUAGE SQL;
 
