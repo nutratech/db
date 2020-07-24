@@ -251,6 +251,33 @@ LANGUAGE SQL;
 
 --
 --
+-- 1.d
+-- Gets orders (for review page info, "verified purchase" etc)
+
+CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
+  RETURNS TABLE (
+    user_id int,
+    username text,
+    created int,
+    order_id int,
+    variant_id int
+  )
+  AS $$
+  SELECT
+    user_id,
+    username,
+    orders.created,
+    order_id,
+    variant_id
+  FROM
+    order_items
+    INNER JOIN orders ON orders.id = order_id
+    INNER JOIN users ON users.id = orders.user_id
+$$
+LANGUAGE SQL;
+
+--
+--
 -- 1.k
 -- Get countries, with states
 
