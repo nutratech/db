@@ -228,15 +228,7 @@ CREATE OR REPLACE FUNCTION products ()
             AND pi.product_id = prod.id)
           ROW)),
     -- Reviews
-    array_to_json(ARRAY (
-        SELECT
-          row_to_json(ROW)
-        FROM (
-          SELECT
-            u.username AS username, review FROM reviews AS review
-          INNER JOIN users AS u ON review.user_id = u.id
-            AND review.product_id = prod.id)
-        ROW))
+    row_to_json(product_reviews(prod.id))
   FROM
     products prod
   LEFT JOIN reviews rv ON rv.product_id = prod.id
