@@ -209,6 +209,7 @@ LANGUAGE SQL;
 --
 -- 1.c
 -- Get products with variants & avg_ratings
+-- TODO: find out why `SELECT id FROM products();` doesn't yield product 8 (no variants, yet)
 
 CREATE OR REPLACE FUNCTION products ()
   RETURNS TABLE (
@@ -262,7 +263,9 @@ CREATE OR REPLACE FUNCTION products ()
             AND pi.product_id = prod.id)
           ROW)),
     -- Reviews
-    row_to_json(product_reviews (prod.id))
+    array_to_json(ARRAY (
+        SELECT
+          row_to_json(product_reviews (prod.id))))
   FROM
     products prod
   LEFT JOIN reviews rv ON rv.product_id = prod.id
