@@ -176,7 +176,7 @@ LANGUAGE SQL;
 -- 1.c (pre I)
 -- Gets orders (for review page info, "verified purchase" etc)
 
-CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
+CREATE OR REPLACE FUNCTION reviews (product_id_in int DEFAULT NULL)
   RETURNS TABLE (
     username text,
     order_id int,
@@ -190,7 +190,7 @@ CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
     body text
   )
   AS $$
-  SELECT
+  SELECT DISTINCT
     username,
     orders.id,
     orders.created,
@@ -205,11 +205,16 @@ CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
     reviews
     INNER JOIN users ON users.id = user_id
     INNER JOIN products ON products.id = product_id
-    INNER JOIN variants ON variants.product_id = product_id_in
+    INNER JOIN variants ON variants.product_id = products.id
     LEFT JOIN order_items ON variants.id = variant_id
-    LEFT JOIN orders ON orders.id = order_id AND orders.user_id = users.id
-  WHERE
-    products.id = product_id_in
+    LEFT JOIN orders ON orders.id = order_id
+      AND orders.user_id = users.id
+  WHERE (products.id = product_id_in
+    OR product_id_in IS NULL)
+  AND ((orders.id IS NULL
+      AND variant_id IS NULL)
+    OR (orders.id IS NOT NULL
+      AND variant_id IS NOT NULL))
 $$
 LANGUAGE SQL;
 
@@ -273,7 +278,7 @@ CREATE OR REPLACE FUNCTION products ()
     -- Reviews
     array_to_json(ARRAY (
         SELECT
-          row_to_json(product_reviews (prod.id))))
+          row_to_json(reviews (prod.id))))
   FROM
     products prod
   LEFT JOIN reviews rv ON rv.product_id = prod.id
