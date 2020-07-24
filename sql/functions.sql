@@ -257,7 +257,7 @@ LANGUAGE SQL;
 CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
   RETURNS TABLE (
     username text,
-    created int,
+    order_date int,
     product_id int,
     variant_id int,
     reviews json
@@ -268,14 +268,16 @@ CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
     orders.created,
     variants.product_id,
     variant_id,
+    -- TODO: filter sensitive fields, only return rating, title, review_text, created ?
     row_to_json(reviews)
   FROM
     order_items
     INNER JOIN orders ON orders.id = order_id
-    INNER JOIN users ON users.id = orders.user_id
     INNER JOIN variants ON variants.id = order_items.variant_id
-    INNER JOIN products ON variants.product_id = products.id
+    INNER JOIN products ON products.id = variants.product_id
+    INNER JOIN users ON users.id = orders.user_id
     INNER JOIN reviews ON reviews.product_id = products.id
+      AND reviews.user_id = users.id
   WHERE
     products.id = product_id_in
 $$
