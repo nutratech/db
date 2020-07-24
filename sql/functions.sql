@@ -182,7 +182,11 @@ CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
     order_date int,
     product_id int,
     variant_id int,
-    reviews json
+    review_id int,
+    rating smallint,
+    review_date int,
+    title text,
+    body text
   )
   AS $$
   SELECT
@@ -190,8 +194,11 @@ CREATE OR REPLACE FUNCTION product_reviews (product_id_in int)
     orders.created,
     variants.product_id,
     variant_id,
-    -- TODO: filter sensitive fields, only return rating, title, review_text, created ?
-    row_to_json(reviews)
+    reviews.id,
+    rating,
+    reviews.created,
+    title,
+    review_text
   FROM
     order_items
     INNER JOIN orders ON orders.id = order_id
