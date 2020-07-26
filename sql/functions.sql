@@ -462,8 +462,8 @@ LANGUAGE SQL;
 CREATE OR REPLACE FUNCTION sort_foods_by_kcal_nutr_id (nutr_id_in int, fdgrp_id_in int[] DEFAULT NULL)
   RETURNS TABLE (
     food_id int,
-    fdgrp_id int,
-    nutr_val real,
+    fdgrp int,
+    value real,
     kcal real,
     long_desc text
   )
