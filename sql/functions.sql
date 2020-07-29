@@ -110,6 +110,38 @@ ORDER BY
 $$
 LANGUAGE SQL;
 
+--
+--
+-- 0.n
+--
+
+CREATE OR REPLACE FUNCTION recs (rec_ids_in int[] DEFAULT NULL)
+  RETURNS TABLE (
+    -- id int,
+    rec_id int,
+    nutr_notes text,
+    food_name text,
+    serving_size text,
+    notes text
+  )
+  AS $$
+  SELECT
+    recs.rec_id,
+    rec_nut.notes,
+    food_name,
+    serving_size,
+    recs.notes
+  FROM
+    recs
+  LEFT JOIN rec_nut ON rec_nut.rec_id = recs.rec_id
+  INNER JOIN rec_dat ON entry_id = recs.id
+    AND rec_dat.rec_nut_id = rec_nut.id
+WHERE
+  recs.rec_id = ANY (rec_ids_in)
+  OR rec_ids_in IS NULL
+$$
+LANGUAGE SQL;
+
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
 -- #1   SHOP
