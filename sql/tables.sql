@@ -205,7 +205,7 @@ CREATE TABLE nut_data (
 CREATE TABLE rec_id (
   id serial PRIMARY KEY,
   name text,
-  serving_size text NOT NULL, -- Overrides rec_entry.serving_size
+  serving_size text, -- NULL == "per recs.serving_size"
   source_urls text[] NOT NULL,
   UNIQUE (name)
 );
@@ -214,7 +214,7 @@ CREATE TABLE recs (
   id serial PRIMARY KEY,
   rec_id int NOT NULL,
   food_name text NOT NULL,
-  serving_size text, -- Display purposes only, does NOT override recs.serving_size
+  serving_size text, -- Display purposes only
   notes text, -- e.g. visually segregate DAIRY vs. NON-DAIRY for calcium
   source_urls text[], -- If different from rec_id.source_urls
   FOREIGN KEY (rec_id) REFERENCES recs (id) ON UPDATE CASCADE
@@ -226,6 +226,7 @@ CREATE TABLE rec_nut (
   nutr_id int,
   nutr_desc text,
   unit text,
+  notes text,
   FOREIGN KEY (rec_id) REFERENCES recs (id) ON UPDATE CASCADE,
   FOREIGN KEY (nutr_id) REFERENCES nutr_def (id) ON UPDATE CASCADE
 );
