@@ -201,32 +201,41 @@ CREATE TABLE nut_data (
 -- Food recommendations
 ---------------------------
 
-CREATE TABLE recommendation_id (
+CREATE TABLE rec_id (
   id serial PRIMARY KEY,
   name text,
-  nutr1_id int,
-  nutr2_id int,
-  nutr3_id int,
-  unit1 text,
-  unit2 text,
-  unit3 text,
-  per_denomination text NOT NULL,
-  nutr1_desc text NOT NULL,
-  nutr2_desc text,
-  nutr3_desc text,
-  serving_size text, -- Overrides recommendations.serving_size
+  serving_size text NOT NULL, -- Overrides rec_entry.serving_size
   source_urls text[] NOT NULL,
-  UNIQUE (name),
+  UNIQUE (name)
+);
+
+CREATE TABLE recs (
+  id serial PRIMARY KEY,
+  rec_id int NOT NULL,
+  food_name text NOT NULL,
+  serving_size text, -- Display purposes only, does NOT override recs.serving_size
+  notes text, -- e.g. visually segregate DAIRY vs. NON-DAIRY for calcium
+  FOREIGN KEY (rec_id) REFERENCES recs (id) ON UPDATE CASCADE
+);
+
+CREATE TABLE rec_nut (
+  id serial PRIMARY KEY,
+  rec_id int NOT NULL,
+  nutr_id int,
+  nutr_desc text,
+  unit text,
+  FOREIGN KEY (rec_id) REFERENCES recs (id) ON UPDATE CASCADE,
   FOREIGN KEY (nutr_id) REFERENCES nutr_def (id) ON UPDATE CASCADE
 );
 
-CREATE TABLE recommendations (
+CREATE TABLE rec_dat (
   id int PRIMARY KEY,
-  rec_id int NOT NULL,
-  serving_size text,
-  food_name text NOT NULL,
-  nutr_val float NOT NULL,
-  FOREIGN KEY (rec_id) REFERENCES recommendation_id (id) ON UPDATE CASCADE
+  entry_id int NOT NULL,
+  rec_nut_id int NOT NULL,
+  nutr_val text NOT NULL,
+  -- nutr_val float NOT NULL,
+  FOREIGN KEY (entry_id) REFERENCES recs (id) ON UPDATE CASCADE,
+  FOREIGN KEY (rec_nut_id) REFERENCES rec_nut (id) ON UPDATE CASCADE
 );
 
 -- TODO:  recommendation_foods (many-to-one: [food_ids...] --> rec_id)
