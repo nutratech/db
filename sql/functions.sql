@@ -115,11 +115,12 @@ LANGUAGE SQL;
 -- 0.n
 --
 
-CREATE OR REPLACE FUNCTION recs (rec_ids_in int[] DEFAULT NULL)
+CREATE OR REPLACE FUNCTION recs (nutr_ids_in int[] DEFAULT NULL)
   RETURNS TABLE (
     -- id int,
     rec_id int,
     rec_nut_id int,
+    nutr_id int,
     nutr_notes text,
     entry_id int,
     food_name text,
@@ -132,6 +133,7 @@ CREATE OR REPLACE FUNCTION recs (rec_ids_in int[] DEFAULT NULL)
   SELECT
     recs.rec_id,
     rec_nut.id,
+    nutr_def.id,
     rec_nut.notes,
     recs.id,
     food_name,
@@ -146,8 +148,11 @@ CREATE OR REPLACE FUNCTION recs (rec_ids_in int[] DEFAULT NULL)
     AND rec_dat.rec_nut_id = rec_nut.id
   LEFT JOIN nutr_def ON nutr_def.id = rec_nut.nutr_id
 WHERE
-  recs.rec_id = ANY (rec_ids_in)
-  OR rec_ids_in IS NULL
+  nutr_def.id = ANY (nutr_ids_in)
+  OR nutr_ids_in IS NULL
+  AND rec_nut.searchable
+  -- recs.rec_id = ANY (rec_ids_in)
+  -- OR rec_ids_in IS NULL
 $$
 LANGUAGE SQL;
 

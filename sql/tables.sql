@@ -226,6 +226,7 @@ CREATE TABLE rec_nut (
   nutr_id int,
   nutr_desc text,
   unit text,
+  searchable boolean,
   notes text,
   FOREIGN KEY (rec_id) REFERENCES recs (id) ON UPDATE CASCADE,
   FOREIGN KEY (nutr_id) REFERENCES nutr_def (id) ON UPDATE CASCADE
