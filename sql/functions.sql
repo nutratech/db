@@ -119,23 +119,32 @@ CREATE OR REPLACE FUNCTION recs (rec_ids_in int[] DEFAULT NULL)
   RETURNS TABLE (
     -- id int,
     rec_id int,
+    rec_nut_id int,
     nutr_notes text,
+    entry_id int,
     food_name text,
     serving_size text,
-    notes text
+    notes text,
+    value text,
+    unit text
   )
   AS $$
   SELECT
     recs.rec_id,
+    rec_nut.id,
     rec_nut.notes,
+    recs.id,
     food_name,
     serving_size,
-    recs.notes
+    recs.notes,
+    rec_dat.nutr_val,
+    nutr_def.units
   FROM
     recs
   LEFT JOIN rec_nut ON rec_nut.rec_id = recs.rec_id
   INNER JOIN rec_dat ON entry_id = recs.id
     AND rec_dat.rec_nut_id = rec_nut.id
+  LEFT JOIN nutr_def ON nutr_def.id = rec_nut.nutr_id
 WHERE
   recs.rec_id = ANY (rec_ids_in)
   OR rec_ids_in IS NULL
