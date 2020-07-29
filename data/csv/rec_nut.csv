@@ -1,4 +1,4 @@
-id,rec_id,nutr_id,nutr_desc,unit,notes
-1,1,2000,,,Boron
-2,2,301,,,Calcium
-3,2,208,,,Calcium/Calories
+id,rec_id,nutr_id,nutr_desc,unit,searchable,notes
+1,1,2000,,,t,Boron
+2,2,301,,,t,Calcium
+3,2,208,,,f,Calcium/Calories

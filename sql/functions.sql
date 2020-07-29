@@ -147,12 +147,11 @@ CREATE OR REPLACE FUNCTION recs (nutr_ids_in int[] DEFAULT NULL)
   INNER JOIN rec_dat ON entry_id = recs.id
     AND rec_dat.rec_nut_id = rec_nut.id
   LEFT JOIN nutr_def ON nutr_def.id = rec_nut.nutr_id
-WHERE
-  nutr_def.id = ANY (nutr_ids_in)
-  OR nutr_ids_in IS NULL
-  AND rec_nut.searchable
-  -- recs.rec_id = ANY (rec_ids_in)
-  -- OR rec_ids_in IS NULL
+WHERE (nutr_def.id = ANY (nutr_ids_in)
+  OR nutr_ids_in IS NULL)
+AND rec_nut.searchable
+-- recs.rec_id = ANY (rec_ids_in)
+-- OR rec_ids_in IS NULL
 $$
 LANGUAGE SQL;
 
