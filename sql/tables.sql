@@ -197,6 +197,40 @@ CREATE TABLE nut_data (
   FOREIGN KEY (nutr_id) REFERENCES nutr_def (id) ON UPDATE CASCADE
 );
 
+---------------------------
+-- Food recommendations
+---------------------------
+
+CREATE TABLE recommendation_id (
+  id serial PRIMARY KEY,
+  name text,
+  nutr1_id int,
+  nutr2_id int,
+  nutr3_id int,
+  unit1 text,
+  unit2 text,
+  unit3 text,
+  per_denomination text NOT NULL,
+  nutr1_desc text NOT NULL,
+  nutr2_desc text,
+  nutr3_desc text,
+  serving_size text, -- Overrides recommendations.serving_size
+  source_urls text[] NOT NULL,
+  UNIQUE (name),
+  FOREIGN KEY (nutr_id) REFERENCES nutr_def (id) ON UPDATE CASCADE
+);
+
+CREATE TABLE recommendations (
+  id int PRIMARY KEY,
+  rec_id int NOT NULL,
+  serving_size text,
+  food_name text NOT NULL,
+  nutr_val float NOT NULL,
+  FOREIGN KEY (rec_id) REFERENCES recommendation_id (id) ON UPDATE CASCADE
+);
+
+-- TODO:  recommendation_foods (many-to-one: [food_ids...] --> rec_id)
+--     .. based on user upvotes/reporting?
 ------------------------------
 -- Servings
 ------------------------------
