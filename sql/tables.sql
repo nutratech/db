@@ -215,6 +215,7 @@ CREATE TABLE recs (
   food_name text NOT NULL,
   serving_size text, -- Display purposes only, does NOT override recs.serving_size
   notes text, -- e.g. visually segregate DAIRY vs. NON-DAIRY for calcium
+  source_urls text[], -- If different from rec_id.source_urls
   FOREIGN KEY (rec_id) REFERENCES recs (id) ON UPDATE CASCADE
 );
 
@@ -234,6 +235,7 @@ CREATE TABLE rec_dat (
   rec_nut_id int NOT NULL,
   nutr_val text NOT NULL,
   -- nutr_val float NOT NULL,
+  UNIQUE (entry_id, rec_nut_id),
   FOREIGN KEY (entry_id) REFERENCES recs (id) ON UPDATE CASCADE,
   FOREIGN KEY (rec_nut_id) REFERENCES rec_nut (id) ON UPDATE CASCADE
 );
