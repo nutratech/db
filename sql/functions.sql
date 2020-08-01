@@ -579,6 +579,7 @@ CREATE OR REPLACE FUNCTION nutrients ()
     rda real,
     units text,
     tagname text,
+    anti_nutrient boolean,
     food_count bigint,
     avg_val real,
     avg_rda real
@@ -590,6 +591,7 @@ CREATE OR REPLACE FUNCTION nutrients ()
     rda,
     units,
     tagname,
+    anti_nutrient,
     COUNT(nut_data.nutr_id),
     ROUND(avg(nut_data.nutr_val)::decimal, 3)::real,
     ROUND(100 * (avg(nut_data.nutr_val) / rda)::decimal, 1)::real

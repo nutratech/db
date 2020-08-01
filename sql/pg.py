@@ -140,7 +140,7 @@ def import_():
         "countries",
         "rec_id",
         "recs",
-        "rec_nut"
+        "rec_nut",
     ]
 
     # Primary tables
@@ -181,7 +181,7 @@ def import_():
         "rec_id",
         "recs",
         "rec_nut",
-        "rec_dat"
+        "rec_dat",
     ]
     for t in itables:
         set_serial(t)

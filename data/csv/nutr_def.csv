@@ -1,4 +1,4 @@
-id,rda,units,tagname,nutr_desc,antinutrient
+id,rda,units,tagname,nutr_desc,anti_nutrient
 203,60,g,PRO,Protein,
 204,90,g,FAT,Total lipid (fat),
 205,250,g,CARB,"Carbohydrate, by difference",
