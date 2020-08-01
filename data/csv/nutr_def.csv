@@ -1,9 +1,9 @@
 id,rda,units,tagname,nutr_desc,anti_nutrient
 203,60,g,PRO,Protein,
 204,90,g,FAT,Total lipid (fat),
-205,250,g,CARB,"Carbohydrate, by difference",
+205,230,g,CARB,"Carbohydrate, by difference",
 207,,g,ASH,Ash,
-208,2050,kcal,CAL,Energy,
+208,1850,kcal,CAL,Energy,
 209,,g,STARCH,Starch,
 210,,g,SUCS,Sucrose,
 211,,g,GLUS,Glucose (dextrose),
