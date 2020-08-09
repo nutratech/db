@@ -16,23 +16,52 @@ See server: https://github.com/gamesguru/nutra-server
 Setting up local database
 #########################
 
-1. Inside ``/sql`` folder, run :code:`cp .env.local .env`
+1. Inside ``/sql`` folder, run
 
-2. Set ``.env`` var: ``PSQL_LOCAL_DB_DIR`` to an existing folder
+.. code-block:: bash
 
-3. Run :code:`cd sql` and :code:`./sql.sh` (this starts the server, after computer reboot)
+    cp .env.local .env
 
-4. Exit the Postgres terminal with :code:`\q`
+2. Set ``.env`` var ``PSQL_LOCAL_DB_DIR`` to an existing folder (e.g. ``~/.pgsql/nutra``)
 
-5. Rebuild te db with :code:`./rebuild.sh`
+3. Run :code:`cd sql` and start PostgreSQL server,
+
+.. code-block:: bash
+
+    sudo killall postgres
+    ./dbup.sh
+
+4. Rebuild te db with,
+
+NOTE: Must do this after DB update or to build fresh
+
+.. code-block:: bash
+
+    python pg.py r
 
 Running local database (after init)
 ===================================
+
+This is mostly used for running manual commands.
 
 .. code-block:: bash
 
     cd sql
     ./sql.sh
+
+Then for example,
+
+.. code-block:: sql
+
+    SELECT * FROM functions();
+    SELECT * FROM version;
+
+NOTE: after computer reboot, may need to start server
+
+.. code-block:: bash
+
+    sudo killall postgres
+    ./dbup.sh
 
 Tables (Relational Design)
 ##########################
