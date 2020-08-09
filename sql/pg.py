@@ -77,7 +77,7 @@ print(f"USE SCHEMA {PSQL_SCHEMA};\n")
 # Important functions
 # -----------------------
 
-csv_dir = "../data/csv"
+csv_dir = "../data"
 
 
 def import_():
@@ -122,8 +122,7 @@ def import_():
     # ------------------------
     print("[import]\n")
 
-    csv_files = [os.path.splitext(f)[0] for f in os.listdir(csv_dir)]
-
+    csv_files = [os.path.splitext(f)[0] for f in os.listdir(csv_dir) if os.path.isfile(f)]
     ptables = [
         "users",
         "categories",

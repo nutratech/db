@@ -23,11 +23,7 @@ SET search_path TO nt;
 
 SET client_min_messages TO WARNING;
 
-CREATE TABLE version (
-  id serial PRIMARY KEY,
-  version text NOT NULL,
-  created timestamp DEFAULT CURRENT_TIMESTAMP,
-  notes text
+CREATE TABLE version( id serial PRIMARY KEY, version text NOT NULL, created timestamp DEFAULT CURRENT_TIMESTAMP, notes text
 );
 
 --++++++++++++++++++++++++++++
@@ -170,7 +166,7 @@ CREATE TABLE recs (
   serving_size text, -- Display purposes only
   notes text, -- e.g. visually segregate DAIRY vs. NON-DAIRY for calcium
   source_urls text[], -- If different from rec_id.source_urls
-  FOREIGN KEY (rec_id) REFERENCES recs (id) ON UPDATE CASCADE
+  FOREIGN KEY (rec_id) REFERENCES rec_id (id) ON UPDATE CASCADE
 );
 
 CREATE TABLE rec_nut (
@@ -228,8 +224,8 @@ CREATE TABLE ingredient_nutrients (
   nutr_id int,
   ratio real NOT NULL,
   PRIMARY KEY (ingredient_id, nutr_id),
-  FOREIGN KEY (ingredient_id) REFERENCES ingredients (id),
-  FOREIGN KEY (nutr_id) REFERENCES nutr_def (id)
+  FOREIGN KEY (ingredient_id) REFERENCES ingredients (id) ON UPDATE CASCADE,
+  FOREIGN KEY (nutr_id) REFERENCES nutr_def (id) ON UPDATE CASCADE
 );
 
 CREATE TABLE products (
@@ -246,7 +242,7 @@ CREATE TABLE products (
   details text[],
   citations text[],
   -- TODO: Reference by `tag`? Eliminate `id` for unchanging data?
-  FOREIGN KEY (category_id) REFERENCES categories (id)
+  FOREIGN KEY (category_id) REFERENCES categories (id) ON UPDATE CASCADE
 );
 
 CREATE TABLE product_ingredients (
@@ -254,8 +250,8 @@ CREATE TABLE product_ingredients (
   ingredient_id int NOT NULL,
   mg real NOT NULL,
   PRIMARY KEY (product_id, ingredient_id),
-  FOREIGN KEY (product_id) REFERENCES products (id),
-  FOREIGN KEY (ingredient_id) REFERENCES ingredients (id)
+  FOREIGN KEY (product_id) REFERENCES products (id) ON UPDATE CASCADE,
+  FOREIGN KEY (ingredient_id) REFERENCES ingredients (id) ON UPDATE CASCADE
 );
 
 CREATE TABLE variants (
@@ -351,11 +347,18 @@ CREATE TABLE orders (
 CREATE TABLE order_items (
   order_id int NOT NULL,
   variant_id int NOT NULL,
-  quantity smallint NOT NULL,
+  quantity smallint DEFAULT 1,
   price real NOT NULL,
   UNIQUE (order_id, variant_id),
   FOREIGN KEY (order_id) REFERENCES orders (id) ON UPDATE CASCADE,
   FOREIGN KEY (variant_id) REFERENCES variants (id) ON UPDATE CASCADE
+);
+
+CREATE TABLE order_shipments (
+  order_id int NOT NULL,
+  container_id int NOT NULL,
+  quantity smallint DEFAULT 1,
+  FOREIGN KEY (container_id) REFERENCES shipping_containers (id) ON UPDATE CASCADE
 );
 
 ------------------------------------------
