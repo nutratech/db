@@ -6,4 +6,4 @@ python:
 install:
 - pip install -r requirements.txt
 script:
-- pytest test_*.py -v -s
+- python db/pg.py r
