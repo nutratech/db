@@ -1,0 +1,3 @@
+id,version,date,notes
+1,0.0.38,Sat Aug 1 11:41:59 2020 -0400,first tagged release; paired with 0.0.38 of the CLI and Server
+2,0.1.0.dev0,Sun 09 Aug 2020 05:52:17 PM EDT,"removed USDA data (except nutr_def), added versioning"

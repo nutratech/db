@@ -23,6 +23,13 @@ SET search_path TO nt;
 
 SET client_min_messages TO WARNING;
 
+CREATE TABLE version (
+  id serial PRIMARY KEY,
+  version text NOT NULL,
+  created timestamp DEFAULT CURRENT_TIMESTAMP,
+  notes text
+);
+
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
 -- Main users tables
