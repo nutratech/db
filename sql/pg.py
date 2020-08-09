@@ -44,11 +44,14 @@ from utils.postgres import psql
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # Read in .env file if it exists locally, else look to env vars
-load_dotenv(verbose=True)
+try:
+    load_dotenv(verbose=True)
+except Exception as e:
+    print(repr(e))
 
 # PostgreSQL
 PSQL_DATABASE = os.getenv("PSQL_DB_NAME", "nutra")
-PSQL_SCHEMA = os.getenv("PSQL_SCHEMA_NAME")
+PSQL_SCHEMA = os.getenv("PSQL_SCHEMA_NAME", "nt")
 
 PSQL_USER = os.getenv("PSQL_USER", getpass.getuser())
 PSQL_PASSWORD = os.getenv("PSQL_PASSWORD", "password")

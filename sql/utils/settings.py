@@ -5,8 +5,10 @@ from datetime import timedelta
 from dotenv import load_dotenv
 
 # Read in .env file if it exists locally, else look to env vars
-load_dotenv(verbose=True)
-
+try:
+    load_dotenv(verbose=True)
+except Exception as e:
+    print(repr(e))
 
 # USPS API key
 USPS_API_KEY = os.getenv("USPS_API_KEY")
@@ -41,7 +43,7 @@ PSQL_HOST = os.getenv("PSQL_HOST", "localhost")
 # Other
 JWT_SECRET = os.getenv("JWT_SECRET", "secret123")
 TOKEN_EXPIRY = timedelta(weeks=520)
-SLACK_TOKEN = os.getenv("SLACK_TOKEN")
+SLACK_TOKEN = os.getenv("SLACK_TOKEN", None)
 SEARCH_LIMIT = 100
 CUSTOM_FOOD_DATA_SRC_ID = 6
 
