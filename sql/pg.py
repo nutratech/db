@@ -122,7 +122,9 @@ def import_():
     # ------------------------
     print("[import]\n")
 
-    csv_files = [os.path.splitext(f)[0] for f in os.listdir(csv_dir) if os.path.isfile(f)]
+    csv_files = [
+        os.path.splitext(f)[0] for f in os.listdir(csv_dir) if f.endswith(".csv")
+    ]
     ptables = [
         "users",
         "categories",
