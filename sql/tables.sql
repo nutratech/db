@@ -358,6 +358,7 @@ CREATE TABLE order_shipments (
   order_id int NOT NULL,
   container_id int NOT NULL,
   quantity smallint DEFAULT 1,
+  FOREIGN KEY (order_id) REFERENCES orders (id) ON UPDATE CASCADE,
   FOREIGN KEY (container_id) REFERENCES shipping_containers (id) ON UPDATE CASCADE
 );
 
