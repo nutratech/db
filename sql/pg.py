@@ -182,6 +182,7 @@ def import_():
         "recs",
         "rec_nut",
         "rec_dat",
+        "version"
     ]
     for t in itables:
         set_serial(t)
