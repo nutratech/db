@@ -1,3 +1,4 @@
 id,username,passwd,created,terms_agreement,gender,name_first,name_last,blood_group,account_type,dob,height,wrist,ankle,activity_level,goal_fitness,goal_weight,goal_bf,bmr_equation,bf_method,lbm_calc
-1,gamesguru,$2b$12$twZlKe8fDcnKpaoM3Eb2Uu659Je18B6fi2p8fRIspGNis6vOWxIty,1580265913,2020-07-19 13:43:26,MALE,Shane,,,COACH,1992-12-31,178,17.2,21.6,3,MAINTAIN,78,10,CUNNINGHAM,3SITE,
-2,kthprog,$2b$12$C2HKwF0nl4Y88UGSidAk1unT1oxDwiHzljtP/QgYWiJx01Jko0nBu,1580265914,2020-07-19 13:43:26,MALE,Kyle,,O,PERSONAL,1993-12-31,171,,,3,MAINTAIN,,,,NAVY,
+1,gamesguru,$2b$12$twZlKe8fDcnKpaoM3Eb2Uu659Je18B6fi2p8fRIspGNis6vOWxIty,1580265913,2020-07-19 13:43:26,MALE,Shane,,,COACH,1992-12-31,178,17.2,21.6,3,MAINTAIN,78,10,CUNNINGHAM,7SITE,MARTIN_BERKHAN
+2,kthprog,$2b$12$C2HKwF0nl4Y88UGSidAk1unT1oxDwiHzljtP/QgYWiJx01Jko0nBu,1580265914,2020-07-19 13:43:26,MALE,Kyle,,O,COACH,1993-12-31,171,,,3,MAINTAIN,,,,NAVY,ERIC_HELMS
+3,bwbaker,,1597169545,,MALE,Mark,,,PERSONAL,1956-12-31,179,17.2,21.5,3,MAINTAIN,70,14,MIFFLIN_ST_JEOR,3SITE,MARTIN_BERKHAN

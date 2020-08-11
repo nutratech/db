@@ -51,8 +51,8 @@ CREATE TABLE users (
   goal_weight real,
   goal_bf real,
   bmr_equation text, -- ['HARRIS_BENEDICT', 'KATCH_MACARDLE', 'MIFFLIN_ST_JEOR', 'CUNNINGHAM']
-  bf_method text,
-  lbm_calc text,
+  bf_method text, -- ['NAVY', '3SITE', '7SITE']
+  lbm_calc text, -- ['MARTIN_BERKHAN', 'ERIC_HELMS', 'CASEY_BUTT']
   UNIQUE (username)
 );
 
