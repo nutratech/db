@@ -43,7 +43,7 @@ CREATE TABLE users (
   blood_group text,
   account_type text, -- ['PERSONAL', 'COACH', 'COMMERCIAL']
   dob date,
-  height smallint,
+  height smallint, -- cm
   wrist real, -- cm
   ankle real, -- cm
   activity_level smallint, -- [1, 2, 3, 4, 5]
@@ -325,6 +325,8 @@ CREATE TABLE reports (
   id serial PRIMARY KEY,
   user_id int NOT NULL,
   -- TODO: FK with report_type TABLE ?
+  -- TODO: base URL for all reports
+
   report_type text NOT NULL,
   report_message text NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
