@@ -113,17 +113,17 @@ CREATE TABLE states (
 CREATE TABLE addresses (
   id serial PRIMARY KEY,
   user_id int NOT NULL,
-  address text,
-  company_name varchar(70),
-  street_address varchar(90), -- NOT NULL
-  apartment_unit varchar(20),
-  country_id int, -- NOT NULL
+  name text,
+  company text,
+  street_address1 text NOT NULL,
+  street_address2 text,
+  country_id int NOT NULL,
   state_id int,
-  zip varchar(20),
-  name_first varchar(90), -- NOT NULL
-  name_last varchar(90), -- NOT NULL
-  phone varchar(20),
-  email varchar(80),
+  zip text,
+  name_first text NOT NULL,
+  name_last text NOT NULL,
+  phone text,
+  email text,
   FOREIGN KEY (user_id) REFERENCES users (id),
   FOREIGN KEY (country_id) REFERENCES countries (id),
   FOREIGN KEY (state_id) REFERENCES states (id)
