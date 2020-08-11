@@ -178,6 +178,7 @@ def import_():
         "orders",
         "cart",
         "users",
+        "measurements",
         "rec_id",
         "recs",
         "rec_nut",

@@ -35,28 +35,59 @@ CREATE TABLE users (
   id serial PRIMARY KEY,
   username varchar(18),
   passwd text,
+  created int DEFAULT extract(epoch FROM NOW()),
   terms_agreement timestamp DEFAULT CURRENT_TIMESTAMP,
   gender text,
-  name varchar(60),
-  job text,
-  dob date,
-  -- cm & kg
-  height smallint,
-  weight smallint,
+  name_first text,
+  name_last text,
   blood_group text,
-  -- TODO: mappings, 0 - 5, or 1 - 5 ??
-  activity_level smallint,
-  weight_goal smallint,
-  bmr_equation smallint,
-  bodyfat_method smallint,
-  created int DEFAULT extract(epoch FROM NOW()),
+  account_type text, -- ['PERSONAL', 'COACH', 'COMMERCIAL']
+  dob date,
+  height smallint,
+  wrist real, -- cm
+  ankle real, -- cm
+  activity_level smallint, -- [1, 2, 3, 4, 5]
+  goal_fitness text, -- ['LOSE', 'GAIN', 'MAINTAIN', 'TRANSFORM']
+  goal_weight real,
+  goal_bf real,
+  bmr_equation text, -- ['HARRIS_BENEDICT', 'KATCH_MACARDLE', 'MIFFLIN_ST_JEOR', 'CUNNINGHAM']
+  bf_method text,
+  lbm_calc text,
   UNIQUE (username)
+);
+
+CREATE TABLE measurements (
+  id bigserial PRIMARY KEY,
+  user_id int NOT NULL,
+  created int DEFAULT extract(epoch FROM NOW()),
+  updated int,
+  -- Mass (kg)
+  weight real,
+  -- Tape Measurements (cm)
+  chest real,
+  upper_arm real,
+  thigh real,
+  calf real,
+  shoulders real,
+  waist real,
+  hips real,
+  neck real,
+  forearm real,
+  -- Skin Manifolds (mm)
+  pectoral smallint,
+  adbomen smallint,
+  quadricep smallint,
+  midaxilla smallint,
+  subscapula smallint,
+  tricep smallint,
+  suprailiac smallint,
+  FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
 );
 
 CREATE TABLE emails (
   id serial PRIMARY KEY,
   user_id int NOT NULL,
-  email varchar(140) NOT NULL,
+  email text NOT NULL,
   -- TODO: limit to 5 emails, purge old ones
   main boolean NOT NULL,
   activated boolean DEFAULT FALSE,
