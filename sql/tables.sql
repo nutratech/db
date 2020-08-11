@@ -33,7 +33,7 @@ CREATE TABLE version( id serial PRIMARY KEY, version text NOT NULL, created time
 
 CREATE TABLE users (
   id serial PRIMARY KEY,
-  username varchar(18),
+  username text,
   passwd text,
   created int DEFAULT extract(epoch FROM NOW()),
   terms_agreement timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -109,7 +109,7 @@ CREATE TABLE tokens (
   id int PRIMARY KEY,
   user_id int NOT NULL,
   token text NOT NULL,
-  type TEXT NOT NULL,
+  type text NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
   expires int,
   UNIQUE (token),
@@ -170,8 +170,8 @@ CREATE TABLE addresses (
 CREATE TABLE nutr_def (
   id int PRIMARY KEY,
   rda real,
-  units varchar(10),
-  tagname varchar(10) NOT NULL,
+  units text,
+  tagname text NOT NULL,
   nutr_desc text NOT NULL,
   anti_nutrient boolean,
   -- weighting?
