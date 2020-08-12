@@ -1,7 +1,7 @@
 import psycopg2
 import psycopg2.extras
 
-from .settings import PSQL_DATABASE, PSQL_HOST, PSQL_PASSWORD, PSQL_SCHEMA, PSQL_USER
+from . import PSQL_DATABASE, PSQL_HOST, PSQL_PASSWORD, PSQL_SCHEMA, PSQL_USER
 
 # Initialize connection
 con = psycopg2.connect(
@@ -19,16 +19,16 @@ print(
 print(f"[psql] USE SCHEMA {PSQL_SCHEMA};")
 
 
-def psql(query, params=None):
+def psql(query, params=None, _print=True, ignore_empty_result=False):
 
     # TODO: revamp this, tighten ship, make more versatile for DB import, and decide on mandatory RETURNING for INSERTs
 
-    cur = con.cursor(cursor_factory=psycopg2.extras.DictCursor)
-    print(query)
+    cur = con.cursor()
     # Print query
     if params:
         query = cur.mogrify(query, params).decode("utf-8")
-    print(f"[psql]   {query};")
+    if _print:
+        print(f"[psql]   {query};")
 
     # init result object
     result = PgResult(query)
@@ -56,28 +56,33 @@ def psql(query, params=None):
     #
     # Extract result
     try:
-        result.set_rows(cur.fetchall())
+        headers = [x[0] for x in cur.description] if cur.description else None
+        result.set_rows(cur.fetchall(), headers)
         con.commit()
         cur.close()
     except Exception as e:
-        print(e)
-        con.rollback()
-        cur.close()
+        if ignore_empty_result is False:
+            print(repr(e))
+            con.rollback()
+        else:
+            con.commit()
+            cur.close()
 
     #
     # Set return message
     result.msg = cur.statusmessage
-    print(f"[psql]   {result.msg}")
+    print(result.msg)
 
     return result
 
 
 class PgResult:
-    def __init__(self, query, rows=None, msg=None, err_msg=None):
+    def __init__(self, query, rows=None, headers=None, msg=None, err_msg=None):
         """ Defines a convenient result from `psql()` """
 
         self.query = query
 
+        self.headers = headers
         self.rows = rows
         self.msg = msg
 
@@ -89,21 +94,22 @@ class PgResult:
 
     #     return _Response(data={"error": self.err_msg}, code=400)
 
-    def set_rows(self, fetchall):
-        """ Sets the DictCursor rows based on cur.fetchall() """
+    def set_rows(self, fetchall, headers):
+        """Sets pg_result rows based on fetchall and headers"""
 
-        self.rows = []
+        self.headers = headers
+        self.rows = fetchall
 
-        if len(fetchall):
-            keys = list(fetchall[0]._index.keys())
+        # if len(fetchall):
+        #     keys = list(fetchall[0]._index.keys())
 
-            # Build dict from named tuple
-            for entry in fetchall:
-                row = {}
-                for i, element in enumerate(entry):
-                    key = keys[i]
-                    row[key] = element
-                self.rows.append(row)
+        #     # Build dict from named tuple
+        #     for entry in fetchall:
+        #         row = {}
+        #         for i, element in enumerate(entry):
+        #             key = keys[i]
+        #             row[key] = element
+        #         self.rows.append(row)
 
-            # Set first row
-            self.row = self.rows[0]
+        #     # Set first row
+        #     self.row = self.rows[0]

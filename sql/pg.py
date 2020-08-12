@@ -27,16 +27,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import getpass
 import os
-import random
-import string
 import sys
-from datetime import datetime
 
-import bcrypt
 import psycopg2
 import psycopg2.extras
-import usaddress
-from dotenv import load_dotenv
 
 from utils.postgres import psql
 
@@ -44,10 +38,11 @@ from utils.postgres import psql
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # Read in .env file if it exists locally, else look to env vars
-try:
-    load_dotenv(verbose=True)
-except Exception as e:
-    print(repr(e))
+# NOTE: this is handled by utils.__init__ (for now) [by importing psql()]
+# try:
+#     load_dotenv(verbose=True)
+# except Exception as e:
+#     print(repr(e))
 
 # PostgreSQL
 PSQL_DATABASE = os.getenv("PSQL_DB_NAME", "nutra")
@@ -110,15 +105,9 @@ def import_():
 
     def set_serial(tablename=None):
         """ Sets the serial sequence value (col_name='id') to the max value for the column """
-        cur = con.cursor()
 
         query = f"SELECT pg_catalog.setval(pg_get_serial_sequence('{tablename}', 'id'), (SELECT MAX(id) FROM {tablename}))"
-        print(query)
-        cur.execute(cur.mogrify(query))
-        print(cur.statusmessage)
-
-        con.commit()
-        cur.close()
+        psql(query)
 
     # ------------------------
     # Run the import function
@@ -183,7 +172,7 @@ def import_():
         "recs",
         "rec_nut",
         "rec_dat",
-        "version"
+        "version",
     ]
     for t in itables:
         set_serial(t)
@@ -191,26 +180,18 @@ def import_():
 
 def rebuild_():
     """ Drops, rebuilds Tables.  Imports data fresh """
-
     print("[rebuild]\n")
-
-    cur = con.cursor()
 
     # Rebuild tables
     print("\\i tables.sql")
-    query = cur.mogrify(open("tables.sql").read())
-    cur.execute(query)
-    print(cur.statusmessage + "\n")
+    query = open("tables.sql").read()
+    psql(query, _print=False, ignore_empty_result=True)
+    print()
 
     # Rebuild functions
     print("\\i functions.sql")
-    query = cur.mogrify(open("functions.sql").read())
-    cur.execute(query)
-    print(cur.statusmessage)
-
-    # Commit
-    con.commit()
-    cur.close()
+    query = open("functions.sql").read()
+    psql(query, _print=False, ignore_empty_result=True)
 
     # ----------------------------
     # Call `import_()` separately
@@ -249,149 +230,25 @@ def export_():
     # ------------------------
     print("[export]\n")
 
-    cur = con.cursor()
-
     query = f"SELECT tablename FROM pg_tables WHERE schemaname='{PSQL_SCHEMA}';"
-    print(query)
-    cur.execute(query)
-    print(cur.statusmessage)
+    pg_result = psql(query)
 
-    tables = [t[0] for t in cur.fetchall()]
+    tables = [x[0] for x in pg_result.rows]
     for t in tables:
         sql2csv(t)
 
-    # Clean up
-    cur.close()
-
 
 def truncate_():
-    print("[truncate]\n")
     # TODO: warning on this and rebuild!!
-
-    cur = con.cursor()
+    print("[truncate]\n")
 
     query = f"SELECT tablename FROM pg_tables WHERE schemaname='{PSQL_SCHEMA}';"
-    print(query)
-    cur.execute(query)
-    print(cur.statusmessage)
+    pg_result = psql(query)
 
-    tables = [t[0] for t in cur.fetchall()]
-    queries = [f"TRUNCATE {t} CASCADE;" for t in tables]
+    tables = [x[0] for x in pg_result.rows]
+    queries = [f"TRUNCATE {x} CASCADE;" for x in tables]
     query = " ".join(queries)
-    print(query)
-    cur.execute(cur.mogrify(query))
-    print(cur.statusmessage)
-
-    # Commit
-    con.commit()
-    cur.close()
-
-
-def analyze_():
-    # NOTE: Scratchpad for analyzing the data
-    print("[analyze]\n")
-
-    # 1a. count(nut_data) FOR nutr_id IN nutr_ids
-    # DONE: faster in SQL (see: functions.sql)
-    # cur = con.cursor()
-    # query = "SELECT id FROM nutr_def;"
-    # print(query)
-    # cur.execute(query)
-    # print(cur.statusmessage)
-
-    # nutr_ids = [x[0] for x in cur.fetchall()]
-    # incidences = {}
-    # for nutr_id in nutr_ids:
-    #     # Find number of nut_data entries foreach nutrient
-    #     cur = con.cursor()
-    #     query = f"SELECT count(*) FROM nut_data WHERE nutr_id={nutr_id};"
-    #     print(query)
-    #     cur.execute(query)
-    #     print(cur.statusmessage)
-    #     incidence = cur.fetchone()[0]
-    #     # nutr_ids = [x[0] for x in cur.fetchall()]
-    #     incidences[nutr_id] = incidence
-    # print(json.dumps(incidences, indent=2))
-
-
-def faker_():
-    print("[faker]\n")
-
-    import faker
-    import ujson as json
-
-    f = faker.Faker()
-
-    for i in range(6734):
-        # for i in range(6734):
-        profile = f.profile()
-        # print(json.dumps(profile, indent=2))
-
-        # passwd
-        N = random.randint(6, 18)
-        password = "".join(
-            random.SystemRandom().choice(string.ascii_uppercase + string.digits)
-            for _ in range(N)
-        )
-        passwd = bcrypt.hashpw(password.encode(), bcrypt.gensalt(6)).decode()
-
-        created = random.randint(1546300800, 1595270561)
-        terms_agreement = datetime.fromtimestamp(created)
-
-        height = random.randint(120, 220)
-        weight = random.randint(35, 110)
-        activity_level = random.randint(1, 5)
-        weight_goal = random.randint(1, 5)
-        bmr_equation = random.randint(0, 2)
-        bodyfat_method = random.randint(0, 2)
-
-        # INSERT fake user
-        pg_result = psql(
-            """
-INSERT INTO users (username, passwd, terms_agreement, gender, name, job, dob, height, weight, blood_group, activity_level, weight_goal, bmr_equation, bodyfat_method, created)
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-RETURNING
-    id""",
-            [
-                profile["username"],
-                passwd,
-                terms_agreement,
-                profile["sex"],
-                profile["name"],
-                profile["job"],
-                profile["birthdate"],
-                height,
-                weight,
-                profile["blood_group"],
-                activity_level,
-                weight_goal,
-                bmr_equation,
-                bodyfat_method,
-                created,
-            ],
-        )
-        try:
-            user_id = pg_result.row["id"]
-        except Exception as e:
-            print(repr(e))
-            continue
-
-        # INSERT fake emails
-        activated = bool(random.getrandbits(1))
-        created = random.randint(created, 1595270561)
-        pg_result = psql(
-            "INSERT INTO emails (user_id, email, main, activated, created) VALUES (%s, %s, %s, %s, %s) RETURNING id",
-            [user_id, profile["mail"], "t", activated, created],
-        )
-
-        # addresses
-        address = profile["residence"]
-        pg_result = psql(
-            "INSERT INTO addresses (user_id, address) VALUES (%s, %s) RETURNING id",
-            [user_id, address],
-        )
-
-        # TODO: orders, reviews
+    psql(query, ignore_empty_result=True)
 
 
 # -----------------------
@@ -401,7 +258,7 @@ if __name__ == "__main__":
 
     if len(sys.argv) < 2:
         # for debugging purposes
-        arg1 = "a"
+        arg1 = "r"
         # exit(
         #     "error: no args specified! use either i, t, r, e .. [import, truncate, rebuild, export]"
         # )
@@ -416,7 +273,3 @@ if __name__ == "__main__":
         rebuild_()
     elif arg1 == "e" or arg1 == "export":
         export_()
-    elif arg1 == "a" or arg1 == "analyze":
-        analyze_()
-    elif arg1 == "f" or arg1 == "faker":
-        faker_()
