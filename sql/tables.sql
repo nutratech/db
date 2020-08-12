@@ -61,7 +61,10 @@ CREATE TABLE measurements (
   user_id int NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
   updated int,
+  -- Custom method (e.g. water or electroconductive)
+  custom_bf real, -- e.g. 0.14
   -- Mass (kg)
+
   weight real,
   -- Tape Measurements (cm)
   chest real,

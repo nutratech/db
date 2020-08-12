@@ -1,4 +1,4 @@
-id,user_id,created,updated,weight,chest,upper_arm,thigh,calf,shoulders,waist,hips,neck,forearm,pectoral,adbomen,quadricep,midaxilla,subscapula,tricep,suprailiac
-1,1,1594032889,,67,36.75,11.25,20,14,43,31,36,15,10.5,10,15,14,13,10,12,9
-2,3,1595008932,,74,39.75,11.25,21.75,14.75,45.5,34.25,37.5,15,10.5,19,34,14,18,12,13,15
-3,3,1596909205,,73,,,,,,,,,,18,26,15,,,,
+id,user_id,created,updated,custom_bf,weight,chest,upper_arm,thigh,calf,shoulders,waist,hips,neck,forearm,pectoral,adbomen,quadricep,midaxilla,subscapula,tricep,suprailiac
+1,1,1594032889,,,67,36.75,11.25,20,14,43,31,36,15,10.5,10,15,14,13,10,12,9
+2,3,1595008932,,,74,39.75,11.25,21.75,14.75,45.5,34.25,37.5,15,10.5,19,34,14,18,12,13,15
+3,3,1596909205,,,73,,,,,,,,,,18,26,15,,,,
