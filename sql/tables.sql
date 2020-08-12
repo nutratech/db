@@ -363,16 +363,16 @@ CREATE TABLE shipping_containers (
 CREATE TABLE orders (
   id serial PRIMARY KEY,
   user_id int,
-  email text,
-  address_bill json,
-  address_ship json,
+  email text, -- require either email OR user_id
+  created int DEFAULT extract(epoch FROM NOW()),
+  updated int,
   shipping_method text,
   shipping_price real,
   status text DEFAULT 'INITIALIZED',
-  paypal_id text,
   tracking_num text,
-  created int DEFAULT extract(epoch FROM NOW()),
-  updated int,
+  paypal_id text,
+  address_bill json,
+  address_ship json,
   UNIQUE (paypal_id),
   FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
 );

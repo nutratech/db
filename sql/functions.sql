@@ -382,28 +382,32 @@ CREATE OR REPLACE FUNCTION orders (user_id_in int DEFAULT NULL)
     id int,
     user_id int,
     email text,
-    address_bill json,
-    address_ship json,
+    created int,
+    updated int,
     shipping_method text,
     shipping_price real,
     status text,
     tracking_num text,
     paypal_id text,
-    items json,
-    created int
+    address_bill json,
+    address_ship json,
+    items json
   )
   AS $$
   SELECT
     ord.id,
     ord.user_id,
     ord.email,
-    ord.address_bill,
-    ord.address_ship,
+    ord.created,
+    ord.updated,
     ord.shipping_method,
     ord.shipping_price,
     ord.status,
     ord.tracking_num,
     ord.paypal_id,
+    ord.address_bill,
+    ord.address_ship,
+    -- items JSON
     array_to_json(ARRAY (
         SELECT
           row_to_json(ROW)
@@ -413,8 +417,7 @@ CREATE OR REPLACE FUNCTION orders (user_id_in int DEFAULT NULL)
             INNER JOIN variants variant ON variant.id = variant_id
             INNER JOIN products product ON variant.product_id = product.id
               AND order_id = ord.id)
-          ROW)),
-    ord.created
+          ROW))
   FROM
     orders ord
 WHERE
