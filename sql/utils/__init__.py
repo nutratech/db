@@ -8,7 +8,7 @@ This file is part of nutra-server, a server for nutra clients.
     https://github.com/gamesguru/nutra-server
 
 nutra-server is a server for nutra clients.
-Copyright (C) 2020  Shane Jaroch
+Copyright (C) 2019-2020  Shane Jaroch
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

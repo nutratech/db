@@ -1,6 +1,5 @@
 -- nutra-db, a database for nutratracker clients
--- Copyright (C) 2019  Nutra, LLC. [Shane & Kyle] <nutratracker@gmail.com>
--- Copyright (C) 2020  Shane Jaroch <nutratracker@gmail.com>
+-- Copyright (C) 2019-2020  Shane Jaroch <nutratracker@gmail.com>
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
