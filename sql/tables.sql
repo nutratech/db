@@ -108,7 +108,7 @@ CREATE TABLE emails (
 -- );
 
 CREATE TABLE tokens (
-  id int PRIMARY KEY,
+  id bigserial PRIMARY KEY,
   user_id int NOT NULL,
   token text NOT NULL,
   type text NOT NULL,
