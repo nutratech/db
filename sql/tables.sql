@@ -397,27 +397,6 @@ CREATE TABLE order_shipments (
   FOREIGN KEY (container_id) REFERENCES shipping_containers (id) ON UPDATE CASCADE
 );
 
-------------------------------------------
--- Threads & Messages (order related)
-------------------------------------------
-
-CREATE TABLE threads (
-  id serial PRIMARY KEY,
-  user_id int NOT NULL,
-  subject text NOT NULL,
-  created int DEFAULT extract(epoch FROM NOW()),
-  FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
-);
-
-CREATE TABLE messages (
-  id serial PRIMARY KEY,
-  thread_id int NOT NULL,
-  body text NOT NULL,
-  created int DEFAULT extract(epoch FROM NOW()),
-  is_read boolean DEFAULT FALSE,
-  FOREIGN KEY (thread_id) REFERENCES threads (id) ON UPDATE CASCADE
-);
-
 --
 --
 ------------------------------
