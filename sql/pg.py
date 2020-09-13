@@ -162,8 +162,6 @@ def import_():
         "products",
         "variants",
         "ingredients",
-        "threads",
-        "messages",
         "orders",
         "cart",
         "users",
