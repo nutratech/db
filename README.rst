@@ -63,6 +63,21 @@ NOTE: after computer reboot, may need to start server
     sudo killall postgres
     ./dbup.sh
 
+NOTE: To disable automatic starting of postgres server on reboot:
+
+.. code-block:: bash
+
+    sudo systemctl disable postgresql
+
+It will output a confirmation message:
+
+.. code-block:: bash
+
+    Synchronizing state of postgresql.service with SysV service script with /lib/systemd/systemd-sysv-install.
+    Executing: /lib/systemd/systemd-sysv-install disable postgresql
+    Removed /etc/systemd/system/multi-user.target.wants/postgresql.service.
+
+
 Tables (Relational Design)
 ##########################
 
