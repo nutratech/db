@@ -1,0 +1,39 @@
+recipe_id,food_id,grams,notes
+1,20045,180,white rice
+1,16042,25,pinto beans
+1,11282,45,onions
+1,11260,45,mushrooms
+1,11821,35,bell peppers
+1,11233,25,kale
+1,23293,85,"beef (grass-fed, 85/15)"
+1,11529,40,tomatoes
+1,9037,40,avocados
+1,1009,20,cheese (cheddar)
+2,18351,55,roll (mixed-grain)
+2,23293,85,"beef (grass-fed, 85/15)"
+2,1009,20,cheddar cheese
+2,11251,25,lettuce (romaine)
+2,11529,40,tomatoes
+2,11282,20,onions
+2,9037,40,avocados
+3,11355,300,potatoes (red)
+3,4053,30,olive oil
+3,11297,30,parsley (fresh)
+4,20011,60,flour (buckwheat)
+4,20140,30,flour (spelt)
+4,20080,30,flour (whole wheat)
+4,1123,56,egg
+4,1079,244,milk (2%)
+4,19911,25,syrup (maple)
+4,16122,20,protein (soy or whey)
+4,2047,1.5,salt
+4,18372,1.5,baking soda
+4,18370,0.75,baking powder
+5,12061,50,almonds
+5,12220,30,flaxseed
+5,12012,20,hemp (seed/protein)
+5,16122,28,protein (soy or whey)
+5,9050,50,blueberries
+5,9040,80,bananas
+5,9176,40,mangos
+5,1289,140,kefir

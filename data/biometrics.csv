@@ -1,0 +1,30 @@
+id,name,unit,created
+1,Height,cm,1580336088
+2,Weight,kg,1580336088
+3,Wrist,cm,1580336088
+4,Ankle,cm,1580336088
+5,Chest,cm,1580336088
+6,Upper Arm,cm,1580336088
+7,Thigh,cm,1580336088
+8,Calf,cm,1580336088
+9,Shoulders,cm,1580336088
+10,Waist,cm,1580336088
+11,Hips,cm,1580336088
+12,Neck,cm,1580336088
+13,Forearm,cm,1580336088
+14,Pectoral,mm,1580336088
+15,Abdominal,mm,1580336088
+16,Quadricep,mm,1580336088
+17,Midaxillary,mm,1580336088
+18,Subscapular,mm,1580336088
+19,Tricep,mm,1580336088
+20,Suprailiac,mm,1580336088
+21,Body Fat (Custom),,1580336088
+22,Pulse,bpm,1580336088
+23,Systolic Blood Pressure,mmHg,1580336088
+24,Diastolic Blood Pressure,mmHg,1580336088
+25,Blood Glucose,mg/dL,1580336088
+26,Total Cholesterol,mg/dL,1580336088
+27,LDL Cholesterol,mg/dL,1580336088
+28,HDL Cholesterol,mg/dL,1580336088
+29,Triglycerides,mg/dL,1580336088

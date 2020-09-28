@@ -56,36 +56,6 @@ CREATE TABLE users (
   UNIQUE (username)
 );
 
-CREATE TABLE measurements (
-  id bigserial PRIMARY KEY,
-  user_id int NOT NULL,
-  created int DEFAULT extract(epoch FROM NOW()),
-  updated int,
-  -- Custom method (e.g. water or electroconductive)
-  custom_bf real,
-  -- Mass (kg)
-  weight real,
-  -- Tape Measurements (cm)
-  chest real,
-  upper_arm real,
-  thigh real,
-  calf real,
-  shoulders real,
-  waist real,
-  hips real,
-  neck real,
-  forearm real,
-  -- Skin Manifolds (mm)
-  pectoral smallint,
-  adbomen smallint,
-  quadricep smallint,
-  midaxilla smallint,
-  subscapula smallint,
-  tricep smallint,
-  suprailiac smallint,
-  FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
-);
-
 CREATE TABLE emails (
   id serial PRIMARY KEY,
   user_id int NOT NULL,
@@ -108,6 +78,7 @@ CREATE TABLE emails (
 -- );
 
 CREATE TABLE tokens (
+  -- TODO: device fingerprinting, token revocation, client-side hashing?
   id bigserial PRIMARY KEY,
   user_id int NOT NULL,
   token text NOT NULL,
@@ -160,6 +131,106 @@ CREATE TABLE addresses (
   FOREIGN KEY (user_id) REFERENCES users (id),
   FOREIGN KEY (country_id) REFERENCES countries (id),
   FOREIGN KEY (state_id) REFERENCES states (id)
+);
+
+--
+--
+--++++++++++++++++++++++++++++
+--++++++++++++++++++++++++++++
+-- Biometrics, SYNC logs
+--++++++++++++++++++++++++++++
+
+CREATE TABLE uids (
+  id serial PRIMARY KEY,
+  guid text NOT NULL UNIQUE,
+  user_id int NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (id)
+);
+
+CREATE TABLE recipes (
+  id serial PRIMARY KEY,
+  guid text NOT NULL UNIQUE,
+  user_id int NOT NULL,
+  created int DEFAULT extract(epoch FROM NOW()),
+  name text NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users (id)
+);
+
+CREATE TABLE recipe_dat (
+  recipe_id int NOT NULL,
+  -- TODO: enforce FK constraint across two DBs?
+  food_id int NOT NULL,
+  grams real NOT NULL,
+  notes text,
+  UNIQUE (recipe_id, food_id),
+  FOREIGN KEY (recipe_id) REFERENCES recipes (id) ON UPDATE CASCADE
+);
+
+CREATE TABLE meal_names (
+  id serial PRIMARY KEY,
+  name text NOT NULL
+);
+
+CREATE TABLE food_log (
+  id serial PRIMARY KEY,
+  guid text NOT NULL UNIQUE,
+  uid int NOT NULL,
+  date date DEFAULT CURRENT_DATE,
+  meal_id int,
+  grams real NOT NULL,
+  -- TODO: enforce FK constraint across two DBs?
+  food_id int,
+  FOREIGN KEY (uid) REFERENCES uids (id) ON UPDATE CASCADE,
+  FOREIGN KEY (meal_id) REFERENCES meal_names (id) ON UPDATE CASCADE
+);
+
+CREATE TABLE recipe_log (
+  id serial PRIMARY KEY,
+  guid text NOT NULL UNIQUE,
+  uid int NOT NULL,
+  date date DEFAULT CURRENT_DATE,
+  meal_id int,
+  grams real NOT NULL,
+  recipe_id int,
+  FOREIGN KEY (uid) REFERENCES uids (id) ON UPDATE CASCADE,
+  FOREIGN KEY (meal_id) REFERENCES meal_names (id) ON UPDATE CASCADE,
+  FOREIGN KEY (recipe_id) REFERENCES recipes (id) ON UPDATE CASCADE
+);
+
+CREATE TABLE biometrics (
+  id serial PRIMARY KEY,
+  name text NOT NULL,
+  unit text,
+  created int DEFAULT extract(epoch FROM NOW())
+);
+
+CREATE TABLE biometric_log (
+  id serial PRIMARY KEY,
+  guid text NOT NULL UNIQUE,
+  uid int NOT NULL,
+  date date DEFAULT CURRENT_DATE,
+  biometric_id int NOT NULL,
+  value real NOT NULL,
+  FOREIGN KEY (uid) REFERENCES uids (id) ON UPDATE CASCADE,
+  FOREIGN KEY (biometric_id) REFERENCES biometrics (id) ON UPDATE CASCADE
+);
+
+CREATE TABLE sync_data (
+  id serial PRIMARY KEY,
+  tablename text NOT NULL,
+  guid text,
+  "constraint" text, -- e.g. "(a, b)" in "UNIQUE (a, b)" or "ON CONFLICT (a, b) DO ..."
+  action text NOT NULL -- insert, delete, update
+);
+
+CREATE TABLE rda (
+  uid int NOT NULL,
+  -- TODO: move below SR, enforce FK constraint across nutr_def
+  nutr_id int NOT NULL,
+  rda real NOT NULL,
+  synced int DEFAULT 0,
+  UNIQUE (uid, nutr_id),
+  FOREIGN KEY (uid) REFERENCES uids (id) ON UPDATE CASCADE
 );
 
 --
