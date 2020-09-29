@@ -218,9 +218,12 @@ CREATE TABLE biometric_log (
 CREATE TABLE sync_data (
   id serial PRIMARY KEY,
   tablename text NOT NULL,
+  uid int NOT NULL,
   guid text,
   "constraint" text, -- e.g. "(a, b)" in "UNIQUE (a, b)" or "ON CONFLICT (a, b) DO ..."
-  action text NOT NULL -- insert, delete, update
+  action text NOT NULL, -- insert, delete, update
+  UNIQUE (tablename, uid, guid),
+  FOREIGN KEY (uid) REFERENCES uids (id) ON UPDATE CASCADE
 );
 
 CREATE TABLE rda (
