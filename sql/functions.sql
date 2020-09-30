@@ -437,12 +437,16 @@ LANGUAGE SQL;
 CREATE OR REPLACE FUNCTION find_user (identifier text)
   RETURNS TABLE (
     id int,
-    username text
+    username text,
+    email text,
+    activated boolean
   )
   AS $$
   SELECT DISTINCT
     users.id,
-    username
+    username,
+    email,
+    activated
   FROM
     users,
     emails
