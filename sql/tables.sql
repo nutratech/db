@@ -209,9 +209,17 @@ CREATE TABLE biometric_log (
   guid text NOT NULL UNIQUE,
   uid int NOT NULL,
   date date DEFAULT CURRENT_DATE,
+  tags text,
+  notes text,
+  FOREIGN KEY (uid) REFERENCES uids (id) ON UPDATE CASCADE
+);
+
+CREATE TABLE bio_log_entry (
+  log_id int NOT NULL,
   biometric_id int NOT NULL,
   value real NOT NULL,
-  FOREIGN KEY (uid) REFERENCES uids (id) ON UPDATE CASCADE,
+  PRIMARY KEY (log_id, biometric_id),
+  FOREIGN KEY (log_id) REFERENCES biometric_log (id) ON UPDATE CASCADE,
   FOREIGN KEY (biometric_id) REFERENCES biometrics (id) ON UPDATE CASCADE
 );
 
