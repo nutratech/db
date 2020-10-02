@@ -36,23 +36,6 @@ CREATE TABLE users (
   username text,
   passwd text,
   created int DEFAULT extract(epoch FROM NOW()),
-  terms_agreement timestamp DEFAULT CURRENT_TIMESTAMP,
-  gender text,
-  name_first text,
-  name_last text,
-  blood_group text,
-  account_type text, -- ['PERSONAL', 'COACH', 'COMMERCIAL']
-  dob date,
-  height smallint, -- cm
-  wrist real, -- cm
-  ankle real, -- cm
-  activity_level smallint, -- [1, 2, 3, 4, 5]
-  goal_fitness text, -- ['LOSE', 'GAIN', 'MAINTAIN', 'TRANSFORM']
-  goal_weight real,
-  goal_bf real,
-  bmr_equation text, -- ['HARRIS_BENEDICT', 'KATCH_MACARDLE', 'MIFFLIN_ST_JEOR', 'CUNNINGHAM']
-  bf_method text, -- ['NAVY', '3SITE', '7SITE']
-  lbm_calc text, -- ['MARTIN_BERKHAN', 'ERIC_HELMS', 'CASEY_BUTT']
   UNIQUE (username)
 );
 
@@ -133,6 +116,21 @@ CREATE TABLE addresses (
   FOREIGN KEY (state_id) REFERENCES states (id)
 );
 
+CREATE TABLE bmr_eqs (
+  id serial PRIMARY KEY,
+  name text NOT NULL
+);
+
+CREATE TABLE bf_eqs (
+  id serial PRIMARY KEY,
+  name text NOT NULL
+);
+
+CREATE TABLE meal_names (
+  id serial PRIMARY KEY,
+  name text NOT NULL
+);
+
 --
 --
 --++++++++++++++++++++++++++++
@@ -140,11 +138,25 @@ CREATE TABLE addresses (
 -- Biometrics, SYNC logs
 --++++++++++++++++++++++++++++
 
-CREATE TABLE uids (
+CREATE TABLE profiles (
   id serial PRIMARY KEY,
   guid text NOT NULL UNIQUE,
   user_id int NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users (id)
+  created int DEFAULT extract(epoch FROM NOW()),
+  terms_agreement timestamp,
+  gender text,
+  name_first text,
+  name_last text,
+  blood_group text,
+  dob date,
+  activity_level smallint, -- [1, 2, 3, 4, 5]
+  goal_weight real,
+  goal_bf real,
+  bf_eq_id int, -- ['NAVY', '3SITE', '7SITE']
+  bmr_eq_id int, -- ['HARRIS_BENEDICT', 'KATCH_MACARDLE', 'MIFFLIN_ST_JEOR', 'CUNNINGHAM']
+  FOREIGN KEY (user_id) REFERENCES users (id),
+  FOREIGN KEY (bf_eq_id) REFERENCES bf_eqs (id),
+  FOREIGN KEY (bmr_eq_id) REFERENCES bmr_eqs (id)
 );
 
 CREATE TABLE recipes (
@@ -166,11 +178,6 @@ CREATE TABLE recipe_dat (
   FOREIGN KEY (recipe_id) REFERENCES recipes (id) ON UPDATE CASCADE
 );
 
-CREATE TABLE meal_names (
-  id serial PRIMARY KEY,
-  name text NOT NULL
-);
-
 CREATE TABLE food_log (
   id serial PRIMARY KEY,
   guid text NOT NULL UNIQUE,
@@ -180,7 +187,7 @@ CREATE TABLE food_log (
   grams real NOT NULL,
   -- TODO: enforce FK constraint across two DBs?
   food_id int,
-  FOREIGN KEY (uid) REFERENCES uids (id) ON UPDATE CASCADE,
+  FOREIGN KEY (uid) REFERENCES profiles (id) ON UPDATE CASCADE,
   FOREIGN KEY (meal_id) REFERENCES meal_names (id) ON UPDATE CASCADE
 );
 
@@ -192,7 +199,7 @@ CREATE TABLE recipe_log (
   meal_id int,
   grams real NOT NULL,
   recipe_id int,
-  FOREIGN KEY (uid) REFERENCES uids (id) ON UPDATE CASCADE,
+  FOREIGN KEY (uid) REFERENCES profiles (id) ON UPDATE CASCADE,
   FOREIGN KEY (meal_id) REFERENCES meal_names (id) ON UPDATE CASCADE,
   FOREIGN KEY (recipe_id) REFERENCES recipes (id) ON UPDATE CASCADE
 );
@@ -211,7 +218,7 @@ CREATE TABLE biometric_log (
   date date DEFAULT CURRENT_DATE,
   tags text,
   notes text,
-  FOREIGN KEY (uid) REFERENCES uids (id) ON UPDATE CASCADE
+  FOREIGN KEY (uid) REFERENCES profiles (id) ON UPDATE CASCADE
 );
 
 CREATE TABLE bio_log_entry (
@@ -231,7 +238,7 @@ CREATE TABLE sync_data (
   "constraint" text, -- e.g. "(a, b)" in "UNIQUE (a, b)" or "ON CONFLICT (a, b) DO ..."
   action text NOT NULL, -- insert, delete, update
   UNIQUE (tablename, uid, guid),
-  FOREIGN KEY (uid) REFERENCES uids (id) ON UPDATE CASCADE
+  FOREIGN KEY (uid) REFERENCES profiles (id) ON UPDATE CASCADE
 );
 
 CREATE TABLE rda (
@@ -241,7 +248,7 @@ CREATE TABLE rda (
   rda real NOT NULL,
   synced int DEFAULT 0,
   UNIQUE (uid, nutr_id),
-  FOREIGN KEY (uid) REFERENCES uids (id) ON UPDATE CASCADE
+  FOREIGN KEY (uid) REFERENCES profiles (id) ON UPDATE CASCADE
 );
 
 --
