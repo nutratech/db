@@ -54,6 +54,15 @@ CREATE TABLE emails (
   FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
 );
 
+CREATE TABLE devices (
+  id bigserial PRIMARY KEY,
+  user_id int NOT NULL,
+  token text NOT NULL,
+  last_active int DEFAULT extract(epoch FROM NOW()),
+  device_id text NOT NULL, -- e.g. linux nutra@homecpu python-requests/2.24.0
+  FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
+);
+
 -- CREATE TABLE token_types (
 --   id serial PRIMARY KEY,
 --   family text NOT NULL,
