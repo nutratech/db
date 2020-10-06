@@ -147,7 +147,7 @@ CREATE TABLE profiles (
   user_id int NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
   updated int DEFAULT extract(epoch FROM NOW()),
-  terms_agreement timestamp,
+  eula int DEFAULT -1,
   gender text,
   name_first text,
   name_last text,
@@ -156,8 +156,8 @@ CREATE TABLE profiles (
   activity_level smallint, -- [1, 2, 3, 4, 5]
   goal_weight real,
   goal_bf real,
-  bf_eq_id int, -- ['NAVY', '3SITE', '7SITE']
   bmr_eq_id int, -- ['HARRIS_BENEDICT', 'KATCH_MACARDLE', 'MIFFLIN_ST_JEOR', 'CUNNINGHAM']
+  bf_eq_id int, -- ['NAVY', '3SITE', '7SITE']
   FOREIGN KEY (user_id) REFERENCES users (id),
   FOREIGN KEY (bf_eq_id) REFERENCES bf_eqs (id),
   FOREIGN KEY (bmr_eq_id) REFERENCES bmr_eqs (id)

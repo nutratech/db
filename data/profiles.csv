@@ -1,1 +1,4 @@
-id,guid,user_id,created,updated,terms_agreement,gender,name_first,name_last,blood_group,dob,activity_level,goal_weight,goal_bf,bf_eq_id,bmr_eq_id
+id,guid,user_id,created,updated,eula,gender,name_first,name_last,blood_group,dob,activity_level,goal_weight,goal_bf,bmr_eq_id,bf_eq_id
+1,a0fdac7ab369de43f029a460879c854f,1,1601067725,1601067725,1,MALE,Shane,,,1993-01-01,2,78,0.12,1,1
+2,7abf05c84beb849628a44336acfe7a5b,1,1601068574,1601068574,1,MALE,Mark,,,1957-01-01,2,72,0.14,1,1
+3,2454c8ab7c575cd2610f9977ed3b2b61,1,1601068718,1601068718,1,DOG,Rocky,,,2007-08-01,2,7.3,,1,1
