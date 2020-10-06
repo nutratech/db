@@ -1,1 +1,1 @@
-id,guid,uid,date,meal_id,grams,food_id
+id,guid,uid,created,updated,date,meal_id,grams,food_id

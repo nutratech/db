@@ -146,6 +146,7 @@ CREATE TABLE profiles (
   guid text NOT NULL UNIQUE,
   user_id int NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
+  updated int DEFAULT extract(epoch FROM NOW()),
   terms_agreement timestamp,
   gender text,
   name_first text,
@@ -167,6 +168,7 @@ CREATE TABLE recipes (
   guid text NOT NULL UNIQUE,
   user_id int NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
+  updated int DEFAULT extract(epoch FROM NOW()),
   name text NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users (id)
 );
@@ -190,6 +192,8 @@ CREATE TABLE food_log (
   id serial PRIMARY KEY,
   guid text NOT NULL UNIQUE,
   uid int NOT NULL,
+  created int DEFAULT extract(epoch FROM NOW()),
+  updated int DEFAULT extract(epoch FROM NOW()),
   date date DEFAULT CURRENT_DATE,
   meal_id int,
   grams real NOT NULL,
@@ -203,6 +207,8 @@ CREATE TABLE recipe_log (
   id serial PRIMARY KEY,
   guid text NOT NULL UNIQUE,
   uid int NOT NULL,
+  created int DEFAULT extract(epoch FROM NOW()),
+  updated int DEFAULT extract(epoch FROM NOW()),
   date date DEFAULT CURRENT_DATE,
   meal_id int,
   grams real NOT NULL,
@@ -223,6 +229,8 @@ CREATE TABLE biometric_log (
   id serial PRIMARY KEY,
   guid text NOT NULL UNIQUE,
   uid int NOT NULL,
+  created int DEFAULT extract(epoch FROM NOW()),
+  updated int DEFAULT extract(epoch FROM NOW()),
   date date DEFAULT CURRENT_DATE,
   tags text,
   notes text,
@@ -238,23 +246,13 @@ CREATE TABLE bio_log_entry (
   FOREIGN KEY (biometric_id) REFERENCES biometrics (id) ON UPDATE CASCADE
 );
 
-CREATE TABLE sync_data (
-  id serial PRIMARY KEY,
-  tablename text NOT NULL,
-  uid int NOT NULL,
-  guid text,
-  "constraint" text, -- e.g. "(a, b)" in "UNIQUE (a, b)" or "ON CONFLICT (a, b) DO ..."
-  action text NOT NULL, -- insert, delete, update
-  UNIQUE (tablename, uid, guid),
-  FOREIGN KEY (uid) REFERENCES profiles (id) ON UPDATE CASCADE
-);
-
 CREATE TABLE rda (
   uid int NOT NULL,
+  created int DEFAULT extract(epoch FROM NOW()),
+  updated int DEFAULT extract(epoch FROM NOW()),
   -- TODO: move below SR, enforce FK constraint across nutr_def
   nutr_id int NOT NULL,
   rda real NOT NULL,
-  synced int DEFAULT 0,
   UNIQUE (uid, nutr_id),
   FOREIGN KEY (uid) REFERENCES profiles (id) ON UPDATE CASCADE
 );
