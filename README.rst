@@ -9,8 +9,11 @@ Python, SQL, CSV files & RST documentation for setting up the server database.
 
 We also have a server, CLI, and two sqlite3 databases repositories.
 
-Locally running PostgreSQL (Ubuntu)
-###################################
+Locally running PostgreSQL
+##########################
+
+Ubuntu
+======
 
 I followed the instructions here to register it as a startup service.
 
@@ -25,9 +28,6 @@ You can also start it immediately, without needing a reboot.
 
     # Start immediately
     sudo service postgresql start
-
-Setting up local database
-#########################
 
 Now you can create the ``nt`` database, and grant yourself access.
 
@@ -60,6 +60,29 @@ with ``DataGrip``, or outside the local Unix socket context.
 Now exit out of the SQL shell, and exit out of the ``postgres`` user shell.
 Go back to your regular user login.
 
+macOS
+=====
+
+I followed the instructions here.
+
+PostgreSQL installed with ``brew`` will already create a user under your name
+with appropriate permissions. So you can skip many of the steps above.
+
+The install script will output more useful information, I recommend reading it
+and deciding if any of it is important or relevant to your use case.
+
+.. code-block:: bash
+
+    # At the time of writing this, brew defaults to version 14.4
+    #  e.g. on Monterey: postgresql--14.4.monterey.bottle.tar.gz
+    brew install postgres
+
+    # Start postgres, and register it as a startup service)
+    brew services start postgresql
+
+Setting up local database
+#########################
+
 Try to connect as yourself to the default database.
 
 .. code-block:: bash
@@ -73,15 +96,19 @@ From the SQL shell (now running as yourself, NOT the ``postgres`` user).
 
 .. code-block:: sql
 
+    -- NOTE: you may have to run these blocks individually
+
     -- Create database
-    postgres=# CREATE DATABASE nt;
+    CREATE DATABASE nt;
+
+    -- Verify it's in the list of DBs
     \l
 
     -- Use database nt
     \c nt
 
-    -- Drop default schema, set nt to default
-    DROP SCHEMA public;
+    -- Drop default public schema (optional); set nt to default
+    -- DROP SCHEMA public;
     CREATE schema nt;
     ALTER DATABASE nt SET search_path TO nt;
 
@@ -96,8 +123,12 @@ Test that you have create permissions and things are working superficially.
 .. code-block:: sql
 
     CREATE TABLE test (name text);
-    \dt
-    \d test
+
+    -- Optional commands to list
+    -- \dt
+    -- \d test
+
+    -- Insert some values
     INSERT INTO test (name) VALUES ('testName001');
     SELECT name FROM test;
     DROP TABLE test;
@@ -117,7 +148,7 @@ and a lack of upgrade scripts in these early stages.
 TODO
 ####
 
-Below sections are outdated, need to update and refine them.
+Below sections are **OUTDATED**, need to update and refine them.
 
 Need to include instructions for populating the DB with test data, configuring
 it to work with the Python server, and macOS / Windows specific tricks.
