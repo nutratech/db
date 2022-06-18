@@ -31,7 +31,8 @@ import sys
 import psycopg2
 import psycopg2.extras
 
-from utils.postgres import psql
+from utils import PSQL_SCHEMA
+from utils.postgres import build_con, psql
 
 
 # cd to script's directory
@@ -57,6 +58,7 @@ def import_():
 
     def csv2sql(tablename=None):
         """Copy a CSV file to corresponding SQL table"""
+        con = build_con()
         cur = con.cursor()
 
         try:
@@ -78,15 +80,15 @@ def import_():
             raise err
 
     def set_serial(tablename=None):
-        """Sets the serial sequence value (col_name='id') to the max value for the column"""
+        """Sets the serial sequence value (col_name='id')
+            to the max value for the column"""
 
-        query = f"""
-SELECT
-  pg_catalog.setval(pg_get_serial_sequence('{tablename}', 'id'), (
-      SELECT
-        MAX(id)
-      FROM tablename))
-        """
+        query = (
+            "SELECT pg_catalog.setval("
+            f"  pg_get_serial_sequence('{tablename}', 'id'),"
+            f"  (SELECT MAX(id) FROM {tablename})  "
+            ")"
+        )
         psql(query)
 
     # ------------------------
@@ -196,6 +198,7 @@ def export_():
 
     def sql2csv(tablename):
         """Copy a SQL table to corresponding CSV file"""
+        con = build_con()
         cur = con.cursor()
 
         try:
@@ -246,18 +249,19 @@ def truncate_():
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         # NOTE: currently done this way, for debugging purposes
-        arg1 = "r"
+        ARG1 = "r"
         # exit(
-        #     "error: no args specified! use either i, t, r, e .. [import, truncate, rebuild, export]"
+        #     "error: no args specified! ""
+        #     "use either i, t, r, e .. [import, truncate, rebuild, export]"
         # )
     else:
-        arg1 = sys.argv[1]
+        ARG1 = sys.argv[1]
 
-    if arg1 == "i" or arg1 == "import":
+    if ARG1 in {"i", "import"}:
         import_()
-    if arg1 == "t" or arg1 == "truncate":
+    if ARG1 in {"t", "truncate"}:
         truncate_()
-    elif arg1 == "r" or arg1 == "rebuild":
+    elif ARG1 in {"r", "rebuild"}:
         rebuild_()
-    elif arg1 == "e" or arg1 == "export":
+    elif ARG1 in {"e", "export"}:
         export_()

@@ -31,10 +31,7 @@ from datetime import timedelta
 from dotenv import load_dotenv
 
 # Read in .env file if it exists locally, else look to env vars
-try:
-    load_dotenv(verbose=True)
-except Exception as e:
-    print(repr(e))
+load_dotenv(verbose=True)
 
 # USPS API key
 USPS_API_KEY = os.getenv("USPS_API_KEY")
@@ -44,8 +41,9 @@ PROD_EMAIL = os.getenv("PROD_EMAIL")
 PROD_EMAIL_PASS = os.getenv("PROD_EMAIL_PASS")
 
 # Server host
-SERVER_PORT = os.getenv("PORT", 20000)
-ON_REMOTE = os.getenv("ON_REMOTE", False)
+# TODO: look back into this
+SERVER_PORT = os.getenv("PORT", "20000")
+ON_REMOTE = os.getenv("ON_REMOTE", "0")
 SERVER_HOST = (
     "https://nutra-server.herokuapp.com"
     if ON_REMOTE
