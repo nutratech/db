@@ -109,12 +109,14 @@ Try to connect as yourself to the default database.
 
 From the SQL shell (now running as yourself, NOT the ``postgres`` user).
 
-.. code-block:: sql
+**NOTE:** you may have to run these blocks individually.
 
-    -- NOTE: you may have to run these blocks individually
+.. code-block:: sql
 
     -- Create database
     CREATE DATABASE nt;
+
+.. code-block:: psql
 
     -- Verify it's in the list of DBs
     \l
@@ -122,8 +124,10 @@ From the SQL shell (now running as yourself, NOT the ``postgres`` user).
     -- Use database nt
     \c nt
 
-    -- Drop default public schema (optional); set nt to default
-    -- DROP SCHEMA public;
+.. code-block:: sql
+
+    -- Drop default public schema (optional); set nt to default schema
+    DROP SCHEMA public;
     CREATE schema nt;
     ALTER DATABASE nt SET search_path TO nt;
 
@@ -139,11 +143,17 @@ Test that you have create permissions and things are working superficially.
 
     CREATE TABLE test (name text);
 
-    -- Optional commands to list
-    -- \dt
-    -- \d test
+.. code-block:: psql
 
-    -- Insert some values
+    -- List tables
+    \dt
+
+    -- List columns in table
+    \d test
+
+.. code-block:: sql
+
+    -- Insert some test values
     INSERT INTO test (name) VALUES ('testName001');
     SELECT name FROM test;
     DROP TABLE test;
@@ -159,6 +169,21 @@ consumed by the server tests.
 This will avoid having to repeatedly drop and rebuild local data.
 Which is guaranteed to happen anyways, with frequent updates to the tables
 and a lack of upgrade scripts in these early stages.
+
+Creating the Tables & Functions
+###############################
+
+You will need to create the tables and functions before you can connect with
+the server or populate with test data.
+
+First change directories with ``cd ntdb/sql``.
+
+Log into the database with ``psql -d nt``, and then run this.
+
+
+.. code-block:: psql
+
+    \i tables
 
 TODO
 ####

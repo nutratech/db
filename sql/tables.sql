@@ -14,6 +14,7 @@
 --
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 DROP SCHEMA IF EXISTS nt CASCADE;
 
 CREATE SCHEMA nt;
@@ -22,7 +23,7 @@ SET search_path TO nt;
 
 SET client_min_messages TO WARNING;
 
-CREATE TABLE version (
+CREATE TABLE `version` (
   id serial PRIMARY KEY,
   version text NOT NULL,
   created timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -33,6 +34,7 @@ CREATE TABLE version (
 --++++++++++++++++++++++++++++
 -- Main users tables
 --++++++++++++++++++++++++++++
+
 CREATE TABLE users (
   id serial PRIMARY KEY,
   username text,
@@ -70,6 +72,7 @@ CREATE TABLE devices (
 --   -- email_token_pw_reset
 --   name text NOT NULL
 -- );
+
 CREATE TABLE tokens (
   -- TODO: device fingerprinting, token revocation, client-side hashing?
   id bigserial PRIMARY KEY,
@@ -86,6 +89,7 @@ CREATE TABLE tokens (
 ---------------------------
 -- Ship/bill addresses
 ---------------------------
+
 CREATE TABLE countries (
   id int PRIMARY KEY,
   code text NOT NULL,
@@ -131,6 +135,7 @@ CREATE TABLE addresses (
 --++++++++++++++++++++++++++++
 -- Biometrics, SYNC logs
 --++++++++++++++++++++++++++++
+
 CREATE TABLE bmr_eqs (
   id serial PRIMARY KEY,
   name text NOT NULL
@@ -263,6 +268,7 @@ CREATE TABLE rda (
 --++++++++++++++++++++++++++++
 -- USDA SR Database
 --++++++++++++++++++++++++++++
+
 CREATE TABLE nutr_def (
   id int PRIMARY KEY,
   rda real,
@@ -277,6 +283,7 @@ CREATE TABLE nutr_def (
 ---------------------------
 -- Food recommendations
 ---------------------------
+
 CREATE TABLE rec_id (
   id serial PRIMARY KEY,
   name text,
@@ -325,6 +332,7 @@ CREATE TABLE rec_dat (
 --++++++++++++++++++++++++++++
 -- SHOP
 --++++++++++++++++++++++++++++
+
 CREATE TABLE categories (
   id serial PRIMARY KEY,
   name text NOT NULL,
@@ -414,11 +422,13 @@ CREATE TABLE reviews (
 ------------------------------
 -- Reports
 ------------------------------
+
 CREATE TABLE reports (
   id serial PRIMARY KEY,
   user_id int NOT NULL,
   -- TODO: FK with report_type TABLE ?
   -- TODO: base URL for all reports
+
   report_type text NOT NULL,
   report_message text NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
@@ -428,6 +438,7 @@ CREATE TABLE reports (
 ------------------------------
 -- Cart & Shop
 ------------------------------
+
 CREATE TABLE coupons (
   id serial PRIMARY KEY,
   code text NOT NULL,
@@ -495,6 +506,7 @@ CREATE TABLE order_shipments (
 ------------------------------
 -- Cart
 ------------------------------
+
 CREATE TABLE cart (
   id serial PRIMARY KEY,
   user_id int NOT NULL,
