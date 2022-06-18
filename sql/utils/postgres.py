@@ -29,26 +29,57 @@ import psycopg2.extras
 
 from . import PSQL_DATABASE, PSQL_HOST, PSQL_PASSWORD, PSQL_SCHEMA, PSQL_USER
 
-# Initialize connection
-con = psycopg2.connect(
-    database=PSQL_DATABASE,
-    user=PSQL_USER,
-    password=PSQL_PASSWORD,
-    host=PSQL_HOST,
-    port="5432",
-    options=f"-c search_path={PSQL_SCHEMA}",
-)
 
-print(
-    f"[Connected to Postgre DB]    postgresql://{PSQL_USER}:{PSQL_PASSWORD}@{PSQL_HOST}:5432/{PSQL_DATABASE}",
-)
-print(f"[psql] USE SCHEMA {PSQL_SCHEMA};")
+def build_con():
+    """Build and return a psql connection"""
+
+    # Initialize connection
+    con = psycopg2.connect(
+        database=PSQL_DATABASE,
+        user=PSQL_USER,
+        password=PSQL_PASSWORD,
+        host=PSQL_HOST,
+        port="5432",
+        options=f"-c search_path={PSQL_SCHEMA}",
+    )
+
+    print(
+        "[Connected to Postgre DB]    "
+        f"postgresql://{PSQL_USER}:{PSQL_PASSWORD}@{PSQL_HOST}:5432/{PSQL_DATABASE}",
+    )
+    print(f"[psql] USE SCHEMA {PSQL_SCHEMA};")
+
+    return con
 
 
-def psql(query, params=None, _print=True, ignore_empty_result=False):
+class PgResult:
+    """Result object"""
 
-    # TODO: revamp this, tighten ship, make more versatile for DB import, and decide on mandatory RETURNING for INSERTs
+    def __init__(self, query, rows=None, headers=None, msg=None, err_msg=None):
+        """ Defines a convenient result from `psql()` """
 
+        self.query = query
+
+        self.headers = headers
+        self.rows = rows
+        self.msg = msg
+
+        self.err_msg = err_msg
+
+    def set_rows(self, rows: list, headers: list):
+        """Sets pg_result rows based on fetchall and headers"""
+
+        self.headers = headers
+        self.rows = rows
+
+
+def psql(query: str, params: tuple = None, _print=True, ignore_empty_result=False) -> PgResult:
+    """Execute a query (optionally parameterized), and return a PgResult"""
+
+    # TODO: revamp this, tighten ship, make more versatile for DB import,
+    #  and decide on mandatory RETURNING for INSERTs
+
+    con = build_con()
     cur = con.cursor()
     # Print query
     if params:
@@ -86,9 +117,10 @@ def psql(query, params=None, _print=True, ignore_empty_result=False):
         result.set_rows(cur.fetchall(), headers)
         con.commit()
         cur.close()
-    except Exception as e:
+    # TODO: find out which classes of Exception are possibly thrown
+    except Exception as err:
         if ignore_empty_result is False:
-            print(repr(e))
+            print(repr(err))
             con.rollback()
         else:
             con.commit()
@@ -100,42 +132,3 @@ def psql(query, params=None, _print=True, ignore_empty_result=False):
     print(result.msg)
 
     return result
-
-
-class PgResult:
-    def __init__(self, query, rows=None, headers=None, msg=None, err_msg=None):
-        """ Defines a convenient result from `psql()` """
-
-        self.query = query
-
-        self.headers = headers
-        self.rows = rows
-        self.msg = msg
-
-        self.err_msg = err_msg
-
-    # @property
-    # def Response(self):
-    #     """ Used ONLY for ERRORS """
-
-    #     return _Response(data={"error": self.err_msg}, code=400)
-
-    def set_rows(self, fetchall, headers):
-        """Sets pg_result rows based on fetchall and headers"""
-
-        self.headers = headers
-        self.rows = fetchall
-
-        # if len(fetchall):
-        #     keys = list(fetchall[0]._index.keys())
-
-        #     # Build dict from named tuple
-        #     for entry in fetchall:
-        #         row = {}
-        #         for i, element in enumerate(entry):
-        #             key = keys[i]
-        #             row[key] = element
-        #         self.rows.append(row)
-
-        #     # Set first row
-        #     self.row = self.rows[0]

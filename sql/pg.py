@@ -34,6 +34,7 @@ import psycopg2.extras
 
 from utils.postgres import psql
 
+
 # cd to script's directory
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
@@ -45,7 +46,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 #     print(repr(e))
 
 # PostgreSQL
-PSQL_DATABASE = os.getenv("PSQL_DB_NAME", "nutra")
+PSQL_DATABASE = os.getenv("PSQL_DB_NAME", "nt")
 PSQL_SCHEMA = os.getenv("PSQL_SCHEMA_NAME", "nt")
 
 PSQL_USER = os.getenv("PSQL_USER", getpass.getuser())
