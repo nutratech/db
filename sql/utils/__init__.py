@@ -58,13 +58,16 @@ WEB_HOST = (
 )
 
 # PostgreSQL
-PSQL_DATABASE = os.getenv("PSQL_DB_NAME", "nutra")
+PSQL_DATABASE = os.getenv("PSQL_DB_NAME", "nt")
 PSQL_SCHEMA = "nt"
 
 PSQL_USER = os.getenv("PSQL_USER", getpass.getuser())
 PSQL_PASSWORD = os.getenv("PSQL_PASSWORD", "password")
 
 PSQL_HOST = os.getenv("PSQL_HOST", "localhost")
+
+if PSQL_USER == "$LOGNAME":
+    PSQL_USER = getpass.getuser()
 
 # Other
 JWT_SECRET = os.getenv("JWT_SECRET", "secret123")

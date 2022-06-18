@@ -25,7 +25,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
-import getpass
 import os
 import sys
 
@@ -38,38 +37,12 @@ from utils.postgres import psql
 # cd to script's directory
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-# Read in .env file if it exists locally, else look to env vars
 # NOTE: this is handled by utils.__init__ (for now) [by importing psql()]
+# Read in .env file if it exists locally, else look to env vars
 # try:
 #     load_dotenv(verbose=True)
 # except Exception as e:
 #     print(repr(e))
-
-# PostgreSQL
-PSQL_DATABASE = os.getenv("PSQL_DB_NAME", "nt")
-PSQL_SCHEMA = os.getenv("PSQL_SCHEMA_NAME", "nt")
-
-PSQL_USER = os.getenv("PSQL_USER", getpass.getuser())
-PSQL_PASSWORD = os.getenv("PSQL_PASSWORD", "password")
-
-PSQL_HOST = os.getenv("PSQL_HOST", "localhost")
-
-if PSQL_USER == "$LOGNAME":
-    PSQL_USER = getpass.getuser()
-
-# Initialize connection
-con = psycopg2.connect(
-    database=PSQL_DATABASE,
-    user=PSQL_USER,
-    password=PSQL_PASSWORD,
-    host=PSQL_HOST,
-    port="5432",
-    options=f"-c search_path={PSQL_SCHEMA}",
-)
-
-print(f"psql postgresql://{PSQL_USER}:{PSQL_PASSWORD}@{PSQL_HOST}:5432/{PSQL_DATABASE}")
-print(".. Connected to PostgreSQL DB!")
-print(f"USE SCHEMA {PSQL_SCHEMA};\n")
 
 
 # -----------------------
