@@ -226,4 +226,4 @@ See :code:`sql/tables.sql` for details.
 
 This is frequently updated, see :code:`docs/` for more info.
 
-.. image:: docs/nutra.svg
+.. image:: docs/nt.svg
