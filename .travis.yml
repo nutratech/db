@@ -13,3 +13,5 @@ script:
   - python sql/pg.py r
   - python sql/pg.py e
   - git diff
+  - git diff --stat
+  - git diff --quiet
