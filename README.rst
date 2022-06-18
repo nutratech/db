@@ -5,13 +5,122 @@
 .. image:: https://api.travis-ci.com/gamesguru/ntdb.svg?branch=master
     :target: https://travis-ci.com/gamesguru/ntdb
 
-Python, SQL and CSV files for setting up nutra-server database.
+Python, SQL, CSV files & RST documentation for setting up the server database.
 
-See CLI:    https://github.com/nutratech/cli
+We also have a server, CLI, and two sqlite3 databases repositories.
 
-Pypi page:  https://pypi.org/project/nutra
+Locally running PostgreSQL (Ubuntu)
+###################################
 
-See server: https://github.com/gamesguru/nutra-server
+I followed the instructions here to register it as a startup service.
+
+https://askubuntu.com/questions/539187/how-to-make-postgres-start-automatically-on-boot
+
+You can also start it immediately, without needing a reboot.
+
+.. code-block:: bash
+
+    sudo update-rc.d postgresql enable
+    sudo systemctl enable postgresql
+
+    # Start immediately
+    sudo service postgresql start
+
+Setting up local database
+#########################
+
+Now you can create the ``nt`` database, and grant yourself access.
+
+Log in as the ``postgres`` user to manage your databases.
+
+.. code-block:: bash
+
+    # Log in as postgres user, and cd into their home folder
+    sudo su postgres
+    cd
+
+    # Enter a psql shell (as postgres user)
+    psql
+
+You should be running a shell such as ``postgres=#``.
+
+Enter the following commands now.
+
+**NOTE:** This sets you a password. You will need the password to connect
+with ``DataGrip``, or outside the local Unix socket context.
+
+.. code-block:: sql
+
+    -- As the postgres user...
+    -- Grant yourself access; use your $LOGNAME in these steps
+    CREATE USER shane;
+    ALTER USER shane PASSWORD 'password';
+    ALTER USER shane WITH SUPERUSER;
+
+Now exit out of the SQL shell, and exit out of the ``postgres`` user shell.
+Go back to your regular user login.
+
+Try to connect as yourself to the default database.
+
+.. code-block:: bash
+
+    psql -d postgres
+
+    # or, if that fails:
+    psql -d template1
+
+From the SQL shell (now running as yourself, NOT the ``postgres`` user).
+
+.. code-block:: sql
+
+    -- Create database
+    postgres=# CREATE DATABASE nt;
+    \l
+
+    -- Use database nt
+    \c nt
+
+    -- Drop default schema, set nt to default
+    DROP SCHEMA public;
+    CREATE schema nt;
+    ALTER DATABASE nt SET search_path TO nt;
+
+You can connect easily via the Unix socket (and bypass the password prompt).
+
+::
+
+    psql -d nt
+
+Test that you have create permissions and things are working superficially.
+
+.. code-block:: sql
+
+    CREATE TABLE test (name text);
+    \dt
+    \d test
+    INSERT INTO test (name) VALUES ('testName001');
+    SELECT name FROM test;
+    DROP TABLE test;
+
+Now you can configure your ``.env`` file accordingly, or add the connection
+in ``DataGrip`` or similar GUI tools.
+
+**NOTE:** I haven't included instructions for starting the PostgreSQL service
+automatically on macOS or Windows.
+
+**NOTE:** You may wish to create a separate ``nt_test`` schema which is
+consumed by the server tests.
+This will avoid having to repeatedly drop and rebuild local data.
+Which is guaranteed to happen anyways, with frequent updates to the tables
+and a lack of upgrade scripts in these early stages.
+
+TODO
+####
+
+Below sections are outdated, need to update and refine them.
+
+Need to include instructions for populating the DB with test data, configuring
+it to work with the Python server, and macOS / Windows specific tricks.
 
 Setting up local database
 #########################
@@ -22,7 +131,8 @@ Setting up local database
 
     cp .env.local .env
 
-2. Set ``.env`` var ``PSQL_LOCAL_DB_DIR`` to an existing folder (e.g. ``~/.pgsql/nutra``)
+2. Set ``.env`` var ``PSQL_LOCAL_DB_DIR`` to an existing folder
+(e.g. ``~/.pgsql/nutra``)
 
 3. Run :code:`cd sql` and start PostgreSQL server,
 
