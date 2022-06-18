@@ -1,0 +1,45 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+max_line_length = 100
+
+
+[*.sql]
+max_line_length = 80
+
+
+[*.sh]
+max_line_length = 79
+
+
+[*.py]
+max_line_length = 88
+
+
+[*.{yaml,yml}]
+indent_size = 2
+
+
+[Makefile]
+indent_style = tab
+max_line_length = 120
+
+
+[*.md]
+max_line_length = 90
+trim_trailing_whitespace = false
+
+
+[*.rst]
+max_line_length = 79
+
+
+[{COMMIT_EDITMSG,MERGE_MSG,SQUASH_MSG}]
+max_line_length = 72
