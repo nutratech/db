@@ -180,84 +180,44 @@ First change directories with ``cd ntdb/sql``.
 
 Log into the database with ``psql -d nt``, and then run this.
 
-
 .. code-block:: psql
 
     \i tables
 
-TODO
-####
+Inserting Data & Configuring ``.env`` file
+==========================================
 
-Below sections are **OUTDATED**, need to update and refine them.
-
-Need to include instructions for populating the DB with test data, configuring
-it to work with the Python server, and macOS / Windows specific tricks.
-
-Setting up local database
-#########################
-
-1. Inside ``/sql`` folder, run
+Inside ``/sql`` folder, run this.
+And update the variables as you see fit.
 
 .. code-block:: bash
 
     cp .env.local .env
 
-2. Set ``.env`` var ``PSQL_LOCAL_DB_DIR`` to an existing folder
-(e.g. ``~/.pgsql/nutra``)
+Rebuild the ``nt`` database with this.
 
-3. Run :code:`cd sql` and start PostgreSQL server,
-
-.. code-block:: bash
-
-    sudo killall postgres
-    ./dbup.sh
-
-4. Rebuild te db with,
-
-NOTE: Must do this after DB update or to build fresh
+**NOTE:** Must do this after DB update. Or if you want to build fresh
 
 .. code-block:: bash
 
     python pg.py r
 
-Running local database (after init)
-===================================
+Verify your tables.
 
-This is mostly used for running manual commands.
+.. code-block:: psql
 
-.. code-block:: bash
-
-    cd sql
-    ./sql.sh
-
-Then for example,
+    \dt
 
 .. code-block:: sql
 
     SELECT * FROM functions();
     SELECT * FROM version;
 
-NOTE: after computer reboot, may need to start server
+NOTE: To enable automatic startup of postgres server on system reboot.
 
 .. code-block:: bash
 
-    sudo killall postgres
-    ./dbup.sh
-
-NOTE: To disable automatic starting of postgres server on reboot:
-
-.. code-block:: bash
-
-    sudo systemctl disable postgresql
-
-It will output a confirmation message:
-
-.. code-block:: bash
-
-    Synchronizing state of postgresql.service with SysV service script with /lib/systemd/systemd-sysv-install.
-    Executing: /lib/systemd/systemd-sysv-install disable postgresql
-    Removed /etc/systemd/system/multi-user.target.wants/postgresql.service.
-
+    sudo systemctl enable postgresql
 
 Tables (Relational Design)
 ##########################

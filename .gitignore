@@ -3,6 +3,10 @@
 ._*
 .DS_Store
 
+# Unwanted editor files
+.vscode/
+.idea/
+
 # Compressed files
 *.accdb
 *.zip
