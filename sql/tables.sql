@@ -23,7 +23,7 @@ SET search_path TO nt;
 
 SET client_min_messages TO WARNING;
 
-CREATE TABLE `version` (
+CREATE TABLE "version" (
   id serial PRIMARY KEY,
   version text NOT NULL,
   created timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -152,7 +152,7 @@ CREATE TABLE profiles (
   user_id int NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
   updated int DEFAULT extract(epoch FROM NOW()),
-  eula int DEFAULT -1,
+  eula int DEFAULT 0,
   gender text,
   name_first text,
   name_last text,
