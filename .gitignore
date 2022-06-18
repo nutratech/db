@@ -16,11 +16,12 @@
 .env*
 *.swp
 
-# Database folder and logfile
-data_tmp/
+# Database folder, EPS charts, logfile, CSV files
 nutra/
-*.csv
+nt/
+data_tmp/
 tmp/
+*.csv
 
 ####################
 ## Python Ignores ##
