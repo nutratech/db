@@ -80,6 +80,19 @@ and deciding if any of it is important or relevant to your use case.
     # Start postgres, and register it as a startup service)
     brew services start postgresql
 
+Windows
+=======
+
+**NOTE:** This is not tested. I'm including a few resources for now, though.
+
+You can search for "start postgres server as service in windows" for ideas.
+
+https://www.delftstack.com/howto/postgres/start-postgres-server-windows/#use-services-msc-to-start-stop-a-postgresql-session-in-windows
+
+https://stackoverflow.com/questions/36629963/how-can-i-start-postgresql-on-windows
+
+https://stackoverflow.com/questions/70792159/start-postgres-as-service-on-windows
+
 Setting up local database
 #########################
 
