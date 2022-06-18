@@ -65,6 +65,8 @@ macOS
 
 I followed the instructions here.
 
+https://stackoverflow.com/questions/7975556/how-can-i-start-postgresql-server-on-mac-os-x
+
 PostgreSQL installed with ``brew`` will already create a user under your name
 with appropriate permissions. So you can skip many of the steps above.
 
