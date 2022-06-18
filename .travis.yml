@@ -3,10 +3,13 @@ os: linux
 dist: xenial
 language: python
 python:
-  - '3.6'
+  - "3.6"
 install:
   - pip install -r requirements.txt
-  - sudo systemctl enable postgresql
+  - sudo systemctl start postgresql
 script:
+  - psql -d template1 -c 'CREATE DATABASE nt;'
+  - psql -l
+  - python sql/pg.py r
   - python sql/pg.py e
   - git diff
