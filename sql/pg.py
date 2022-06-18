@@ -76,23 +76,23 @@ print(f"USE SCHEMA {PSQL_SCHEMA};\n")
 # Important functions
 # -----------------------
 
-csv_dir = "../data"
+CSV_DIR = "../data"
 
 
 def import_():
-    """ Imports all tables from CSV """
+    """Imports all tables from CSV"""
 
     def csv2sql(tablename=None):
-        """ Copy a CSV file to corresponding SQL table """
+        """Copy a CSV file to corresponding SQL table"""
         cur = con.cursor()
 
         try:
-            filepath = f"{csv_dir}/{tablename}.csv"
+            filepath = f"{CSV_DIR}/{tablename}.csv"
             print(f"\\copy {tablename} FROM {filepath} CSV HEADER")
 
             # Copy from CSV
-            with open(filepath) as input:
-                cur.copy_expert(f"COPY {tablename} FROM STDIN CSV HEADER", input)
+            with open(filepath, encoding="utf-8") as csv_file:
+                cur.copy_expert(f"COPY {tablename} FROM STDIN CSV HEADER", csv_file)
             print(f"COPY {cur.rowcount}")
             con.commit()
             cur.close()
@@ -105,9 +105,15 @@ def import_():
             raise err
 
     def set_serial(tablename=None):
-        """ Sets the serial sequence value (col_name='id') to the max value for the column """
+        """Sets the serial sequence value (col_name='id') to the max value for the column"""
 
-        query = f"SELECT pg_catalog.setval(pg_get_serial_sequence('{tablename}', 'id'), (SELECT MAX(id) FROM {tablename}))"
+        query = f"""
+SELECT
+  pg_catalog.setval(pg_get_serial_sequence('{tablename}', 'id'), (
+      SELECT
+        MAX(id)
+      FROM tablename))
+        """
         psql(query)
 
     # ------------------------
@@ -116,7 +122,7 @@ def import_():
     print("[import]\n")
 
     csv_files = [
-        os.path.splitext(f)[0] for f in os.listdir(csv_dir) if f.endswith(".csv")
+        os.path.splitext(f)[0] for f in os.listdir(CSV_DIR) if f.endswith(".csv")
     ]
     ptables = [
         "bf_eqs",
@@ -139,16 +145,16 @@ def import_():
     ]
 
     # Primary tables
-    for t in ptables:
-        if t in csv_files:
-            csv2sql(t)
+    for table in ptables:
+        if table in csv_files:
+            csv2sql(table)
 
     # Secondary tables
-    for f in csv_files:
-        if f.startswith("."):
+    for csv_file in csv_files:
+        if csv_file.startswith("."):
             continue
-        if f not in ptables:
-            csv2sql(f)
+        if csv_file not in ptables:
+            csv2sql(csv_file)
 
     # Set sequence value for serial numbers on all iterable tables
     itables = [
@@ -186,23 +192,23 @@ def import_():
         "rec_dat",
         "version",
     ]
-    for t in itables:
-        set_serial(t)
+    for table in itables:
+        set_serial(table)
 
 
 def rebuild_():
-    """ Drops, rebuilds Tables.  Imports data fresh """
+    """Drops, rebuilds Tables.  Imports data fresh"""
     print("[rebuild]\n")
 
     # Rebuild tables
     print("\\i tables.sql")
-    query = open("tables.sql").read()
+    query = open("tables.sql", encoding="utf-8").read()
     psql(query, _print=False, ignore_empty_result=True)
     print()
 
     # Rebuild functions
     print("\\i functions.sql")
-    query = open("functions.sql").read()
+    query = open("functions.sql", encoding="utf-8").read()
     psql(query, _print=False, ignore_empty_result=True)
 
     # ----------------------------
@@ -213,18 +219,18 @@ def rebuild_():
 
 
 def export_():
-    """ Exports all tables to CSV """
+    """Exports all tables to CSV"""
 
     def sql2csv(tablename):
-        """ Copy a SQL table to corresponding CSV file """
+        """Copy a SQL table to corresponding CSV file"""
         cur = con.cursor()
 
         try:
-            filepath = f"{csv_dir}/{tablename}.csv"
+            filepath = f"{CSV_DIR}/{tablename}.csv"
             print(f"\\copy {tablename} TO {filepath} CSV HEADER")
 
             # Write to CSV
-            with open(filepath, "w+") as output:
+            with open(filepath, "w+", encoding="utf-8") as output:
                 cur.copy_expert(f"COPY {tablename} TO STDOUT CSV HEADER", output)
             print(f"COPY {cur.rowcount}")
             con.commit()
@@ -246,11 +252,12 @@ def export_():
     pg_result = psql(query)
 
     tables = [x[0] for x in pg_result.rows]
-    for t in tables:
-        sql2csv(t)
+    for table in tables:
+        sql2csv(table)
 
 
 def truncate_():
+    """Truncates tables, not very often used"""
     # TODO: warning on this and rebuild!!
     print("[truncate]\n")
 
@@ -263,13 +270,9 @@ def truncate_():
     psql(query, ignore_empty_result=True)
 
 
-# -----------------------
-
 if __name__ == "__main__":
-    """ Make script executable """
-
     if len(sys.argv) < 2:
-        # for debugging purposes
+        # NOTE: currently done this way, for debugging purposes
         arg1 = "r"
         # exit(
         #     "error: no args specified! use either i, t, r, e .. [import, truncate, rebuild, export]"
