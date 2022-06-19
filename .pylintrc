@@ -1,0 +1,11 @@
+[MASTER]
+
+fail-under=10
+
+
+[MESSAGES CONTROL]
+
+disable=
+    fixme,
+    too-many-arguments,
+    too-few-public-methods,

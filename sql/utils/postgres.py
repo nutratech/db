@@ -8,7 +8,7 @@ This file is part of nutra-server, a server for nutra clients.
     https://github.com/gamesguru/nutra-server
 
 nutra-server is a server for nutra clients.
-Copyright (C) 2019-2020  Shane Jaroch
+Copyright (C) 2019-2022 Shane Jaroch
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -27,10 +27,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import psycopg2
 import psycopg2.extras
 
-from . import PSQL_DATABASE, PSQL_HOST, PSQL_PASSWORD, PSQL_SCHEMA, PSQL_USER
+from sql.utils import PSQL_DATABASE, PSQL_HOST, PSQL_PASSWORD, PSQL_SCHEMA, PSQL_USER
 
 
-def build_con():
+# pylint: disable=c-extension-no-member
+def build_con() -> psycopg2._psycopg.connection:
     """Build and return a psql connection"""
 
     # Initialize connection
@@ -44,7 +45,7 @@ def build_con():
     )
 
     print(
-        "[Connected to Postgre DB]    "
+        "[Connected to Postgres DB]    "
         f"postgresql://{PSQL_USER}:{PSQL_PASSWORD}@{PSQL_HOST}:5432/{PSQL_DATABASE}",
     )
     print(f"[psql] USE SCHEMA {PSQL_SCHEMA};")
@@ -55,8 +56,8 @@ def build_con():
 class PgResult:
     """Result object"""
 
-    def __init__(self, query, rows=None, headers=None, msg=None, err_msg=None):
-        """ Defines a convenient result from `psql()` """
+    def __init__(self, query, rows=None, headers=None, msg=None, err_msg=None) -> None:
+        """Defines a convenient result from `psql()`"""
 
         self.query = query
 
@@ -73,11 +74,13 @@ class PgResult:
         self.rows = rows
 
 
-def psql(query: str, params: tuple = None, _print=True, ignore_empty_result=False) -> PgResult:
+def psql(
+    query: str, params: tuple = None, _print=True, ignore_empty_result=False
+) -> PgResult:
     """Execute a query (optionally parameterized), and return a PgResult"""
 
     # TODO: revamp this, tighten ship, make more versatile for DB import,
-    #  and decide on mandatory RETURNING for INSERTs
+    #  and decide on mandatory RETURNING for INSERT(s)
 
     con = build_con()
     cur = con.cursor()
@@ -117,7 +120,8 @@ def psql(query: str, params: tuple = None, _print=True, ignore_empty_result=Fals
         result.set_rows(cur.fetchall(), headers)
         con.commit()
         cur.close()
-    # TODO: find out which classes of Exception are possibly thrown
+    # TODO: find out which class(es) of Exception are possibly thrown
+    # pylint: disable=broad-except
     except Exception as err:
         if ignore_empty_result is False:
             print(repr(err))

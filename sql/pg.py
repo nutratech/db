@@ -31,9 +31,8 @@ import sys
 import psycopg2
 import psycopg2.extras
 
-from utils import PSQL_SCHEMA
-from utils.postgres import build_con, psql
-
+from sql.utils import PSQL_SCHEMA
+from sql.utils.postgres import build_con, psql
 
 # cd to script's directory
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -53,10 +52,10 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 CSV_DIR = "../data"
 
 
-def import_():
+def import_() -> None:
     """Imports all tables from CSV"""
 
-    def csv2sql(tablename=None):
+    def csv2sql(tablename=None) -> None:
         """Copy a CSV file to corresponding SQL table"""
         con = build_con()
         cur = con.cursor()
@@ -79,9 +78,9 @@ def import_():
             cur.close()
             raise err
 
-    def set_serial(tablename=None):
+    def set_serial(tablename=None) -> None:
         """Sets the serial sequence value (col_name='id')
-            to the max value for the column"""
+        to the max value for the column"""
 
         query = (
             "SELECT pg_catalog.setval("
@@ -171,19 +170,21 @@ def import_():
         set_serial(table)
 
 
-def rebuild_():
+def rebuild_() -> None:
     """Drops, rebuilds Tables.  Imports data fresh"""
     print("[rebuild]\n")
 
     # Rebuild tables
     print("\\i tables.sql")
-    query = open("tables.sql", encoding="utf-8").read()
+    with open("tables.sql", encoding="utf-8") as table_file:
+        query = table_file.read()
     psql(query, _print=False, ignore_empty_result=True)
     print()
 
     # Rebuild functions
     print("\\i functions.sql")
-    query = open("functions.sql", encoding="utf-8").read()
+    with open("functions.sql", encoding="utf-8") as func_file:
+        query = func_file.read()
     psql(query, _print=False, ignore_empty_result=True)
 
     # ----------------------------
@@ -193,10 +194,10 @@ def rebuild_():
     import_()
 
 
-def export_():
+def export_() -> None:
     """Exports all tables to CSV"""
 
-    def sql2csv(tablename):
+    def sql2csv(tablename) -> None:
         """Copy a SQL table to corresponding CSV file"""
         con = build_con()
         cur = con.cursor()
@@ -232,7 +233,7 @@ def export_():
         sql2csv(table)
 
 
-def truncate_():
+def truncate_() -> None:
     """Truncates tables, not very often used"""
     # TODO: warning on this and rebuild!!
     print("[truncate]\n")
