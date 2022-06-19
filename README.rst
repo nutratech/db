@@ -35,30 +35,26 @@ Log in as the ``postgres`` user to manage your databases.
 
 .. code-block:: bash
 
-    # Log in as postgres user, and cd into their home folder
-    sudo su postgres
-    cd
-
     # Enter a psql shell (as postgres user)
-    psql
+    sudo -u postgres psql
 
 You should be running a shell such as ``postgres=#``.
 
 Enter the following commands now.
 
-**NOTE:** This sets you a password. You will need the password to connect
-with ``DataGrip``, or outside the local Unix socket context.
-
 .. code-block:: sql
 
-    -- As the postgres user...
+    -- As the postgres user, run this.
+
     -- Grant yourself access; use your $LOGNAME in these steps
     CREATE USER shane;
     ALTER USER shane PASSWORD 'password';
-    ALTER USER shane WITH SUPERUSER;
+    ALTER USER shane WITH SUPERUSER CREATEROLE CREATEDB REPLICATION BYPASSRLS;
 
-Now exit out of the SQL shell, and exit out of the ``postgres`` user shell.
-Go back to your regular user login.
+Now exit out of the SQL shell. Go back to your regular user login.
+
+**NOTE:** This sets you a password. You will need the password to connect
+with ``DataGrip``, or outside the local Unix socket context.
 
 macOS
 =====
@@ -79,7 +75,7 @@ and deciding if any of it is important or relevant to your use case.
     #  e.g. on Monterey: postgresql--14.4.monterey.bottle.tar.gz
     brew install postgres
 
-    # Start postgres, and register it as a startup service)
+    # Start postgres, and register it as a startup service
     brew services start postgresql
 
 Windows
@@ -162,7 +158,7 @@ Now you can configure your ``.env`` file accordingly, or add the connection
 in ``DataGrip`` or similar GUI tools.
 
 **NOTE:** I haven't included instructions for starting the PostgreSQL service
-automatically on macOS or Windows.
+automatically on Windows.
 
 **NOTE:** You may wish to create a separate ``nt_test`` schema which is
 consumed by the server tests.
