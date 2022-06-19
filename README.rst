@@ -23,8 +23,8 @@ You can also start it immediately, without needing a reboot.
 
 .. code-block:: bash
 
-    sudo update-rc.d postgresql enable
     sudo systemctl enable postgresql
+    sudo update-rc.d postgresql enable
 
     # Start immediately
     sudo service postgresql start
