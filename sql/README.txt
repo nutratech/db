@@ -14,10 +14,11 @@ and how to create the template database & import data.
 #
 # Importing, exporting, rebuilding (locally)
 # Run python setup script [args = i, e, r .. import, export, rebuild]
-./pg.py r
+python -m sql r
 
 # Export data to CSV
-./pg.py e
+python -m sql e
 
 # To rebuild run
-./pg.py r
+python -m sql r
+

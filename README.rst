@@ -196,7 +196,7 @@ Rebuild the ``nt`` database with this.
 
 .. code-block:: bash
 
-    python pg.py r
+    python -m sql r
 
 Verify your tables.
 
