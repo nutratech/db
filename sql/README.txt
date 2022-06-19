@@ -6,20 +6,13 @@ sudo apt install postgresql-client-common postgresql-12 postgresql-client-12 pos
 # optional
 sudo apt install postgresql-autodoc
 
-# Add line to ~/.bashrc or ~/.profile
-export PATH=$PATH:/usr/lib/postgresql/12/bin/
-
-
+#
+# Setting up DB
+See the top-level README.rst for details on how to run postgres as a service,
+and how to create the template database & import data.
 
 #
-# Set up the database for the first time
-
-bash init-db.sh
-bash dbup.sh
-bash config-db.sh
-
-# NOTE: must run `dbup.sh` every computer reboot!
-
+# Importing, exporting, rebuilding (locally)
 # Run python setup script [args = i, e, r .. import, export, rebuild]
 ./pg.py r
 
