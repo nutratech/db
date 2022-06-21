@@ -10,8 +10,8 @@ install:
 script:
   - psql -d template1 -c 'CREATE DATABASE nt;'
   - psql -l
-  - python -m sql r
-  - python -m sql e
+  - python -m sql rebuild
+  - python -m sql export
   - git diff
   - git diff --stat
   - git diff --quiet

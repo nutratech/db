@@ -31,8 +31,8 @@ import sys
 import psycopg2
 import psycopg2.extras
 
-from sql.utils import PSQL_SCHEMA
-from sql.utils.postgres import build_con, psql
+from .utils import PSQL_SCHEMA
+from .utils.postgres import build_con, psql
 
 # cd to script's directory
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
