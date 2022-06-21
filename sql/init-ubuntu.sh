@@ -4,8 +4,7 @@ set -x
 
 # Install requirements
 sudo apt install \
-	postgresql-client-common postgresql-12 postgresql-client-12 \
-	postgresql-server-dev-12
+	postgresql-client-common postgresql postgresql-client
 
 # Register as startup service and start now (before reboot)
 sudo systemctl enable postgresql
