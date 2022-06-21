@@ -51,6 +51,9 @@ Enter the following commands now.
     ALTER USER shane PASSWORD 'password';
     ALTER USER shane WITH SUPERUSER CREATEROLE CREATEDB REPLICATION BYPASSRLS;
 
+    -- Password never expires
+    ALTER USER shane VALID UNTIL 'infinity';
+
 Now exit out of the SQL shell. Go back to your regular user login.
 
 **NOTE:** This sets you a password. You will need the password to connect
