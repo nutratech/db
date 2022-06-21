@@ -1,4 +1,6 @@
 #!/bin/bash
+set -x
+
 
 # Install requirements
 sudo apt install \
