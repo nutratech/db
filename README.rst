@@ -15,6 +15,8 @@ Locally running PostgreSQL
 Ubuntu
 ======
 
+**NOTE:** See the startup script before reading this, ``sql/init-ubuntu.sh``.
+
 I followed the instructions here to register it as a startup service.
 
 https://askubuntu.com/questions/539187/how-to-make-postgres-start-automatically-on-boot
