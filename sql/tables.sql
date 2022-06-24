@@ -1,6 +1,5 @@
--- nutra-db, a database for nutratracker clients
--- Copyright (C) 2019  Nutra, LLC. [Shane & Kyle] <nutratracker@gmail.com>
--- Copyright (C) 2020  Shane Jaroch <nutratracker@gmail.com>
+-- nutra-db, a database for our server
+-- Copyright (C) 2019 - 2022  Shane Jaroch <chown_tee@proton.me>
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -56,6 +55,7 @@ CREATE TABLE emails (
   FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
 );
 
+-- TODO: do we want to manage this? How. (e.g. analytics vs. customer_activity)
 CREATE TABLE devices (
   id bigserial PRIMARY KEY,
   user_id int NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE tokens (
 );
 
 ---------------------------
--- Ship/bill addresses
+-- Location info
 ---------------------------
 
 CREATE TABLE countries (
@@ -108,25 +108,6 @@ CREATE TABLE states (
   UNIQUE (country_id, name),
   -- UNIQUE(country_id, code),
   FOREIGN KEY (country_id) REFERENCES countries (id)
-);
-
-CREATE TABLE addresses (
-  id serial PRIMARY KEY,
-  user_id int NOT NULL,
-  name text,
-  company text,
-  street_address1 text NOT NULL,
-  street_address2 text,
-  country_id int NOT NULL,
-  state_id int,
-  zip text,
-  name_first text NOT NULL,
-  name_last text NOT NULL,
-  phone text,
-  email text,
-  FOREIGN KEY (user_id) REFERENCES users (id),
-  FOREIGN KEY (country_id) REFERENCES countries (id),
-  FOREIGN KEY (state_id) REFERENCES states (id)
 );
 
 --
@@ -283,7 +264,8 @@ CREATE TABLE nutr_def (
 ---------------------------
 -- Food recommendations
 ---------------------------
-
+-- TODO:  recommendation_foods (many-to-one: [food_ids...] --> rec_id)
+--     .. based on user upvotes/reporting?--
 CREATE TABLE rec_id (
   id serial PRIMARY KEY,
   name text,
@@ -325,104 +307,9 @@ CREATE TABLE rec_dat (
   FOREIGN KEY (rec_nut_id) REFERENCES rec_nut (id) ON UPDATE CASCADE
 );
 
--- TODO:  recommendation_foods (many-to-one: [food_ids...] --> rec_id)
---     .. based on user upvotes/reporting?--
---
-------------------------------
---++++++++++++++++++++++++++++
--- SHOP
---++++++++++++++++++++++++++++
-
-CREATE TABLE categories (
-  id serial PRIMARY KEY,
-  name text NOT NULL,
-  slug text NOT NULL,
-  created int DEFAULT extract(epoch FROM NOW())
-);
-
-CREATE TABLE ingredients (
-  id serial PRIMARY KEY,
-  name text NOT NULL,
-  specification text NOT NULL,
-  effective_dose_mg int NOT NULL,
-  cost_per_kg real NOT NULL,
-  cost_per_test real NOT NULL,
-  supplier_url text NOT NULL,
-  tasting_descriptors text[],
-  transparency_note text
-);
-
-CREATE TABLE ingredient_nutrients (
-  ingredient_id int,
-  nutr_id int,
-  ratio real NOT NULL,
-  PRIMARY KEY (ingredient_id, nutr_id),
-  FOREIGN KEY (ingredient_id) REFERENCES ingredients (id) ON UPDATE CASCADE,
-  FOREIGN KEY (nutr_id) REFERENCES nutr_def (id) ON UPDATE CASCADE
-);
-
-CREATE TABLE products (
-  id serial PRIMARY KEY,
-  name text NOT NULL,
-  slug text NOT NULL,
-  -- TODO: support multiple categories
-  category_id int NOT NULL,
-  shippable boolean NOT NULL,
-  released boolean NOT NULL,
-  created int DEFAULT extract(epoch FROM NOW()),
-  typical_dose text,
-  usage text,
-  details text[],
-  citations text[],
-  -- TODO: Reference by `tag`? Eliminate `id` for unchanging data?
-  FOREIGN KEY (category_id) REFERENCES categories (id) ON UPDATE CASCADE
-);
-
-CREATE TABLE product_ingredients (
-  product_id int NOT NULL,
-  ingredient_id int NOT NULL,
-  mg real NOT NULL,
-  PRIMARY KEY (product_id, ingredient_id),
-  FOREIGN KEY (product_id) REFERENCES products (id) ON UPDATE CASCADE,
-  FOREIGN KEY (ingredient_id) REFERENCES ingredients (id) ON UPDATE CASCADE
-);
-
-CREATE TABLE variants (
-  id serial PRIMARY KEY,
-  product_id int NOT NULL,
-  quantity int,
-  unit text,
-  mg_per_ct int,
-  exemplification text,
-  price real NOT NULL,
-  grams real,
-  serving text,
-  serving_mg int,
-  dimensions real[],
-  stock int,
-  interval int,
-  created int DEFAULT extract(epoch FROM NOW()),
-  FOREIGN KEY (product_id) REFERENCES products (id) ON UPDATE CASCADE
-);
-
--- Reviews
-CREATE TABLE reviews (
-  id serial PRIMARY KEY,
-  user_id int NOT NULL,
-  product_id int NOT NULL,
-  rating smallint NOT NULL,
-  title text NOT NULL,
-  review_text text NOT NULL,
-  created int DEFAULT extract(epoch FROM NOW()),
-  UNIQUE (user_id, product_id),
-  FOREIGN KEY (product_id) REFERENCES products (id) ON UPDATE CASCADE,
-  FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
-);
-
-------------------------------
--- Reports
-------------------------------
-
+--------------------------------------------------
+-- Bug reports & message queue
+--------------------------------------------------
 CREATE TABLE reports (
   id serial PRIMARY KEY,
   user_id int NOT NULL,
@@ -434,105 +321,3 @@ CREATE TABLE reports (
   created int DEFAULT extract(epoch FROM NOW()),
   FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
 );
-
-------------------------------
--- Cart & Shop
-------------------------------
-
-CREATE TABLE coupons (
-  id serial PRIMARY KEY,
-  code text NOT NULL,
-  user_id int,
-  expires int NOT NULL,
-  created int NOT NULL,
-  UNIQUE (code, user_id),
-  FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
-);
-
--- Common box and envelope (sizes and weights)
-CREATE TABLE shipping_containers (
-  id int PRIMARY KEY,
-  courier text NOT NULL,
-  method text NOT NULL,
-  container text NOT NULL,
-  dimensions real[] NOT NULL,
-  weight_max real,
-  cost json,
-  UNIQUE (courier, method, container)
-);
-
--- Orders
-CREATE TABLE orders (
-  id serial PRIMARY KEY,
-  user_id int,
-  email text, -- require either email OR user_id
-  created int DEFAULT extract(epoch FROM NOW()),
-  updated int,
-  shipping_method text,
-  shipping_price real,
-  status text DEFAULT 'INITIALIZED',
-  tracking_num text,
-  paypal_id text,
-  address_bill json,
-  address_ship json,
-  UNIQUE (paypal_id),
-  FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
-);
-
-CREATE TABLE order_items (
-  order_id int NOT NULL,
-  variant_id int NOT NULL,
-  quantity smallint DEFAULT 1,
-  price real NOT NULL,
-  UNIQUE (order_id, variant_id),
-  FOREIGN KEY (order_id) REFERENCES orders (id) ON UPDATE CASCADE,
-  FOREIGN KEY (variant_id) REFERENCES variants (id) ON UPDATE CASCADE
-);
-
-CREATE TABLE order_shipments (
-  order_id int NOT NULL,
-  container_id int NOT NULL,
-  quantity smallint DEFAULT 1,
-  FOREIGN KEY (order_id) REFERENCES orders (id) ON UPDATE CASCADE,
-  FOREIGN KEY (container_id) REFERENCES shipping_containers (id) ON UPDATE CASCADE
-);
-
---
---
-------------------------------
---++++++++++++++++++++++++++++
--- IN PROGRESS
---++++++++++++++++++++++++++++
-------------------------------
--- Cart
-------------------------------
-
-CREATE TABLE cart (
-  id serial PRIMARY KEY,
-  user_id int NOT NULL,
-  product_id int NOT NULL,
-  quanity smallint NOT NULL,
-  created int DEFAULT extract(epoch FROM NOW()),
-  UNIQUE (user_id, product_id),
-  FOREIGN KEY (product_id) REFERENCES products (id) ON UPDATE CASCADE,
-  FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
-);
-
--- Customer activity
-CREATE TABLE customer_activity (
-  -- Identifiers
-  id serial PRIMARY KEY,
-  user_id int,
-  email text,
-  ip_address text NOT NULL,
-  -- payload
-  url_current text NOT NULL,
-  url_target text,
-  action text DEFAULT 'VIEW',
-  product_id int,
-  variant_id int,
-  payload json,
-  created int DEFAULT extract(epoch FROM NOW()),
-  FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
-);
-

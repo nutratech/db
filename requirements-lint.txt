@@ -1,12 +1,10 @@
 autopep8==1.6.0
 bandit==1.7.4
 black==22.3.0
-coverage==6.4.1
 doc8==0.11.2
 flake8==4.0.1
 isort==5.10.1
 mypy==0.961
 pycodestyle==2.8.0
 pylint==2.14.3
-pytest==7.1.2
 yamllint==1.26.3
