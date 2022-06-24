@@ -14,9 +14,7 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-DROP SCHEMA IF EXISTS nt CASCADE;
-
-CREATE SCHEMA nt;
+CREATE SCHEMA IF NOT EXISTS nt;
 
 SET search_path TO nt;
 
@@ -24,10 +22,10 @@ SET client_min_messages TO WARNING;
 
 CREATE TABLE "version"
 (
-  id      serial PRIMARY KEY,
-  version text NOT NULL,
-  created timestamp DEFAULT CURRENT_TIMESTAMP,
-  notes   text
+  id        serial PRIMARY KEY,
+  "version" text NOT NULL,
+  created   date DEFAULT CURRENT_DATE,
+  notes     text
 );
 
 --++++++++++++++++++++++++++++
