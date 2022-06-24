@@ -13,8 +13,8 @@
 --
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 -- TODO: handle this better, in the python script?
+
 DROP SCHEMA IF EXISTS nt CASCADE;
 
 CREATE SCHEMA nt;
@@ -287,6 +287,7 @@ CREATE TABLE nutr_def
 ---------------------------
 -- TODO:  recommendation_foods (many-to-one: [food_ids...] --> rec_id)
 --     .. based on user upvotes/reporting?--
+
 CREATE TABLE rec_id
 (
   id           serial PRIMARY KEY,
@@ -335,6 +336,7 @@ CREATE TABLE rec_dat
 --------------------------------------------------
 -- Bug reports & message queue
 --------------------------------------------------
+
 CREATE TABLE reports
 (
   id             serial PRIMARY KEY,
