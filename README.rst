@@ -15,6 +15,8 @@ Locally running PostgreSQL
 Ubuntu
 ======
 
+**NOTE:** See the startup script before reading this, ``sql/init-ubuntu.sh``.
+
 I followed the instructions here to register it as a startup service.
 
 https://askubuntu.com/questions/539187/how-to-make-postgres-start-automatically-on-boot
@@ -23,8 +25,8 @@ You can also start it immediately, without needing a reboot.
 
 .. code-block:: bash
 
-    sudo update-rc.d postgresql enable
     sudo systemctl enable postgresql
+    sudo update-rc.d postgresql enable
 
     # Start immediately
     sudo service postgresql start
@@ -50,6 +52,9 @@ Enter the following commands now.
     CREATE USER shane;
     ALTER USER shane PASSWORD 'password';
     ALTER USER shane WITH SUPERUSER CREATEROLE CREATEDB REPLICATION BYPASSRLS;
+
+    -- Password never expires
+    ALTER USER shane VALID UNTIL 'infinity';
 
 Now exit out of the SQL shell. Go back to your regular user login.
 
