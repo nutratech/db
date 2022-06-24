@@ -14,7 +14,10 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-CREATE SCHEMA IF NOT EXISTS nt;
+-- TODO: handle this better, in the python script?
+DROP SCHEMA IF EXISTS nt CASCADE;
+
+CREATE SCHEMA nt;
 
 SET search_path TO nt;
 
