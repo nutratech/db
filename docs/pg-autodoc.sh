@@ -1,30 +1,27 @@
-#!/bin/bash -ex
+#!/bin/bash
+
+set -x
+set -e
 
 cd "$(dirname "$0")"
 
-source ../sql/.env
+#source ../sql/.env
 
 DB=nt
+SCHEMA=nt
 
 rm -rf $DB
 mkdir -p $DB
 cd $DB
 
 # Generate docs
-if [ $PSQL_USER ]; then
-	postgresql_autodoc \
-		-d $PSQL_DB_NAME \
-		-h $PSQL_HOST \
-		-u $PSQL_USER \
-		--password=$PSQL_PASSWORD \
-		-f $DB \
-		-t dot
-else
-	postgresql_autodoc \
-		-d $PSQL_DB_NAME \
-		-f $DB \
-		-t dot
-fi
+postgresql_autodoc \
+	-h localhost \
+	-u $LOGNAME \
+	--password=password \
+	-d $DB \
+	-f $SCHEMA \
+	-t dot
 
 # convert DOT --> EPS
 # convert EPS --> SVG
