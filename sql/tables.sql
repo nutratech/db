@@ -13,8 +13,8 @@
 --
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
--- TODO: handle this better, in the python script?
 
+-- TODO: handle this better, in the python script?
 DROP SCHEMA IF EXISTS nt CASCADE;
 
 CREATE SCHEMA nt;
@@ -337,15 +337,33 @@ CREATE TABLE rec_dat
 -- Bug reports & message queue
 --------------------------------------------------
 
-CREATE TABLE reports
-(
-  id             serial PRIMARY KEY,
-  user_id        int  NOT NULL,
-  -- TODO: FK with report_type TABLE ?
-  -- TODO: base URL for all reports
+-- CREATE TABLE reports
+-- (
+--   id             serial PRIMARY KEY,
+--   user_id        int  NOT NULL,
+--   -- TODO: FK with report_type TABLE ?
+--   -- TODO: base URL for all reports
 
-  report_type    text NOT NULL,
-  report_message text NOT NULL,
-  created        int DEFAULT extract(epoch FROM NOW()),
-  FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
+--   report_type    text NOT NULL,
+--   report_message text NOT NULL,
+--   created        int DEFAULT extract(epoch FROM NOW()),
+--   FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE
+-- );
+
+-- NOTE: wip
+
+CREATE TABLE bug
+(
+  id          bigserial PRIMARY KEY,
+  guid        UUID UNIQUE NOT NULL,
+  client_info jsonb       NOT NULL
+);
+
+CREATE TABLE msg
+(
+  id       serial PRIMARY KEY,
+  guid     UUID UNIQUE NOT NULL,
+  created  int,
+  "header" text,
+  body     text
 );
