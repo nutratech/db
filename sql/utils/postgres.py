@@ -27,7 +27,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import psycopg2
 import psycopg2.extras
 
-from . import PSQL_DATABASE, PSQL_HOST, PSQL_PASSWORD, PSQL_SCHEMA, PSQL_USER
+from sql.utils import PSQL_DATABASE, PSQL_HOST, PSQL_PASSWORD, PSQL_SCHEMA, PSQL_USER
 
 
 # pylint: disable=c-extension-no-member
@@ -45,10 +45,9 @@ def build_con() -> psycopg2._psycopg.connection:
     )
 
     print(
-        "[Connected to Postgres DB]    "
+        "psql "
         f"postgresql://{PSQL_USER}:{PSQL_PASSWORD}@{PSQL_HOST}:5432/{PSQL_DATABASE}",
     )
-    print(f"[psql] USE SCHEMA {PSQL_SCHEMA};")
 
     return con
 
@@ -88,7 +87,7 @@ def psql(
     if params:
         query = cur.mogrify(query, params).decode("utf-8")
     if _print:
-        print(f"[psql]   {query};")
+        print(f"  psql {query};")
 
     # init result object
     result = PgResult(query)
@@ -102,7 +101,7 @@ def psql(
         #
         # Log error
         # https://kb.objectrocket.com/postgresql/python-error-handling-with-the-psycopg2-postgresql-adapter-645
-        print(f"[psql]   {err.pgerror}")
+        print(f"  [psql]   {err.pgerror}")
 
         # Roll back
         con.rollback()
@@ -124,7 +123,7 @@ def psql(
     # pylint: disable=broad-except
     except Exception as err:
         if ignore_empty_result is False:
-            print(repr(err))
+            print(f"  {repr(err)}")
             con.rollback()
         else:
             con.commit()
@@ -133,6 +132,6 @@ def psql(
     #
     # Set return message
     result.msg = cur.statusmessage
-    print(result.msg)
+    print(f"  {result.msg}")
 
     return result

@@ -4,25 +4,6 @@
 Created on Tue Jun 09 17:12:05 2020
 
 @author: shane
-
-This file is part of nutra-server, a server for nutra clients.
-    https://github.com/gamesguru/nutra-server
-
-nutra-db is a database for nutra servers.
-Copyright (C) 2020  Shane Jaroch
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 import os
@@ -31,11 +12,11 @@ import sys
 import psycopg2
 import psycopg2.extras
 
-from .utils import PSQL_SCHEMA
-from .utils.postgres import build_con, psql
+from sql.utils import PSQL_SCHEMA
+from sql.utils.postgres import build_con, psql
 
 # cd to script's directory
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 # NOTE: this is handled by utils.__init__ (for now) [by importing psql()]
 # Read in .env file if it exists locally, else look to env vars
@@ -49,7 +30,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 # Important functions
 # -----------------------
 
-CSV_DIR = "../data"
+CSV_DIR = "data"
 
 
 def import_() -> None:
@@ -61,7 +42,7 @@ def import_() -> None:
         cur = con.cursor()
 
         try:
-            filepath = f"{CSV_DIR}/{tablename}.csv"
+            filepath = os.path.join(CSV_DIR, f"{tablename}.csv")
             print(f"\\copy {tablename} FROM {filepath} CSV HEADER")
 
             # Copy from CSV
@@ -82,18 +63,23 @@ def import_() -> None:
         """Sets the serial sequence value (col_name='id')
         to the max value for the column"""
 
-        query = (
-            "SELECT pg_catalog.setval("
-            f"  pg_get_serial_sequence('{tablename}', 'id'),"
-            f"  (SELECT MAX(id) FROM {tablename})  "
-            ")"
-        )
+        query = f"""
+SELECT
+  pg_catalog.setval( pg_get_serial_sequence('{tablename}', 'id'), (
+      SELECT
+        MAX(id)
+      FROM {tablename} ) )
+        """
+
+        # Beautify it a bit
+        query = " ".join(query.split())
+
         psql(query)
 
     # ------------------------
     # Run the import function
     # ------------------------
-    print("[import]\n")
+    print("[copy]\n")
 
     csv_files = [
         os.path.splitext(f)[0] for f in os.listdir(CSV_DIR) if f.endswith(".csv")
@@ -149,13 +135,15 @@ def import_() -> None:
         "rec_dat",
         "version",
     ]
+    print("\n[set_serial]\n")
     for table in itables:
         set_serial(table)
 
 
 def rebuild_() -> None:
     """Drops, rebuilds Tables.  Imports data fresh"""
-    print("[rebuild]\n")
+    print("[REBUILD]\n")
+    print("\n[create]\n")
 
     # Rebuild tables
     print("\\i tables.sql")
@@ -186,7 +174,7 @@ def export_() -> None:
         cur = con.cursor()
 
         try:
-            filepath = f"{CSV_DIR}/{tablename}.csv"
+            filepath = os.path.join(CSV_DIR, f"{tablename}.csv")
             print(f"\\copy {tablename} TO {filepath} CSV HEADER")
 
             # Write to CSV
