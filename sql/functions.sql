@@ -1,5 +1,5 @@
 -- nutra-db, a database for nutratracker clients
--- Copyright (C) 2019-2020  Shane Jaroch <nutratracker@gmail.com>
+-- Copyright (C) 2019-2022  Shane Jaroch <chown_tee@proton.me>
 --
 -- This program is free software: you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -82,7 +82,6 @@ CREATE OR REPLACE FUNCTION users (user_id_in int DEFAULT NULL)
   RETURNS TABLE (
     id int,
     username text,
-    addresses json,
     emails json,
     tokens json
   )
@@ -90,19 +89,16 @@ CREATE OR REPLACE FUNCTION users (user_id_in int DEFAULT NULL)
   SELECT
     users.id,
     username,
-    row_to_json(addresses),
     row_to_json(emails),
     row_to_json(tokens)
   FROM
     users
-  LEFT JOIN addresses ON addresses.user_id = users.id
   LEFT JOIN emails ON emails.user_id = users.id
   LEFT JOIN tokens ON tokens.user_id = users.id
 WHERE (users.id = user_id_in
   OR user_id_in IS NULL)
 GROUP BY
   users.id,
-  addresses.id,
   emails.id,
   tokens.id
 ORDER BY
