@@ -1,11 +1,11 @@
 #!/bin/bash
 
 set -x
+source .env
+
 set -e
 
 cd "$(dirname "$0")"
-
-#source ../sql/.env
 
 DB=nt
 SCHEMA=nt
@@ -31,3 +31,9 @@ pdf2svg $DB.pdf $DB.svg
 
 # Move up
 mv $DB.svg ..
+
+# Clean up unless otherwise specified in .env file
+if [ "0" != "$NTDB_AUTODOC_CLEANUP" ]; then
+	cd ..
+	rm -rf $DB
+fi
