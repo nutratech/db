@@ -15,9 +15,10 @@ sudo update-rc.d postgresql enable
 sudo systemctl start postgresql
 
 # Set up the default user
-sudo -u postgres psql -c "CREATE USER shane"
-sudo -u postgres psql -c "ALTER USER shane PASSWORD 'password'"
-sudo -u postgres psql -c "ALTER USER shane WITH SUPERUSER CREATEROLE CREATEDB REPLICATION BYPASSRLS"
+sudo -u postgres psql -c "CREATE USER $LOGNAME"
+sudo -u postgres psql -c "ALTER USER $LOGNAME PASSWORD 'password'"
+sudo -u postgres psql -c "ALTER USER $LOGNAME WITH LOGIN SUPERUSER CREATEROLE CREATEDB REPLICATION BYPASSRLS"
+sudo -u postgres psql -c "ALTER USER $LOGNAME VALID UNTIL 'infinity'"
 
 
 DB=nt

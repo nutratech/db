@@ -1,0 +1,6 @@
+id,version,created,notes
+1,0.0.38,2020-08-01,first tagged release; paired with 0.0.38 of the CLI and Server
+2,0.1.0.dev0,2020-08-09,"removed USDA data (except nutr_def), added versioning"
+3,0.1.0.dev1,2020-08-09,"fix few missing FKs, update relational diagram"
+4,0.1.0.dev10,2020-08-11,"reorder user table, prune data, add measurement tables"
+5,0.1.0.dev11,2020-08-12,"rearrange user columns, fix int vs. serial, small fixes"
