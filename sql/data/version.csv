@@ -4,3 +4,4 @@ id,version,created,notes
 3,0.1.0.dev1,2020-08-09,"fix few missing FKs, update relational diagram"
 4,0.1.0.dev10,2020-08-11,"reorder user table, prune data, add measurement tables"
 5,0.1.0.dev11,2020-08-12,"rearrange user columns, fix int vs. serial, small fixes"
+6,0.1.1.dev0,2022-07-07,"drop unused stuff, simplify tables, and DevOps stuff"
