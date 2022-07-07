@@ -185,14 +185,14 @@ CREATE TABLE recipe_dat
 
 CREATE TABLE rda
 (
-  uid     int  NOT NULL,
-  created int DEFAULT extract(epoch FROM NOW()),
-  updated int DEFAULT extract(epoch FROM NOW()),
+  profile_id int  NOT NULL,
+  created    int DEFAULT extract(epoch FROM NOW()),
+  updated    int DEFAULT extract(epoch FROM NOW()),
   -- TODO: move below SR, enforce FK constraint across nutr_def
-  nutr_id int  NOT NULL,
-  rda     real NOT NULL,
-  UNIQUE (uid, nutr_id),
-  FOREIGN KEY (uid) REFERENCES profile (id) ON UPDATE CASCADE
+  nutr_id    int  NOT NULL,
+  rda        real NOT NULL,
+  UNIQUE (profile_id, nutr_id),
+  FOREIGN KEY (profile_id) REFERENCES profile (id) ON UPDATE CASCADE
 );
 
 --

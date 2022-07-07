@@ -67,7 +67,7 @@ SELECT
   pg_catalog.setval( pg_get_serial_sequence('{tablename}', 'id'), (
       SELECT
         MAX(id)
-      FROM {tablename} ) )
+      FROM "{tablename}" ) )
         """
 
         # Beautify it a bit
