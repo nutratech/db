@@ -140,20 +140,14 @@ def rebuild_() -> None:
 
     # Rebuild tables
     print("\\i tables.sql")
-    with open(
-        os.path.join(SCRIPT_DIR, "tables.sql"),
-        encoding="utf-8"
-    ) as table_file:
+    with open(os.path.join(SCRIPT_DIR, "tables.sql"), encoding="utf-8") as table_file:
         query = table_file.read()
     psql(query, _print=False, ignore_empty_result=True)
     print()
 
     # Rebuild functions
     print("\\i functions.sql")
-    with open(
-        os.path.join(SCRIPT_DIR, "functions.sql"),
-        encoding="utf-8"
-    ) as func_file:
+    with open(os.path.join(SCRIPT_DIR, "functions.sql"), encoding="utf-8") as func_file:
         query = func_file.read()
     psql(query, _print=False, ignore_empty_result=True)
 

@@ -66,12 +66,12 @@ CREATE TABLE state
 
 CREATE TABLE "user"
 (
-  id       serial PRIMARY KEY,
-  username text,
-  passwd   text,
-  created  int DEFAULT extract(epoch FROM NOW()),
+  id         serial PRIMARY KEY,
+  username   text,
+  passwd     text,
+  created    int DEFAULT extract(epoch FROM NOW()),
   country_id int,
-  state_id int,
+  state_id   int,
   UNIQUE (username),
   FOREIGN KEY (country_id) REFERENCES country (id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY (state_id) REFERENCES state (id) ON UPDATE CASCADE ON DELETE CASCADE
