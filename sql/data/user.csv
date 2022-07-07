@@ -1,4 +1,4 @@
-id,username,passwd,created
-1,gamesguru,$2b$12$twZlKe8fDcnKpaoM3Eb2Uu659Je18B6fi2p8fRIspGNis6vOWxIty,1580265913
-2,kthprog,$2b$12$C2HKwF0nl4Y88UGSidAk1unT1oxDwiHzljtP/QgYWiJx01Jko0nBu,1580265914
-3,bwbaker,,1597169545
+id,username,passwd,created,country_id,state_id
+1,gamesguru,$2b$12$twZlKe8fDcnKpaoM3Eb2Uu659Je18B6fi2p8fRIspGNis6vOWxIty,1580265913,,
+2,kthprog,$2b$12$C2HKwF0nl4Y88UGSidAk1unT1oxDwiHzljtP/QgYWiJx01Jko0nBu,1580265914,,
+3,bwbaker,,1597169545,,
