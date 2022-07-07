@@ -46,7 +46,7 @@ def import_() -> None:
 
             # Copy from CSV
             with open(filepath, encoding="utf-8") as csv_file:
-                cur.copy_expert(f"COPY {tablename} FROM STDIN CSV HEADER", csv_file)
+                cur.copy_expert(f'COPY "{tablename}" FROM STDIN CSV HEADER', csv_file)
             print(f"COPY {cur.rowcount}")
             con.commit()
             cur.close()
@@ -67,7 +67,7 @@ SELECT
   pg_catalog.setval( pg_get_serial_sequence('{tablename}', 'id'), (
       SELECT
         MAX(id)
-      FROM {tablename} ) )
+      FROM "{tablename}" ) )
         """
 
         # Beautify it a bit
@@ -84,18 +84,14 @@ SELECT
         os.path.splitext(f)[0] for f in os.listdir(CSV_DIR) if f.endswith(".csv")
     ]
     ptables = [
-        "bf_eqs",
-        "bmr_eqs",
-        "users",
-        "profiles",
-        "ingredients",
+        "bf_eq",
+        "bmr_eq",
+        "user",
+        "profile",
         "nutr_def",
-        "meal_names",
-        "biometrics",
-        "orders",
-        "countries",
+        "country",
         "rec_id",
-        "recs",
+        "rec",
         "rec_nut",
     ]
 
@@ -118,19 +114,16 @@ SELECT
         # | "emails",
         # "countries",
         # "states",
-        "emails",
-        "bf_eqs",
-        "bmr_eqs",
-        "meal_names",
-        "biometrics",
-        "users",
-        "tokens",
-        "profiles",
-        "biometric_log",
+        "email",
+        "bf_eq",
+        "bmr_eq",
+        "user",
+        "token",
+        "profile",
         # "measurements",
-        "recipes",
+        "recipe",
         "rec_id",
-        "recs",
+        "rec",
         "rec_nut",
         "rec_dat",
         "version",
@@ -147,20 +140,14 @@ def rebuild_() -> None:
 
     # Rebuild tables
     print("\\i tables.sql")
-    with open(
-        os.path.join(SCRIPT_DIR, "tables.sql"),
-        encoding="utf-8"
-    ) as table_file:
+    with open(os.path.join(SCRIPT_DIR, "tables.sql"), encoding="utf-8") as table_file:
         query = table_file.read()
     psql(query, _print=False, ignore_empty_result=True)
     print()
 
     # Rebuild functions
     print("\\i functions.sql")
-    with open(
-        os.path.join(SCRIPT_DIR, "functions.sql"),
-        encoding="utf-8"
-    ) as func_file:
+    with open(os.path.join(SCRIPT_DIR, "functions.sql"), encoding="utf-8") as func_file:
         query = func_file.read()
     psql(query, _print=False, ignore_empty_result=True)
 
@@ -185,7 +172,7 @@ def export_() -> None:
 
             # Write to CSV
             with open(filepath, "w+", encoding="utf-8") as output:
-                cur.copy_expert(f"COPY {tablename} TO STDOUT CSV HEADER", output)
+                cur.copy_expert(f'COPY "{tablename}" TO STDOUT CSV HEADER', output)
             print(f"COPY {cur.rowcount}")
             con.commit()
             cur.close()

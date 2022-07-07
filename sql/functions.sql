@@ -14,7 +14,6 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 --
-
 SET search_path TO nt;
 
 SET client_min_messages TO WARNING;
@@ -27,7 +26,6 @@ SET client_min_messages TO WARNING;
 --
 -- 0.a
 -- Get table names, with row counts
-
 CREATE OR REPLACE FUNCTION tables ()
   RETURNS TABLE (
     schemaname name,
@@ -50,7 +48,6 @@ LANGUAGE SQL;
 --
 -- 0.b
 -- Get functions, with arguments
-
 CREATE OR REPLACE FUNCTION functions ()
   RETURNS TABLE (
     proname name,
@@ -77,7 +74,6 @@ LANGUAGE SQL;
 -- 0.g
 -- Get user overview, with info
 -- TODO: Condition 'users.id = user_id_in OR user_id_in IS NULL' is always 'true'
-
 CREATE OR REPLACE FUNCTION users (user_id_in int DEFAULT NULL)
   RETURNS TABLE (
     id int,
@@ -113,7 +109,6 @@ LANGUAGE SQL;
 -- TODO: resolve warnings
 --  Condition '(nutr_def.id = ANY (nutr_ids_in) OR nutr_ids_in IS NULL) AND rec_nut.searchable' is always 'false'
 --  Expression 'nutr_def.id = ANY (nutr_ids_in)' is always null
-
 CREATE OR REPLACE FUNCTION recs (nutr_ids_in int[] DEFAULT NULL)
   RETURNS TABLE (
     -- id int,
@@ -162,7 +157,6 @@ LANGUAGE SQL;
 --
 -- 1.k
 -- Get countries, with states
-
 CREATE OR REPLACE FUNCTION countries ()
   RETURNS TABLE (
     id int,
@@ -183,8 +177,8 @@ CREATE OR REPLACE FUNCTION countries ()
         SELECT
           row_to_json(states)
         FROM states
-      WHERE
-        country_id = cn.id))
+        WHERE
+          country_id = cn.id))
   FROM
     countries cn
   LEFT JOIN states st ON cn.id = st.country_id
@@ -201,7 +195,6 @@ LANGUAGE SQL;
 --
 -- 3.f
 -- Get user by email OR username
-
 CREATE OR REPLACE FUNCTION find_user (identifier text)
   RETURNS TABLE (
     id int,
@@ -224,3 +217,4 @@ CREATE OR REPLACE FUNCTION find_user (identifier text)
     AND emails.email = identifier
 $$
 LANGUAGE SQL;
+

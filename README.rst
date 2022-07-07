@@ -2,8 +2,8 @@
  nutra-db
 **********
 
-.. image:: https://api.travis-ci.com/nutratech/ntdb.svg?branch=master
-    :target: https://app.travis-ci.com/github/nutratech/ntdb
+.. image:: https://api.travis-ci.com/nutratech/db.svg?branch=master
+    :target: https://app.travis-ci.com/github/nutratech/db
 
 Python, SQL, CSV files & RST documentation for setting up the server database.
 

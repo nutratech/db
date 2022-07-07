@@ -1,6 +1,13 @@
 #!/bin/bash
 
+set -x
+set -e
+
 cd "$(dirname "$0")"
 
-pg_format -s 2 tables.sql -o tables.sql
-pg_format -s 2 functions.sql -o functions.sql
+# Format tables & functions
+pg_format -s 2 tables.sql >tables.formatted.sql
+mv tables.formatted.sql tables.sql
+
+pg_format -s 2 functions.sql >functions.formatted.sql
+mv functions.formatted.sql functions.sql
