@@ -273,4 +273,3 @@ CREATE TABLE msg (
   "header" text,
   body text
 );
-
