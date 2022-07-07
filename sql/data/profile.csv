@@ -1,1 +1,1 @@
-id,guid,user_id,created,updated,eula,gender,name_first,name_last,blood_group,dob,activity_level,goal_weight,goal_bf,bmr_eq_id,bf_eq_id
+id,guid,user_id,created,updated,eula,gender,name,dob,activity_level,goal_weight,goal_bf,bmr_eq_id,bf_eq_id
