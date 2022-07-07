@@ -13,7 +13,6 @@
 --
 -- You should have received a copy of the GNU General Public License
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 -- TODO: handle this better, in the python script?
 DROP SCHEMA IF EXISTS nt CASCADE;
 
@@ -63,7 +62,6 @@ CREATE TABLE state
 --++++++++++++++++++++++++++++
 -- Main users tables
 --++++++++++++++++++++++++++++
-
 CREATE TABLE "user"
 (
   id         serial PRIMARY KEY,
@@ -109,7 +107,6 @@ CREATE TABLE device
 --   -- email_token_pw_reset
 --   name text NOT NULL
 -- );
-
 CREATE TABLE token
 (
   -- TODO: device fingerprinting, token revocation, client-side hashing?
@@ -130,7 +127,6 @@ CREATE TABLE token
 --++++++++++++++++++++++++++++
 -- Food recipes & custom RDAs
 --++++++++++++++++++++++++++++
-
 CREATE TABLE bmr_eq
 (
   id   serial PRIMARY KEY,
@@ -142,7 +138,6 @@ CREATE TABLE bf_eq
   id   serial PRIMARY KEY,
   name text NOT NULL
 );
-
 
 CREATE TABLE profile
 (
@@ -206,7 +201,6 @@ CREATE TABLE rda
 --++++++++++++++++++++++++++++
 -- USDA SR Database
 --++++++++++++++++++++++++++++
-
 CREATE TABLE nutr_def
 (
   id            int PRIMARY KEY,
@@ -224,7 +218,6 @@ CREATE TABLE nutr_def
 ---------------------------
 -- TODO:  recommendation_foods (many-to-one: [food_ids...] --> rec_id)
 --     .. based on user upvotes/reporting?--
-
 CREATE TABLE rec_id
 (
   id           serial PRIMARY KEY,
@@ -273,34 +266,31 @@ CREATE TABLE rec_dat
 --------------------------------------------------
 -- Bug reports & message queue
 --------------------------------------------------
-
 -- CREATE TABLE reports
 -- (
 --   id             serial PRIMARY KEY,
 --   user_id        int  NOT NULL,
 --   -- TODO: FK with report_type TABLE ?
 --   -- TODO: base URL for all reports
-
 --   report_type    text NOT NULL,
 --   report_message text NOT NULL,
 --   created        int DEFAULT extract(epoch FROM NOW()),
 --   FOREIGN KEY (user_id) REFERENCES "user" (id) ON UPDATE CASCADE
 -- );
-
 -- NOTE: wip
-
 CREATE TABLE bug
 (
   id          bigserial PRIMARY KEY,
-  guid        UUID UNIQUE NOT NULL,
+  guid        uuid UNIQUE NOT NULL,
   client_info jsonb       NOT NULL
 );
 
 CREATE TABLE msg
 (
   id       serial PRIMARY KEY,
-  guid     UUID UNIQUE NOT NULL,
+  guid     uuid UNIQUE NOT NULL,
   created  int,
   "header" text,
   body     text
 );
+
