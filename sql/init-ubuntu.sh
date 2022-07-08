@@ -1,6 +1,9 @@
 #!/bin/bash
 set -x
 
+# Constants
+DB=nt
+SCHEMA=nt
 
 # STEP 1
 # Install requirements
@@ -13,7 +16,8 @@ sudo apt install \
 sudo apt install \
 	python3-dev \
 	python3-venv \
-	direnv
+	direnv \
+	postgresql-autodoc
 
 # STEP 2
 # Register Postgres as a startup service & start now (before reboot)
@@ -28,9 +32,6 @@ sudo -u postgres psql -c "ALTER USER $LOGNAME WITH LOGIN SUPERUSER CREATEROLE CR
 psql -d template1 -c "ALTER USER $LOGNAME PASSWORD 'password'"
 psql -d template1 -c "ALTER USER $LOGNAME VALID UNTIL 'infinity'"
 
-
-DB=nt
-SCHEMA=nt
 # STEP 4
 # Set up default database & schema
 psql -d template1 -c "CREATE DATABASE $DB"

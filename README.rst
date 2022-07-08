@@ -83,7 +83,7 @@ And update the variables as you see fit.
 
 Rebuild the ``nt`` database with this.
 
-**NOTE:** Must do this after DB update. Or if you want to build fresh
+**NOTE:** Do this to apply experimental DB updates. Or to rebuild fresh.
 
 .. code-block:: bash
 
@@ -97,7 +97,7 @@ Verify your tables.
 
 .. code-block:: sql
 
-    SELECT * FROM functions();
+    SELECT * FROM function();
     SELECT * FROM version;
 
 Now you can configure your ``.env`` file accordingly, or add the connection
@@ -108,6 +108,25 @@ consumed by the server tests.
 This will avoid having to repeatedly drop and rebuild local data.
 Which is guaranteed to happen anyways, with frequent updates to the tables
 and a lack of upgrade scripts in these early stages of development.
+
+Locally manipulating data
+=========================
+
+Importing, exporting, rebuilding (locally).
+
+Run python sql module ``[args = i, e, r ... import, export, rebuild]``.
+
+.. code-block:: bash
+
+    # Rebuild (drop, create, insert)
+    python -m sql r
+
+    # Export data to CSV
+    # TODO: investigate pg_dump, even for development / testing environments
+    python -m sql e
+
+    # Only import (no drop or create)
+    python -m sql i
 
 Tables (Relational Design)
 ##########################
