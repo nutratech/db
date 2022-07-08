@@ -1,5 +1,2 @@
-bcrypt==3.2.2
-Faker==13.13.0
 psycopg2==2.9.3
 python-dotenv==0.20.0
-usaddress==0.5.10

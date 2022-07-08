@@ -25,8 +25,9 @@ SET client_min_messages TO WARNING;
 --
 --
 -- 0.a
--- Get table names, with row counts
-CREATE OR REPLACE FUNCTION tables ()
+-- List tables, with row counts
+--
+CREATE OR REPLACE FUNCTION "table" ()
   RETURNS TABLE (
     schemaname name,
     tablename name,
@@ -47,8 +48,9 @@ LANGUAGE SQL;
 --
 --
 -- 0.b
--- Get functions, with arguments
-CREATE OR REPLACE FUNCTION functions ()
+-- List functions, with arguments
+--
+CREATE OR REPLACE FUNCTION "function" ()
   RETURNS TABLE (
     proname name,
     oidvectortypes text,
@@ -73,30 +75,30 @@ LANGUAGE SQL;
 --
 -- 0.g
 -- Get user overview, with info
--- TODO: Condition 'users.id = user_id_in OR user_id_in IS NULL' is always 'true'
-CREATE OR REPLACE FUNCTION users (user_id_in int DEFAULT NULL)
+--
+CREATE OR REPLACE FUNCTION "user" (user_id_in int DEFAULT NULL)
   RETURNS TABLE (
     id int,
     username text,
-    emails json,
-    tokens json
+    email text,
+    token text
   )
   AS $$
   SELECT
-    users.id,
+    "user".id,
     username,
-    row_to_json(emails),
-    row_to_json(tokens)
+    email,
+    token
   FROM
-    users
-  LEFT JOIN emails ON emails.user_id = users.id
-  LEFT JOIN tokens ON tokens.user_id = users.id
-WHERE (users.id = user_id_in
+    "user"
+  LEFT JOIN email ON email.user_id = "user".id
+  LEFT JOIN token ON token.user_id = "user".id
+WHERE ("user".id = user_id_in
   OR user_id_in IS NULL)
 GROUP BY
-  users.id,
-  emails.id,
-  tokens.id
+  "user".id,
+  email.id,
+  token.id
 ORDER BY
   id
 $$
@@ -105,11 +107,9 @@ LANGUAGE SQL;
 --
 --
 -- 0.n
+-- Recommendations
 --
--- TODO: resolve warnings
---  Condition '(nutr_def.id = ANY (nutr_ids_in) OR nutr_ids_in IS NULL) AND rec_nut.searchable' is always 'false'
---  Expression 'nutr_def.id = ANY (nutr_ids_in)' is always null
-CREATE OR REPLACE FUNCTION recs (nutr_ids_in int[] DEFAULT NULL)
+CREATE OR REPLACE FUNCTION rec (nutr_ids_in int[] DEFAULT NULL)
   RETURNS TABLE (
     -- id int,
     rec_id int,
@@ -125,46 +125,47 @@ CREATE OR REPLACE FUNCTION recs (nutr_ids_in int[] DEFAULT NULL)
   )
   AS $$
   SELECT
-    recs.rec_id,
+    rec.rec_id,
     rec_nut.id,
     nutr_def.id,
     rec_nut.notes,
-    recs.id,
+    rec.id,
     food_name,
     serving_size,
-    recs.notes,
+    rec.notes,
     rec_dat.nutr_val,
     nutr_def.units
   FROM
-    recs
-  LEFT JOIN rec_nut ON rec_nut.rec_id = recs.rec_id
-  INNER JOIN rec_dat ON entry_id = recs.id
+    rec
+  LEFT JOIN rec_nut ON rec_nut.rec_id = rec.rec_id
+  INNER JOIN rec_dat ON entry_id = rec.id
     AND rec_dat.rec_nut_id = rec_nut.id
   LEFT JOIN nutr_def ON nutr_def.id = rec_nut.nutr_id
 WHERE (nutr_def.id = ANY (nutr_ids_in)
   OR nutr_ids_in IS NULL)
 AND rec_nut.searchable
--- recs.rec_id = ANY (rec_ids_in)
+-- rec.rec_id = ANY (rec_ids_in)
 -- OR rec_ids_in IS NULL
 $$
 LANGUAGE SQL;
 
 --++++++++++++++++++++++++++++
 --++++++++++++++++++++++++++++
--- #1   SHOP
+-- #1   GENERAL
 --++++++++++++++++++++++++++++
 --
 --
 -- 1.k
 -- Get countries, with states
-CREATE OR REPLACE FUNCTION countries ()
+--
+CREATE OR REPLACE FUNCTION country ()
   RETURNS TABLE (
     id int,
     code text,
     name text,
     has_zip boolean,
     requires_state boolean,
-    states json
+    state json
   )
   AS $$
   SELECT
@@ -175,13 +176,13 @@ CREATE OR REPLACE FUNCTION countries ()
     cn.requires_state,
     array_to_json(ARRAY (
         SELECT
-          row_to_json(states)
-        FROM states
+          row_to_json(state)
+        FROM state
         WHERE
           country_id = cn.id))
   FROM
-    countries cn
-  LEFT JOIN states st ON cn.id = st.country_id
+    country cn
+  LEFT JOIN state st ON cn.id = st.country_id
 GROUP BY
   cn.id
 $$
@@ -195,6 +196,7 @@ LANGUAGE SQL;
 --
 -- 3.f
 -- Get user by email OR username
+--
 CREATE OR REPLACE FUNCTION find_user (identifier text)
   RETURNS TABLE (
     id int,
@@ -204,17 +206,16 @@ CREATE OR REPLACE FUNCTION find_user (identifier text)
   )
   AS $$
   SELECT DISTINCT
-    users.id,
+    "user".id,
     username,
     email,
     activated
   FROM
-    users,
-    emails
+    "user",
+    email
   WHERE
     username = identifier
-    OR emails.user_id = users.id
-    AND emails.email = identifier
+    OR email.user_id = "user".id
+    AND email.email = identifier
 $$
 LANGUAGE SQL;
-
