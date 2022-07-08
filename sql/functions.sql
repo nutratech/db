@@ -27,7 +27,7 @@ SET client_min_messages TO WARNING;
 -- 0.a
 -- List tables, with row counts
 --
-CREATE OR REPLACE FUNCTION tables ()
+CREATE OR REPLACE FUNCTION "table" ()
   RETURNS TABLE (
     schemaname name,
     tablename name,
@@ -50,7 +50,7 @@ LANGUAGE SQL;
 -- 0.b
 -- List functions, with arguments
 --
-CREATE OR REPLACE FUNCTION functions ()
+CREATE OR REPLACE FUNCTION "function" ()
   RETURNS TABLE (
     proname name,
     oidvectortypes text,
@@ -76,24 +76,24 @@ LANGUAGE SQL;
 -- 0.g
 -- Get user overview, with info
 --
-CREATE OR REPLACE FUNCTION user (user_id_in int DEFAULT NULL)
+CREATE OR REPLACE FUNCTION "user" (user_id_in int DEFAULT NULL)
   RETURNS TABLE (
     id int,
     username text,
-    email json,
-    token json
+    email text,
+    token text
   )
   AS $$
   SELECT
     "user".id,
     username,
-    row_to_json(email),
-    row_to_json(token)
+    email,
+    token
   FROM
     "user"
   LEFT JOIN email ON email.user_id = "user".id
   LEFT JOIN token ON token.user_id = "user".id
-WHERE (user.id = user_id_in
+WHERE ("user".id = user_id_in
   OR user_id_in IS NULL)
 GROUP BY
   "user".id,
@@ -158,14 +158,14 @@ LANGUAGE SQL;
 -- 1.k
 -- Get countries, with states
 --
-CREATE OR REPLACE FUNCTION countries ()
+CREATE OR REPLACE FUNCTION country ()
   RETURNS TABLE (
     id int,
     code text,
     name text,
     has_zip boolean,
     requires_state boolean,
-    states json
+    state json
   )
   AS $$
   SELECT
@@ -176,7 +176,7 @@ CREATE OR REPLACE FUNCTION countries ()
     cn.requires_state,
     array_to_json(ARRAY (
         SELECT
-          row_to_json(states)
+          row_to_json(state)
         FROM state
         WHERE
           country_id = cn.id))
@@ -211,7 +211,7 @@ CREATE OR REPLACE FUNCTION find_user (identifier text)
     email,
     activated
   FROM
-    user,
+    "user",
     email
   WHERE
     username = identifier
