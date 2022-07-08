@@ -2,29 +2,38 @@
 set -x
 
 
+# STEP 1
 # Install requirements
 sudo apt install \
-	postgresql-client-common postgresql postgresql-client libpq-dev
+	postgresql \
+	postgresql-client-common \
+	libpq-dev
 
 # optional installs
-sudo apt install direnv python3-dev python3-venv
+sudo apt install \
+	python3-dev \
+	python3-venv \
+	direnv
 
-# Register as startup service and start now (before reboot)
+# STEP 2
+# Register Postgres as a startup service & start now (before reboot)
 sudo systemctl enable postgresql
 sudo update-rc.d postgresql enable
 sudo systemctl start postgresql
 
-# Set up the default user
+# STEP 3
+# Set up your default user
 sudo -u postgres psql -c "CREATE USER $LOGNAME"
-sudo -u postgres psql -c "ALTER USER $LOGNAME PASSWORD 'password'"
 sudo -u postgres psql -c "ALTER USER $LOGNAME WITH LOGIN SUPERUSER CREATEROLE CREATEDB REPLICATION BYPASSRLS"
-sudo -u postgres psql -c "ALTER USER $LOGNAME VALID UNTIL 'infinity'"
+psql -d template1 -c "ALTER USER $LOGNAME PASSWORD 'password'"
+psql -d template1 -c "ALTER USER $LOGNAME VALID UNTIL 'infinity'"
 
 
 DB=nt
 SCHEMA=nt
-# Set up the default database & schema
-psql -d postgres -c "CREATE DATABASE $DB"
+# STEP 4
+# Set up default database & schema
+psql -d template1 -c "CREATE DATABASE $DB"
 psql -d $DB -c "CREATE SCHEMA $SCHEMA"
 psql -d $DB -c "DROP SCHEMA public"
 psql -d $DB -c "ALTER DATABASE $DB SET search_path TO $SCHEMA"
