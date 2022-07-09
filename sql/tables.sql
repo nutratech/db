@@ -38,7 +38,7 @@ CREATE TABLE "version" (
 CREATE TABLE country (
   id int PRIMARY KEY,
   code text NOT NULL,
-  name text NOT NULL,
+  "name" text NOT NULL,
   has_zip boolean NOT NULL,
   requires_state boolean NOT NULL,
   UNIQUE (code),
@@ -49,7 +49,7 @@ CREATE TABLE state (
   id int PRIMARY KEY,
   country_id int NOT NULL,
   code text NOT NULL,
-  name text NOT NULL,
+  "name" text NOT NULL,
   UNIQUE (country_id, name),
   -- UNIQUE(country_id, code),
   FOREIGN KEY (country_id) REFERENCES country (id)
@@ -76,10 +76,10 @@ CREATE TABLE email (
   user_id int NOT NULL,
   email text NOT NULL,
   -- TODO: limit to 5 emails, purge old ones
-  main boolean NOT NULL,
+  "main" boolean NOT NULL,
   activated boolean DEFAULT FALSE,
   created int DEFAULT extract(epoch FROM NOW()),
-  UNIQUE (user_id, main),
+  UNIQUE (user_id, "main"),
   UNIQUE (email),
   FOREIGN KEY (user_id) REFERENCES "user" (id) ON UPDATE CASCADE
 );
@@ -106,11 +106,11 @@ CREATE TABLE token (
   id bigserial PRIMARY KEY,
   user_id int NOT NULL,
   token text NOT NULL,
-  type text NOT NULL,
+  "type" text NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
   expires int,
   UNIQUE (token),
-  UNIQUE (user_id, TYPE),
+  UNIQUE (user_id, "type"),
   FOREIGN KEY (user_id) REFERENCES "user" (id) ON UPDATE CASCADE
 );
 
@@ -122,12 +122,12 @@ CREATE TABLE token (
 --++++++++++++++++++++++++++++
 CREATE TABLE bmr_eq (
   id serial PRIMARY KEY,
-  name text NOT NULL
+  "name" text NOT NULL
 );
 
 CREATE TABLE bf_eq (
   id serial PRIMARY KEY,
-  name text NOT NULL
+  "name" text NOT NULL
 );
 
 CREATE TABLE profile (
@@ -139,7 +139,7 @@ CREATE TABLE profile (
   updated int DEFAULT extract(epoch FROM NOW()),
   eula int DEFAULT 0,
   gender text,
-  name text,
+  "name" text,
   dob date,
   activity_level smallint, -- [1, 2, 3, 4, 5]
   goal_weight real,
@@ -157,7 +157,7 @@ CREATE TABLE recipe (
   user_id int NOT NULL,
   created int DEFAULT extract(epoch FROM NOW()),
   updated int DEFAULT extract(epoch FROM NOW()),
-  name text NOT NULL,
+  "name" text NOT NULL,
   FOREIGN KEY (user_id) REFERENCES "user" (id)
 );
 
@@ -206,7 +206,7 @@ CREATE TABLE nutr_def (
 --     .. based on user upvotes/reporting?--
 CREATE TABLE rec_id (
   id serial PRIMARY KEY,
-  name text,
+  "name" text,
   serving_size text, -- NULL == "per rec.serving_size"
   source_urls text[] NOT NULL,
   UNIQUE (name)
@@ -260,10 +260,24 @@ CREATE TABLE rec_dat (
 --   FOREIGN KEY (user_id) REFERENCES "user" (id) ON UPDATE CASCADE
 -- );
 -- NOTE: wip
+CREATE TABLE client_app (
+  id serial PRIMARY KEY,
+  "name" text NOT NULL UNIQUE
+);
+
+INSERT INTO client_app
+  VALUES (1, 'cli'), (2, 'android'), (3, 'web');
+
 CREATE TABLE bug (
   id bigserial PRIMARY KEY,
   guid uuid UNIQUE NOT NULL,
-  client_info jsonb NOT NULL
+  created int DEFAULT extract(epoch FROM NOW()),
+  client_app_name text,
+  "version" text,
+  "release" text,
+  client_info jsonb NOT NULL,
+  stack text,
+  FOREIGN KEY (client_app_name) REFERENCES client_app ("name") ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE msg (
