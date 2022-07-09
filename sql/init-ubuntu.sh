@@ -25,10 +25,11 @@ sudo systemctl enable postgresql
 sudo update-rc.d postgresql enable
 sudo systemctl start postgresql
 
-# STEP 3
+# STEP 3.a.
 # Set up your default user
 sudo -u postgres psql -c "CREATE USER $LOGNAME"
 sudo -u postgres psql -c "ALTER USER $LOGNAME WITH LOGIN SUPERUSER CREATEROLE CREATEDB REPLICATION BYPASSRLS"
+# STEP 3.b.
 psql -d template1 -c "ALTER USER $LOGNAME PASSWORD 'password'"
 psql -d template1 -c "ALTER USER $LOGNAME VALID UNTIL 'infinity'"
 
