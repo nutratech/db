@@ -265,6 +265,7 @@ CREATE TABLE client_app (
   "name" text NOT NULL UNIQUE
 );
 
+-- TODO: ? maintain other tables in SQL too, not CSV: bf_eq, bmr_eq, "version"
 INSERT INTO client_app
   VALUES (1, 'cli'), (2, 'android'), (3, 'web');
 
