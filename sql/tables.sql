@@ -22,6 +22,8 @@ SET search_path TO nt;
 
 SET client_min_messages TO WARNING;
 
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 ---------------------------
 -- Versioning table
 ---------------------------
@@ -271,8 +273,8 @@ INSERT INTO client_app
 
 CREATE TABLE bug (
   id bigserial PRIMARY KEY,
-  guid uuid UNIQUE DEFAULT uuid_generate_v4 () ::uuid,
-  created int DEFAULT extract(epoch FROM NOW()),
+  guid uuid NOT NULL UNIQUE DEFAULT uuid_generate_v4 () ::uuid,
+  created int NOT NULL DEFAULT extract(epoch FROM NOW()),
   client_app_name text,
   "version" text,
   "release" text,
