@@ -271,7 +271,7 @@ INSERT INTO client_app
 
 CREATE TABLE bug (
   id bigserial PRIMARY KEY,
-  guid uuid UNIQUE NOT NULL,
+  guid uuid UNIQUE DEFAULT uuid_generate_v4 () ::uuid,
   created int DEFAULT extract(epoch FROM NOW()),
   client_app_name text,
   "version" text,

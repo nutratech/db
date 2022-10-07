@@ -39,3 +39,7 @@ psql -d template1 -c "CREATE DATABASE $DB"
 psql -d $DB -c "CREATE SCHEMA $SCHEMA"
 psql -d $DB -c "DROP SCHEMA public"
 psql -d $DB -c "ALTER DATABASE $DB SET search_path TO $SCHEMA"
+
+# STEP 5
+# Install extensions and further configurations
+psql -d $DB -c 'CREATE EXTENSION IF NOT EXISTS "uuid-ossp";'
