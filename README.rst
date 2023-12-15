@@ -40,7 +40,7 @@ https://stackoverflow.com/questions/7975556/how-can-i-start-postgresql-server-on
 Postgres installed with ``brew`` will already create a user under your name
 with appropriate permissions.
 
-You can skip to **Step 4** of the shell Ubuntu init script.
+You can skip to **Step 3.b.** of the shell Ubuntu init script.
 
 The brew install script will output more useful information,
 I recommend reading it and deciding if any of it is important or relevant to
