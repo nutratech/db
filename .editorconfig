@@ -43,5 +43,5 @@ trim_trailing_whitespace = false
 max_line_length = 79
 
 
-[{COMMIT_EDITMSG,MERGE_MSG,SQUASH_MSG,git-rebase-todo}]
+[{COMMIT_EDITMSG,MERGE_MSG,SQUASH_MSG,TAG_EDITMSG,git-rebase-todo}]
 max_line_length = 72
